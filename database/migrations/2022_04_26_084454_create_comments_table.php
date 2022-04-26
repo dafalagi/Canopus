@@ -24,7 +24,7 @@ class CreateCommentsTable extends Migration
             ->cascadeOnDelete()
             ->cascadeOnUpdate();
             $table->text('badanKomentar');
-            $table->timestamp('created_at');
+            $table->timestamps();
         });
     }
 
