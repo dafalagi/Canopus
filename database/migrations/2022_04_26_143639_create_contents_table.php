@@ -14,10 +14,13 @@ class CreateContentsTable extends Migration
     public function up()
     {
         Schema::create('contents', function (Blueprint $table) {
-            $table->id('idKonten');
-            $table->string('judul');
-            $table->binary('gambar');
-            $table->longText('badanKonten');
+            $table->id();
+            $table->string('title');
+            $table->binary('picture')->nullable();
+            $table->longText('body');
+            $table->text('excerpt');
+            $table->string('slug')->unique();
+            $table->enum('category', ['Planet', 'Benda Langit Lain', 'Istilah Angkasa']);
             $table->timestamps();
         });
     }

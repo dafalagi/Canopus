@@ -15,7 +15,7 @@ class ContentController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**

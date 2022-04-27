@@ -14,13 +14,11 @@ class CreateDiscussesTable extends Migration
     public function up()
     {
         Schema::create('discusses', function (Blueprint $table) {
-            $table->id('idDiskusi');
-            $table->foreignId('idPengguna')
-            ->constrained('users')
-            ->cascadeOnDelete()
-            ->cascadeOnUpdate();
-            $table->string('judul');
-            $table->text('badanDiskusi');
+            $table->id();
+            $table->foreignId('user_id');
+            $table->string('title');
+            $table->text('body');
+            $table->text('excerpt');
             $table->timestamps();
         });
     }

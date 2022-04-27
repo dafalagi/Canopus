@@ -14,15 +14,9 @@ class CreateFavoritesTable extends Migration
     public function up()
     {
         Schema::create('favorites', function (Blueprint $table) {
-            $table->id('idFavorit');
-            $table->foreignId('idPengguna')
-            ->constrained('users')
-            ->cascadeOnDelete()
-            ->cascadeOnUpdate();
-            $table->foreignId('idKonten')
-            ->constrained('contents')
-            ->cascadeOnDelete()
-            ->cascadeOnUpdate();
+            $table->id();
+            $table->foreignId('user_id');
+            $table->foreignId('content_id');
             $table->timestamp('created_at');
         });
     }
