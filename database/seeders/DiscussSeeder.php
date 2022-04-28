@@ -13,6 +13,6 @@ class DiscussSeeder extends Seeder
      */
     public function run()
     {
-        //
+        
     }
 }

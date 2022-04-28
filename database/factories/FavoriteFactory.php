@@ -14,7 +14,9 @@ class FavoriteFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'user_id' => mt_rand(1, 10),
+            'content_id' => mt_rand(1, 20),
+            'created_at' => now(),
         ];
     }
 }

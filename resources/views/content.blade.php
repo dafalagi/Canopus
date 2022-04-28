@@ -7,6 +7,6 @@
     <title>{{ $title }}</title>
 </head>
 <body>
-    <h1>HOMEPAGE</h1>
+    <h1>CONTENT PAGE</h1>
 </body>
 </html>
