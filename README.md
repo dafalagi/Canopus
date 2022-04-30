@@ -1,8 +1,8 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="public/imgs/logo2.png" width="500"></a></p>
 
-## <p align="center">
-Samudera Angkasa
-</p>
+### <p align="center">Samudera Angkasa</p>
+
+<br>
 
 ## Tentang Canopus
 
@@ -35,6 +35,17 @@ Dalam pengembangannya, Canopus menggunakan bahasa, perangkat lunak bantuan, sert
 - **[ClickUp](https://clickup.com/)**
 - **[Laragon](https://laragon.org/)**
 
+<br>
+
+<a href="https://php.net"><img src="https://cdn.cdnlogo.com/logos/p/71/php.svg" width="80" height="80"></a>
+<a href="https://laravel.com"><img src="https://cdn.cdnlogo.com/logos/l/23/laravel.svg" width="80" height="80"></a>
+<a href="https://jetstream.laravel.com/2.x/introduction.html">
+    <img src="https://laravelnews.imgix.net/images/jetstream.png?ixlib=php-3.3.1" width="160" height="80">
+</a>
+<a href="https://tailwindcss.com/"><img src="https://cdn.cdnlogo.com/logos/t/58/tailwind-css.svg" width="80" height="80"></a>
+<a href="figma.com"><img src="https://cdn.cdnlogo.com/logos/f/43/figma.svg" width="80" height="80"></a>
+<a href="https://code.visualstudio.com/"><img src="https://cdn.cdnlogo.com/logos/v/82/visual-studio-code.svg" width="80" height="80"></a>
+
 ## Kontributor
 
 Berikut adalah kontributor - kontributor utama yang membantu pengembangan perangkat lunak Canopus :
@@ -46,8 +57,8 @@ Berikut adalah kontributor - kontributor utama yang membantu pengembangan perang
 
 ## Masukan
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Apabila anda memiliki masukan yang dapat membantu pengembangan Canopus, silahkan hubungi dafarizky34@gmail.com
 
-## License
+## Lisensi
 
 Canopus adalah perangkat lunak open-source yang dilisensikan dibawah [MIT license](https://opensource.org/licenses/MIT).
