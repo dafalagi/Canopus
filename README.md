@@ -55,7 +55,7 @@ Berikut adalah kontributor - kontributor utama yang membantu pengembangan perang
 
 ## Masukan
 
-Apabila anda memiliki masukan yang dapat membantu pengembangan Canopus, silahkan hubungi dafarizky34@gmail.com
+Apabila anda memiliki masukan yang dapat membantu pengembangan Canopus, silahkan lakukan pull-request atau hubungi dafarizky34@gmail.com
 
 ## Lisensi
 
