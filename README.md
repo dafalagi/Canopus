@@ -1,6 +1,6 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="public/imgs/logo2.png" width="500"></a></p>
 
-<p align="center" font-size=20px>
+<p align="center" style="font-size=20px">
 Samudera Angkasa
 </p>
 
@@ -21,7 +21,7 @@ Canopus adalah perangkat lunak edukasi ilmu astronomi berbasis website yang ring
 
 Dalam pengembangannya, Canopus menggunakan bahasa, perangkat lunak bantuan, serta framework berikut :
 
-### Bahasa, Framework, Library
+#### Bahasa, Framework, Library
 - **[PHP](https://php.net/)**
 - **[Laravel](https://laravel.com/)**
 - **[Laravel Jetstream](https://jetstream.laravel.com/2.x/introduction.html)**
@@ -29,7 +29,7 @@ Dalam pengembangannya, Canopus menggunakan bahasa, perangkat lunak bantuan, sert
 - **[TailwindUI Kit](https://tailwinduikit.com/)**
 - **[Faker](https://fakerphp.github.io/)**
 
-### Perangkat Lunak Bantuan
+#### Perangkat Lunak Bantuan
 - **[Figma](https://figma.com/)**
 - **[Visual Studio Code](https://code.visualstudio.com/)**
 - **[ClickUp](https://clickup.com/)**
