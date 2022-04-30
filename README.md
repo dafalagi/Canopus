@@ -1,61 +1,53 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="public/imgs/logo2.png" width="500"></a></p>
 
-<p align="center">
+<p align="center" font-size=20px>
 Samudera Angkasa
 </p>
 
-## About Laravel
+## Tentang Canopus
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Canopus adalah perangkat lunak edukasi ilmu astronomi berbasis website yang dikembangkan eksklusif untuk masyarakat Indonesia. Canopus dibangun dengan tujuan untuk membantu masyarakat Indonesia dari semua kalangan mengenal, menumbuhkan minat, serta menumbuhkan rasa senang terhadap ilmu astronomi. Beberapa fitur yang terdapat dalam Canopus diantaranya adalah :
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Edukasi ilmu astronomi (planet dan benda langit lainnya).
+- Membuat sekaligus mengelola akun.
+- Membuat sekaligus mengelola topik diskusi.
+- Mengelola konten edukasi ilmu astronomi dalam daftar favorit.
+- Mengelola tanya jawab dengan pengguna lain.
+- Mengevaluasi konten edukasi ilmu astronomi.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Canopus adalah perangkat lunak edukasi ilmu astronomi berbasis website yang ringan, menarik, dan informatif.
 
-## Learning Laravel
+## Pengembangan
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Dalam pengembangannya, Canopus menggunakan bahasa, perangkat lunak bantuan, serta framework berikut :
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Bahasa, Framework, Library
+- **[PHP](https://php.net/)**
+- **[Laravel](https://laravel.com/)**
+- **[Laravel Jetstream](https://jetstream.laravel.com/2.x/introduction.html)**
+- **[TailwindCSS](https://tailwindcss.com/)**
+- **[TailwindUI Kit](https://tailwinduikit.com/)**
+- **[Faker](https://fakerphp.github.io/)**
 
-## Laravel Sponsors
+### Perangkat Lunak Bantuan
+- **[Figma](https://figma.com/)**
+- **[Visual Studio Code](https://code.visualstudio.com/)**
+- **[ClickUp](https://clickup.com/)**
+- **[Laragon](https://laragon.org/)**
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Kontributor
 
-### Premium Partners
+Berikut adalah kontributor - kontributor utama yang membantu pengembangan perangkat lunak Canopus :
+- [Dafa Rizky Fahreza](https://github.com/dafalagi/)
+- [Saeful Anwar Oktariansah](https://github.com/SaefulA0)
+- [Ikhsan Nurul Rizki](https://github.com/IkhsanNurulRizki)
+- [Muhammad Rojabi Nur Fauzi](https://github.com/FauziSS)
+- [Arif Abdan Syakur](https://github.com/arifabdan)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
+## Masukan
 
 If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Canopus adalah perangkat lunak open-source yang dilisensikan dibawah [MIT license](https://opensource.org/licenses/MIT).
