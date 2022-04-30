@@ -6,7 +6,7 @@
 
 ## Tentang Canopus
 
-Canopus adalah perangkat lunak edukasi ilmu astronomi berbasis website yang dikembangkan eksklusif untuk masyarakat Indonesia. Canopus dibangun dengan tujuan untuk membantu masyarakat Indonesia dari semua kalangan mengenal, menumbuhkan minat, serta menumbuhkan rasa senang terhadap ilmu astronomi. Beberapa fitur yang terdapat dalam Canopus diantaranya adalah :
+Canopus merupakan perangkat lunak edukasi ilmu astronomi berbasis website yang dikembangkan eksklusif untuk masyarakat Indonesia. Canopus dibangun dengan tujuan untuk membantu masyarakat Indonesia dari semua kalangan mengenal, menumbuhkan minat, serta menumbuhkan rasa senang terhadap ilmu astronomi. Beberapa fitur yang terdapat dalam Canopus diantaranya adalah :
 
 - Edukasi ilmu astronomi (planet dan benda langit lainnya).
 - Membuat sekaligus mengelola akun.
@@ -35,8 +35,6 @@ Dalam pengembangannya, Canopus menggunakan bahasa, perangkat lunak bantuan, sert
 - **[ClickUp](https://clickup.com/)**
 - **[Laragon](https://laragon.org/)**
 
-<br>
-
 <a href="https://php.net"><img src="https://cdn.cdnlogo.com/logos/p/71/php.svg" width="80" height="80"></a>
 <a href="https://laravel.com"><img src="https://cdn.cdnlogo.com/logos/l/23/laravel.svg" width="80" height="80"></a>
 <a href="https://jetstream.laravel.com/2.x/introduction.html">
@@ -49,11 +47,11 @@ Dalam pengembangannya, Canopus menggunakan bahasa, perangkat lunak bantuan, sert
 ## Kontributor
 
 Berikut adalah kontributor - kontributor utama yang membantu pengembangan perangkat lunak Canopus :
+- [Arif Abdan Syakur](https://github.com/arifabdan)
 - [Dafa Rizky Fahreza](https://github.com/dafalagi/)
-- [Saeful Anwar Oktariansah](https://github.com/SaefulA0)
 - [Ikhsan Nurul Rizki](https://github.com/IkhsanNurulRizki)
 - [Muhammad Rojabi Nur Fauzi](https://github.com/FauziSS)
-- [Arif Abdan Syakur](https://github.com/arifabdan)
+- [Saeful Anwar Oktariansah](https://github.com/SaefulA0)
 
 ## Masukan
 
