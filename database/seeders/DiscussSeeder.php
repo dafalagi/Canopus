@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Discuss;
 use Illuminate\Database\Seeder;
 
 class DiscussSeeder extends Seeder
@@ -13,6 +14,6 @@ class DiscussSeeder extends Seeder
      */
     public function run()
     {
-        
+        Discuss::factory(20)->create();
     }
 }

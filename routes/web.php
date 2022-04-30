@@ -21,7 +21,8 @@ Route::get('/', function(){
 });
 
 Route::get('/contents', [ContentController::class, 'index']);
-Route::get('/discusses', [DiscussController::class, 'index']);
+Route::get('/contents/{content:slug}', [ContentController::class, 'show']);
+Route::get('/forum', [DiscussController::class, 'index']);
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

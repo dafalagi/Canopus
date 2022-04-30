@@ -15,7 +15,10 @@ class ContentController extends Controller
      */
     public function index()
     {
-        
+        return view('contents', [
+            'title' => 'Samudera Angkasa',
+            'contents' => Content::all(),
+        ]);
     }
 
     /**
@@ -47,7 +50,11 @@ class ContentController extends Controller
      */
     public function show(Content $content)
     {
-        //
+        return view('content', [
+            'title' => $content->title,
+            'body' => $content->body,
+            'picture' => $content->picture,
+        ]);
     }
 
     /**

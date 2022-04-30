@@ -7,6 +7,9 @@
     <title>{{ $title }}</title>
 </head>
 <body>
-    <h1>CONTENT PAGE</h1>
+    <h1>{{ $title }}</h1>
+    <p>{!! $body !!}</p>
+    <img src="{{ $picture }}" alt="">
+    <a href="/contents">Back</a>
 </body>
 </html>

@@ -8,5 +8,7 @@
 </head>
 <body>
     <h1>HOMEPAGE</h1>
+    <a href="/contents">Content</a>
+    <a href="/forum">Forum</a>
 </body>
 </html>

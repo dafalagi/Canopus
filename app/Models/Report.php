@@ -12,19 +12,19 @@ class Report extends Model
     protected $guarded = ['id'];
     public $timestamps = false;
 
-    public function users()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
-    public function contents()
+    public function content()
     {
         return $this->belongsTo(Content::class);
     }
-    public function discusses()
+    public function discuss()
     {
         return $this->belongsTo(Discuss::class);
     }
-    public function comments()
+    public function comment()
     {
         return $this->belongsTo(Comment::class);
     }

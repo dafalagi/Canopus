@@ -11,4 +11,13 @@ class Favorite extends Model
 
     protected $guarded = ['id'];
     public $timestamps = false;
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function content()
+    {
+        return $this->belongsTo(Content::class);
+    }
 }
