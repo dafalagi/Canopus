@@ -19,6 +19,7 @@ class CreateDiscussesTable extends Migration
             $table->string('title');
             $table->text('body');
             $table->text('excerpt');
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }

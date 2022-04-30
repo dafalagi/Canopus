@@ -17,4 +17,8 @@ class Discuss extends Model
     {
         return $this->hasMany(Report::class);
     }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

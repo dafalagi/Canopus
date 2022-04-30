@@ -18,7 +18,7 @@ class ContentFactory extends Factory
             'picture' => $this->faker->imageUrl(640, 480, 'space', true),
             'body' => $this->faker->paragraph(mt_rand(10, 50)),
             'excerpt' => $this->faker->paragraph(mt_rand(5, 10)),
-            'slug' => $this->faker->slug(),
+            'slug' => $this->faker->unique()->slug(),
             'category' => 'Planet',
         ];
     }

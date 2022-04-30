@@ -15,7 +15,10 @@ class DiscussController extends Controller
      */
     public function index()
     {
-        //
+        return view('forum', [
+            'title' => 'Forum Canopus',
+            'discusses' => Discuss::with('user')->latest()->get(),
+        ]);
     }
 
     /**
@@ -47,7 +50,12 @@ class DiscussController extends Controller
      */
     public function show(Discuss $discuss)
     {
-        //
+        return view('discuss', [
+            'title' => $discuss->title,
+            'author' => $discuss->user->name,
+            'body' => $discuss->body,
+            'comments' => $discuss->comments->load('user'),
+        ]);
     }
 
     /**

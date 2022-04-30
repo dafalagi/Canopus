@@ -15,9 +15,9 @@ class Comment extends Model
     {
         return $this->belongsTo(User::class);
     }
-    public function content()
+    public function discuss()
     {
-        return $this->belongsTo(Content::class);
+        return $this->belongsTo(Discuss::class);
     }
     public function reports()
     {
