@@ -14,9 +14,11 @@ class CommentFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => mt_rand(1, 10),
-            'discuss_id' => mt_rand(1, 20),
+            'user_id' => mt_rand(1, 20),
+            'discuss_id' => mt_rand(1, 30),
             'body' => $this->faker->paragraph(10, 20),
+            'likes' => mt_rand(10, 100),
+            'dislikes' => mt_rand(10, 100),
         ];
     }
 }

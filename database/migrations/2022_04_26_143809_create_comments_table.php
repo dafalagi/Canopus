@@ -18,6 +18,8 @@ class CreateCommentsTable extends Migration
             $table->foreignId('user_id');
             $table->foreignId('discuss_id');
             $table->text('body');
+            $table->integer('likes');
+            $table->integer('dislikes');
             $table->timestamps();
         });
     }

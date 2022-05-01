@@ -14,6 +14,6 @@ class DiscussSeeder extends Seeder
      */
     public function run()
     {
-        Discuss::factory(20)->create();
+        Discuss::factory(30)->create();
     }
 }

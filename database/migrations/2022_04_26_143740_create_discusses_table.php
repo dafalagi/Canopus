@@ -20,6 +20,8 @@ class CreateDiscussesTable extends Migration
             $table->text('body');
             $table->text('excerpt');
             $table->string('slug')->unique();
+            $table->integer('likes');
+            $table->integer('dislikes');
             $table->timestamps();
         });
     }

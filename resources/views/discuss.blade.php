@@ -7,6 +7,7 @@
     <title>{{ $title }}</title>
 </head>
 <body>
+    <a href="/forum">Back</a>
     <h1>{{ $title }}</h1>
     <p>By {{ $author }}</p>
     <p>{{ $body }}</p>
@@ -14,6 +15,9 @@
     @foreach ($comments as $comment)
         <h5>{{ $comment->user->username }}</h5>
         <p>{{ $comment->body }}</p>
+        <p>Likes : {{ $comment->likes }}</p>
+        <p>Dislikes : {{ $comment->dislikes }}</p>
     @endforeach
+    <p>Score : {{ $score }}</p>
 </body>
 </html>

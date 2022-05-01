@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\DiscussController;
+use App\Http\Controllers\FavoriteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +27,8 @@ Route::get('/contents', [ContentController::class, 'index']);
 Route::get('/contents/{content:slug}', [ContentController::class, 'show']);
 Route::get('/forum', [DiscussController::class, 'index']);
 Route::get('/forum/{discuss:slug}', [DiscussController::class, 'show']);
+Route::get('/users', [UserController::class, 'index']);
+Route::get('/favorites/{user:username}', [FavoriteController::class, 'show']);
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

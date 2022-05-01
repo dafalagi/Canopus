@@ -14,10 +14,10 @@ class ReportFactory extends Factory
     public function definition()
     {
         return [
-            'comment_id' => mt_rand(1, 20),
-            'discuss_id' => mt_rand(1, 20),
+            'comment_id' => mt_rand(1, 100),
+            'discuss_id' => mt_rand(1, 30),
             'content_id' => mt_rand(1, 20),
-            'user_id' => mt_rand(1, 10),
+            'user_id' => mt_rand(1, 20),
             'created_at' => now(),
         ];
     }

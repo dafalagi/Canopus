@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\Favorite;
-use App\Http\Requests\StoreFavoriteRequest;
-use App\Http\Requests\UpdateFavoriteRequest;
+use Illuminate\Http\Request;
 
-class FavoriteController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +14,10 @@ class FavoriteController extends Controller
      */
     public function index()
     {
-        //
+        return view('users', [
+            'title'=> 'Users',
+            'users' => User::all(),
+        ]);
     }
 
     /**
@@ -32,10 +33,10 @@ class FavoriteController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreFavoriteRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreFavoriteRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -43,24 +44,21 @@ class FavoriteController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Favorite  $favorite
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function show(User $user)
     {
-        return view('favorites', [
-            'title' => $user->username,
-            'favorites' => $user->favorites->sortDesc()->load('content'),
-        ]);
+        
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Favorite  $favorite
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(Favorite $favorite)
+    public function edit(User $user)
     {
         //
     }
@@ -68,11 +66,11 @@ class FavoriteController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateFavoriteRequest  $request
-     * @param  \App\Models\Favorite  $favorite
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateFavoriteRequest $request, Favorite $favorite)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -80,10 +78,10 @@ class FavoriteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Favorite  $favorite
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Favorite $favorite)
+    public function destroy(User $user)
     {
         //
     }

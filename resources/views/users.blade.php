@@ -7,9 +7,11 @@
     <title>{{ $title }}</title>
 </head>
 <body>
-    <h1>HOMEPAGE</h1>
-    <a href="/contents">Contents</a>
-    <a href="/forum">Forum</a>
-    <a href="/users">Users</a>
+    @foreach ($users as $user)
+        <p>{{ $user->username }}</p>
+        <p>Nama : {{ $user->name }}</p>
+        <p><a href="/favorites/{{ $user->username }}">Favorites</a></p>
+        <hr>
+    @endforeach
 </body>
 </html>

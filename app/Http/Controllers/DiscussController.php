@@ -54,7 +54,8 @@ class DiscussController extends Controller
             'title' => $discuss->title,
             'author' => $discuss->user->name,
             'body' => $discuss->body,
-            'comments' => $discuss->comments->load('user'),
+            'comments' => $discuss->comments->sortByDesc('likes')->load('user'),
+            'score' => $discuss->likes - $discuss->dislikes,
         ]);
     }
 
