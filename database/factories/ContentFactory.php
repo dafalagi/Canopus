@@ -16,10 +16,11 @@ class ContentFactory extends Factory
         return [
             'title' => $this->faker->sentence(mt_rand(2, 5)),
             'picture' => $this->faker->imageUrl(640, 480, 'space', true),
-            'body' => $this->faker->paragraph(mt_rand(10, 50)),
+            'body' => collect($this->faker->paragraphs(mt_rand(5, 10)))->map(fn ($p) => "<p>$p</p>")->implode(''),
             'excerpt' => $this->faker->paragraph(mt_rand(5, 10)),
             'slug' => $this->faker->unique()->slug(),
-            'category' => 'Planet',
+            'category' => collect(['Planet','Benda Langit Lain','Istilah Angkasa'])->random(),
+            'coordinate' => $this->faker->asciify('*******************'),
         ];
     }
 }

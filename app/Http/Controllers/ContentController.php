@@ -51,9 +51,7 @@ class ContentController extends Controller
     public function show(Content $content)
     {
         return view('content', [
-            'title' => $content->title,
-            'body' => $content->body,
-            'picture' => $content->picture,
+            'content' => $content,
         ]);
     }
 

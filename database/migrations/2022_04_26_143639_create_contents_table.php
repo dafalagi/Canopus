@@ -21,6 +21,7 @@ class CreateContentsTable extends Migration
             $table->text('excerpt');
             $table->string('slug')->unique();
             $table->enum('category', ['Planet', 'Benda Langit Lain', 'Istilah Angkasa']);
+            $table->string('coordinate');
             $table->timestamps();
         });
     }
