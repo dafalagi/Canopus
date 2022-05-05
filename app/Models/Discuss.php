@@ -9,6 +9,18 @@ class Discuss extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+    protected $with = ['user'];
+
+    public function scopeSearch($query, $search)
+    {
+        $query->when($search ?? 'false', function($query, $search)
+        {
+            return $query->where('title', 'like', '%'.$search.'%')
+                         ->orWhere('body', 'like', '%'.$search.'%');
+        });
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
