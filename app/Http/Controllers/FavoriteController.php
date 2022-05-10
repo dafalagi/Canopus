@@ -46,7 +46,7 @@ class FavoriteController extends Controller
      * @param  \App\Models\Favorite  $favorite
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function showContent(User $user)
     {
         return view('favorites', [
             'title' => $user->username,

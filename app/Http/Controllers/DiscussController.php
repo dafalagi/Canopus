@@ -17,7 +17,7 @@ class DiscussController extends Controller
     {
         return view('forum', [
             'title' => 'Forum Canopus',
-            'discusses' => Discuss::latest()->search(request('search'))->paginate(20)->withQueryString(),
+            'discusses' => Discuss::latest()->search(request('search'))->get(),
         ]);
     }
 

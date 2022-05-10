@@ -14,7 +14,7 @@ class Discuss extends Model
 
     public function scopeSearch($query, $search)
     {
-        $query->when($search ?? 'false', function($query, $search)
+        $query->when($search ?? false, function($query, $search)
         {
             return $query->where('title', 'like', '%'.$search.'%')
                          ->orWhere('body', 'like', '%'.$search.'%');
