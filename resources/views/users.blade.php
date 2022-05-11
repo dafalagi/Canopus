@@ -10,7 +10,8 @@
     @foreach ($users as $user)
         <p>{{ $user->username }}</p>
         <p>Nama : {{ $user->name }}</p>
-        <p><a href="/favorites/{{ $user->username }}">Favorites</a></p>
+        <p><a href="/favorites/contents/{{ $user->username }}">Favorites Contents</a></p>
+        <p><a href="/favorites/discusses/{{ $user->username }}">Favorites Discusses</a></p>
         <hr>
     @endforeach
 </body>

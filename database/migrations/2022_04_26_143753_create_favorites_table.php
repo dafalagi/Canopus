@@ -17,6 +17,7 @@ class CreateFavoritesTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('content_id');
+            $table->foreignId('discuss_id');
             $table->timestamp('created_at');
         });
     }

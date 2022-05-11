@@ -46,11 +46,19 @@ class FavoriteController extends Controller
      * @param  \App\Models\Favorite  $favorite
      * @return \Illuminate\Http\Response
      */
-    public function showContent(User $user)
+    public function showContents(User $user)
     {
-        return view('favorites', [
+        return view('favoriteContents', [
             'title' => $user->username,
             'favorites' => $user->favorites->sortDesc()->load('content'),
+        ]);
+    }
+
+    public function showDiscusses(User $user)
+    {
+        return view('favoriteDiscusses', [
+            'title' => $user->username,
+            'favorites' => $user->favorites->sortDesc()->load('discuss'),
         ]);
     }
 

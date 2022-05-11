@@ -8,6 +8,12 @@
 </head>
 <body>
     <a href="/">Home</a>
+    <?php
+        $int = mt_rand(0, 20);;
+    ?>
+    <p><a href="/contents/{{ $contents[$int]->slug }}">{{ $contents[$int]->title }}</a></p>
+    <p>{{ $contents[$int]->trivia }}</p>
+    <hr>
     @foreach ($contents as $content)
         <article>
             <h1><a href="/contents/{{ $content->slug }}">{{ $content->title }}</a></h1>

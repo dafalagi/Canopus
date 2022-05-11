@@ -20,4 +20,8 @@ class Favorite extends Model
     {
         return $this->belongsTo(Content::class);
     }
+    public function discuss()
+    {
+        return $this->belongsTo(Discuss::class);
+    }
 }

@@ -21,6 +21,7 @@ class ContentFactory extends Factory
             'slug' => $this->faker->unique()->slug(),
             'category' => collect(['Planet','Benda Langit Lain','Istilah Angkasa'])->random(),
             'coordinate' => $this->faker->asciify('*******************'),
+            'trivia' => $this->faker->paragraph(mt_rand(5, 10)),
         ];
     }
 }

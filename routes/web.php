@@ -28,7 +28,8 @@ Route::get('/contents/{content:slug}', [ContentController::class, 'show']);
 Route::get('/forum', [DiscussController::class, 'index']);
 Route::get('/forum/{discuss:slug}', [DiscussController::class, 'show']);
 Route::get('/users', [UserController::class, 'index']);
-Route::get('/favorites/{user:username}', [FavoriteController::class, 'showContent']);
+Route::get('/favorites/contents/{user:username}', [FavoriteController::class, 'showContents']);
+Route::get('/favorites/discusses/{user:username}', [FavoriteController::class, 'showDiscusses']);
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
