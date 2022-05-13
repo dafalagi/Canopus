@@ -14,6 +14,16 @@ class StoreUserRequest extends FormRequest
     protected $stopOnFirstFailure = true;
 
     /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+    }
+
+    /**
      * Get the validation rules that apply to the request.
      *
      * @return array
@@ -21,7 +31,10 @@ class StoreUserRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|string|max:225',
+            'username' => 'required|unique:users|string|max:30',
+            'email' => 'required|unique:users|email',
+            'password' => 'required|string|max:15',
         ];
     }
 }

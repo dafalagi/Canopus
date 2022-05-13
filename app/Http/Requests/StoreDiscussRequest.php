@@ -7,13 +7,20 @@ use Illuminate\Foundation\Http\FormRequest;
 class StoreDiscussRequest extends FormRequest
 {
     /**
+     * Indicates if the validator should stop on the first rule failure.
+     *
+     * @var bool
+     */
+    protected $stopOnFirstFailure = true;
+    
+    /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +31,10 @@ class StoreDiscussRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required',
+            'body' => 'required',
+            'excerpt' => 'required',
+            'slug' => 'required|unique:discusses',
         ];
     }
 }

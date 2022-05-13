@@ -7,6 +7,13 @@ use Illuminate\Foundation\Http\FormRequest;
 class StoreCommentRequest extends FormRequest
 {
     /**
+     * Indicates if the validator should stop on the first rule failure.
+     *
+     * @var bool
+     */
+    protected $stopOnFirstFailure = true;
+
+    /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
@@ -24,7 +31,7 @@ class StoreCommentRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'body' => 'required',
         ];
     }
 }
