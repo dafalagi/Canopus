@@ -12,7 +12,7 @@
         <h1><a href="/forum/{{ $discuss->slug }}">{{ $discuss->title }}</a></h1>
         <p>{{ $discuss->user->name }} {{ $discuss->created_at->diffForHumans() }}</p>
         <p>{{ $discuss->created_at->format('j F Y') }}</p>
-        <p>{!! $discuss->body !!}</p>
+        <p>{!! $discuss->excerpt !!}</p>
     @endforeach
 </body>
 </html>

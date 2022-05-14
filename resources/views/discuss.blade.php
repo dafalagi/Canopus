@@ -12,6 +12,7 @@
     <p>By {{ $author }}</p>
     <p>{{ $body }}</p>
     <br>
+    <p>Comment : {{ count($comments) }}</p>
     @foreach ($comments as $comment)
         <h5>{{ $comment->user->username }}</h5>
         <p>{{ $comment->body }}</p>
