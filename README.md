@@ -24,7 +24,6 @@ Dalam pengembangannya, Canopus menggunakan bahasa, perangkat lunak bantuan, sert
 #### Bahasa, Framework, Library
 - **[PHP](https://php.net/)**
 - **[Laravel](https://laravel.com/)**
-- **[Laravel Jetstream](https://jetstream.laravel.com/2.x/introduction.html)**
 - **[TailwindCSS](https://tailwindcss.com/)**
 - **[TailwindUI Kit](https://tailwinduikit.com/)**
 - **[Faker](https://fakerphp.github.io/)**
@@ -37,9 +36,6 @@ Dalam pengembangannya, Canopus menggunakan bahasa, perangkat lunak bantuan, sert
 <br>
 <a href="https://php.net"><img src="https://cdn.cdnlogo.com/logos/p/71/php.svg" width="80" height="80"></a>
 <a href="https://laravel.com"><img src="https://cdn.cdnlogo.com/logos/l/23/laravel.svg" width="80" height="80"></a>
-<a href="https://jetstream.laravel.com/2.x/introduction.html">
-    <img src="https://laravelnews.imgix.net/images/jetstream.png?ixlib=php-3.3.1" width="160" height="80">
-</a>
 <a href="https://tailwindcss.com/"><img src="https://cdn.cdnlogo.com/logos/t/58/tailwind-css.svg" width="80" height="80"></a>
 <a href="https://figma.com/"><img src="https://cdn.cdnlogo.com/logos/f/43/figma.svg" width="80" height="80"></a>
 <a href="https://code.visualstudio.com/"><img src="https://cdn.cdnlogo.com/logos/v/82/visual-studio-code.svg" width="80" height="80"></a>
