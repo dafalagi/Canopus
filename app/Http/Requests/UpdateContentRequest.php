@@ -24,7 +24,14 @@ class UpdateContentRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required',
+            'picture' => 'required',
+            'body' => 'required',
+            'excerpt' => 'required',
+            'slug' => 'required|unique:contents',
+            'category' => 'required',
+            'coordinate' => 'required',
+            'trivia' => 'required',
         ];
     }
 }
