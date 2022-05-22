@@ -18,7 +18,6 @@ class CommentFactory extends Factory
             'discuss_id' => mt_rand(1, 30),
             'body' => $this->faker->paragraph(10, 20),
             'likes' => mt_rand(10, 100),
-            'dislikes' => mt_rand(10, 100),
         ];
     }
 }
