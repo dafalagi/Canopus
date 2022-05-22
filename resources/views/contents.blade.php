@@ -9,7 +9,7 @@
 <body>
     <a href="/">Home</a>
     <?php
-        $int = mt_rand(0, 20);;
+        $int = mt_rand(0, 20);
     ?>
     <p><a href="/contents/{{ $contents[$int]->slug }}">{{ $contents[$int]->title }}</a></p>
     <p>{{ $contents[$int]->trivia }}</p>
