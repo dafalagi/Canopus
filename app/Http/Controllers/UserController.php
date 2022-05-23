@@ -71,7 +71,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('settings');
     }
 
     /**
@@ -83,7 +83,7 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user)
     {
-        //
+        //Store Update User
     }
 
     /**
@@ -94,7 +94,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        //Delete User
     }
 
     // Show login form

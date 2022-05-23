@@ -28,7 +28,7 @@ class DiscussController extends Controller
      */
     public function create()
     {
-        //
+        //Create Discuss Form
     }
 
     /**
@@ -39,7 +39,7 @@ class DiscussController extends Controller
      */
     public function store(StoreDiscussRequest $request)
     {
-        //
+        //Store Discuss
     }
 
     /**
@@ -67,7 +67,7 @@ class DiscussController extends Controller
      */
     public function edit(Discuss $discuss)
     {
-        //
+        //Edit Discuss Form
     }
 
     /**
@@ -79,7 +79,7 @@ class DiscussController extends Controller
      */
     public function update(UpdateDiscussRequest $request, Discuss $discuss)
     {
-        //
+        //Update Discuss
     }
 
     /**
@@ -90,6 +90,6 @@ class DiscussController extends Controller
      */
     public function destroy(Discuss $discuss)
     {
-        //
+        //Delete Discuss
     }
 }
