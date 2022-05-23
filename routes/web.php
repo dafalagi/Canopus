@@ -37,3 +37,8 @@ Route::get('/login', [UserController::class, 'login'])->name('login')->middlewar
 // POST Routes
 Route::post('/register', [UserController::class, 'store'])->middleware('guest');
 Route::post('/login', [UserController::class, 'authenticate'])->middleware('guest');
+
+//DEV
+Route::get('/dev', function(){
+    return view('dev');
+});
