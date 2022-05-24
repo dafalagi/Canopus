@@ -42,3 +42,6 @@ Route::post('/login', [UserController::class, 'authenticate'])->middleware('gues
 Route::get('/dev', function(){
     return view('dev');
 });
+Route::get('/dashboard', function(){
+    return view('dashboard.dashboard');
+});
