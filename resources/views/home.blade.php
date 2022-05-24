@@ -11,5 +11,6 @@
     <a href="/contents">Contents</a>
     <a href="/forum">Forum</a>
     <a href="/users">Users</a>
+    <a href="/dashboard">Dashboard</a>
 </body>
 </html>

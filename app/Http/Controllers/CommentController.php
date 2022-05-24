@@ -9,26 +9,6 @@ use App\Http\Requests\UpdateCommentRequest;
 class CommentController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StoreCommentRequest  $request
@@ -36,7 +16,7 @@ class CommentController extends Controller
      */
     public function store(StoreCommentRequest $request)
     {
-        //
+        //Store comment
     }
 
     /**
@@ -47,18 +27,7 @@ class CommentController extends Controller
      */
     public function show(Comment $comment)
     {
-        
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Comment  $comment
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Comment $comment)
-    {
-        //
+        //Show commented discusses
     }
 
     /**
@@ -70,7 +39,7 @@ class CommentController extends Controller
      */
     public function update(UpdateCommentRequest $request, Comment $comment)
     {
-        //
+        //Update Comment
     }
 
     /**
@@ -81,6 +50,6 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
-        //
+        //Delete Comment
     }
 }

@@ -49,6 +49,39 @@ Berikut adalah kontributor - kontributor utama yang membantu pengembangan perang
 - [Muhammad Rojabi Nur Fauzi](https://github.com/FauziSS123)
 - [Saeful Anwar Oktariansah](https://github.com/SaefulA0)
 
+## Instalasi
+
+1. Clone repository
+   ```sh
+   git clone https://github.com/dafalagi/Canopus.git
+   ```
+2. Install Laravel
+   ```sh
+   composer install
+   ```
+3. Buat database dengan nama "canopus" pada server MySQL lokal anda.
+4. Copy-paste file `.env.example` lalu ubah menjadi `.env` dan sesuaikan baris berikut :
+   ```sh
+      DB_CONNECTION=mysql
+      DB_HOST=127.0.0.1
+      DB_PORT=3306
+      DB_DATABASE=canopus
+      DB_USERNAME=root
+      DB_PASSWORD=
+   ```
+5. Buka terminal lalu jalankan perintah berikut untuk melakukan key generate
+   ```sh
+   php artisan key:generate
+   ```
+5. Import database
+   ```sh
+   php artisan migrate:fresh --seed
+   ```
+5. Jalankan server
+   ```sh
+   php artisan serve
+   ```
+
 ## Masukan
 
 Apabila anda memiliki masukan yang dapat membantu pengembangan Canopus, silahkan lakukan pull-request atau hubungi dafarizky34@gmail.com
