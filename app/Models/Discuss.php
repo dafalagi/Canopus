@@ -37,4 +37,9 @@ class Discuss extends Model
     {
         return $this->hasMany(Favorites::class);
     }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

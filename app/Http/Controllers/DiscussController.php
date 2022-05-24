@@ -51,9 +51,7 @@ class DiscussController extends Controller
     public function show(Discuss $discuss)
     {
         return view('discuss', [
-            'title' => $discuss->title,
-            'author' => $discuss->user->name,
-            'body' => $discuss->body,
+            'discuss' => $discuss,
             'comments' => $discuss->comments->sortByDesc('likes')->load('user'),
             'score' => $discuss->likes - $discuss->dislikes,
         ]);
