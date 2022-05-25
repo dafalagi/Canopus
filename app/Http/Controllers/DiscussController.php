@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Discuss;
 use App\Http\Requests\StoreDiscussRequest;
 use App\Http\Requests\UpdateDiscussRequest;
+use Clockwork\Request\Request;
 
 class DiscussController extends Controller
 {
@@ -89,5 +90,5 @@ class DiscussController extends Controller
     public function destroy(Discuss $discuss)
     {
         //Delete Discuss
-    }
+    }   
 }
