@@ -9,7 +9,7 @@
 <body>
     <h1>HOMEPAGE</h1>
     <a href="/contents">Contents</a>
-    <a href="/forum">Forum</a>
+    <a href="/discusses">Forum</a>
     <a href="/users">Users</a>
     <a href="/test">Test</a>
 </body>

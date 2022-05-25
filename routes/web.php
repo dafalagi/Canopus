@@ -26,13 +26,15 @@ Route::get('/', function(){
 
 Route::get('/contents', [ContentController::class, 'index']);
 Route::get('/contents/{content:slug}', [ContentController::class, 'show']);
-Route::get('/forum', [DiscussController::class, 'index']);
-Route::get('/forum/{discuss:slug}', [DiscussController::class, 'show']);
 Route::get('/favorites/contents/{user:username}', [FavoriteController::class, 'showContents']);
 Route::get('/favorites/discusses/{user:username}', [FavoriteController::class, 'showDiscusses']);
 Route::get('/users', [UserController::class, 'index']);
 Route::get('/register', [UserController::class, 'create'])->name('register')->middleware('guest');
 Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
+
+// Resource Routes
+Route::resource('/discusses', DiscussController::class);
+
 
 // POST Routes
 Route::post('/register', [UserController::class, 'store'])->middleware('guest');

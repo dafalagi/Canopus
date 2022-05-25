@@ -9,7 +9,7 @@
 <body>
     <p><a href="/">Back</a></p>
     @foreach ($discusses as $discuss)
-        <h1><a href="/forum/{{ $discuss->slug }}">{{ $discuss->title }}</a></h1>
+        <h1><a href="/discusses/{{ $discuss->slug }}">{{ $discuss->title }}</a></h1>
         <p>{{ $discuss->user->name }} {{ $discuss->created_at->diffForHumans() }}</p>
         <p>{{ $discuss->created_at->format('j F Y') }}</p>
         <p>{!! $discuss->excerpt !!}</p>
