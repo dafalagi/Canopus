@@ -45,5 +45,8 @@ Route::get('/dev', function(){
     return view('dev');
 });
 Route::get('/dashboard', function(){
-    return view('dashboard.index');
+    return view('dashboard.dashboard');
+});
+Route::get('/test', function(){
+    return view('component.LoginForm');
 });
