@@ -29,20 +29,23 @@ Route::get('/', function(){
     ]);
 });
 Route::get('/dashboard', function(){
-    return view('dashboard.index');
-});
+    return view('dashboard.layouts.main');
+})->middleware('can:admin');
 
 Route::get('/contents', [ContentController::class, 'index']);
 Route::get('/contents/{content:slug}', [ContentController::class, 'show']);
 Route::get('/favorites/contents/{user:username}', [FavoriteController::class, 'showContents']);
 Route::get('/favorites/discusses/{user:username}', [FavoriteController::class, 'showDiscusses']);
 Route::get('/users', [UserController::class, 'index']);
-Route::get('/register', [UserController::class, 'create'])->name('register')->middleware('guest');
-Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
+Route::middleware('guest')->group(function(){
+    Route::get('/register', [UserController::class, 'create'])->name('register');
+    Route::get('/login', [UserController::class, 'login'])->name('login');
+});
 
 // POST Routes
 Route::post('/register', [UserController::class, 'store'])->middleware('guest');
 Route::post('/login', [UserController::class, 'authenticate'])->middleware('guest');
+Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
 
 // Resource Routes
 Route::resources([
@@ -57,4 +60,7 @@ Route::resources([
 //DEV
 Route::get('/test', function(){
     return view('test');
+});
+Route::get('/footer', function(){
+    return view('component.footer');
 });
