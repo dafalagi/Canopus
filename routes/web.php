@@ -29,8 +29,8 @@ Route::get('/', function(){
     ]);
 });
 Route::get('/dashboard', function(){
-    return view('dashboard.index');
-});
+    return view('dashboard.layouts.main');
+})->middleware('auth');
 
 Route::get('/contents', [ContentController::class, 'index']);
 Route::get('/contents/{content:slug}', [ContentController::class, 'show']);
@@ -43,6 +43,7 @@ Route::get('/login', [UserController::class, 'login'])->name('login')->middlewar
 // POST Routes
 Route::post('/register', [UserController::class, 'store'])->middleware('guest');
 Route::post('/login', [UserController::class, 'authenticate'])->middleware('guest');
+Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
 
 // Resource Routes
 Route::resources([
@@ -57,4 +58,7 @@ Route::resources([
 //DEV
 Route::get('/test', function(){
     return view('test');
+});
+Route::get('/footer', function(){
+    return view('component.footer');
 });

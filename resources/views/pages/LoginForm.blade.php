@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+    <title>{{ $title }}</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -28,40 +28,47 @@
               >
                 <h1 class="font-bold text-3xl text-white">Masuk</h1>
                 <p class="text-white">Masuk untuk mengelola akun anda</p>
-                <form action="" class="mt-6">
-                  <div>
+                <form action="/login" method="POST" class="mt-6">
+                  @csrf
+                  <div class="pb-4">
                     <label for="email">
                       <input
+                        name="email"
                         type="email"
                         id="email"
-                        placeholder="Masukan E-mail"
-                        class="px-7 py-3 border shadow rounded-lg w-full block bg-transparent text-white border-grey focus:outline-none focus:ring-1 focus:ring-blue focus:border-blue invalid:focus:ring-red invalid:focus:border-red peer"
+                        placeholder="Masukkan E-mail"
+                        class="px-7 py-3 border shadow rounded-lg w-full block bg-transparent text-white border-grey focus:outline-none focus:ring-1 focus:ring-blue focus:border-blue 
+                        @error('email') invalid:focus:ring-red invalid:focus:border-red @enderror peer"
+                        autofocus
                       />
-                      <p
-                        class="text-sm m-0.5 text-red invisible peer-invalid:visible"
-                      >
-                        Email tidak cocok
-                      </p>
+                      @error('email')
+                        <p
+                          class="text-sm mt-1 -mb-3 text-red"
+                        >
+                          Email tidak valid
+                        </p>
+                      @enderror
                     </label>
                   </div>
                   <div class="pb-1">
                     <label for="password">
                       <input
+                        name="password"
                         type="password"
                         id="password"
-                        placeholder="Masukan kata sandi"
+                        placeholder="Masukkan kata sandi"
                         class="px-7 py-3 border shadow rounded-lg w-full block bg-transparent text-white border-grey focus:outline-none focus:ring-1 focus:ring-blue focus:border-blue"
                       />
                     </label>
                   </div>
+                  <div class="pt-6">
+                    <button
+                      class="py-2 rounded-lg w-full block text-white bg-orange2 bg-opacity-90 hover:bg-secondaryclr shadow-lg"
+                    >
+                      Masuk
+                    </button>
+                  </div>
                 </form>
-                <div class="pt-6">
-                  <button
-                    class="py-2 rounded-lg w-full block text-white bg-orange2 bg-opacity-90 hover:bg-secondaryclr shadow-lg"
-                  >
-                    Masuk
-                  </button>
-                </div>
               </div>
           </div>
         <div class="max-w-lg mx-auto text-center mt-6">
@@ -74,4 +81,5 @@
       </div>
     </div>
   </body>
+  @include('component.Footer')
 </html>
