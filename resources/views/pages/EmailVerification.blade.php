@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,7 +18,7 @@
     <div class="w-full h-full pl-1 pt-2 bg-no-repeat bg-cover"
     style="background-image: url(/imgs/bg-00.png)">
     @include('navbar')
-        <div class="p-1">
+        <div class="p-1 pb-40">
           <div class="container">
               <div
                 class="mx-auto mt-32 max-w-md rounded-xl shadow-md p-7 bg-white bg-opacity-20">
@@ -32,6 +33,6 @@
           </div>
         </div>
     </div>
-    @include('Footer')
+    @include('.component.Footer')
   </body>
 </html>
