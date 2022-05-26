@@ -13,18 +13,14 @@
       rel="stylesheet"
     />
   </head>
-  <body class="">
-    <div class="w-full h-full pt-8 bg-no-repeat bg-cover"
+  <body>
+    <div class="w-full h-full pl-1 pt-2 bg-no-repeat bg-cover"
     style="background-image: url(/imgs/bg-00.png)">
-      <div>
-        <img 
-        class="mx-auto w-96 mt-16" 
-        src="/imgs/logo2.png" 
-        alt="">
+    @include('navbar')
         <div class="p-1">
           <div class="container">
               <div
-                class="mx-auto max-w-md rounded-xl shadow-md p-7 bg-white bg-opacity-20">
+                class="mx-auto mt-32 max-w-md rounded-xl shadow-md p-7 bg-white bg-opacity-20">
                 <img 
                     class="mx-auto w-40" 
                     src="/imgs/check.png" 
@@ -35,7 +31,7 @@
               </div>
           </div>
         </div>
-      </div>
     </div>
+    @include('Footer')
   </body>
 </html>
