@@ -100,7 +100,7 @@ class UserController extends Controller
     // Show login form
     public function login()
     {
-        return view('component.LoginForm', [
+        return view('pages.LoginForm', [
             'title' => 'Login',
         ]);
     }
@@ -120,7 +120,7 @@ class UserController extends Controller
             return redirect()->intended('/');
         }
 
-        return back()->with('loginError', 'Wrong Username or Password');
+        return back()->with('loginError', 'Email atau Kata Sandi Salah!');
     }
 
     // Log user out
