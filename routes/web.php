@@ -54,7 +54,6 @@ Route::resources([
     '/dashboard/reports' => DashboardReportController::class,
 ]);
 
-
 //DEV
 Route::get('/test', function(){
     return view('test');
