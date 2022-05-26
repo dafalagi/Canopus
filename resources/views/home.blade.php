@@ -11,6 +11,8 @@
     <a href="/contents">Contents</a>
     <a href="/discusses">Forum</a>
     <a href="/users">Users</a>
+    <a href="/test">Test</a>
     <a href="/dashboard">Dashboard</a>
+    <a href="/login">Login</a>
 </body>
 </html>
