@@ -15,7 +15,7 @@
         </div>
       </div>
 
-      <h2>Users Table</h2>
+      <h2>Reports Table</h2>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>
@@ -26,10 +26,10 @@
             </tr>
           </thead>
           <tbody>
-            @foreach ($users as $user)
+            @foreach ($reports as $report)
                 <tr>
                     @foreach ($columns as $column)
-                        <td>{{ $user->$column }}</td>
+                        <td>{{ $report->$column }}</td>
                     @endforeach
                 </tr>
             @endforeach

@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContentController;
+use App\Http\Controllers\DashboardContentController;
+use App\Http\Controllers\DashboardDiscussController;
+use App\Http\Controllers\DashboardFavoriteController;
+use App\Http\Controllers\DashboardReportController;
 use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\DiscussController;
 use App\Http\Controllers\FavoriteController;
@@ -24,6 +28,9 @@ Route::get('/', function(){
         'title' => 'Canopus',
     ]);
 });
+Route::get('/dashboard', function(){
+    return view('dashboard.index');
+});
 
 Route::get('/contents', [ContentController::class, 'index']);
 Route::get('/contents/{content:slug}', [ContentController::class, 'show']);
@@ -33,22 +40,22 @@ Route::get('/users', [UserController::class, 'index']);
 Route::get('/register', [UserController::class, 'create'])->name('register')->middleware('guest');
 Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
 
-Route::get('/dashboard', function(){
-    return view('dashboard.index');
-});
-
-// Resource Routes
-Route::resource('/discusses', DiscussController::class);
-Route::resource('/dashboard/users', DashboardUserController::class);
-
 // POST Routes
 Route::post('/register', [UserController::class, 'store'])->middleware('guest');
 Route::post('/login', [UserController::class, 'authenticate'])->middleware('guest');
 
+// Resource Routes
+Route::resources([
+    '/discusses' => DiscussController::class,
+    '/dashboard/users' => DashboardUserController::class,
+    '/dashboard/contents' => DashboardContentController::class,
+    '/dashboard/discusses' => DashboardDiscussController::class,
+    '/dashboard/favorites' => DashboardFavoriteController::class,
+    '/dashboard/reports' => DashboardReportController::class,
+]);
+
+
 //DEV
-Route::get('/dev', function(){
-    return view('dev');
-});
 Route::get('/test', function(){
-    return view('component.LoginForm');
+    return view('test');
 });
