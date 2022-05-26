@@ -13,5 +13,7 @@
     <a href="/users">Users</a>
     <a href="/test">Test</a>
     <a href="/footer">footer</a>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/login">Login</a>
 </body>
 </html>
