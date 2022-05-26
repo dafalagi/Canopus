@@ -41,8 +41,8 @@ Route::post('/register', [UserController::class, 'store'])->middleware('guest');
 Route::post('/login', [UserController::class, 'authenticate'])->middleware('guest');
 
 //DEV
-Route::get('/dev', function(){
-    return view('dev');
+Route::get('/test', function(){
+    return view('test');
 });
 Route::get('/dashboard', function(){
     return view('dashboard.index');
