@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.main')
 
 @section('body')
-      <h2>Users Table</h2>
+      <h2>Reports Table</h2>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>
@@ -13,10 +13,10 @@
             </tr>
           </thead>
           <tbody>
-            @foreach ($users as $user)
+            @foreach ($reports as $report)
                 <tr>
                     <td>
-                      <a href="/dashboard/users/{{ $user->username }}" class="badge bg-info">
+                      <a href="/dashboard/users/{{ $report->id }}" class="badge bg-info">
                         <span data-feather="eye"></span>
                       </a>
                       <a href="" class="badge bg-warning">
@@ -27,7 +27,7 @@
                       </a>
                     </td>
                     @foreach ($columns as $column)
-                      <td>{{ $user->$column }}</td>
+                        <td>{{ $report->$column }}</td>
                     @endforeach
                 </tr>
             @endforeach
