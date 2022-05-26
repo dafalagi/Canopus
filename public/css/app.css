@@ -424,6 +424,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+<<<<<<< HEAD
+=======
 .container {
   width: 100%;
 }
@@ -460,6 +462,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 .invisible {
   visibility: hidden;
 }
+>>>>>>> 2cdf951b70434521fa689cbcd5b66333abf2697f
 .absolute {
   position: absolute;
 }
@@ -759,12 +762,15 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-opacity-90 {
   --tw-bg-opacity: 0.9;
 }
+<<<<<<< HEAD
+=======
 .bg-cover {
   background-size: cover;
 }
 .bg-no-repeat {
   background-repeat: no-repeat;
 }
+>>>>>>> 2cdf951b70434521fa689cbcd5b66333abf2697f
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
