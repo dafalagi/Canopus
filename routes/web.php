@@ -52,3 +52,6 @@ Route::get('/dev', function(){
 Route::get('/test', function(){
     return view('component.LoginForm');
 });
+Route::get('/footer', function(){
+    return view('component.footer');
+});
