@@ -100,7 +100,7 @@ class UserController extends Controller
     // Show login form
     public function login()
     {
-        return view('login', [
+        return view('component.LoginForm', [
             'title' => 'Login',
         ]);
     }

@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Discuss;
-use App\Http\Requests\StoreDiscussRequest;
-use App\Http\Requests\UpdateDiscussRequest;
-use Clockwork\Request\Request;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 
-class DiscussController extends Controller
+class DashboardDiscussController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +15,9 @@ class DiscussController extends Controller
      */
     public function index()
     {
-        return view('forum', [
-            'title' => 'Forum Canopus',
-            'discusses' => Discuss::latest()->search(request('search'))->get(),
+        return view('dashboard.discusses.index', [
+            'discusses' => Discuss::all(),
+            'columns' => Schema::getColumnListing('discusses'),
         ]);
     }
 
@@ -29,18 +28,18 @@ class DiscussController extends Controller
      */
     public function create()
     {
-        //Create Discuss Form
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreDiscussRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreDiscussRequest $request)
+    public function store(Request $request)
     {
-        //Store Discuss
+        //
     }
 
     /**
@@ -51,11 +50,7 @@ class DiscussController extends Controller
      */
     public function show(Discuss $discuss)
     {
-        return view('discuss', [
-            'discuss' => $discuss,
-            'comments' => $discuss->comments->sortByDesc('likes')->load('user'),
-            'score' => $discuss->likes - $discuss->dislikes,
-        ]);
+        //
     }
 
     /**
@@ -66,19 +61,19 @@ class DiscussController extends Controller
      */
     public function edit(Discuss $discuss)
     {
-        //Edit Discuss Form
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateDiscussRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Discuss  $discuss
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateDiscussRequest $request, Discuss $discuss)
+    public function update(Request $request, Discuss $discuss)
     {
-        //Update Discuss
+        //
     }
 
     /**
@@ -89,6 +84,6 @@ class DiscussController extends Controller
      */
     public function destroy(Discuss $discuss)
     {
-        //Delete Discuss
-    }   
+        //
+    }
 }
