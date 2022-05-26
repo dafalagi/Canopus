@@ -59,3 +59,6 @@ Route::resources([
 Route::get('/test', function(){
     return view('test');
 });
+Route::get('/footer', function(){
+    return view('component.footer');
+});
