@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContentController;
+use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\DiscussController;
 use App\Http\Controllers\FavoriteController;
 
@@ -32,9 +33,13 @@ Route::get('/users', [UserController::class, 'index']);
 Route::get('/register', [UserController::class, 'create'])->name('register')->middleware('guest');
 Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
 
+Route::get('/dashboard', function(){
+    return view('dashboard.index');
+});
+
 // Resource Routes
 Route::resource('/discusses', DiscussController::class);
-
+Route::resource('/dashboard/users', DashboardUserController::class);
 
 // POST Routes
 Route::post('/register', [UserController::class, 'store'])->middleware('guest');
@@ -44,6 +49,6 @@ Route::post('/login', [UserController::class, 'authenticate'])->middleware('gues
 Route::get('/dev', function(){
     return view('dev');
 });
-Route::get('/dashboard', function(){
-    return view('dashboard.index');
+Route::get('/test', function(){
+    return view('component.LoginForm');
 });
