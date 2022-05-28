@@ -31,9 +31,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('register', [
-            'title' => 'User Registration',
-        ]);
+        return view('pages.RegistrationForm');
     }
 
     /**
