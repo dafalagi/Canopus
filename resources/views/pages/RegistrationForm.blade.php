@@ -2,21 +2,23 @@
 <html lang="en">
   @include('component.head')
   <body class="">
-    <div class="w-full h-full pt-8 bg-no-repeat bg-cover"
-    style="background-image: url(/imgs/bg-login.png)">
-      <div>
-        <img 
+  <div class="min-h-screen w-full pt-8 bg-no-repeat" style="background-image: url(/imgs/bg-regis.png)">
+  <img 
         class="mx-auto w-96" 
         src="/imgs/logo2.png" 
         alt="">
+    <div class="mx-auto max-w-lg rounded-xl shadow-md p-12 bg-white bg-opacity-20">
         <div class="p-10">
           <div class="container">
-              <div
-                class="mx-auto max-w-md rounded-xl shadow-md p-12 bg-white bg-opacity-20"
-              >
-                <h1 class="font-bold text-3xl text-white">Masuk</h1>
-                <p class="text-white">Masuk untuk mengelola akun anda</p>
+                <h1 class="font-bold text-3xl text-center text-white">Buat Akun Anda</h1>
+                <p class="text-white text-center">Daftarkan diri anda dan mulai menjelajahi alam semesta</p>
                 <form action="/login" method="POST" class="mt-6">
+                  <div class="mt-4 pb-4">
+                      <label for = "username">
+                          <input name="username" type="username" id="usernasme" placeholder="Username" 
+                          class="px-7 py-3 border shadow rounded-lg w-full block bg-transparent text-white border-grey focus:outline-none focus:ring-1 focus:ring-blue focus:border-blue"/>
+                      </label>
+                  </div>  
                   @csrf
                   <div class="pb-4">
                     <label for="email">
@@ -38,17 +40,32 @@
                       @enderror
                     </label>
                   </div>
-                  <div class="pb-1">
+                  <div class="pb-4">
                     <label for="password">
                       <input
                         name="password"
                         type="password"
                         id="password"
-                        placeholder="Masukkan kata sandi"
+                        placeholder="Kata Sandi"
                         class="px-7 py-3 border shadow rounded-lg w-full block bg-transparent text-white border-grey focus:outline-none focus:ring-1 focus:ring-blue focus:border-blue"
                       />
                     </label>
                   </div>
+                  <div class="pb-1">
+                    <label for="konfirmasi_password">
+                      <input
+                        name="konfirmasi_password"
+                        type="password"
+                        id="konfirmasi_password"
+                        placeholder="Konfirmasi Kata Sandi"
+                        class="px-7 py-3 border shadow rounded-lg w-full block bg-transparent text-white border-grey focus:outline-none focus:ring-1 focus:ring-blue focus:border-blue"
+                      />
+                    </label>
+                  </div>
+                  <input class="mr-2 leading-tight" type="checkbox">
+                    <span class="text-sm text-white">
+                        Saya menyetujui syarat dan ketentuan!
+                    </span>
                   <div class="pt-6">
                     <button
                       class="py-2 rounded-lg w-full block text-white bg-orange2 bg-opacity-90 hover:bg-secondaryclr shadow-lg"
@@ -57,17 +74,13 @@
                     </button>
                   </div>
                 </form>
-              </div>
           </div>
         <div class="max-w-lg mx-auto text-center mt-6">
-            <p class="text-white">Belum memiliki akun?<a href="#" class="font-bold ml-1 text-orange2 hover:underline">Daftar sekarang</a></p>
-        </div>
-        <div class="max-w-lg mx-auto text-center mt-1 mb-6">
-          <a href="#" class="font-bold ml-1 text-orange2 hover:underline">Lupa kata sandi?</a>
+            <p class="text-white">Sudah memiliki akun?<a href="#" class="font-bold ml-1 text-orange2 hover:underline">Masuk sekarang</a></p>
         </div>
         </div>
-      </div>
     </div>
+  </div>
   </body>
   @include('component.Footer')
 </html>
