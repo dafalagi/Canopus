@@ -18,6 +18,7 @@
     @endcan
     @guest
         <a href="/login">Login</a>
+        <a href="/register">Register</a>
         @else
         <form action="/logout" method="POST">
             @csrf
