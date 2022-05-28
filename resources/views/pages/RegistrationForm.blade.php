@@ -12,11 +12,14 @@
           <div class="container">
                 <h1 class="font-bold text-3xl text-center text-white">Buat Akun Anda</h1>
                 <p class="text-white text-center">Daftarkan diri anda dan mulai menjelajahi alam semesta</p>
-                <form action="/login" method="POST" class="mt-6">
+                <form action="/register" method="POST" class="mt-6">
+                  @csrf
                   <div class="mt-4 pb-4">
                       <label for = "username">
-                          <input name="username" type="username" id="usernasme" placeholder="Username" 
-                          class="px-7 py-3 border shadow rounded-lg w-full block bg-transparent text-white border-grey focus:outline-none focus:ring-1 focus:ring-blue focus:border-blue"/>
+                          <input name="username" type="username" id="username" placeholder="Username" 
+                          class="px-7 py-3 border shadow rounded-lg w-full block bg-transparent text-white border-grey focus:outline-none focus:ring-1 focus:ring-blue focus:border-blue"
+                          autofocus
+                          value="{{ old('username') }}"/>
                       </label>
                   </div>  
                   @csrf
@@ -29,7 +32,7 @@
                         placeholder="Masukkan E-mail"
                         class="px-7 py-3 border shadow rounded-lg w-full block bg-transparent text-white border-grey focus:outline-none focus:ring-1 focus:ring-blue focus:border-blue 
                         @error('email') invalid:focus:ring-red invalid:focus:border-red @enderror peer"
-                        autofocus
+                        value="{{ old('email') }}"
                       />
                       @error('email')
                         <p
@@ -54,7 +57,7 @@
                   <div class="pb-1">
                     <label for="konfirmasi_password">
                       <input
-                        name="konfirmasi_password"
+                        name="confirm_password"
                         type="password"
                         id="konfirmasi_password"
                         placeholder="Konfirmasi Kata Sandi"
@@ -62,7 +65,7 @@
                       />
                     </label>
                   </div>
-                  <input class="mr-2 leading-tight" type="checkbox">
+                  <input class="mr-2 leading-tight" type="checkbox" required>
                     <span class="text-sm text-white">
                         Saya menyetujui syarat dan ketentuan!
                     </span>

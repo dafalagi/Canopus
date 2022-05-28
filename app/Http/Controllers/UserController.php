@@ -42,12 +42,13 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-        $validated = $request->safe();
-        $validated['password'] = Hash::make($validated['password']);
+        // $validated = $request->safe();
+        // $validated['password'] = Hash::make($validated['password']);
 
-        User::create($validated);
+        // User::create($validated);
 
-        return redirect('/login');
+        // return redirect('/login');
+        return $request->all();
     }
 
     /**
