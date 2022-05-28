@@ -62,3 +62,6 @@ Route::get('/test', function(){
 Route::get('/footer', function(){
     return view('component.footer');
 });
+Route::get('/regis', function(){
+    return view('pages.RegistrationForm');
+});
