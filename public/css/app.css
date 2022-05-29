@@ -797,16 +797,20 @@ Ensure the default browser behavior of the `hidden` attribute.
 .pt-3 {
   padding-top: 0.75rem;
 }
-.pt-44 {
-  padding-top: 11rem;
-}
-.pb-72 {
-  padding-bottom: 18rem;
 .pt-1 {
   padding-top: 0.25rem;
 }
 .pt-10 {
   padding-top: 2.5rem;
+}
+.pt-24 {
+  padding-top: 6rem;
+}
+.pt-44 {
+  padding-top: 11rem;
+}
+.pb-72 {
+  padding-bottom: 18rem;
 }
 .pl-14 {
   padding-left: 3.5rem;
@@ -816,8 +820,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .pt-5 {
   padding-top: 1.25rem;
-.pt-24 {
-  padding-top: 6rem;
 }
 .text-center {
   text-align: center;

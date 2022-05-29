@@ -52,7 +52,7 @@
                   <div class="pt-4">
                     <button
                       class="py-3 rounded-lg w-full block text-white bg-orange2 bg-opacity-90 hover:bg-secondaryclr shadow-lg">
-                      Kirim verifikasi email
+                      Perbaharui kata sandi
                     </button>
                   </div>
         </div>
