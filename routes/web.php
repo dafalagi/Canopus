@@ -22,42 +22,60 @@ use App\Http\Controllers\FavoriteController;
 |
 */
 
-// GET Routes
+// Free Access
 Route::get('/', function(){
-    return view('home', [
+    return view('pages.home', [
         'title' => 'Canopus',
     ]);
 });
-Route::get('/dashboard', function(){
-    return view('dashboard.layouts.main');
-})->middleware('can:admin');
 
+Route::get('/users', [UserController::class, 'index']);
 Route::get('/contents', [ContentController::class, 'index']);
 Route::get('/contents/{content:slug}', [ContentController::class, 'show']);
 Route::get('/favorites/contents/{user:username}', [FavoriteController::class, 'showContents']);
 Route::get('/favorites/discusses/{user:username}', [FavoriteController::class, 'showDiscusses']);
-Route::get('/users', [UserController::class, 'index']);
+Route::get('/discusses', [DiscussController::class, 'index']);
+Route::get('/discusses/{discuss:slug}', [DiscussController::class, 'show']);
+
+// Not Logged In Only
 Route::middleware('guest')->group(function(){
+
+    // GET
     Route::get('/register', [UserController::class, 'create'])->name('register');
     Route::get('/login', [UserController::class, 'login'])->name('login');
+
+    // POST
+    Route::post('/register', [UserController::class, 'store']);
+    Route::post('/login', [UserController::class, 'authenticate']);
 });
 
-// POST Routes
-Route::post('/register', [UserController::class, 'store'])->middleware('guest');
-Route::post('/login', [UserController::class, 'authenticate'])->middleware('guest');
-Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
+// Logged In Only
+Route::middleware('auth')->group(function(){
 
-// Resource Routes
-Route::resources([
-    '/discusses' => DiscussController::class,
-    '/dashboard/users' => DashboardUserController::class,
-    '/dashboard/contents' => DashboardContentController::class,
-    '/dashboard/discusses' => DashboardDiscussController::class,
-    '/dashboard/favorites' => DashboardFavoriteController::class,
-    '/dashboard/reports' => DashboardReportController::class,
-]);
+    // POST
+    Route::post('/logout', [UserController::class, 'logout']);
 
-//DEV
+    // RESOURCE
+    Route::resource('/discusses', DiscussController::class)->except('index', 'show');
+});
+
+// Admin Only
+Route::middleware('admin')->group(function(){
+    
+    // GET
+    Route::get('/dashboard', function(){
+        return view('dashboard.layouts.main');
+    });
+
+    // RESOURCE
+    Route::resource('/dashboard/users', DashboardUserController::class);
+    Route::resource('/dashboard/contents', DashboardContentController::class);
+    Route::resource('/dashboard/discusses', DashboardDiscussController::class);
+    Route::resource('/dashboard/favorites', DashboardFavoriteController::class);
+    Route::resource('/dashboard/reports', DashboardReportController::class);
+});
+
+// DEV
 Route::get('/test', function(){
     return view('test');
 });
