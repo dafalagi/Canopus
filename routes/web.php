@@ -24,10 +24,8 @@ use App\Http\Controllers\FavoriteController;
 
 // Free Access
 Route::get('/', function(){
-    return view('pages.home', [
-        'title' => 'Canopus',
-    ]);
-});
+    return view('pages.home');
+})->name('home');
 
 Route::get('/users', [UserController::class, 'index']);
 Route::get('/contents', [ContentController::class, 'index']);
@@ -78,7 +76,4 @@ Route::middleware('admin')->group(function(){
 // DEV
 Route::get('/test', function(){
     return view('test');
-});
-Route::get('/footer', function(){
-    return view('component.footer');
 });

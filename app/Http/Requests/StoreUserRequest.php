@@ -35,6 +35,8 @@ class StoreUserRequest extends FormRequest
             'email' => 'required|unique:users|email:dns',
             'password' => 'required|string|min:8|max:15',
             'confirm_password' => 'required|same:password',
+            'bio' => 'string',
+            'is_admin' => 'boolean',
         ];
     }
 }

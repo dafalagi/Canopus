@@ -6,7 +6,7 @@
     {{-- Hero section --}}
     <section id="HomeHero" class="w-full h-full pt-8 bg-no-repeat bg-cover" 
     style="background-image: url(/imgs/bg-home.png)">
-        @include('navbar')
+        @include('component.navbar')
             <div class="container pt-44">
                 <div>
                     <div class="w-full px-24 pb-72">
@@ -32,7 +32,7 @@
                 <div class="w-full self-center p-4">
                     <h1 class="underline text-3xl font-bold text-white">Forum</h1>
                     <p class="text-white py-4 text-opacity-75 leading-relaxed">
-                        Berdiskusi lah dengan Astroners yang lain <br> agar pengetahuan mu semankin luas!
+                        Berdiskusilah dengan Astroners yang lain <br> agar pengetahuanmu semakin luas!
                     </p>
                     <a class="py-2 px-6 rounded-lg text-center text-white bg-orange2 hover:bg-secondaryclr shadow-lg transition duration-200"
                     href="#" role="button">
