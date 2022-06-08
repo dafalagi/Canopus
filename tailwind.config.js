@@ -10,7 +10,7 @@ module.exports = {
             transparent: "transparent",
             mainclr: "#282F6A",
             secondaryclr: "#FF9636",
-            thirdclr: "#FF9636",
+            thirdclr: "#50568D",
             red: "#FF3E3E",
             blue: "#3F5EFF",
             slate: "#eaeaea",

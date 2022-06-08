@@ -17,7 +17,7 @@
   <body>
     <div class="w-full h-full pl-1 pt-2 bg-no-repeat bg-cover"
     style="background-image: url(/imgs/bg-00.png)">
-    @include('navbar')
+    @include('.component.navbar')
         <div class="p-1 pb-40">
           <div class="container">
               <div
