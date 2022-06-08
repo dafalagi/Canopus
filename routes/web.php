@@ -24,7 +24,7 @@ use App\Http\Controllers\FavoriteController;
 
 // Free Access
 Route::get('/', function(){
-    return view('home', [
+    return view('pages.home', [
         'title' => 'Canopus',
     ]);
 });
