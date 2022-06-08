@@ -10,7 +10,7 @@
         module.exports = __webpack_require__(/*! ./lib/axios */ "./node_modules/axios/lib/axios.js");
 
         /***/
-}),
+      }),
 
 /***/ "./node_modules/axios/lib/adapters/xhr.js":
 /*!************************************************!*\
@@ -211,7 +211,7 @@
 
 
         /***/
-}),
+      }),
 
 /***/ "./node_modules/axios/lib/axios.js":
 /*!*****************************************!*\
@@ -279,7 +279,7 @@
 
 
         /***/
-}),
+      }),
 
 /***/ "./node_modules/axios/lib/cancel/Cancel.js":
 /*!*************************************************!*\
@@ -310,7 +310,7 @@
 
 
         /***/
-}),
+      }),
 
 /***/ "./node_modules/axios/lib/cancel/CancelToken.js":
 /*!******************************************************!*\
@@ -379,7 +379,7 @@
 
 
         /***/
-}),
+      }),
 
 /***/ "./node_modules/axios/lib/cancel/isCancel.js":
 /*!***************************************************!*\
@@ -396,7 +396,7 @@
 
 
         /***/
-}),
+      }),
 
 /***/ "./node_modules/axios/lib/core/Axios.js":
 /*!**********************************************!*\
@@ -556,7 +556,7 @@
 
 
         /***/
-}),
+      }),
 
 /***/ "./node_modules/axios/lib/core/InterceptorManager.js":
 /*!***********************************************************!*\
@@ -622,7 +622,7 @@
 
 
         /***/
-}),
+      }),
 
 /***/ "./node_modules/axios/lib/core/buildFullPath.js":
 /*!******************************************************!*\
@@ -654,7 +654,7 @@
 
 
         /***/
-}),
+      }),
 
 /***/ "./node_modules/axios/lib/core/createError.js":
 /*!****************************************************!*\
@@ -684,7 +684,7 @@
 
 
         /***/
-}),
+      }),
 
 /***/ "./node_modules/axios/lib/core/dispatchRequest.js":
 /*!********************************************************!*\
@@ -778,7 +778,7 @@
 
 
         /***/
-}),
+      }),
 
 /***/ "./node_modules/axios/lib/core/enhanceError.js":
 /*!*****************************************************!*\
@@ -832,7 +832,7 @@
 
 
         /***/
-}),
+      }),
 
 /***/ "./node_modules/axios/lib/core/mergeConfig.js":
 /*!****************************************************!*\
@@ -931,7 +931,7 @@
 
 
         /***/
-}),
+      }),
 
 /***/ "./node_modules/axios/lib/core/settle.js":
 /*!***********************************************!*\
@@ -968,7 +968,7 @@
 
 
         /***/
-}),
+      }),
 
 /***/ "./node_modules/axios/lib/core/transformData.js":
 /*!******************************************************!*\
@@ -1002,7 +1002,7 @@
 
 
         /***/
-}),
+      }),
 
 /***/ "./node_modules/axios/lib/defaults.js":
 /*!********************************************!*\
@@ -1149,7 +1149,7 @@
 
 
         /***/
-}),
+      }),
 
 /***/ "./node_modules/axios/lib/helpers/bind.js":
 /*!************************************************!*\
@@ -1172,7 +1172,7 @@
 
 
         /***/
-}),
+      }),
 
 /***/ "./node_modules/axios/lib/helpers/buildURL.js":
 /*!****************************************************!*\
@@ -1254,7 +1254,7 @@
 
 
         /***/
-}),
+      }),
 
 /***/ "./node_modules/axios/lib/helpers/combineURLs.js":
 /*!*******************************************************!*\
@@ -1280,7 +1280,7 @@
 
 
         /***/
-}),
+      }),
 
 /***/ "./node_modules/axios/lib/helpers/cookies.js":
 /*!***************************************************!*\
@@ -1345,7 +1345,7 @@
 
 
         /***/
-}),
+      }),
 
 /***/ "./node_modules/axios/lib/helpers/isAbsoluteURL.js":
 /*!*********************************************************!*\
@@ -1371,7 +1371,7 @@
 
 
         /***/
-}),
+      }),
 
 /***/ "./node_modules/axios/lib/helpers/isAxiosError.js":
 /*!********************************************************!*\
@@ -1394,7 +1394,7 @@
 
 
         /***/
-}),
+      }),
 
 /***/ "./node_modules/axios/lib/helpers/isURLSameOrigin.js":
 /*!***********************************************************!*\
@@ -1474,7 +1474,7 @@
 
 
         /***/
-}),
+      }),
 
 /***/ "./node_modules/axios/lib/helpers/normalizeHeaderName.js":
 /*!***************************************************************!*\
@@ -1498,7 +1498,7 @@
 
 
         /***/
-}),
+      }),
 
 /***/ "./node_modules/axios/lib/helpers/parseHeaders.js":
 /*!********************************************************!*\
@@ -1563,7 +1563,7 @@
 
 
         /***/
-}),
+      }),
 
 /***/ "./node_modules/axios/lib/helpers/spread.js":
 /*!**************************************************!*\
@@ -1602,7 +1602,7 @@
 
 
         /***/
-}),
+      }),
 
 /***/ "./node_modules/axios/lib/helpers/validator.js":
 /*!*****************************************************!*\
@@ -1719,7 +1719,7 @@
 
 
         /***/
-}),
+      }),
 
 /***/ "./node_modules/axios/lib/utils.js":
 /*!*****************************************!*\
@@ -2080,7 +2080,7 @@
 
 
         /***/
-}),
+      }),
 
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
@@ -2091,7 +2091,7 @@
         __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
         /***/
-}),
+      }),
 
 /***/ "./resources/js/bootstrap.js":
 /*!***********************************!*\
@@ -2123,7 +2123,7 @@
         // });
 
         /***/
-}),
+      }),
 
 /***/ "./node_modules/lodash/lodash.js":
 /*!***************************************!*\
@@ -19336,7 +19336,7 @@
 
 
         /***/
-}),
+      }),
 
 /***/ "./resources/css/app.css":
 /*!*******************************!*\
@@ -19350,7 +19350,7 @@
 
 
         /***/
-}),
+      }),
 
 /***/ "./node_modules/process/browser.js":
 /*!*****************************************!*\
@@ -19545,7 +19545,7 @@
 
 
         /***/
-}),
+      }),
 
 /***/ "./node_modules/axios/package.json":
 /*!*****************************************!*\
@@ -19557,10 +19557,10 @@
         module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"Promise based HTTP client for the browser and node.js","main":"index.js","scripts":{"test":"grunt test","start":"node ./sandbox/server.js","build":"NODE_ENV=production grunt build","preversion":"npm test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json","postversion":"git push && git push --tags","examples":"node ./examples/server.js","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","fix":"eslint --fix lib/**/*.js"},"repository":{"type":"git","url":"https://github.com/axios/axios.git"},"keywords":["xhr","http","ajax","promise","node"],"author":"Matt Zabriskie","license":"MIT","bugs":{"url":"https://github.com/axios/axios/issues"},"homepage":"https://axios-http.com","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"jsdelivr":"dist/axios.min.js","unpkg":"dist/axios.min.js","typings":"./index.d.ts","dependencies":{"follow-redirects":"^1.14.0"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}]}');
 
         /***/
-})
+      })
 
     /******/
-});
+  });
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
@@ -19572,14 +19572,14 @@
 /******/ 		if (cachedModule !== undefined) {
 /******/ 			return cachedModule.exports;
       /******/
-}
+    }
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {
 /******/ 			id: moduleId,
 /******/ 			loaded: false,
 /******/ 			exports: {}
       /******/
-};
+    };
 /******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
@@ -19590,7 +19590,7 @@
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
     /******/
-}
+  }
 /******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = __webpack_modules__;
@@ -19606,7 +19606,7 @@
 /******/ 				deferred[i] = [chunkIds, fn, priority];
 /******/ 				return;
         /******/
-}
+      }
 /******/ 			var notFulfilled = Infinity;
 /******/ 			for (var i = 0; i < deferred.length; i++) {
 /******/ 				var [chunkIds, fn, priority] = deferred[i];
@@ -19615,26 +19615,26 @@
 /******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
 /******/ 						chunkIds.splice(j--, 1);
             /******/
-} else {
+          } else {
 /******/ 						fulfilled = false;
 /******/ 						if (priority < notFulfilled) notFulfilled = priority;
             /******/
-}
+          }
           /******/
-}
+        }
 /******/ 				if (fulfilled) {
 /******/ 					deferred.splice(i--, 1)
 /******/ 					var r = fn();
 /******/ 					if (r !== undefined) result = r;
           /******/
-}
+        }
         /******/
-}
+      }
 /******/ 			return result;
       /******/
-};
+    };
     /******/
-})();
+  })();
 /******/
 /******/ 	/* webpack/runtime/global */
 /******/ 	(() => {
@@ -19643,20 +19643,20 @@
 /******/ 			try {
 /******/ 				return this || new Function('return this')();
         /******/
-} catch (e) {
+      } catch (e) {
 /******/ 				if (typeof window === 'object') return window;
         /******/
-}
+      }
       /******/
-})();
+    })();
     /******/
-})();
+  })();
 /******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
     /******/
-})();
+  })();
 /******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
@@ -19665,12 +19665,12 @@
 /******/ 			if (typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
         /******/
-}
+      }
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
       /******/
-};
+    };
     /******/
-})();
+  })();
 /******/
 /******/ 	/* webpack/runtime/node module decorator */
 /******/ 	(() => {
@@ -19679,9 +19679,9 @@
 /******/ 			if (!module.children) module.children = [];
 /******/ 			return module;
       /******/
-};
+    };
     /******/
-})();
+  })();
 /******/
 /******/ 	/* webpack/runtime/jsonp chunk loading */
 /******/ 	(() => {
@@ -19694,7 +19694,7 @@
 /******/ 			"/js/app": 0,
 /******/ 			"css/app": 0
       /******/
-};
+    };
 /******/
 /******/ 		// no chunk on demand loading
 /******/
@@ -19719,31 +19719,31 @@
 /******/ 					if (__webpack_require__.o(moreModules, moduleId)) {
 /******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
             /******/
-}
+          }
           /******/
-}
+        }
 /******/ 				if (runtime) var result = runtime(__webpack_require__);
         /******/
-}
+      }
 /******/ 			if (parentChunkLoadingFunction) parentChunkLoadingFunction(data);
 /******/ 			for (; i < chunkIds.length; i++) {
 /******/ 				chunkId = chunkIds[i];
 /******/ 				if (__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
 /******/ 					installedChunks[chunkId][0]();
           /******/
-}
+        }
 /******/ 				installedChunks[chunkId] = 0;
         /******/
-}
+      }
 /******/ 			return __webpack_require__.O(result);
       /******/
-}
+    }
 /******/
 /******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
     /******/
-})();
+  })();
 /******/
 /************************************************************************/
 /******/

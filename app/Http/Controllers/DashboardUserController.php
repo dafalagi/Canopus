@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
 
 class DashboardUserController extends Controller
@@ -28,7 +30,7 @@ class DashboardUserController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.users.create');
     }
 
     /**
@@ -37,9 +39,14 @@ class DashboardUserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        //
+        $validated = $request->validated();
+        $validated['password'] = Hash::make($validated['password']);
+
+        User::create($validated);
+        
+        return redirect('/dashboard/users');
     }
 
     /**
@@ -50,7 +57,10 @@ class DashboardUserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return view('dashboard.users.show', [
+            'user' => $user,
+            'columns' => Schema::getColumnListing('users')
+        ]);
     }
 
     /**
@@ -61,7 +71,9 @@ class DashboardUserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('dashboard.users.edit', [
+            'user' => $user
+        ]);
     }
 
     /**
@@ -71,7 +83,7 @@ class DashboardUserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(UpdateUserRequest $request, User $user)
     {
         //
     }
