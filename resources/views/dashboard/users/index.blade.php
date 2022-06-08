@@ -19,7 +19,7 @@
                       <a href="/dashboard/users/{{ $user->username }}" class="badge bg-info">
                         <span data-feather="eye"></span>
                       </a>
-                      <a href="" class="badge bg-warning">
+                      <a href="/dashboard/users/{{ $user->username }}/edit" class="badge bg-warning">
                         <span data-feather="edit"></span>
                       </a>
                       <a href="" class="badge bg-danger">

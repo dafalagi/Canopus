@@ -45,9 +45,8 @@ class DashboardUserController extends Controller
         $validated['password'] = Hash::make($validated['password']);
 
         User::create($validated);
-
+        
         return redirect('/dashboard/users');
-        dd($validated);
     }
 
     /**
@@ -58,7 +57,10 @@ class DashboardUserController extends Controller
      */
     public function show(User $user)
     {
-        return view('dashboard.users.edit');
+        return view('dashboard.users.show', [
+            'user' => $user,
+            'columns' => Schema::getColumnListing('users')
+        ]);
     }
 
     /**
@@ -69,7 +71,9 @@ class DashboardUserController extends Controller
      */
     public function edit(User $user)
     {
-        
+        return view('dashboard.users.edit', [
+            'user' => $user
+        ]);
     }
 
     /**
