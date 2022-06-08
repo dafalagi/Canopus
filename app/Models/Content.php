@@ -12,6 +12,15 @@ class Content extends Model
 
     protected $guarded = ['id'];
 
+    public function scopeSearch($query, $search)
+    {
+        $query->when($search ?? false, function($query, $search)
+        {
+            return $query->where('title', 'like', '%'.$search.'%')
+                         ->orWhere('body', 'like', '%'.$search.'%');
+        });
+    }
+
     public function favorites()
     {
         return $this->hasMany(Favorite::class);
