@@ -60,7 +60,7 @@
               </div>
           </div>
         <div class="max-w-lg mx-auto text-center mt-6">
-            <p class="text-white">Belum memiliki akun?<a href="#" class="font-bold ml-1 text-orange2 hover:underline">Daftar sekarang</a></p>
+            <p class="text-white">Belum memiliki akun?<a href="/register" class="font-bold ml-1 text-orange2 hover:underline">Daftar sekarang</a></p>
         </div>
         <div class="max-w-lg mx-auto text-center mt-1 mb-6">
           <a href="#" class="font-bold ml-1 text-orange2 hover:underline">Lupa kata sandi?</a>

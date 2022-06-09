@@ -25,17 +25,48 @@
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Welcome, {{ auth()->user()->name }}</h1>
-        <div class="btn-toolbar mb-2 mb-md-0">
-          <div class="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+        @if (Request::is('dashboard/users/create') || Request::is('dashboard/contents/create') || Request::is('dashboard/discusses/create')
+            || Request::is('dashboard/reports/create') || Request::is('dashboard/favorites/create'))
+          <h1 class="h2">Add New 
+            {{ Request::is('dashboard/users/create') ? 'User' : '' }}
+            {{ Request::is('dashboard/contents/create') ? 'Content' : '' }}
+            {{ Request::is('dashboard/discusses/create') ? 'Discuss' : '' }}
+            {{ Request::is('dashboard/favorites/create') ? 'Favorite' : '' }}
+            {{ Request::is('dashboard/reports/create') ? 'Report' : '' }}
+          </h1>
+        @elseif(Request::is('dashboard/users/*') || Request::is('dashboard/contents/create') || Request::is('dashboard/discusses/create')
+        || Request::is('dashboard/reports/create') || Request::is('dashboard/favorites/create'))
+          <h1 class="h2"> 
+            {{ Request::is('dashboard/users/*') ? "User $user->username" : '' }}
+            {{ Request::is('dashboard/contents/create') ? 'Content' : '' }}
+            {{ Request::is('dashboard/discusses/create') ? 'Discuss' : '' }}
+            {{ Request::is('dashboard/favorites/create') ? 'Favorite' : '' }}
+            {{ Request::is('dashboard/reports/create') ? 'Report' : '' }}
+          </h1>
+        @else
+          <h1 class="h2">Welcome, {{ auth()->user()->username }}</h1>
+          <div class="btn-toolbar mb-2 mb-md-0">
+            @if (Request::is('dashboard'))
+            
+            @else
+              <div class="btn-group me-2">
+                <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+              </div>
+              <a href="
+              {{ Request::is('dashboard/users') ? 'users/create' : '' }}
+              {{ Request::is('dashboard/contents') ? 'contents/create' : '' }}
+              {{ Request::is('dashboard/discusses') ? 'discusses/create' : '' }}
+              {{ Request::is('dashboard/favorites') ? 'favorites/create' : '' }}
+              {{ Request::is('dashboard/reports') ? 'reports/create' : '' }}
+              "
+              class="text-decoration-none btn btn-sm btn-outline-primary">
+                <span data-feather="plus"></span>
+                Add New
+              </a>
+            @endif
           </div>
-          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-            <span data-feather="calendar" class="align-text-bottom"></span>
-            This week
-          </button>
-        </div>
+        @endif
       </div>
       @yield('body')
     </main>
