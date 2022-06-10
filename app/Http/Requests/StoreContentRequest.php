@@ -32,12 +32,11 @@ class StoreContentRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'picture' => 'required',
+            'picture' => 'present',
             'body' => 'required',
             'excerpt' => 'required',
-            'slug' => 'required|unique:contents',
             'category' => 'required',
-            'coordinate' => 'required',
+            'coordinate' => 'present',
             'trivia' => 'required',
         ];
     }
