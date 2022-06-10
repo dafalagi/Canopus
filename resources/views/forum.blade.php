@@ -1,91 +1,107 @@
-<div class="grid grid-cols-1 gap-44 p-10 ">
-    <div class="container -my-36">
-      <div class="relative mx-auto max-w-3xl rounded-xl shadow-md p-6 bg-thirdclr">
-        <div class="relative">
-          <button class="absolute top-0 right-0" id="menu-btn"><img 
-            class="w-11" 
-            src="/imgs/down arrow.png" 
-            alt=""/>
-          </button>
-          <div class="absolute top-6 right-0 bg-gray-200 hidden flex-col mt-1 p-2 text-sm w-32" id="dropdown">
-              <a href="#" class=" flex rounded-t-lg px-6 py-1 text-white bg-mainclr border-b border-white border-opacity-25">Simpan
-                <span class="items-center flex-auto">
-                  <img
-                    class="ml-2 mt-0.5"  
-                    src="/imgs/simpan.png" 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forum</title>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="bg-mainclr">
+    @include('.component.navbar')
+      <h1 class="font-bold pb-3 text-center mt-7 mb-7 text-2xl text-white">Selamat datang di Forum Canopus, Astroners!</h1>
+        <div class="flex flex-auto">
+            <div class="lg:ml-7 basis-1/4 sidebar lg:left-0 p-3 overflow-y-auto">
+              <div class="text-gray-900 text-xl">
+                <h1 class="text-white text-lg pl-14 pb-6">Menu</h1>
+                <a href="" class="relative flex items-center">
+                  <img 
+                    class="w-6 absolute ml-4 pointer-events-none" 
+                    src="/imgs/home.png" 
                     alt=""/>
-                </span>
-              </a>
-              <a href="#" class="flex rounded-b-lg px-6 py-1 text-white bg-mainclr">Profile
-                <span class="items-center flex-auto">
-                  <img
-                    class="ml-2 mt-0.5"  
-                    src="/imgs/laporkan.png" 
+                    <span class="p-1 text-lg text-white pl-14 hover:text-secondaryclr">Beranda</span>
+                </a>
+                <a href="" class="relative flex items-center">
+                  <img 
+                    class="w-6 absolute ml-4 pointer-events-none" 
+                    src="/imgs/myTopik.png" 
                     alt=""/>
-                </span>
-              </a>
+                    <span class="p-1 text-lg text-white pl-14 hover:text-secondaryclr">Topik saya</span>
+                </a>
+                <a href="" class="relative flex items-center">
+                  <img 
+                    class="w-6 absolute ml-4 pointer-events-none" 
+                    src="/imgs/myComment.png" 
+                    alt=""/>
+                    <span class="p-1 text-lg text-white pl-14 hover:text-secondaryclr">Jawaban saya</span>
+                </a>
+              </div>
+              <div class="absolute">
+                <img 
+                    class="w-64  my-24" 
+                    src="/imgs/astronot_2.png" 
+                    alt=""/>
+              </div>
+            </div>
+            <div class="basis-5/6 w-full pl-64 py-3 bg-grey-50">
+              <form action="">
+                          <div class="relative flex items-center">
+                              <img 
+                                class="w-6 absolute ml-4 pointer-events-none" 
+                                src="/imgs/searchIcon.png" 
+                                alt=""/>
+                          <input 
+                              type="text"
+                              name="search"
+                              placeholder="Cari topik lainnya"
+                              autocomplete="off"
+                              class=" pr-56 pl-12 py-2 font-semibold placeholder-gray-50 text-black rounded-xl border-none ring-2 ring-gray-300 focus:ring-grey-50 focus:ring-2 shadow-lg">
+                          </div>
+                      </form>
+            </div>
+            <div class=" text-right basis-1/3 w-32 h-10 mr-16">
+              <button
+                    class="px-6 py-5 rounded-lg text-white bg-orange2 bg-opacity-90 hover:bg-secondaryclr shadow-lg">
+                    + Mulai dengan topik baru
+              </button>
+              <div class="absolute">
+                <img 
+                    class="w-64 mx-14 my-16" 
+                    src="/imgs/astronot.png" 
+                    alt=""/>
+              </div>
+            </div>
+          </div>
+        @include('.component.bodyForum')
+        <div class="flex items-center text-white justify-center border-b border-white border-opacity-25 pt-24 pb-9">
+          <div class="flex select-none space-x-1">
+            <a href="#" class="rounded-md bg-gray-200 px-4 py-2 transition duration-200 hover:bg-secondaryclr">
+              <img 
+                class="w-4 absolute -mx-2.5 pointer-events-none" 
+                src="/imgs/leftArrow.png" 
+                alt=""/>
+            </a>
+            <a href="#" class="rounded-md bg-secondaryclr px-4 py-2"> 1 </a>
+            <a href="#" class="rounded-md bg-gray-200 px-4 py-2 transition duration-200 hover:bg-secondaryclr"> 2 </a>
+            <a href="#" class="rounded-md bg-gray-200 px-4 py-2 transition duration-200 hover:bg-secondaryclr"> 3 </a>
+            <span class="rounded-md px-4 py-2 transition duration-200 hover:bg-secondaryclr"> ... </span>
+            <a href="#" class="rounded-md bg-gray-200 px-4 py-2 transition duration-200 hover:bg-secondaryclr"> 10 </a>
+            <a href="#" class="rounded-md bg-gray-200 px-4 py-2 transition duration-200 hover:bg-secondaryclr">
+              <img 
+                class="w-4 absolute -mx-1.5 pointer-events-none" 
+                src="/imgs/rightArrow.png" 
+                alt=""/></a>
           </div>
         </div>
-      <script>
-          window.addEventListener('DOMContentLoaded', ()=> {
-              const menuBtn = document.querySelector('#menu-btn')
-              const dropdown = document.querySelector('#dropdown')
-              
-              menuBtn.addEventListener('click', () => {
-                  /* if(dropdown.classList.contains('hidden')){
-                      dropdown.classList.remove('hidden');
-                      dropdown.classList.add('flex');
-                  }else{
-                      dropdown.classList.remove('flex')
-                      dropdown.classList.add('hidden')
-                  } */
-  
-                  dropdown.classList.toggle('hidden')
-                  dropdown.classList.toggle('flex')
-              })
-          })
-      </script>
-      <div class="flex">
-        <div class="flex-auto mt-16 items-start">
-            <button>
-                <img 
-                        class="w-6 mr-10" 
-                        src="/imgs/UpArrow.png" 
-                        alt=""/>
-            </button>
-            <p class="ml-1 text-white text-opacity-25">25</p>
-            <button>
-              <img 
-                        class="w-6 mr-10" 
-                        src="/imgs/DownArrow.png" 
-                        alt=""/>
-            </button>
         </div>
-        <div class="flex-auto">
-              <h1 class="mb-5 font-bold text-3xl text-white">Covid-19 Mega Thread</h1>
-                <p class="text-white text-sm border-b border-white border-opacity-25 pb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-        </div>
-      </div>
-          <div class="flex">
-            <div class="flex-auto pt-4">
-                <img 
-                    class="w-8 absolute" 
-                    src="/imgs/profil.png" 
-                    alt=""/>
-                <span class="text-white text-lg ml-12 pt-6 pb-5">Diunggah oleh</span>
-                  <a href="" class="relative items-center">
-                      <span class="text-lg text-secondaryclr">ikhsan.n.rizki</span>
-                  </a>
-                <span class="text-lg text-white text-opacity-30 ml-3">2 jam yang lalu</span>
-            </div>
-          <a href="">
-            <img 
-              class="w-6 pt-5 mx-1 pointer-events-none" 
-              src="/imgs/comment.png" 
-              alt=""/>
-          </a>
-          <span class="p-1 text-lg pt-4 text-white text-opacity-30">69+</span>
-      </div>
     </div>
-</div>
+  </body>
+  @include('component.Footer')
+</html>
