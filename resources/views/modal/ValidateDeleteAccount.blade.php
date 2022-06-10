@@ -1,5 +1,5 @@
 @include('.component.head')
-<button class="bg-thirdclr hover:opacity-80 px-3 py-1 rounded text-white m-5 show-modal">
+<button class="bg-secondaryclr hover:opacity-80 px-3 py-1 rounded text-white m-5 show-modal">
         Hapus Akun
 </button>
 <div class="modal hidden">
