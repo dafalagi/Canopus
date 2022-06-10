@@ -24,7 +24,6 @@
             <input type="text" class="form-control @error('username') is-invalid @enderror" name="username" 
             value="{{ old('username') }}" required 
             @if ($errors->hasAny('email', 'password', 'confirm_password', 'bio', 'is_admin'))
-                
             @else
                 autofocus
             @endif>

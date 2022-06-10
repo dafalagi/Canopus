@@ -1,7 +1,6 @@
 @extends('dashboard.layouts.main')
 
 @section('body')
-      <h2>Reports Table</h2>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>

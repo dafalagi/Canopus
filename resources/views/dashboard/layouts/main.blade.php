@@ -34,17 +34,27 @@
             {{ Request::is('dashboard/favorites/create') ? 'Favorite' : '' }}
             {{ Request::is('dashboard/reports/create') ? 'Report' : '' }}
           </h1>
-        @elseif(Request::is('dashboard/users/*') || Request::is('dashboard/contents/create') || Request::is('dashboard/discusses/create')
-        || Request::is('dashboard/reports/create') || Request::is('dashboard/favorites/create'))
+        @elseif(Request::is('dashboard/users/*') || Request::is('dashboard/contents/*') || Request::is('dashboard/discusses/*')
+        || Request::is('dashboard/reports/*') || Request::is('dashboard/favorites/*'))
           <h1 class="h2"> 
             {{ Request::is('dashboard/users/*') ? "User $user->username" : '' }}
-            {{ Request::is('dashboard/contents/create') ? 'Content' : '' }}
-            {{ Request::is('dashboard/discusses/create') ? 'Discuss' : '' }}
-            {{ Request::is('dashboard/favorites/create') ? 'Favorite' : '' }}
-            {{ Request::is('dashboard/reports/create') ? 'Report' : '' }}
+            {{ Request::is('dashboard/contents/*') ? "Content $content->title" : '' }}
+            {{ Request::is('dashboard/discusses/*') ? "Discuss $discuss->title" : '' }}
+            {{ Request::is('dashboard/favorites/*') ? "Favorite $favorite->id" : '' }}
+            {{ Request::is('dashboard/reports/*') ? "Report $report->id" : '' }}
           </h1>
         @else
-          <h1 class="h2">Welcome, {{ auth()->user()->username }}</h1>
+          @if (Request::is('dashboard'))
+            <h1 class="h2">Welcome, {{ auth()->user()->username }}</h1>
+          @else
+            <h1 class="h2">
+              {{ Request::is('dashboard/users') ? 'Users Table' : '' }}
+              {{ Request::is('dashboard/contents') ? 'Contents Table' : '' }}
+              {{ Request::is('dashboard/discusses') ? 'Discusses Table' : '' }}
+              {{ Request::is('dashboard/favorites') ? 'Favorites Table' : '' }}
+              {{ Request::is('dashboard/reports') ? 'Reports Table' : '' }}
+            </h1>  
+          @endif
           <div class="btn-toolbar mb-2 mb-md-0">
             @if (Request::is('dashboard'))
             

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreContentRequest;
+use App\Http\Requests\UpdateContentRequest;
 use App\Models\Content;
-use Illuminate\Http\Request;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Schema;
 
 class DashboardContentController extends Controller
@@ -28,7 +30,7 @@ class DashboardContentController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.contents.create');
     }
 
     /**
@@ -37,9 +39,15 @@ class DashboardContentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreContentRequest $request)
     {
-        //
+        $validated = $request->validated();
+        $slug = SlugService::createSlug(Content::class, 'slug', $validated['title']);
+        $validated['slug'] = $slug;
+
+        Content::create($validated);
+
+        return redirect('/dashboard/contents');
     }
 
     /**
@@ -50,7 +58,10 @@ class DashboardContentController extends Controller
      */
     public function show(Content $content)
     {
-        //
+        return view('dashboard.contents.show', [
+            'content' => $content,
+            'columns' => Schema::getColumnListing('contents')
+        ]);
     }
 
     /**
@@ -71,7 +82,7 @@ class DashboardContentController extends Controller
      * @param  \App\Models\Content  $content
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Content $content)
+    public function update(UpdateContentRequest $request, Content $content)
     {
         //
     }
