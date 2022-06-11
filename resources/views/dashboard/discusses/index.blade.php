@@ -1,7 +1,6 @@
 @extends('dashboard.layouts.main')
 
 @section('body')
-      <h2>Discusses Table</h2>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>
@@ -16,7 +15,7 @@
             @foreach ($discusses as $discuss)
                 <tr>
                     <td>
-                      <a href="/dashboard/users/{{ $discuss->slug }}" class="badge bg-info">
+                      <a href="/dashboard/discusses/{{ $discuss->slug }}" class="badge bg-info">
                         <span data-feather="eye"></span>
                       </a>
                       <a href="" class="badge bg-warning">
