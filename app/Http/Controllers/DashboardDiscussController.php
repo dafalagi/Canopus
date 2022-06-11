@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreDiscussRequest;
+use App\Http\Requests\UpdateDiscussRequest;
 use App\Models\Discuss;
-use Illuminate\Http\Request;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Str;
 
 class DashboardDiscussController extends Controller
 {
@@ -28,7 +31,7 @@ class DashboardDiscussController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.discusses.create');
     }
 
     /**
@@ -37,9 +40,16 @@ class DashboardDiscussController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreDiscussRequest $request)
     {
-        //
+        $validated = $request->validated();
+        $validated['user_id'] = auth()->user()->id;
+        $validated['slug'] = SlugService::createSlug(Discuss::class, 'slug', $validated['title']);
+        $validated['excerpt'] = Str::limit(strip_tags($validated['body']), 200, '...');
+
+        Discuss::create($validated);
+
+        return redirect('/dashboard/discusses');
     }
 
     /**
@@ -50,7 +60,10 @@ class DashboardDiscussController extends Controller
      */
     public function show(Discuss $discuss)
     {
-        //
+        return view('dashboard.discusses.show', [
+            'discuss' => $discuss,
+            'columns' => Schema::getColumnListing('discusses'),
+        ]);
     }
 
     /**
@@ -71,7 +84,7 @@ class DashboardDiscussController extends Controller
      * @param  \App\Models\Discuss  $discuss
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Discuss $discuss)
+    public function update(UpdateDiscussRequest $request, Discuss $discuss)
     {
         //
     }

@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateContentRequest;
 use App\Models\Content;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Str;
 
 class DashboardContentController extends Controller
 {
@@ -42,12 +43,14 @@ class DashboardContentController extends Controller
     public function store(StoreContentRequest $request)
     {
         $validated = $request->validated();
-        $slug = SlugService::createSlug(Content::class, 'slug', $validated['title']);
-        $validated['slug'] = $slug;
 
-        Content::create($validated);
+        $validated['slug'] = SlugService::createSlug(Content::class, 'slug', $validated['title']);
+        $validated['excerpt'] = Str::limit(strip_tags($validated['body']), 200, '...');
 
-        return redirect('/dashboard/contents');
+        // Content::create($validated);
+
+        // return redirect('/dashboard/contents');
+        dd($validated);
     }
 
     /**

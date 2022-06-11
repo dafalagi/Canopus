@@ -10,8 +10,8 @@
                   {{ Request::is('/') ? 'text-secondaryclr' : 'text-white hover:bg-secondaryclr transition duration-200 rounded-lg' }} ">
                   Beranda
                 </a>
-                <a href="#" class="px-4 py-2 
-                  {{ Request::is('/contents') ? 'text-secondaryclr' : 'w-40 text-white hover:bg-secondaryclr transition duration-200 rounded-lg' }} ">
+                <a href="/contents" class="px-4 py-2 
+                  {{ Request::is('contents') ? 'text-secondaryclr' : 'w-40 text-white hover:bg-secondaryclr transition duration-200 rounded-lg' }} ">
                   Samudra angkasa
                 </a>
                 <a href="/discusses" class="px-4 py-2 

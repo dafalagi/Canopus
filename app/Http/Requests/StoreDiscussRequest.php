@@ -33,8 +33,7 @@ class StoreDiscussRequest extends FormRequest
         return [
             'title' => 'required',
             'body' => 'required',
-            'excerpt' => 'required',
-            'slug' => 'required|unique:discusses',
+            'picture' => 'nullable|image'
         ];
     }
 }
