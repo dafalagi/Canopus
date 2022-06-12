@@ -51,7 +51,7 @@
             </select>
         </div>
         <div class="mb-3">
-            <label class="form-label">Content Details (Body)</label>
+            <label class="form-label">Content Details</label>
             <input id="body" type="hidden" name="body" value="{{ old('body') }}">
             <trix-editor input="body"></trix-editor>
         </div>

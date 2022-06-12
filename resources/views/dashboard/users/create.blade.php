@@ -51,8 +51,13 @@
         <div class="mb-4">
             <label class="form-label">Is Admin?</label>
             <select name="is_admin" class="form-select @error('is_admin') is-invalid @enderror" @error('is_admin') autofocus @enderror>
-                <option value="1">True</option>
-                <option value="0" selected>False</option>
+                @if (old('is_admin') == 1)
+                    <option value="1" selected>True</option>
+                    <option value="0">False</option>
+                @else
+                    <option value="1">True</option>
+                    <option value="0" selected>False</option>
+                @endif
             </select>
         </div>
         <div class="mb-5 d-flex justify-content-end">

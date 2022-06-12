@@ -15,7 +15,7 @@ class ContentFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence(mt_rand(2, 5)),
-            'picture' => $this->faker->imageUrl(640, 480, 'space', true),
+            'picture' => "https://loremflickr.com/640/480/space",
             'body' => collect($this->faker->paragraphs(mt_rand(5, 10)))->map(fn ($p) => "<p>$p</p>")->implode(''),
             'excerpt' => $this->faker->paragraph(mt_rand(5, 10)),
             'slug' => $this->faker->unique()->slug(),

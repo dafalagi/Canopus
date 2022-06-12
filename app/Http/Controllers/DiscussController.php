@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Discuss;
 use App\Http\Requests\StoreDiscussRequest;
 use App\Http\Requests\UpdateDiscussRequest;
-use Clockwork\Request\Request;
 
 class DiscussController extends Controller
 {
@@ -17,7 +16,7 @@ class DiscussController extends Controller
     public function index()
     {
         return view('pages.forum', [
-            'discusses' => Discuss::latest()->search(request('search'))->paginate(5)->withQueryString(),
+            'discusses' => Discuss::latest()->search(request('search'))->paginate(20)->withQueryString(),
         ]);
     }
 

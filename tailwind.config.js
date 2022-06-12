@@ -20,6 +20,9 @@ module.exports = {
             grey: "#777777",
             grey2: "#D7D7D7",
         },
+        fontFamily: {
+            body: ["Poppins"],
+        },
     },
 
 

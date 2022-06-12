@@ -13,9 +13,8 @@ class ContentController extends Controller
      */
     public function index()
     {
-        return view('contents', [
-            'title' => 'Samudera Angkasa',
-            'contents' => Content::all(),
+        return view('pages.contentlist', [
+            'contents' => Content::filter(request('search'))->get(),
         ]);
     }
 

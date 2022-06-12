@@ -4,7 +4,7 @@
 
 <body class="w-full h-full bg-no-repeat bg-cover font-body"
 style="background-image: url(/imgs/bg-listBendaLangit.png)">
-@include('navbar')
+@include('component.navbar')
 <div class="p-10">
     {{-- Section Welcome --}}
     <section id="Welcome" class="mb-12">
@@ -17,7 +17,7 @@ style="background-image: url(/imgs/bg-listBendaLangit.png)">
                         <h1 class="text-3xl font-bold text-white">Selamat datang di samudra angkasa, Astroners!</h1>
                     </div>
                     {{-- Search --}}
-                    <form action="">
+                    <form action="/contents">
                         <div class="flex items-center">
                             <svg class="h-8 w-8 absolute ml-3 text-black"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
@@ -82,12 +82,10 @@ style="background-image: url(/imgs/bg-listBendaLangit.png)">
             </div>
             {{-- card --}}
             <div class="grid grid-cols-3 gap-4 place-items-stretch px-10">
-                {{-- card 1 --}}
-                @include('component.cardPlanet')
-                {{-- card 2 --}}
-                @include('component.cardPlanet')
-                {{-- card 3 --}}
-                @include('component.cardPlanet')
+                @foreach ($contents->where('category', 'Benda Langit Lain')->slice(0,3) as $content)
+                    {{-- card 1 --}}
+                    @include('component.cardPlanet')
+                @endforeach
             </div>
         </div>
     </section>
@@ -110,12 +108,10 @@ style="background-image: url(/imgs/bg-listBendaLangit.png)">
             </div>
             {{-- card --}}
             <div class="grid grid-cols-3 gap-4 place-items-stretch px-10">
-                {{-- card 1 --}}
-                @include('component.cardPlanet')
-                {{-- card 2 --}}
-                @include('component.cardPlanet')
-                {{-- card 3 --}}
-                @include('component.cardPlanet')
+                @foreach ($contents->where('category', 'Planet')->slice(0,3) as $content)
+                    {{-- card 1 --}}
+                    @include('component.cardPlanet')
+                @endforeach
             </div>
         </div>
     </section>
@@ -221,22 +217,4 @@ style="background-image: url(/imgs/bg-listBendaLangit.png)">
 </div>
 </body>
 @include('component.Footer')
-
-<script>
-    const modal = document.querySelector('.modal');
-    
-    const showModal = document.querySelector('.show-modal');
-    const closeModal = document.querySelectorAll('.close-modal');
-    
-    showModal.addEventListener('click', function (){
-      modal.classList.remove('hidden')
-    });
-    
-    closeModal.forEach(close => {
-      close.addEventListener('click', function (){
-        modal.classList.add('hidden')
-      });
-    });
-</script>
-
 </html>
