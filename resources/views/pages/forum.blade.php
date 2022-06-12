@@ -68,8 +68,12 @@
             </div>
           </div>
         @include('.component.bodyForum')
-        <div class="flex items-center text-white justify-center border-b border-white border-opacity-25 pt-24 pb-9">
+        <div class="mx-auto">
+          {{ $discusses->links() }}
+        </div>
+        {{-- <div class="flex items-center justify-center pt-24 pb-9">
           <div class="flex select-none space-x-1">
+            
             <a href="#" class="rounded-md bg-gray-200 px-4 py-2 transition duration-200 hover:bg-secondaryclr">
               <img 
                 class="w-4 absolute -mx-2.5 pointer-events-none" 
@@ -87,7 +91,7 @@
                 src="/imgs/rightArrow.png" 
                 alt=""/></a>
           </div>
-        </div>
+        </div> --}}
         </div>
     </div>
   </body>

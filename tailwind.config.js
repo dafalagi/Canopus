@@ -21,5 +21,9 @@ module.exports = {
             grey2: "#D7D7D7",
         },
     },
-    plugins: [],
+
+
+    plugins: [
+        require('tailwindcss-plugins/pagination'),
+    ],
 };
