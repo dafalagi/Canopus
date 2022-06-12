@@ -24,5 +24,9 @@ module.exports = {
             body: ["Poppins"],
         },
     },
-    plugins: [],
+
+
+    plugins: [
+        require('tailwindcss-plugins/pagination'),
+    ],
 };
