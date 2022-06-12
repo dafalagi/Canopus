@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Models\Comment;
+use App\Models\Discuss;
+use App\Models\Favorite;
+use App\Models\Report;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
@@ -127,6 +131,10 @@ class DashboardUserController extends Controller
     public function destroy(User $user)
     {
         User::destroy($user->id);
+        Discuss::where('user_id', $user->id)->delete();
+        Favorite::where('user_id', $user->id)->delete();
+        Comment::where('user_id', $user->id)->delete();
+        Report::where('user_id', $user->id)->delete();
         
         return redirect('/dashboard/users')->with('success', 'Data Deleted Successfully!');
     }

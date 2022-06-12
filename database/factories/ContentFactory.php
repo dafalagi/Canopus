@@ -15,12 +15,15 @@ class ContentFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence(mt_rand(2, 5)),
-            'picture' => "https://loremflickr.com/640/480/space",
+            'mainpicture' => "https://loremflickr.com/640/480/space",
             'body' => collect($this->faker->paragraphs(mt_rand(5, 10)))->map(fn ($p) => "<p>$p</p>")->implode(''),
             'excerpt' => $this->faker->paragraph(mt_rand(5, 10)),
             'slug' => $this->faker->unique()->slug(),
-            'category' => collect(['Planet','Benda Langit Lain','Istilah Angkasa'])->random(),
+            'category' => collect(['Planet', 'Bintang', 'Rasi Bintang', 'Lainnya di Angkasa'])->random(),
             'trivia' => $this->faker->paragraph(mt_rand(5, 10)),
+            'distance' => $this->faker->randomNumber(5, false)." ".collect(['Milyar Tahun Cahaya', 'Juta Tahun Cahaya', 'Tahun Cahaya'])->random(),
+            'event' => collect(['Merkurius', 'Venus', 'Bumi', 'Mars', 'Jupiter', 'Saturnus', 'Uranus', 'Neptunus', 'Ceres', 'Eris', 'Pluto', 'Makemake', 'Haumea'])->random(),
+            'coordinate' => $this->faker->randomNumber(5, false).".".$this->faker->randomNumber(5, false).":".$this->faker->randomNumber(5, false),
         ];
     }
 }

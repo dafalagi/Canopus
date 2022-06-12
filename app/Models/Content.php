@@ -11,6 +11,9 @@ class Content extends Model
     use HasFactory, Sluggable;
 
     protected $guarded = ['id'];
+    protected $casts = [
+        'pictures' => 'array',
+    ];
 
     public function scopeFilter($query, $filters)
     {
