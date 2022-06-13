@@ -21,8 +21,8 @@ class CreateDiscussesTable extends Migration
             $table->binary('picture')->nullable();
             $table->text('excerpt');
             $table->string('slug')->unique();
-            $table->integer('likes');
-            $table->integer('dislikes');
+            $table->integer('likes')->nullable();
+            $table->integer('dislikes')->nullable();
             $table->timestamps();
         });
     }

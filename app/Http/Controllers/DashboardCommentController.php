@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Report;
+use App\Models\Comment;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Schema;
 
-class DashboardReportController extends Controller
+class DashboardCommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +14,7 @@ class DashboardReportController extends Controller
      */
     public function index()
     {
-        return view('dashboard.reports.index', [
-            'reports' => Report::all(),
-            'columns' => Schema::getColumnListing('reports'),
-        ]);
+        //
     }
 
     /**
@@ -45,10 +41,10 @@ class DashboardReportController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Report  $report
+     * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function show(Report $report)
+    public function show(Comment $comment)
     {
         //
     }
@@ -56,10 +52,10 @@ class DashboardReportController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Report  $report
+     * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Report $report)
+    public function edit(Comment $comment)
     {
         //
     }
@@ -68,10 +64,10 @@ class DashboardReportController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Report  $report
+     * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Report $report)
+    public function update(Request $request, Comment $comment)
     {
         //
     }
@@ -79,10 +75,10 @@ class DashboardReportController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Report  $report
+     * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Report $report)
+    public function destroy(Comment $comment)
     {
         //
     }

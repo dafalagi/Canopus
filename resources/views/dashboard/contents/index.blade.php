@@ -1,6 +1,14 @@
 @extends('dashboard.layouts.main')
 
 @section('body')
+      @if (session()->has('success'))
+        <div class="alert alert-success alert-dismissible" role="alert">
+          <strong>
+            {{ session('success') }}
+          </strong>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      @endif
       <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>
@@ -21,9 +29,13 @@
                       <a href="/dashboard/contents/{{ $content->slug }}/edit" class="badge bg-warning">
                         <span data-feather="edit"></span>
                       </a>
-                      <a href="" class="badge bg-danger">
-                        <span data-feather="x-circle"></span>
-                      </a>
+                      <form action="/dashboard/contents/{{ $content->slug }}" method="post">
+                        @method('delete')
+                        @csrf
+                        <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')">
+                          <span data-feather="x-circle"></span>
+                        </button>
+                      </form>
                     </td>
                     @foreach ($columns as $column)
                         <td>{{ $content->$column }}</td>

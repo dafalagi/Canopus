@@ -8,7 +8,8 @@
       {{ Request::is('register') ? 'Register' : '' }}
       {{ Request::is('forgotpass') ? 'Forgot Password' : '' }}
       {{ Request::is('emailver') ? 'Email Verification' : '' }}
-      {{ Request::is('discusses') ? 'Forum' : '' }}
+      {{ Request::is('discusses*') ? 'Forum' : '' }}
+      {{ Request::is('contents') ? 'Samudera Angkasa' : '' }}
     </title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   </head>
