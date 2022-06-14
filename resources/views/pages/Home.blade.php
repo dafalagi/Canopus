@@ -2,12 +2,12 @@
 <html lang="en">
 @include('component.head')
 
-<body>
+<body class="font-body">
     {{-- Hero section --}}
-    <section id="HomeHero" class="w-full h-full pt-8 bg-no-repeat bg-cover" 
+    <section id="HomeHero" class="w-full h-full bg-no-repeat bg-cover" 
     style="background-image: url(/imgs/bg-home.png)">
         @include('component.navbar')
-            <div class="container pt-44">
+            <div class="container pt-44 pb-8">
                 <div>
                     <div class="w-full px-24 pb-72">
                         <h1 class="text-3xl font-bold text-white">Hello Astroners!<br>Selamat Datang Di Canopus</h1>

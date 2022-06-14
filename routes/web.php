@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContentController;
+use App\Http\Controllers\DashboardCommentController;
 use App\Http\Controllers\DashboardContentController;
 use App\Http\Controllers\DashboardDiscussController;
 use App\Http\Controllers\DashboardFavoriteController;
@@ -70,6 +71,7 @@ Route::middleware('admin')->group(function(){
     Route::resource('/dashboard/contents', DashboardContentController::class);
     Route::resource('/dashboard/discusses', DashboardDiscussController::class);
     Route::resource('/dashboard/favorites', DashboardFavoriteController::class);
+    Route::resource('/dashboard/comments', DashboardCommentController::class);
     Route::resource('/dashboard/reports', DashboardReportController::class);
 });
 

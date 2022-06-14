@@ -3,7 +3,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Canopus Dashboard">
     <meta name="author" content="Canopus">
-    <title>Canopus | Dashboard</title>
+    <title>
+      {{ Request::is('dashboard') ? 'Canopus | Dashboard' : '' }}
+      {{ Request::is('dashboard/users*') ? 'Canopus | Users' : '' }}
+      {{ Request::is('dashboard/contents*') ? 'Canopus | Contents' : '' }}
+      {{ Request::is('dashboard/discusses*') ? 'Canopus | Discusses' : '' }}
+      {{ Request::is('dashboard/favorites*') ? 'Canopus | Favorites' : '' }}
+      {{ Request::is('dashboard/comments*') ? 'Canopus | Comments' : '' }}
+      {{ Request::is('dashboard/reports*') ? 'Canopus | Reports' : '' }} 
+    </title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/dashboard/">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">

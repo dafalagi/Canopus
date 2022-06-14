@@ -32,6 +32,12 @@
           </a>
         </li>
         <li class="nav-item">
+          <a class="nav-link {{ Request::is('dashboard/comments*') ? 'active' : '' }}" href="/dashboard/comments">
+            <span data-feather="message-square" class="align-text-bottom"></span>
+            Comment
+          </a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link {{ Request::is('dashboard/reports*') ? 'active' : '' }}" href="/dashboard/reports">
             <span data-feather="alert-triangle" class="align-text-bottom"></span>
             Reports

@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreContentRequest;
 use App\Http\Requests\UpdateContentRequest;
 use App\Models\Content;
+use App\Models\Favorite;
+use App\Models\Report;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Str;
 
 class DashboardContentController extends Controller
 {
@@ -42,12 +45,13 @@ class DashboardContentController extends Controller
     public function store(StoreContentRequest $request)
     {
         $validated = $request->validated();
-        $slug = SlugService::createSlug(Content::class, 'slug', $validated['title']);
-        $validated['slug'] = $slug;
+
+        $validated['slug'] = SlugService::createSlug(Content::class, 'slug', $validated['title']);
+        $validated['excerpt'] = Str::limit(strip_tags($validated['body']), 200, '...');
 
         Content::create($validated);
 
-        return redirect('/dashboard/contents');
+        return redirect('/dashboard/contents')->with('success', 'Data Added Successfully!');
     }
 
     /**
@@ -72,7 +76,9 @@ class DashboardContentController extends Controller
      */
     public function edit(Content $content)
     {
-        //
+        return view('dashboard.contents.edit', [
+            'content' => $content
+        ]);
     }
 
     /**
@@ -84,7 +90,23 @@ class DashboardContentController extends Controller
      */
     public function update(UpdateContentRequest $request, Content $content)
     {
-        //
+        if($request->title != $content->title)
+        {
+            $add = $request->validate([
+                'title' => 'required|unique:contents|min:5'
+            ]);
+            $validated = $request->safe()->merge($add)->toArray();
+            $validated['slug'] = SlugService::createSlug(Content::class, 'slug', $validated['title']);
+        }else
+        {
+            $validated = $request->validated();
+        }
+
+        $validated['excerpt'] = Str::limit(strip_tags($validated['body']), 200, '...');
+        
+        Content::where('id', $content->id)->update($validated);
+
+        return redirect('/dashboard/contents')->with('success', 'Data Edited Successfully!');
     }
 
     /**
@@ -95,6 +117,10 @@ class DashboardContentController extends Controller
      */
     public function destroy(Content $content)
     {
-        //
+        Content::destroy($content->id);
+        Favorite::where('content_id', $content->id)->delete();
+        Report::where('content_id', $content->id)->delete();
+
+        return redirect('/dashboard/contents')->with('success', 'Data Deleted Successfully!');
     }
 }

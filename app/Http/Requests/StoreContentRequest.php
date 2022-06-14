@@ -31,13 +31,15 @@ class StoreContentRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
-            'picture' => 'present',
-            'body' => 'required',
-            'excerpt' => 'required',
-            'category' => 'required',
-            'coordinate' => 'present',
-            'trivia' => 'required',
+            'title' => 'required|unique:contents|min:5',
+            'body' => 'required|string|min:20',
+            'category' => 'required|string',
+            'coordinate' => 'nullable|string',
+            'distance' => 'nullable|string',
+            'event' => 'nullable|string',
+            'mainpicture' => 'nullable|image',
+            'pictures' => 'nullable|image',
+            'trivia' => 'required|string|min:20',
         ];
     }
 }
