@@ -58,7 +58,9 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        
+        return view('profile', [
+            'user' => $user
+        ]);
     }
 
     /**
@@ -69,7 +71,9 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('settings');
+        return view('settings', [
+            'user' => $user
+        ]);
     }
 
     /**
@@ -81,7 +85,9 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user)
     {
-        //Store Update User
+        User::where('id', $user->id)->update($request);
+
+        return redirect()->route('settings');
     }
 
     /**
@@ -118,7 +124,10 @@ class UserController extends Controller
             return redirect()->intended('/');
         }
 
-        return back()->with('loginError', 'Email atau Kata Sandi Salah!');
+        return back()->with([
+            'loginError' => 'Email atau Password salah. Silakan cek kembali Email dan Password kamu!',
+            'email' => $credentials['email'],
+        ]);
     }
 
     // Log user out
