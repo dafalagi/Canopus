@@ -28,13 +28,10 @@
                   @auth
                     <form action="/logout" method="POST">
                       @csrf
-                      <button><span>Logout</span></button>
+                      <button><span>Log In</span></button>
                     </form>
                     @else
-                    <img 
-                    class="mx-auto w-8" 
-                    src="/imgs/Vector.png" 
-                    alt="">
+                    @include('.modal.Profile')
                   @endauth
                 </a>
               </div>
