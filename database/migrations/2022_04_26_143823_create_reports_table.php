@@ -19,7 +19,7 @@ class CreateReportsTable extends Migration
             $table->foreignId('discuss_id')->nullable();
             $table->foreignId('content_id')->nullable();
             $table->foreignId('user_id');
-            $table->timestamp('created_at');
+            $table->timestamps();
         });
     }
 

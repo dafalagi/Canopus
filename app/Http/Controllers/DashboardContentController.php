@@ -101,8 +101,10 @@ class DashboardContentController extends Controller
         {
             $validated = $request->validated();
         }
-
-        $validated['excerpt'] = Str::limit(strip_tags($validated['body']), 200, '...');
+        if($request->body != $content->body)
+        {
+            $validated['excerpt'] = Str::limit(strip_tags($validated['body']), 200, '...');
+        }
         
         Content::where('id', $content->id)->update($validated);
 
