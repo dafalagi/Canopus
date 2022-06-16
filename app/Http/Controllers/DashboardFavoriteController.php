@@ -100,21 +100,27 @@ class DashboardFavoriteController extends Controller
     {
         $validated = $request->validated();
 
-        if($validated['content_title'] ?? false)
+        if($validated['content_title'])
         {
             $content = Content::where('title', $validated['content_title'])->first()->toArray();
             if($content['id'] != $favorite->content_id)
             {
                 $validated['content_id'] = $content['id'];
             }
+        }else
+        {
+            $validated['content_id'] = null;
         }
-        if($validated['discuss_title'] ?? false)
+        if($validated['discuss_title'])
         {
             $discuss = Discuss::where('title', $validated['discuss_title'])->first()->toArray();
             if($discuss['id'] != $favorite->discuss_id)
             {
                 $validated['discuss_id'] = $discuss['id'];
             }
+        }else
+        {
+            $validated['discuss_id'] = null;
         }
         if(auth()->user()->id != $favorite->user_id)
         {

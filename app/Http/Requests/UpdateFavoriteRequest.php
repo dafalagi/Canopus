@@ -31,7 +31,7 @@ class UpdateFavoriteRequest extends FormRequest
     public function rules()
     {
         return [
-            'content_title' => 'nullable|exists:contents,title',
+            'content_title' => 'nullable|required_without:discuss_title|exists:contents,title',
             'discuss_title' => 'nullable|exists:discusses,title',
         ];
     }
