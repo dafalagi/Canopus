@@ -23,7 +23,7 @@
                   alt=""/>
                 </button>
                 <div class="absolute top-6 right-0 bg-gray-200 hidden flex-col mt-1 p-2 text-sm w-36" id="dropdown">
-                    <a href="#" class=" flex rounded-t-lg py-1 text-center pl-2 text-white bg-mainclr">
+                    <a href="/settings" class=" flex rounded-t-lg py-1 text-center pl-2 text-white bg-mainclr">
                         <img
                           class="ml-2 mt-0.5 w-5"  
                           src="/imgs/settings.png" 
@@ -32,7 +32,7 @@
                             Pengaturan
                         </p>
                     </a>
-                    <a href="#" class="flex px-2 py-1 text-center text-white bg-mainclr">
+                    <a href="/favorites" class="flex px-2 py-1 text-center text-white bg-mainclr">
                         <img
                           class="ml-2 mt-0.5 w-5"  
                           src="/imgs/favorite.png" 
@@ -40,15 +40,15 @@
                         <p class="ml-2">
                             Favorit
                         </p>
-                      <a href="#" class="flex rounded-b-lg px-2 py-1 text-red bg-mainclr">
-                        <img
-                            class="ml-2 mt-0.5 w-5"  
-                            src="/imgs/logout.png" 
-                            alt=""/>
-                        <p class="ml-2">
-                            Keluar akun
-                        </p>
-                    </a>
+                        <div class="flex rounded-b-lg px-2 py-1 text-red bg-mainclr">
+                            <form action="/logout" method="POST">
+                                <img
+                                class="ml-2 mt-0.5 w-5"  
+                                src="/imgs/logout.png" 
+                                alt=""/>
+                                <button class="ml-2">Keluar Akun</button>
+                            </form>
+                        </div>
                 </div>
               </div>
             <div>
@@ -60,14 +60,14 @@
             <div class="absolute left-6 bottom-10 flex">
                 <img 
                     class="w-36" 
-                    src="/imgs/profil2.png" 
+                    src="{{ auth()->user()->picture }}" 
                     alt="">
                 <div class="pl-8 pt-16">
                     <div class=" text-white text-2xl">
-                        Ikhsan Nurul Rizki
+                        {{ auth()->user()->username }}
                     </div>
                     <div class=" text-white text-sm">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        {{ auth()->user()->bio }}
                     </div>
                 </div>
             </div> 

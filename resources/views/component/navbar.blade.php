@@ -24,15 +24,12 @@
                 </a>
               </div>
               <div class="flex items-center w-screen gap-x-2 justify-end mr-6">
-                <a href="/login">
                   @auth
-                    <form action="/logout" method="POST">
-                      @csrf
-                      <button><span>Log In</span></button>
-                    </form>
-                    @else
+                  <a href="#">
                     @include('.modal.Profile')
+                  </a>
+                  @else
+                    <a href="/login" class="text-white">Login</a>
                   @endauth
-                </a>
               </div>
             </nav>
