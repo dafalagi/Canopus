@@ -2,7 +2,7 @@
 
 @section('body')
       @if (session()->has('success'))
-        <div class="alert alert-success alert-dismissible" role="alert">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
           <strong>
             {{ session('success') }}
           </strong>

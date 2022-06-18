@@ -7,11 +7,13 @@
   style="background-image: url(/imgs/bg-login.png)"> 
     @include('component.navbar')
     {{-- Username atau Passwoord salah --}}
+    @if(session()->has('loginError'))
     <div class="bg-red py-1">
       <p class="text-center text-white">
-        Username atau Password salah. Silakan check kembali Username dan Password kamu
+        {{ session('loginError') }}
       </p>
     </div>
+    @endif
     {{--  --}}
     <div>
       <img 
@@ -35,6 +37,7 @@
                     class="px-7 py-3 border shadow rounded-lg w-full block bg-transparent text-white border-grey focus:outline-none focus:ring-1 focus:ring-blue focus:border-blue 
                     @error('email') invalid:focus:ring-red invalid:focus:border-red @enderror peer"
                     autofocus
+                    value="{{ old('email', session('email')) }}"
                   />
                   @error('email')
                   <p class="text-sm mt-1 -mb-3 text-red">

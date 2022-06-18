@@ -4262,6 +4262,12 @@ textarea.form-control.is-invalid{
 .bottom-0{
   bottom: 0px;
 }
+.left-6{
+  left: 1.5rem;
+}
+.bottom-10{
+  bottom: 2.5rem;
+}
 .z-50{
   z-index: 50;
 }
@@ -4562,6 +4568,9 @@ textarea.form-control.is-invalid{
 }
 .w-80{
   width: 20rem;
+}
+.w-10{
+  width: 2.5rem;
 }
 .max-w-2xl{
   max-width: 42rem;
@@ -5140,6 +5149,15 @@ textarea.form-control.is-invalid{
 }
 .pt-3{
   padding-top: 0.75rem;
+}
+.pb-32{
+  padding-bottom: 8rem;
+}
+.pl-4{
+  padding-left: 1rem;
+}
+.pt-16{
+  padding-top: 4rem;
 }
 .text-center{
   text-align: center;

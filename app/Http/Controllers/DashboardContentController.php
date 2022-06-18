@@ -21,7 +21,7 @@ class DashboardContentController extends Controller
     public function index()
     {
         return view('dashboard.contents.index', [
-            'contents' => Content::all(),
+            'contents' => Content::filter(request('search'))->get(),
             'columns' => Schema::getColumnListing('contents'),
         ]);
     }
@@ -101,8 +101,10 @@ class DashboardContentController extends Controller
         {
             $validated = $request->validated();
         }
-
-        $validated['excerpt'] = Str::limit(strip_tags($validated['body']), 200, '...');
+        if($request->body != $content->body)
+        {
+            $validated['excerpt'] = Str::limit(strip_tags($validated['body']), 200, '...');
+        }
         
         Content::where('id', $content->id)->update($validated);
 

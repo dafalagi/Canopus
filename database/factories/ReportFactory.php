@@ -18,7 +18,6 @@ class ReportFactory extends Factory
             'discuss_id' => mt_rand(1, 30),
             'content_id' => mt_rand(1, 20),
             'user_id' => mt_rand(1, 20),
-            'created_at' => now(),
         ];
     }
 }

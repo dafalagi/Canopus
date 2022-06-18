@@ -24,9 +24,7 @@ use App\Http\Controllers\FavoriteController;
 */
 
 // Free Access
-Route::get('/', function(){
-    return view('pages.home');
-})->name('home');
+Route::view('/', 'pages.home')->name('home');
 
 Route::get('/users', [UserController::class, 'index']);
 Route::get('/contents', [ContentController::class, 'index']);
@@ -62,9 +60,7 @@ Route::middleware('auth')->group(function(){
 Route::middleware('admin')->group(function(){
     
     // GET
-    Route::get('/dashboard', function(){
-        return view('dashboard.layouts.main');
-    });
+    Route::view('/dashboard', 'dashboard.layouts.main');
 
     // RESOURCE
     Route::resource('/dashboard/users', DashboardUserController::class);
@@ -76,6 +72,4 @@ Route::middleware('admin')->group(function(){
 });
 
 // DEV
-Route::get('/test', function(){
-    return view('test');
-});
+Route::view('/test', 'test');
