@@ -1,3 +1,4 @@
+<script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
 <script>
     window.addEventListener('DOMContentLoaded', ()=> {
         const menuBtn = document.querySelector('#menu-btn')
@@ -16,8 +17,7 @@
             dropdown.classList.toggle('flex')
         })
     })
-</script>
-<script>
+
     const modal = document.querySelector('.modal');
     
     const showModal = document.querySelector('.show-modal');
@@ -33,4 +33,3 @@
       });
     });
 </script>
-<script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
