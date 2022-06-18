@@ -46,13 +46,13 @@ class DashboardFavoriteController extends Controller
 
         if($validated['content_title'] ?? false)
         {
-            $content = Content::where('title', $validated['content_title'])->first()->toArray();
-            $validated['content_id'] = $content['id'];
+            $content = Content::where('title', $validated['content_title'])->first();
+            $validated['content_id'] = $content->id;
         }
         if($validated['discuss_title'] ?? false)
         {
-            $discuss = Discuss::where('title', $validated['discuss_title'])->first()->toArray();
-            $validated['discuss_id'] = $discuss['id'];
+            $discuss = Discuss::where('title', $validated['discuss_title'])->first();
+            $validated['discuss_id'] = $discuss->id;
         }
         
         $validated['user_id'] = auth()->user()->id;
@@ -102,10 +102,10 @@ class DashboardFavoriteController extends Controller
 
         if($validated['content_title'])
         {
-            $content = Content::where('title', $validated['content_title'])->first()->toArray();
-            if($content['id'] != $favorite->content_id)
+            $content = Content::where('title', $validated['content_title'])->first();
+            if($content->id != $favorite->content_id)
             {
-                $validated['content_id'] = $content['id'];
+                $validated['content_id'] = $content->id;
             }
         }else
         {
@@ -113,10 +113,10 @@ class DashboardFavoriteController extends Controller
         }
         if($validated['discuss_title'])
         {
-            $discuss = Discuss::where('title', $validated['discuss_title'])->first()->toArray();
-            if($discuss['id'] != $favorite->discuss_id)
+            $discuss = Discuss::where('title', $validated['discuss_title'])->first();
+            if($discuss->id != $favorite->discuss_id)
             {
-                $validated['discuss_id'] = $discuss['id'];
+                $validated['discuss_id'] = $discuss->id;
             }
         }else
         {

@@ -40,10 +40,4 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </form>
-
-    <script>
-        document.addEventListener('trix-file-accept', function(e) {
-            e.preventDefault();
-        })
-    </script>
 @endsection

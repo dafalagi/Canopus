@@ -7,13 +7,20 @@ use Illuminate\Foundation\Http\FormRequest;
 class UpdateCommentRequest extends FormRequest
 {
     /**
+     * Indicates if the validator should stop on the first rule failure.
+     *
+     * @var bool
+     */
+    protected $stopOnFirstFailure = true;
+
+    /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +31,9 @@ class UpdateCommentRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'body' => 'required|string',
+            'discuss_title' => 'required|exists:discusses,title',
+            'likes' => 'nullable|integer',
         ];
     }
 }
