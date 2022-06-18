@@ -29,8 +29,8 @@ class UpdateContentRequest extends FormRequest
             'coordinate' => 'nullable|string',
             'distance' => 'nullable|string',
             'event' => 'nullable|string',
-            'mainpicture' => 'nullable',
-            'pictures' => 'nullable',
+            'mainpicture' => 'nullable|image|file|max:2048',
+            'pictures[]' => 'nullable',
             'trivia' => 'required|string|min:20',
         ];
     }

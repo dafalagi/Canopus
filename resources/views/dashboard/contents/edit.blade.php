@@ -2,7 +2,7 @@
 
 @section('body')
     {{-- Error Alert --}}
-    @if ($errors->hasAny('title', 'body', 'category', 'coordinate', 'distance', 'event', 'mainpicture', 'pictures', 'trivia'))
+    @if ($errors->hasAny('title', 'body', 'category', 'coordinate', 'distance', 'event', 'mainpicture', 'pictures[]', 'trivia'))
         <div class="alert alert-danger alert-dismissible" role="alert">
             <strong>
                 {{ $errors->first('title') }}
@@ -12,7 +12,7 @@
                 {{ $errors->first('distance') }}
                 {{ $errors->first('event') }}
                 {{ $errors->first('mainpicture') }}
-                {{ $errors->first('pictures') }}
+                {{ $errors->first('pictures[]') }}
                 {{ $errors->first('trivia') }}
             </strong>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -20,14 +20,14 @@
     @endif
 
     {{-- Main Form --}}
-    <form action="/dashboard/contents/{{ $content->slug }}" method="POST">
+    <form action="/dashboard/contents/{{ $content->slug }}" method="POST" enctype="multipart/form-data">
         @method('put')
         @csrf
         <div class="mb-3">
             <label class="form-label">Title</label>
             <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" required
             value="{{ old('title', $content->title) }}" 
-            {{ $errors->hasAny('body', 'category', 'coordinate', 'distance', 'event', 'mainpicture', 'pictures', 'trivia') ? '' : 'autofocus' }}>
+            {{ $errors->hasAny('body', 'category', 'coordinate', 'distance', 'event', 'mainpicture', 'pictures[]', 'trivia') ? '' : 'autofocus' }}>
         </div>
         <div class="mb-3">
             <label class="form-label">Category</label>
@@ -73,14 +73,15 @@
             </select>
         </div>
         <div class="mb-3">
-            <label class="form-label">Main Picture</label>
-            <input type="text" class="form-control @error('mainpicture') is-invalid @enderror" name="mainpicture" 
-            value="{{ old('mainpicture', $content->mainpicture) }}" @error('mainpicture') autofocus @enderror>
+            <label for="mainpicture" class="form-label">Main Picture</label>
+            <input class="form-control @error('mainpicture') is-invalid @enderror" type="file" id="mainpicture" name="mainpicture" 
+            @error('mainpicture') autofocus @enderror>
+            <input type="hidden" name="oldmainpicture" value="{{ $content->mainpicture }}">
         </div>
         <div class="mb-3">
-            <label class="form-label">Pictures (Additional)</label>
-            <input type="text" class="form-control @error('pictures') is-invalid @enderror" name="pictures" 
-            value="{{ old('pictures', $content->pictures) }}" @error('pictures') autofocus @enderror>
+            <label for="pictures[]" class="form-label">Additional Pictures (Optional)</label>
+            <input class="form-control multiple @error('pictures[]') is-invalid @enderror" type="file" id="pictures[]" name="pictures[]" 
+            @error('pictures[]') autofocus @enderror multiple>
         </div>
         <div class="mb-4">
             <label class="form-label">Trivia</label>

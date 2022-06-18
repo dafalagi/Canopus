@@ -18,7 +18,7 @@ class DashboardCommentController extends Controller
     public function index()
     {
         return view('dashboard.comments.index', [
-            'comments' => Comment::all(),
+            'comments' => Comment::filter(request('search'))->get(),
             'columns' => Schema::getColumnListing('comments')
         ]);
     }

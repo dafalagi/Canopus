@@ -22,7 +22,7 @@ class DashboardUserController extends Controller
     public function index()
     {
         return view('dashboard.users.index', [
-            'users' => User::all(),
+            'users' => User::filter(request('search'))->get(),
             'columns' => Schema::getColumnListing('users'),
         ]);
     }

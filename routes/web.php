@@ -25,6 +25,7 @@ use App\Http\Controllers\FavoriteController;
 
 // Free Access
 Route::view('/', 'pages.home')->name('home');
+Route::view('/about', 'pages.aboutcanopus');
 
 Route::get('/users', [UserController::class, 'index']);
 Route::get('/contents', [ContentController::class, 'index']);

@@ -13,9 +13,9 @@ class Discuss extends Model
     protected $guarded = ['id'];
     protected $with = ['user'];
 
-    public function scopeSearch($query, $search)
+    public function scopeFilter($query, $filters)
     {
-        $query->when($search ?? false, function($query, $search)
+        $query->when($filters ?? false, function($query, $search)
         {
             return $query->where('title', 'like', '%'.$search.'%')
                          ->orWhere('body', 'like', '%'.$search.'%');

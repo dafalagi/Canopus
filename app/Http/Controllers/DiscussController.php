@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Discuss;
 use App\Http\Requests\StoreDiscussRequest;
 use App\Http\Requests\UpdateDiscussRequest;
+use Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Str;
 
 class DiscussController extends Controller
 {
@@ -27,7 +29,7 @@ class DiscussController extends Controller
      */
     public function create()
     {
-        //Create Discuss Form
+        return view('pages.creatediscuss');
     }
 
     /**
@@ -38,7 +40,14 @@ class DiscussController extends Controller
      */
     public function store(StoreDiscussRequest $request)
     {
-        //Store Discuss
+        $validated = $request->validated();
+        $validated['user_id'] = auth()->user()->id;
+        $validated['slug'] = SlugService::createSlug(Discuss::class, 'slug', $validated['title']);
+        $validated['excerpt'] = Str::limit(strip_tags($validated['body']), 200, '...');
+
+        Discuss::create($validated);
+
+        return redirect('/discusses')->with('success', 'Post Created!');
     }
 
     /**
@@ -64,7 +73,9 @@ class DiscussController extends Controller
      */
     public function edit(Discuss $discuss)
     {
-        //Edit Discuss Form
+        return view('pages.editdiscuss', [
+            'discuss' => $discuss
+        ]);
     }
 
     /**
