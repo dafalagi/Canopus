@@ -3,6 +3,12 @@ module.exports = {
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/*.vue",
+        "./src/**/*.{html,js}",
+        "./node_modules/tw-elements/dist/js/**/*.js",
+        "./resources/**/*.blade.php",
+        "./resources/**/*.js",
+        "./resources/**/*.vue",
+        "./node_modules/flowbite/**/*.js",
     ],
     theme: {
         extend: {},
@@ -21,12 +27,13 @@ module.exports = {
             grey2: "#D7D7D7",
         },
         fontFamily: {
-            body: ["Poppins"],
+            poppins: ["Poppins"],
         },
     },
 
-
     plugins: [
-        require('tailwindcss-plugins/pagination'),
+        require("tailwindcss-plugins/pagination", "tw-elements/dist/plugin"),
+        require("tw-elements/dist/plugin"),
+        require("flowbite/plugin"),
     ],
 };
