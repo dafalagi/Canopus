@@ -21,7 +21,7 @@ class DashboardContentController extends Controller
     public function index()
     {
         return view('dashboard.contents.index', [
-            'contents' => Content::all(),
+            'contents' => Content::filter(request('search'))->get(),
             'columns' => Schema::getColumnListing('contents'),
         ]);
     }

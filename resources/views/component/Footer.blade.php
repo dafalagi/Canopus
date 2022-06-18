@@ -3,10 +3,10 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 py-12">
                 {{-- Logo --}}
                 <div class="mb-5 mt-5">
-                    <img class="mx-auto lg:-ml-12 lg:mt-4" src="/imgs/logo3.png" alt="">
+                    <img class="mx-auto md:-ml-12 md:mt-4" src="/imgs/logo3.png" alt="">
                 </div>
                 {{-- Dalam Canopus --}}
-                <div class="lg:ml-10">
+                <div class="md:ml-10">
                     <h4 class="font-bold pb-4">Dalam Canopus</h4>
                     <ul class="text-grey2 text-sm">
                         <li class="pb-2">
@@ -24,7 +24,7 @@
                     </ul>
                 </div>
                 {{-- Ikuti kami --}}
-                <div class="lg:ml-10">
+                <div class="md:ml-10">
                     <h4 class="font-bold pb-4">Ikuti kami</h4>
                     <ul class="text-grey2 text-sm">
                         <li class="pb-2">
@@ -64,7 +64,7 @@
                     </ul>
                 </div>
                 {{-- Bantuan --}}
-                <div class="lg:ml-10">
+                <div class="md:ml-10">
                     <h4 class="font-bold pb-4">Bantuan</h4>
                     <ul class="text-grey2 text-sm">
                         <li class="pb-2">
@@ -83,7 +83,7 @@
                 </div>
             </div>
             {{-- Bawah --}}
-            <div class="container flex flex-wrap flex-col sm:flex-row justify-center text-sm lg:text-center lg:gap-10">
+            <div class="container flex flex-wrap flex-col sm:flex-row justify-center text-sm md:text-center lg:gap-10">
                 <div class="pb-2">
                     <p>© 2022 Canopus Inc. All rights reserved.</p>
                 </div>
