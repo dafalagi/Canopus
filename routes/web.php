@@ -82,3 +82,6 @@ Route::get('/test', function(){
 Route::get('/footer', function(){
     return view('component.footer');
 });
+Route::get('/test', function(){
+    return view('pages.BendaLangit');
+});
