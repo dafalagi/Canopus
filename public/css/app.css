@@ -732,8 +732,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-60{
   width: 15rem;
 }
-.w-40{
-  width: 10rem;
+.w-max{
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
 .w-full{
   width: 100%;
@@ -755,6 +757,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .w-44{
   width: 11rem;
+}
+.w-40{
+  width: 10rem;
 }
 .w-64{
   width: 16rem;
@@ -881,10 +886,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .gap-5{
   gap: 1.25rem;
-}
-.gap-x-1{
-  -moz-column-gap: 0.25rem;
-       column-gap: 0.25rem;
 }
 .gap-x-2{
   -moz-column-gap: 0.5rem;
@@ -1225,6 +1226,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .pt-3{
   padding-top: 0.75rem;
+}
+.text-left{
+  text-align: left;
 }
 .text-center{
   text-align: center;

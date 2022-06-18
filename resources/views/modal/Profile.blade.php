@@ -1,7 +1,6 @@
-@include('.component.head')
 <div>
     <img 
-        class="mx-auto w-8 show-modal" 
+        class="w-8 show-modal" 
         src="/imgs/Vector.png" 
         alt="">
 
@@ -10,13 +9,17 @@
     <div class="h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50">
         <!-- modal -->
         <div class="bg-mainclr pb-32 relative rounded-xl shadow-lg w-1/3">
+            <img 
+                        class="mx-auto rounded-t-lg" 
+                        src="/imgs/bg-profile.png" 
+                        alt="">
             <button>
                 <img 
-                    class="absolute w-10 close-modal pl-4 pt-4" 
+                    class="absolute top-0 left-0 w-10 close-modal pl-4 pt-4" 
                     src="/imgs/arrow-back.png" 
                     alt="">
             </button>
-            <div class="relative">
+            
                 <button class="absolute top-0 right-0" id="menu-btn"><img 
                   class="w-11" 
                   src="/imgs/down arrow.png" 
@@ -32,14 +35,17 @@
                             Pengaturan
                         </p>
                     </a>
-                    <a href="/favorites" class="flex px-2 py-1 text-center text-white bg-mainclr">
-                        <img
-                          class="ml-2 mt-0.5 w-5"  
-                          src="/imgs/favorite.png" 
-                          alt=""/>
-                        <p class="ml-2">
-                            Favorit
-                        </p>
+                    <a href="" class="flex px-2 py-1 text-center text-white bg-mainclr">
+                        <button>
+                                <img
+                                class="mt-0.5 w-5"  
+                                src="/imgs/favorite.png" 
+                                alt=""/>
+                                <p class="ml-2">
+                                    Favorit
+                                </p>
+                        </button>
+                    </a>
                         <div class="flex rounded-b-lg px-2 py-1 text-red bg-mainclr">
                             <form action="/logout" method="POST">
                                 <img
@@ -50,13 +56,7 @@
                             </form>
                         </div>
                 </div>
-              </div>
-            <div>
-                <img 
-                    class="mx-auto rounded-t-lg" 
-                    src="/imgs/bg-profile.png" 
-                    alt="">
-            </div>
+                
             <div class="absolute left-6 bottom-10 flex">
                 <img 
                     class="w-36" 
@@ -66,7 +66,7 @@
                     <div class=" text-white text-2xl">
                         {{ auth()->user()->username }}
                     </div>
-                    <div class=" text-white text-sm">
+                    <div class=" text-white text-left text-sm">
                         {{ auth()->user()->bio }}
                     </div>
                 </div>
