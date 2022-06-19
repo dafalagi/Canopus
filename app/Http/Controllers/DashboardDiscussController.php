@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreDiscussRequest;
+use App\Http\Requests\UpdateDiscussRequest;
 use App\Models\Discuss;
-use Illuminate\Http\Request;
+use App\Models\Favorite;
+use App\Models\Report;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Str;
 
 class DashboardDiscussController extends Controller
 {
@@ -16,7 +21,7 @@ class DashboardDiscussController extends Controller
     public function index()
     {
         return view('dashboard.discusses.index', [
-            'discusses' => Discuss::all(),
+            'discusses' => Discuss::filter(request('search'))->get(),
             'columns' => Schema::getColumnListing('discusses'),
         ]);
     }
@@ -28,7 +33,7 @@ class DashboardDiscussController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.discusses.create');
     }
 
     /**
@@ -37,9 +42,16 @@ class DashboardDiscussController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreDiscussRequest $request)
     {
-        //
+        $validated = $request->validated();
+        $validated['user_id'] = auth()->user()->id;
+        $validated['slug'] = SlugService::createSlug(Discuss::class, 'slug', $validated['title']);
+        $validated['excerpt'] = Str::limit(strip_tags($validated['body']), 200, '...');
+
+        Discuss::create($validated);
+
+        return redirect('/dashboard/discusses')->with('success', 'Data Added Successfully!');
     }
 
     /**
@@ -50,7 +62,10 @@ class DashboardDiscussController extends Controller
      */
     public function show(Discuss $discuss)
     {
-        //
+        return view('dashboard.discusses.show', [
+            'discuss' => $discuss,
+            'columns' => Schema::getColumnListing('discusses'),
+        ]);
     }
 
     /**
@@ -61,7 +76,9 @@ class DashboardDiscussController extends Controller
      */
     public function edit(Discuss $discuss)
     {
-        //
+        return view('dashboard.discusses.edit', [
+            'discuss' => $discuss
+        ]);
     }
 
     /**
@@ -71,9 +88,26 @@ class DashboardDiscussController extends Controller
      * @param  \App\Models\Discuss  $discuss
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Discuss $discuss)
+    public function update(UpdateDiscussRequest $request, Discuss $discuss)
     {
-        //
+        $validated = $request->validated();
+
+        if(auth()->user()->id != $discuss->user_id)
+        {
+            $validated['user_id'] = auth()->user()->id;
+        }
+        if($request->title != $discuss->title)
+        {
+            $validated['slug'] = SlugService::createSlug(Discuss::class, 'slug', $validated['title']);
+        }
+        if($request->body != $discuss->body)
+        {
+            $validated['excerpt'] = Str::limit(strip_tags($validated['body']), 200, '...');
+        }
+
+        Discuss::where('id', $discuss->id)->update($validated);
+
+        return redirect('/dashboard/discusses')->with('success', 'Data Edited Successfully!');
     }
 
     /**
@@ -84,6 +118,10 @@ class DashboardDiscussController extends Controller
      */
     public function destroy(Discuss $discuss)
     {
-        //
+        Discuss::destroy($discuss->id);
+        Favorite::where('discuss_id', $discuss->id)->delete();
+        Report::where('discuss_id', $discuss->id)->delete();
+
+        return redirect('/dashboard/discusses')->with('success', 'Data Deleted Successfully!');
     }
 }

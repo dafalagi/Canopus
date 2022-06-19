@@ -13,7 +13,7 @@ class UpdateContentRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,14 +24,14 @@ class UpdateContentRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
-            'picture' => 'required',
-            'body' => 'required',
-            'excerpt' => 'required',
-            'slug' => 'required|unique:contents',
-            'category' => 'required',
-            'coordinate' => 'required',
-            'trivia' => 'required',
+            'body' => 'required|string|min:20',
+            'category' => 'required|string',
+            'coordinate' => 'nullable|string',
+            'distance' => 'nullable|string',
+            'event' => 'nullable|string',
+            'mainpicture' => 'nullable|image|file|max:2048',
+            'pictures[]' => 'nullable',
+            'trivia' => 'required|string|min:20',
         ];
     }
 }

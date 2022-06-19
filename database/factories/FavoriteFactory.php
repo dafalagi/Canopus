@@ -17,7 +17,6 @@ class FavoriteFactory extends Factory
             'user_id' => mt_rand(1, 20),
             'content_id' => mt_rand(1, 20),
             'discuss_id' => mt_rand(1, 30),
-            'created_at' => now(),
         ];
     }
 }

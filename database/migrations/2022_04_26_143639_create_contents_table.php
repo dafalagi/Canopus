@@ -16,12 +16,16 @@ class CreateContentsTable extends Migration
         Schema::create('contents', function (Blueprint $table) {
             $table->id();
             $table->string('title')->unique();
-            $table->binary('picture')->nullable();
             $table->longText('body');
+            $table->enum('category', ['Planet', 'Bintang', 'Rasi Bintang', 'Lainnya di Angkasa']);
+            $table->string('coordinate')->nullable();
+            $table->string('distance')->nullable();
+            $table->enum('event', ['Merkurius', 'Venus', 'Bumi', 'Mars', 'Jupiter', 'Saturnus', 'Uranus', 'Neptunus', 
+            'Ceres', 'Eris', 'Pluto', 'Makemake', 'Haumea'])->nullable();
             $table->text('excerpt');
+            $table->string('mainpicture')->nullable();
+            $table->json('pictures')->nullable();
             $table->string('slug')->unique();
-            $table->enum('category', ['Planet', 'Benda Langit Lain', 'Istilah Angkasa']);
-            $table->string('coordinate');
             $table->text('trivia');
             $table->timestamps();
         });

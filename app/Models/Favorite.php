@@ -10,7 +10,14 @@ class Favorite extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
-    public $timestamps = false;
+
+    public function scopeFilter($query, $filters)
+    {
+        $query->when($filters ?? false, function($query, $search)
+        {
+            return $query->where('id', 'like', '%'.$search.'%');
+        });
+    }
 
     public function user()
     {

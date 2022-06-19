@@ -11,6 +11,18 @@ class Content extends Model
     use HasFactory, Sluggable;
 
     protected $guarded = ['id'];
+    protected $casts = [
+        'pictures' => 'array',
+    ];
+
+    public function scopeFilter($query, $filters)
+    {
+        $query->when($filters ?? false, function($query, $search)
+        {
+            return $query->where('title', 'like', '%'.$search.'%')
+                         ->orWhere('body', 'like', '%'.$search.'%');
+        });
+    }
 
     public function favorites()
     {

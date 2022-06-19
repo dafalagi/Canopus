@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContentController;
+use App\Http\Controllers\DashboardCommentController;
 use App\Http\Controllers\DashboardContentController;
 use App\Http\Controllers\DashboardDiscussController;
 use App\Http\Controllers\DashboardFavoriteController;
@@ -23,11 +24,8 @@ use App\Http\Controllers\FavoriteController;
 */
 
 // Free Access
-Route::get('/', function(){
-    return view('pages.home', [
-        'title' => 'Canopus',
-    ]);
-});
+Route::view('/', 'pages.home')->name('home');
+Route::view('/about', 'pages.aboutcanopus');
 
 Route::get('/users', [UserController::class, 'index']);
 Route::get('/contents', [ContentController::class, 'index']);
@@ -63,22 +61,16 @@ Route::middleware('auth')->group(function(){
 Route::middleware('admin')->group(function(){
     
     // GET
-    Route::get('/dashboard', function(){
-        return view('dashboard.layouts.main');
-    });
+    Route::view('/dashboard', 'dashboard.layouts.main');
 
     // RESOURCE
     Route::resource('/dashboard/users', DashboardUserController::class);
     Route::resource('/dashboard/contents', DashboardContentController::class);
     Route::resource('/dashboard/discusses', DashboardDiscussController::class);
     Route::resource('/dashboard/favorites', DashboardFavoriteController::class);
+    Route::resource('/dashboard/comments', DashboardCommentController::class);
     Route::resource('/dashboard/reports', DashboardReportController::class);
 });
 
 // DEV
-Route::get('/test', function(){
-    return view('test');
-});
-Route::get('/footer', function(){
-    return view('component.footer');
-});
+Route::view('/test', 'test');

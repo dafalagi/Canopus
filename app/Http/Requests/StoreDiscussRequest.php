@@ -31,10 +31,9 @@ class StoreDiscussRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
-            'body' => 'required',
-            'excerpt' => 'required',
-            'slug' => 'required|unique:discusses',
+            'title' => 'required|string|min:5',
+            'body' => 'required|string|min:20',
+            'picture' => 'nullable|image'
         ];
     }
 }
