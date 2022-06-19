@@ -48,6 +48,11 @@ class DashboardUserController extends Controller
         $validated = $request->validated();
         $validated['password'] = Hash::make($validated['password']);
 
+        if($request->file('avatar'))
+        {
+            $validated['avatar'] = $request->file('avatar')->store('account-avatars');
+        }
+
         User::create($validated);
         
         return redirect('/dashboard/users')->with('success', 'Data Added Successfully!');

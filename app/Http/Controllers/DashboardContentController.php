@@ -10,6 +10,7 @@ use App\Models\Report;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
 class DashboardContentController extends Controller
@@ -47,20 +48,35 @@ class DashboardContentController extends Controller
     {
         $validated = $request->validated();
 
-        if($request->file('mainpicture'))
-        {
-            $validated['mainpicture'] = $request->file('mainpicture')->store('content-images');
-        }
         if($request->file('pictures'))
         {
-            $img = array();
-            foreach($request->file('pictures') as $pic)
+            $img = [];
+            foreach($request->file('pictures') as $pictures)
             {
-                $file = $pic->store('content-images');
+                $rules = [
+                    'image' => 'image|file|max:2048'
+                ];
+
+                $validate = ['image' => $pictures];
+                $safe = Validator::make($validate, $rules);
+                
+                if($safe->fails())
+                {
+                    return back()->with([
+                        'picturesinvalid' => 'The pictures must be images.',
+                        'oldData' => $validated
+                    ]);
+                }
+
+                $file = $pictures->store('content-images');
                 $img[] = $file;
             }   
             
             $validated['pictures'] = $img;
+        }
+        if($request->file('mainpicture'))
+        {
+            $validated['mainpicture'] = $request->file('mainpicture')->store('content-images');
         }
 
         $validated['slug'] = SlugService::createSlug(Content::class, 'slug', $validated['title']);
@@ -122,27 +138,30 @@ class DashboardContentController extends Controller
         {
             $validated['excerpt'] = Str::limit(strip_tags($validated['body']), 200, '...');
         }
-        if($request->file('mainpicture'))
-        {
-            if($request->oldmainpicture)
-            {
-                Storage::delete($request->oldmainpicture);
-            }
-
-            $validated['mainpicture'] = $request->file('mainpicture')->store('content-images');
-        }else
-        {
-            if($request->oldmainpicture)
-            {
-                Storage::delete($request->oldmainpicture);
-            }
-
-            $validated['mainpicture'] = null;
-        }
         if($request->file('pictures'))
         {
-            $img = array();
+            $img = [];
 
+            foreach($request->file('pictures') as $pictures)
+            {
+                $rules = [
+                    'image' => 'image|file|max:2048'
+                ];
+
+                $validate = ['image' => $pictures];
+                $safe = Validator::make($validate, $rules);
+                
+                if($safe->fails())
+                {
+                    return back()->with([
+                        'picturesinvalid' =>'The pictures must be images.',
+                        'oldData' => $validated
+                    ]);
+                }
+
+                $file = $pictures->store('content-images');
+                $img[] = $file;
+            }   
             if($content->pictures)
             {
                 foreach($content->pictures as $oldpictures)
@@ -150,11 +169,6 @@ class DashboardContentController extends Controller
                     Storage::delete($oldpictures);
                 }
             }
-            foreach($request->file('pictures') as $pictures)
-            {
-                $file = $pictures->store('content-images');
-                $img[] = $file;
-            }   
 
             $validated['pictures'] = $img;
         }else
@@ -168,6 +182,23 @@ class DashboardContentController extends Controller
             }
 
             $validated['pictures'] = null;
+        }
+        if($request->file('mainpicture'))
+        {
+            if($content->mainpicture)
+            {
+                Storage::delete($content->mainpicture);
+            }
+
+            $validated['mainpicture'] = $request->file('mainpicture')->store('content-images');
+        }else
+        {
+            if($content->mainpicture)
+            {
+                Storage::delete($content->mainpicture);
+            }
+
+            $validated['mainpicture'] = null;
         }
         
         Content::where('id', $content->id)->update($validated);

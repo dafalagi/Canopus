@@ -27,7 +27,6 @@ use App\Http\Controllers\FavoriteController;
 Route::view('/', 'pages.home')->name('home');
 Route::view('/about', 'pages.aboutcanopus');
 
-Route::get('/users', [UserController::class, 'index']);
 Route::get('/contents', [ContentController::class, 'index']);
 Route::get('/contents/{content:slug}', [ContentController::class, 'show']);
 Route::get('/favorites/contents/{user:username}', [FavoriteController::class, 'showContents']);

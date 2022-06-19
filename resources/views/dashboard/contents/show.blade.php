@@ -12,6 +12,13 @@
                 @else
                     <img src="https://source.unsplash.com/640x480?space" alt="Default Image" class="img-fluid">
                 @endif
+            @elseif($column == 'mainpicture')
+                <p>{{ $column }} : </p>
+                @if($content->mainpicture)
+                    <img src="{{ asset('storage/'.$content->mainpicture) }}" alt="{{ $content->title }}" class="img-fluid">
+                @else
+                    <img src="https://source.unsplash.com/640x480?space" alt="Default Image" class="img-fluid">
+                @endif
             @elseif($column == 'body')
                 <p>{{ $column }} : </p><article>{!! $content->$column !!}</article>
             @else
