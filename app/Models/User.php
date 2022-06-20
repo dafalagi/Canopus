@@ -49,6 +49,14 @@ class User extends Authenticatable
     //     'profile_photo_url',
     // ];
 
+    public function scopeFilter($query, $filters)
+    {
+        $query->when($filters ?? false, function($query, $search)
+        {
+            return $query->where('username', 'like', '%'.$search.'%');
+        });
+    }
+
     public function favorites()
     {
         return $this->hasMany(Favorite::class);

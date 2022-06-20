@@ -26,11 +26,11 @@ class UpdateContentRequest extends FormRequest
         return [
             'body' => 'required|string|min:20',
             'category' => 'required|string',
-            'coordinate' => 'nullable|string',
-            'distance' => 'nullable|string',
+            'coordinate' => 'nullable|string|min:5',
+            'distance' => 'nullable|string|min:5',
             'event' => 'nullable|string',
-            'mainpicture' => 'nullable',
-            'pictures' => 'nullable',
+            'mainpicture' => 'nullable|image|file|max:2048',
+            'pictures[]' => 'nullable|array',
             'trivia' => 'required|string|min:20',
         ];
     }
