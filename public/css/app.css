@@ -4275,6 +4275,12 @@ textarea.form-control.is-invalid{
 .top-6{
   top: 1.5rem;
 }
+.top-1\/2{
+  top: 50%;
+}
+.left-1\/2{
+  left: 50%;
+}
 .z-50{
   z-index: 50;
 }
@@ -4286,6 +4292,9 @@ textarea.form-control.is-invalid{
 }
 .z-40{
   z-index: 40;
+}
+.z-30{
+  z-index: 30;
 }
 .col-span-2{
   grid-column: span 2 / span 2;
@@ -4338,6 +4347,14 @@ textarea.form-control.is-invalid{
 .-mx-1{
   margin-left: -0.25rem;
   margin-right: -0.25rem;
+}
+.my-80{
+  margin-top: 20rem;
+  margin-bottom: 20rem;
+}
+.mx-20{
+  margin-left: 5rem;
+  margin-right: 5rem;
 }
 .mr-2{
   margin-right: 0.5rem;
@@ -4459,6 +4476,9 @@ textarea.form-control.is-invalid{
 .mt-0{
   margin-top: 0px;
 }
+.ml-20{
+  margin-left: 5rem;
+}
 .block{
   display: block;
 }
@@ -4524,6 +4544,14 @@ textarea.form-control.is-invalid{
 }
 .h-4{
   height: 1rem;
+}
+.h-48{
+  height: 12rem;
+}
+.h-max{
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
 }
 .min-h-screen{
   min-height: 100vh;
@@ -4596,6 +4624,9 @@ textarea.form-control.is-invalid{
 .w-12{
   width: 3rem;
 }
+.w-10{
+  width: 2.5rem;
+}
 .min-w-fit{
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
@@ -4658,6 +4689,9 @@ textarea.form-control.is-invalid{
 .basis-5\/6{
   flex-basis: 83.333333%;
 }
+.basis-2\/4{
+  flex-basis: 50%;
+}
 .-translate-x-full{
   --tw-translate-x: -100%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -4668,6 +4702,14 @@ textarea.form-control.is-invalid{
 }
 .translate-x-0{
   --tw-translate-x: 0px;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.-translate-x-1\/2{
+  --tw-translate-x: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.-translate-y-1\/2{
+  --tw-translate-y: -50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .rotate-180{
@@ -4811,6 +4853,9 @@ textarea.form-control.is-invalid{
 }
 .self-center{
   align-self: center;
+}
+.overflow-hidden{
+  overflow: hidden;
 }
 .overflow-y-auto{
   overflow-y: auto;
@@ -5011,6 +5056,9 @@ textarea.form-control.is-invalid{
 }
 .bg-center{
   background-position: center;
+}
+.bg-left-top{
+  background-position: left top;
 }
 .bg-no-repeat{
   background-repeat: no-repeat;
@@ -5240,6 +5288,9 @@ textarea.form-control.is-invalid{
 .pt-3{
   padding-top: 0.75rem;
 }
+.pt-0{
+  padding-top: 0px;
+}
 .text-left{
   text-align: left;
 }
@@ -5248,6 +5299,9 @@ textarea.form-control.is-invalid{
 }
 .text-right{
   text-align: right;
+}
+.text-justify{
+  text-align: justify;
 }
 .align-text-bottom{
   vertical-align: text-bottom;
@@ -5286,6 +5340,10 @@ textarea.form-control.is-invalid{
   font-size: 2.25rem;
   line-height: 2.5rem;
 }
+.text-8xl{
+  font-size: 6rem;
+  line-height: 1;
+}
 .font-bold{
   font-weight: 700;
 }
@@ -5300,6 +5358,9 @@ textarea.form-control.is-invalid{
 }
 .font-semibold{
   font-weight: 600;
+}
+.italic{
+  font-style: italic;
 }
 .leading-6{
   line-height: 1.5rem;
@@ -5360,6 +5421,10 @@ textarea.form-control.is-invalid{
 .text-blue-600{
   --tw-text-opacity: 1;
   color: rgb(28 100 242 / var(--tw-text-opacity));
+}
+.text-grey{
+  --tw-text-opacity: 1;
+  color: rgb(119 119 119 / var(--tw-text-opacity));
 }
 .text-opacity-25{
   --tw-text-opacity: 0.25;
@@ -5492,6 +5557,9 @@ textarea.form-control.is-invalid{
 }
 .ease-out{
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+.ease-linear{
+  transition-timing-function: linear;
 }
 .hover\:scale-110:hover{
   --tw-scale-x: 1.1;
@@ -5700,6 +5768,18 @@ textarea.form-control.is-invalid{
 }
 @media (min-width: 640px){
 
+  .sm\:h-64{
+    height: 16rem;
+  }
+
+  .sm\:h-10{
+    height: 2.5rem;
+  }
+
+  .sm\:w-10{
+    width: 2.5rem;
+  }
+
   .sm\:flex-row{
     flex-direction: row;
   }
@@ -5783,6 +5863,18 @@ textarea.form-control.is-invalid{
 
   .lg\:pl-20{
     padding-left: 5rem;
+  }
+}
+@media (min-width: 1280px){
+
+  .xl\:h-80{
+    height: 20rem;
+  }
+}
+@media (min-width: 1536px){
+
+  .\32xl\:h-96{
+    height: 24rem;
   }
 }
 
