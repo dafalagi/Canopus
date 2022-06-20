@@ -1,13 +1,13 @@
 <div class="relative aspect-video bg-white p-1 rounded-xl">
     <div class="hover:scale-110 transition duration-300 ease-in-out">
         <a href="#">
-            <img src="{{ $content->picture }}" alt="coomet" class="object-cover rounded-xl">
+            <img src="https://source.unsplash.com/640x480?space" alt="coomet" class="object-cover rounded-xl">
             <div class="absolute p-5 top-0 right-0 text-white opacity-70 text-sm">
                 <p>Jarak :</p>
                 <p>Kamu disini</p>
             </div>
             <div class="absolute p-5 bottom-3 left-3 text-lg">
-                <p class="text-white">{{ $content->title }}</p>
+                <p class="text-white">EPUL</p>
             </div>
         </a>
         <button class="absolute p-5 bottom-3 right-3 fill-white active:fill-secondaryclr">
