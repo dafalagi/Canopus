@@ -4356,6 +4356,9 @@ textarea.form-control.is-invalid{
 .-left-5{
   left: -1.25rem;
 }
+.left-1\/2{
+  left: 50%;
+}
 .z-50{
   z-index: 50;
 }
@@ -4367,6 +4370,9 @@ textarea.form-control.is-invalid{
 }
 .z-40{
   z-index: 40;
+}
+.z-30{
+  z-index: 30;
 }
 .col-span-2{
   grid-column: span 2 / span 2;
@@ -4419,6 +4425,14 @@ textarea.form-control.is-invalid{
 .-mx-1{
   margin-left: -0.25rem;
   margin-right: -0.25rem;
+}
+.my-80{
+  margin-top: 20rem;
+  margin-bottom: 20rem;
+}
+.mx-20{
+  margin-left: 5rem;
+  margin-right: 5rem;
 }
 .mr-3{
   margin-right: 0.75rem;
@@ -4561,6 +4575,9 @@ textarea.form-control.is-invalid{
 .ml-6{
   margin-left: 1.5rem;
 }
+.ml-20{
+  margin-left: 5rem;
+}
 .block{
   display: block;
 }
@@ -4629,6 +4646,14 @@ textarea.form-control.is-invalid{
 }
 .h-3{
   height: 0.75rem;
+}
+.h-48{
+  height: 12rem;
+}
+.h-max{
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
 }
 .min-h-screen{
   min-height: 100vh;
@@ -4769,6 +4794,9 @@ textarea.form-control.is-invalid{
 .basis-5\/6{
   flex-basis: 83.333333%;
 }
+.basis-2\/4{
+  flex-basis: 50%;
+}
 .-translate-x-full{
   --tw-translate-x: -100%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -4779,6 +4807,14 @@ textarea.form-control.is-invalid{
 }
 .translate-x-0{
   --tw-translate-x: 0px;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.-translate-x-1\/2{
+  --tw-translate-x: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.-translate-y-1\/2{
+  --tw-translate-y: -50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .rotate-180{
@@ -4923,6 +4959,9 @@ textarea.form-control.is-invalid{
 .self-center{
   align-self: center;
 }
+.overflow-hidden{
+  overflow: hidden;
+}
 .overflow-y-auto{
   overflow-y: auto;
 }
@@ -4959,6 +4998,10 @@ textarea.form-control.is-invalid{
 .rounded-r-lg{
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
+}
+.rounded-t{
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
 }
 .border-4{
   border-width: 4px;
@@ -5021,6 +5064,10 @@ textarea.form-control.is-invalid{
   --tw-border-opacity: 1;
   border-color: rgb(243 244 246 / var(--tw-border-opacity));
 }
+.border-gray-200{
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity));
+}
 .border-opacity-25{
   --tw-border-opacity: 0.25;
 }
@@ -5079,11 +5126,27 @@ textarea.form-control.is-invalid{
 .bg-opacity-90{
   --tw-bg-opacity: 0.9;
 }
+.bg-gradient-to-t{
+  background-image: linear-gradient(to top, var(--tw-gradient-stops));
+}
+.from-mainclr{
+  --tw-gradient-from: #282F6A;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(40 47 106 / 0));
+}
+.to-red-900{
+  --tw-gradient-to: #771D1D;
+}
+.to-green-900{
+  --tw-gradient-to: #014737;
+}
 .bg-cover{
   background-size: cover;
 }
 .bg-center{
   background-position: center;
+}
+.bg-left-top{
+  background-position: left top;
 }
 .bg-no-repeat{
   background-repeat: no-repeat;
@@ -5348,6 +5411,9 @@ textarea.form-control.is-invalid{
 .pl-4{
   padding-left: 1rem;
 }
+.pt-0{
+  padding-top: 0px;
+}
 .text-left{
   text-align: left;
 }
@@ -5356,6 +5422,9 @@ textarea.form-control.is-invalid{
 }
 .text-right{
   text-align: right;
+}
+.text-justify{
+  text-align: justify;
 }
 .align-text-bottom{
   vertical-align: text-bottom;
@@ -5398,6 +5467,10 @@ textarea.form-control.is-invalid{
   font-size: 2.25rem;
   line-height: 2.5rem;
 }
+.text-8xl{
+  font-size: 6rem;
+  line-height: 1;
+}
 .font-medium{
   font-weight: 500;
 }
@@ -5412,6 +5485,9 @@ textarea.form-control.is-invalid{
 }
 .font-semibold{
   font-weight: 600;
+}
+.italic{
+  font-style: italic;
 }
 .leading-6{
   line-height: 1.5rem;
@@ -5475,6 +5551,10 @@ textarea.form-control.is-invalid{
 .text-blue-600{
   --tw-text-opacity: 1;
   color: rgb(28 100 242 / var(--tw-text-opacity));
+}
+.text-grey{
+  --tw-text-opacity: 1;
+  color: rgb(119 119 119 / var(--tw-text-opacity));
 }
 .text-opacity-25{
   --tw-text-opacity: 0.25;
@@ -5618,6 +5698,9 @@ textarea.form-control.is-invalid{
 .ease-out{
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
+.ease-linear{
+  transition-timing-function: linear;
+}
 .hover\:scale-110:hover{
   --tw-scale-x: 1.1;
   --tw-scale-y: 1.1;
@@ -5699,6 +5782,9 @@ textarea.form-control.is-invalid{
 .hover\:opacity-80:hover{
   opacity: 0.8;
 }
+.focus\:z-10:focus{
+  z-index: 10;
+}
 .focus\:border-white:focus{
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
@@ -5756,6 +5842,10 @@ textarea.form-control.is-invalid{
   --tw-border-opacity: 1;
   border-color: rgb(55 65 81 / var(--tw-border-opacity));
 }
+.dark .dark\:border-gray-500{
+  --tw-border-opacity: 1;
+  border-color: rgb(107 114 128 / var(--tw-border-opacity));
+}
 .dark .dark\:bg-gray-700{
   --tw-bg-opacity: 1;
   background-color: rgb(55 65 81 / var(--tw-bg-opacity));
@@ -5794,6 +5884,10 @@ textarea.form-control.is-invalid{
   --tw-text-opacity: 1;
   color: rgb(63 131 248 / var(--tw-text-opacity));
 }
+.dark .dark\:text-gray-300{
+  --tw-text-opacity: 1;
+  color: rgb(209 213 219 / var(--tw-text-opacity));
+}
 .dark .dark\:hover\:bg-gray-600:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(75 85 99 / var(--tw-bg-opacity));
@@ -5823,6 +5917,18 @@ textarea.form-control.is-invalid{
   --tw-ring-color: rgb(30 66 159 / var(--tw-ring-opacity));
 }
 @media (min-width: 640px){
+
+  .sm\:h-64{
+    height: 16rem;
+  }
+
+  .sm\:h-10{
+    height: 2.5rem;
+  }
+
+  .sm\:w-10{
+    width: 2.5rem;
+  }
 
   .sm\:flex-row{
     flex-direction: row;
@@ -5911,6 +6017,18 @@ textarea.form-control.is-invalid{
 
   .lg\:pl-20{
     padding-left: 5rem;
+  }
+}
+@media (min-width: 1280px){
+
+  .xl\:h-80{
+    height: 20rem;
+  }
+}
+@media (min-width: 1536px){
+
+  .\32xl\:h-96{
+    height: 24rem;
   }
 }
 
