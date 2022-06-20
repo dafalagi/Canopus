@@ -101,10 +101,6 @@ class DashboardCommentController extends Controller
         {
             $validated['user_id'] = auth()->user()->id;
         }
-        if(!$validated['likes'])
-        {
-            $validated['likes'] = null;
-        }
 
         unset($validated['discuss_title']);
 
