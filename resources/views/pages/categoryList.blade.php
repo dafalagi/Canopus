@@ -47,8 +47,11 @@ style="background-image: url(/imgs/bg-listBendaLangit.png)">
                 <div class="flex">
                     <div class="relative basis-full">
                         <h1 class="text-2xl font-bold text-white pb-4">Taho kah kamu?</h1>
+                        @php
+                            $i = mt_rand(0, count($contents)-1);
+                        @endphp
                         <p class="text-base font-normal mb-16 text-white text-opacity-80 pr-10">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias, at maxime? Corporis, eum quos quasi sapiente earum magnam cum animi!
+                            {{ $contents[$i]->trivia }}
                         </p>
                         <a class="absolute bottom-0 left-0 py-2 px-10 rounded-lg text-center text-white bg-orange2 hover:bg-secondaryclr shadow-xl transition duration-200" href="#" role="button">
                             Lihat
@@ -56,7 +59,12 @@ style="background-image: url(/imgs/bg-listBendaLangit.png)">
                     </div>
                     <div class="basis-60">
                         <div class="mx-auto">
-                            <img src="/imgs/matahari.png" width="240" alt="matahari" class="rounded-full">
+                            @if ($contents[$i]->mainpicture)
+                                <img src="{{ asset('storage/'.$contents[$i]->mainpicture) }}" alt="{{ $contents[$i]->title }}"
+                                width="240" class="rounded-full">
+                            @else
+                                <img src="https://source.unsplash.com/600x600?space" width="240" alt="Default Picture" class="rounded-full">
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -82,7 +90,7 @@ style="background-image: url(/imgs/bg-listBendaLangit.png)">
             </div>
             {{-- card --}}
             <div class="grid grid-cols-3 gap-4 place-items-stretch px-10">
-                @foreach ($contents->where('category', 'Benda Langit Lain')->slice(0,3) as $content)
+                @foreach ($contents->where('category', 'Planet')->slice(0,3) as $content)
                     {{-- card 1 --}}
                     @include('component.cardPlanet')
                 @endforeach
@@ -92,32 +100,6 @@ style="background-image: url(/imgs/bg-listBendaLangit.png)">
 
     {{-- Section Planet kerdil--}}
     <section id="PlanetKerdil" class="mb-12">
-        <div class="container w-full mx-auto">
-            {{-- subheader --}}
-            <div class="flex justify-between">
-                <div>
-                    <h1 class="text-2xl font-bold underline text-white pb-4">Planet Kerdil</h1>
-                </div>
-                <div>
-                    <a href="">
-                        <p class="text-white mx-auto opacity-80">
-                            Lihat lainnya
-                        </p>
-                    </a>
-                </div>
-            </div>
-            {{-- card --}}
-            <div class="grid grid-cols-3 gap-4 place-items-stretch px-10">
-                @foreach ($contents->where('category', 'Planet')->slice(0,3) as $content)
-                    {{-- card 1 --}}
-                    @include('component.cardPlanet')
-                @endforeach
-            </div>
-        </div>
-    </section>
-
-    {{-- Section Bintang--}}
-    <section id="Bintang" class="mb-12">
         <div class="container w-full mx-auto">
             {{-- subheader --}}
             <div class="flex justify-between">
@@ -134,18 +116,16 @@ style="background-image: url(/imgs/bg-listBendaLangit.png)">
             </div>
             {{-- card --}}
             <div class="grid grid-cols-3 gap-4 place-items-stretch px-10">
-                {{-- card 1 --}}
-                @include('component.cardPlanet')
-                {{-- card 2 --}}
-                @include('component.cardPlanet')
-                {{-- card 3 --}}
-                @include('component.cardPlanet')
+                @foreach ($contents->where('category', 'Bintang')->slice(0,3) as $content)
+                    {{-- card 1 --}}
+                    @include('component.cardPlanet')
+                @endforeach
             </div>
         </div>
     </section>
 
-    {{-- Section Rasi Bintang--}}
-    <section id="RasiBintang" class="mb-12">
+    {{-- Section Bintang--}}
+    <section id="Bintang" class="mb-12">
         <div class="container w-full mx-auto">
             {{-- subheader --}}
             <div class="flex justify-between">
@@ -162,20 +142,21 @@ style="background-image: url(/imgs/bg-listBendaLangit.png)">
             </div>
             {{-- card --}}
             <div class="grid grid-cols-3 gap-4 place-items-stretch px-10">
-                {{-- card 1 --}}
-                @include('component.cardPlanet')
-                {{-- card 2 --}}
-                @include('component.cardPlanet')
-                {{-- card 3 --}}
-                @include('component.cardPlanet')
+                @foreach ($contents->where('category', 'Rasi Bintang')->slice(0,3) as $content)
+                    {{-- card 1 --}}
+                    @include('component.cardPlanet')
+                @endforeach
             </div>
         </div>
     </section>
 
     {{-- Section Benda Langit Lainnya--}}
+    @php
+        $category = $contents->where('category', 'Lainnya di Angkasa');
+    @endphp
     <section id="BendaLangitLainnya" class="mb-12">
         <div class="container w-full mx-auto">
-            <h1 class="w-full text-2xl font-bold underline text-white pb-8">Benda Langit Lainnya</h1>
+            <h1 class="w-full text-2xl font-bold underline text-white pb-8">Lainnya di Angkasa</h1>
             <div class="grid grid-rows-2 grid-flow-col gap-4 w-full">
                 {{-- card comet --}}
                 <div class="row-span-2 col-span-2 rounded-xl bg-white p-1">

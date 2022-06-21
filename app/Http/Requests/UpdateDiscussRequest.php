@@ -33,7 +33,7 @@ class UpdateDiscussRequest extends FormRequest
         return [
             'title' => 'required|string|min:5',
             'body' => 'required|string|min:20',
-            'picture' => 'nullable|image'
+            'picture' => 'nullable|image|file|max:2048'
         ];
     }
 }

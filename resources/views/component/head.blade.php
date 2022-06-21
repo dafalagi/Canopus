@@ -9,7 +9,8 @@
       {{ Request::is('forgotpass') ? 'Forgot Password' : '' }}
       {{ Request::is('emailver') ? 'Email Verification' : '' }}
       {{ Request::is('discusses*') ? 'Forum' : '' }}
-      {{ Request::is('contents') ? 'Samudera Angkasa' : '' }}
+      {{ Request::is('contents*') ? 'Samudera Angkasa' : '' }}
     </title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.7/dist/flowbite.min.css" />
   </head>

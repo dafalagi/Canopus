@@ -11,6 +11,7 @@ use App\Models\Report;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardUserController extends Controller
 {
@@ -22,7 +23,7 @@ class DashboardUserController extends Controller
     public function index()
     {
         return view('dashboard.users.index', [
-            'users' => User::all(),
+            'users' => User::filter(request('search'))->get(),
             'columns' => Schema::getColumnListing('users'),
         ]);
     }
@@ -47,6 +48,11 @@ class DashboardUserController extends Controller
     {
         $validated = $request->validated();
         $validated['password'] = Hash::make($validated['password']);
+
+        if($request->file('avatar'))
+        {
+            $validated['avatar'] = $request->file('avatar')->store('user-avatars');
+        }
 
         User::create($validated);
         
@@ -116,6 +122,17 @@ class DashboardUserController extends Controller
             $validated = $request->validated();
             $validated['password'] = Hash::make($validated['password']);
         }
+        if($request->file('avatar'))
+        {
+            if($user->avatar)
+            {
+                Storage::delete($user->avatar);
+            }
+
+            $validated['avatar'] = $request->file('avatar')->store('user-avatars');
+        }
+
+        unset($validated['confirm_password']);
 
         User::where('id', $user->id)->update($validated);
 
@@ -130,6 +147,11 @@ class DashboardUserController extends Controller
      */
     public function destroy(User $user)
     {
+        if($user->avatar)
+        {
+            Storage::delete($user->avatar);
+        }
+
         User::destroy($user->id);
         Discuss::where('user_id', $user->id)->delete();
         Favorite::where('user_id', $user->id)->delete();
