@@ -21,7 +21,7 @@
               </div>
             <!-- Modal footer -->
           <div class="flex items-center p-12 space-x-2 border-gray-200 dark:border-gray-600">
-              <button data-modal-toggle="modalFailedAC" type="button" class="mx-auto bg-orange2 text-white hover:bg-gray-100 rounded-lg border border-gray-200 text-xl font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600">Tutup</button>
+              <button data-modal-toggle="modalFailedAC" type="button" class="mx-auto bg-[#FF9119] text-white hover:bg-gray-100 rounded-lg border border-gray-200 text-xl font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600">Tutup</button>
           </div>
         </div>
     </div>
