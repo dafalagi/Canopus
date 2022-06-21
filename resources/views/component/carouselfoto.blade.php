@@ -1,20 +1,16 @@
 <div id="animation-carousel" class="relative" data-carousel="static">
     <div class="overflow-hidden relative h-48 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
-        <div class="hidden duration-200 ease-linear" data-carousel-item>
-            <img src="https://source.unsplash.com/640x480?space" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
-        </div>
-        <div class="hidden duration-200 ease-linear" data-carousel-item>
-            <img src="https://source.unsplash.com/640x480?space" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
-        </div>
-        <div class="hidden duration-200 ease-linear" data-carousel-item="active">
-            <img src="https://source.unsplash.com/640x480?space" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
-        </div>
-        <div class="hidden duration-200 ease-linear" data-carousel-item>
-            <img src="https://source.unsplash.com/640x480?space" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
-        </div>
-        <div class="hidden duration-200 ease-linear" data-carousel-item>
-            <img src="https://source.unsplash.com/640x480?space" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
-        </div>
+        @if ($content->pictures)
+            @foreach ($content->pictures as $picture)
+                <div class="hidden duration-200 ease-linear" data-carousel-item>
+                    <img src="{{ asset('storage/'.$picture) }}" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
+                </div>
+            @endforeach
+        @else
+            <div class="hidden duration-200 ease-linear" data-carousel-item>
+                <img src="https://source.unsplash.com/640x480?space" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
+            </div>
+        @endif
     </div>
     <button type="button" class="flex absolute top-0 left-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none" data-carousel-prev>
         <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10">

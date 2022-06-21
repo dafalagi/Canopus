@@ -1,6 +1,6 @@
 <div class="relative aspect-video bg-white p-1 rounded-xl">
     <div class="hover:scale-110 transition duration-300 ease-in-out">
-        <a href="#">
+        <a href="/contents/details/{{ $content->slug }}">
             @if ($content->mainpicture)
                 <img src="{{ asset('storage/'.$content->mainpicture) }}" alt="coomet" class="object-cover rounded-xl">
             @else

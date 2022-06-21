@@ -24,7 +24,8 @@ class UpdateContentRequest extends FormRequest
     public function rules()
     {
         return [
-            'body' => 'required|string|min:20',
+            'intro' => 'required|string|min:20',
+            'history' => 'required|string|min:20',
             'category' => 'required|string',
             'coordinate' => 'nullable|string|min:5',
             'distance' => 'nullable|string|min:5',

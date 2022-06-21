@@ -41,13 +41,24 @@
             @endif
         </div>
         <div class="mb-3">
-            <label class="form-label">Content Details (Body)</label>
-            <input id="body" type="hidden" name="body" value="{{ old('body', $oldData['body'] ?? false) }}" 
-            @error('body') class="is-invalid" @enderror aria-describedby="bodyFeedback">
-            <trix-editor input="body"></trix-editor>
-            @if ($errors->has('body'))
-                <div id="bodyFeedback" class="invalid-feedback">
-                    {{ $errors->first('body') }}
+            <label class="form-label">Main Details (Introduction)</label>
+            <input id="intro" type="hidden" name="intro" value="{{ old('intro', $oldData['intro'] ?? false) }}" 
+            @error('intro') class="is-invalid" @enderror aria-describedby="introFeedback">
+            <trix-editor input="intro"></trix-editor>
+            @if ($errors->has('intro'))
+                <div id="introFeedback" class="invalid-feedback">
+                    {{ $errors->first('intro') }}
+                </div>
+            @endif
+        </div>
+        <div class="mb-3">
+            <label class="form-label">History</label>
+            <input id="history" type="hidden" name="history" value="{{ old('history', $oldData['history'] ?? false) }}" 
+            @error('history') class="is-invalid" @enderror aria-describedby="historyFeedback">
+            <trix-editor input="history"></trix-editor>
+            @if ($errors->has('history'))
+                <div id="historyFeedback" class="invalid-feedback">
+                    {{ $errors->first('history') }}
                 </div>
             @endif
         </div>

@@ -4,7 +4,7 @@
 
 <body class="w-full h-full bg-no-repeat bg-cover font-body"
 style="background-image: url(/imgs/bg-listBendaLangit.png)">
-@include('navbar')
+@include('component.navbar')
 <div class="p-10">
     {{-- Section Welcome --}}
     <section id="Welcome" class="mb-16">
@@ -50,8 +50,10 @@ style="background-image: url(/imgs/bg-listBendaLangit.png)">
             {{-- card --}}
             <div class="">
                 <div class="grid grid-cols-3 gap-4 px-10 justify-center">
-                    {{-- card 1 --}}
-                    @include('component.cardPlanet') 
+                    @foreach ($contents as $content)
+                        {{-- card 1 --}}
+                        @include('component.cardPlanet') 
+                    @endforeach
                 </div>
             </div>
         </div>

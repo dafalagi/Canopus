@@ -80,7 +80,7 @@ class DashboardContentController extends Controller
         }
 
         $validated['slug'] = SlugService::createSlug(Content::class, 'slug', $validated['title']);
-        $validated['excerpt'] = Str::limit(strip_tags($validated['body']), 200, '...');
+        $validated['excerpt'] = Str::limit(strip_tags($validated['intro']), 200, '...');
 
         Content::create($validated);
 
@@ -134,9 +134,9 @@ class DashboardContentController extends Controller
         {
             $validated = $request->validated();
         }
-        if($request->body != $content->body)
+        if($request->intro != $content->intro)
         {
-            $validated['excerpt'] = Str::limit(strip_tags($validated['body']), 200, '...');
+            $validated['excerpt'] = Str::limit(strip_tags($validated['intro']), 200, '...');
         }
         if($request->file('pictures'))
         {

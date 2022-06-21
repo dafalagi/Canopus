@@ -53,7 +53,8 @@ style="background-image: url(/imgs/bg-listBendaLangit.png)">
                         <p class="text-base font-normal mb-16 text-white text-opacity-80 pr-10">
                             {{ $contents[$i]->trivia }}
                         </p>
-                        <a class="absolute bottom-0 left-0 py-2 px-10 rounded-lg text-center text-white bg-orange2 hover:bg-secondaryclr shadow-xl transition duration-200" href="#" role="button">
+                        <a class="absolute bottom-0 left-0 py-2 px-10 rounded-lg text-center text-white bg-orange2 hover:bg-secondaryclr shadow-xl transition duration-200" 
+                        href="/contents/details/{{ $contents[$i]->slug }}" role="button">
                             Lihat
                         </a>
                     </div>

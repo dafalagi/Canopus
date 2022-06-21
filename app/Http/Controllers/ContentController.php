@@ -26,8 +26,9 @@ class ContentController extends Controller
      */
     public function show(Content $content)
     {
-        return view('content', [
+        return view('pages.content', [
             'content' => $content,
+            'events' => Content::where('event', '!=', null)->get()
         ]);
     }
 

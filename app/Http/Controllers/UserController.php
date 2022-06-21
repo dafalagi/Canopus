@@ -18,7 +18,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('pages.RegistrationForm');
+        return view('pages.register');
     }
 
     /**
@@ -91,7 +91,7 @@ class UserController extends Controller
     // Show login form
     public function login()
     {
-        return view('pages.LoginForm', [
+        return view('pages.login', [
             'title' => 'Login',
         ]);
     }
