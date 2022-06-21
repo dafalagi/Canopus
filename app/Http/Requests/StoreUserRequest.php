@@ -31,12 +31,13 @@ class StoreUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'username'          => 'required|unique:users|string|min:6|max:30',
-            'email'             => 'required|unique:users|email:dns',
-            'password'          => 'required|string|min:8|max:15',
-            'confirm_password'  => 'required|exclude|same:password',
-            'bio'               => 'nullable|string',
-            'is_admin'          => 'boolean'
+            'username' => 'required|unique:users|string|min:6|max:30',
+            'email' => 'required|unique:users|email:dns',
+            'password' => 'required|string|min:8|max:15',
+            'confirm_password' => 'required|same:password',
+            'avatar' => 'nullable|image|file|max:2048',
+            'bio' => 'nullable|string',
+            'is_admin' => 'boolean'
         ];
     }
 }

@@ -11,6 +11,15 @@ class Comment extends Model
 
     protected $guarded = ['id'];
 
+    public function scopeFilter($query, $filters)
+    {
+        $query->when($filters ?? false, function($query, $search)
+        {
+            return $query->where('id', 'like', '%'.$search.'%')
+                         ->orWhere('body', 'like', '%'.$search.'%');
+        });
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

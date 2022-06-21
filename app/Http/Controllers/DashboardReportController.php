@@ -19,7 +19,7 @@ class DashboardReportController extends Controller
     public function index()
     {
         return view('dashboard.reports.index', [
-            'reports' => Report::all(),
+            'reports' => Report::filter(request('search'))->get(),
             'columns' => Schema::getColumnListing('reports'),
         ]);
     }

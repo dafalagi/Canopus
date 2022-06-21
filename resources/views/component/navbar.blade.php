@@ -5,13 +5,13 @@
                   src="/imgs/logo2.png" 
                   alt=""></a>
               </div>
-              <div class="flex items-center gap-x-1">
+              <div class="flex items-center gap-1">
                 <a href="/" class="px-4 py-2 
                   {{ Request::is('/') ? 'text-secondaryclr' : 'text-white hover:bg-secondaryclr transition duration-200 rounded-lg' }} ">
                   Beranda
                 </a>
                 <a href="/contents" class="px-4 py-2 
-                  {{ Request::is('contents') ? 'text-secondaryclr' : 'w-40 text-white hover:bg-secondaryclr transition duration-200 rounded-lg' }} ">
+                  {{ Request::is('contents') ? 'text-secondaryclr' : 'w-max text-center text-white hover:bg-secondaryclr transition duration-200 rounded-lg' }} ">
                   Samudra angkasa
                 </a>
                 <a href="/discusses" class="px-4 py-2 

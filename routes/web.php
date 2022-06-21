@@ -24,11 +24,12 @@ use App\Http\Controllers\FavoriteController;
 */
 
 // Free Access
-Route::view('/', 'pages.home')->name('home');
+Route::view('/', 'pages.landing')->name('home');
+Route::view('/about', 'pages.about');
 
-Route::get('/users', [UserController::class, 'index']);
 Route::get('/contents', [ContentController::class, 'index']);
 Route::get('/contents/{content:slug}', [ContentController::class, 'show']);
+Route::get('/contents/{content:category}', [ContentController::class, 'category']);
 Route::get('/favorites/contents/{user:username}', [FavoriteController::class, 'showContents']);
 Route::get('/favorites/discusses/{user:username}', [FavoriteController::class, 'showDiscusses']);
 Route::get('/discusses', [DiscussController::class, 'index']);
