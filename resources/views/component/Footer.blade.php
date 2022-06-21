@@ -1,6 +1,6 @@
-    <footer class="bg-mainclr text-white inset-x-0 bottom-0 text-lg p-5 border-t border-white border-opacity-25">
+    <footer class="bg-mainclr text-white inset-x-0 bottom-0 text-lg p-5 border-t border-grey border-opacity-25">
         <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 py-12">
                 {{-- Logo --}}
                 <div class="mb-5 mt-5">
                     <img class="mx-auto md:-ml-12 md:mt-4" src="/imgs/logo3.png" alt="">
