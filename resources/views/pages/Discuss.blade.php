@@ -88,7 +88,7 @@
                         src="/imgs/profil.png" 
                         alt=""/>
                       <span class="text-white text-sm ml-10 pt-6 pb-5">Diunggah oleh</span>                       
-                      <span class="text-sm text-secondaryclr">ikhsan.n.rizki</span>
+                      <span class="text-sm ml-1 text-secondaryclr">ikhsan.n.rizki</span>
                       <span class="text-sm text-white text-opacity-30 ml-2">2 jam yang lalu</span>
                   </div>      
                   
