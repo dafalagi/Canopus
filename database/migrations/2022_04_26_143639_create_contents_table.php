@@ -23,7 +23,7 @@ class CreateContentsTable extends Migration
             $table->enum('event', ['Merkurius', 'Venus', 'Bumi', 'Mars', 'Jupiter', 'Saturnus', 'Uranus', 'Neptunus', 
             'Ceres', 'Eris', 'Pluto', 'Makemake', 'Haumea'])->nullable();
             $table->text('excerpt');
-            $table->binary('mainpicture')->nullable();
+            $table->string('mainpicture')->nullable();
             $table->json('pictures')->nullable();
             $table->string('slug')->unique();
             $table->text('trivia');

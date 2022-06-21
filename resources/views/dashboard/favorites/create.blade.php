@@ -1,17 +1,6 @@
 @extends('dashboard.layouts.main')
 
 @section('body')
-    {{-- Error Alert --}}
-    @if ($errors->hasAny('content_title', 'discuss_title'))
-        <div class="alert alert-danger alert-dismissible" role="alert">
-            <strong>
-                {{ $errors->first('content_title') }}
-                {{ $errors->first('discuss_title') }}
-            </strong>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
-
     {{-- Main Form --}}
     <form action="/dashboard/favorites" method="POST">
         @csrf
@@ -22,12 +11,23 @@
             @if ($errors->hasAny('discuss_title'))
             @else
                 autofocus
-            @endif>
+            @endif
+            aria-describedby="content_titleFeedback">
+            @if($errors->has('content_title'))
+                <div class="invalid-feedback" id="content_titleFeedback">
+                    {{ $errors->first('content_title') }}
+                </div>
+            @endif
         </div>
         <div class="mb-3">
             <label class="form-label">Discuss Title</label>
             <input type="text" class="form-control @error('discuss_title') is-invalid @enderror" name="discuss_title" 
-            value="{{ old('discuss_title') }}" @error('discuss_title') autofocus @enderror>
+            value="{{ old('discuss_title') }}" @error('discuss_title') autofocus @enderror aria-describedby="discuss_titleFeedback">
+            @if($errors->has('discuss_title'))
+                <div class="invalid-feedback" id="discuss_titleFeedback">
+                    {{ $errors->first('discuss_title') }}
+                </div>
+            @endif
         </div>
         <div class="mb-5 d-flex justify-content-end">
             <button type="submit" class="btn btn-primary">Submit</button>

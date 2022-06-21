@@ -9,6 +9,8 @@ use App\Models\Favorite;
 use App\Models\Report;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
 class DashboardContentController extends Controller
@@ -45,6 +47,37 @@ class DashboardContentController extends Controller
     public function store(StoreContentRequest $request)
     {
         $validated = $request->validated();
+
+        if($request->file('pictures'))
+        {
+            $img = [];
+            foreach($request->file('pictures') as $pictures)
+            {
+                $rules = [
+                    'image' => 'image|file|max:2048'
+                ];
+
+                $validate = ['image' => $pictures];
+                $safe = Validator::make($validate, $rules);
+                
+                if($safe->fails())
+                {
+                    return back()->with([
+                        'picturesinvalid' => 'The pictures must be images.',
+                        'oldData' => $validated
+                    ]);
+                }
+
+                $file = $pictures->store('content-images');
+                $img[] = $file;
+            }   
+            
+            $validated['pictures'] = $img;
+        }
+        if($request->file('mainpicture'))
+        {
+            $validated['mainpicture'] = $request->file('mainpicture')->store('content-images');
+        }
 
         $validated['slug'] = SlugService::createSlug(Content::class, 'slug', $validated['title']);
         $validated['excerpt'] = Str::limit(strip_tags($validated['body']), 200, '...');
@@ -105,6 +138,68 @@ class DashboardContentController extends Controller
         {
             $validated['excerpt'] = Str::limit(strip_tags($validated['body']), 200, '...');
         }
+        if($request->file('pictures'))
+        {
+            $img = [];
+
+            foreach($request->file('pictures') as $pictures)
+            {
+                $rules = [
+                    'image' => 'image|file|max:2048'
+                ];
+
+                $validate = ['image' => $pictures];
+                $safe = Validator::make($validate, $rules);
+                
+                if($safe->fails())
+                {
+                    return back()->with([
+                        'picturesinvalid' =>'The pictures must be images.',
+                        'oldData' => $validated
+                    ]);
+                }
+
+                $file = $pictures->store('content-images');
+                $img[] = $file;
+            }   
+            if($content->pictures)
+            {
+                foreach($content->pictures as $oldpictures)
+                {
+                    Storage::delete($oldpictures);
+                }
+            }
+
+            $validated['pictures'] = $img;
+        }else
+        {
+            if($content->pictures)
+            {
+                foreach($content->pictures as $oldpictures)
+                {
+                    Storage::delete($oldpictures);
+                }
+            }
+
+            $validated['pictures'] = null;
+        }
+        if($request->file('mainpicture'))
+        {
+            if($content->mainpicture)
+            {
+                Storage::delete($content->mainpicture);
+            }
+
+            $validated['mainpicture'] = $request->file('mainpicture')->store('content-images');
+        }else
+        {
+            if($content->mainpicture)
+            {
+                Storage::delete($content->mainpicture);
+            }
+
+            $validated['mainpicture'] = null;
+        }
         
         Content::where('id', $content->id)->update($validated);
 
@@ -119,6 +214,18 @@ class DashboardContentController extends Controller
      */
     public function destroy(Content $content)
     {
+        if($content->mainpicture)
+        {
+            Storage::delete($content->mainpicture);
+        }
+        if($content->pictures)
+        {
+            foreach($content->pictures as $picture)
+            {
+                Storage::delete($picture);
+            }
+        }
+
         Content::destroy($content->id);
         Favorite::where('content_id', $content->id)->delete();
         Report::where('content_id', $content->id)->delete();

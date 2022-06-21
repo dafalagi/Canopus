@@ -33,7 +33,6 @@ class StoreCommentRequest extends FormRequest
         return [
             'body' => 'required|string',
             'discuss_title' => 'required|exists:discusses,title',
-            'likes' => 'nullable|integer',
         ];
     }
 }

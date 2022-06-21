@@ -13,7 +13,7 @@ class ContentController extends Controller
      */
     public function index()
     {
-        return view('pages.contentlist', [
+        return view('pages.categoryList', [
             'contents' => Content::filter(request('search'))->get(),
         ]);
     }
@@ -28,6 +28,13 @@ class ContentController extends Controller
     {
         return view('content', [
             'content' => $content,
+        ]);
+    }
+
+    public function category(Content $content)
+    {
+        return view('pages.categoryDetails', [
+            'contents' => Content::where('category', $content->category)->get()
         ]);
     }
 }

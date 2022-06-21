@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,6 +22,14 @@ class DatabaseSeeder extends Seeder
             CommentSeeder::class,
             ReportSeeder::class,
             FavoriteSeeder::class,
+        ]);
+
+        User::create([
+            'username' => 'dafalagi',
+            'email' => 'dafa.unknown@gmail.com',
+            'password' => Hash::make('password'),
+            'bio' => 'admin',
+            'is_admin' => true
         ]);
     }
 }

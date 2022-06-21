@@ -18,7 +18,7 @@ class DashboardCommentController extends Controller
     public function index()
     {
         return view('dashboard.comments.index', [
-            'comments' => Comment::all(),
+            'comments' => Comment::filter(request('search'))->get(),
             'columns' => Schema::getColumnListing('comments')
         ]);
     }
@@ -100,10 +100,6 @@ class DashboardCommentController extends Controller
         if(auth()->user()->id != $comment->user_id)
         {
             $validated['user_id'] = auth()->user()->id;
-        }
-        if(!$validated['likes'])
-        {
-            $validated['likes'] = null;
         }
 
         unset($validated['discuss_title']);

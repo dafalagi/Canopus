@@ -38,7 +38,11 @@
                       </form>
                     </td>
                     @foreach ($columns as $column)
-                        <td>{{ $content->$column }}</td>
+                      @if ($column == 'pictures')
+                        <td>{{ collect($content->pictures)->implode(' | ') }}</td>
+                      @else
+                        <td>{{ $content->$column }}</td>  
+                      @endif
                     @endforeach
                 </tr>
             @endforeach
