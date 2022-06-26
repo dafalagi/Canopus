@@ -27,7 +27,8 @@ style="background-image: url(/imgs/bg-listBendaLangit.png)">
                             name="search"
                             placeholder="Benda langit apa yang ingin kamu kunjungi??"
                             autocomplete="off"
-                            class="w-full lg:pl-20 py-3 font-semibold rounded-xl border-none ring-2 ring-gray-300 focus:ring-grey-50 focus:ring-2 shadow-lg">
+                            class="w-full lg:pl-20 py-3 font-semibold rounded-xl border-none ring-2 ring-gray-300 focus:ring-grey-50 focus:ring-2 shadow-lg"
+                            value="{{ request('search') }}">
                         </div>
                     </form>
                 </div>
@@ -40,6 +41,32 @@ style="background-image: url(/imgs/bg-listBendaLangit.png)">
         </div>
     </section>
 
+    @php
+        $count = count($contents)-1;
+
+        if($count < 0)
+        {
+            $count = 0;
+        }
+
+        $i = mt_rand(0, $count);
+    @endphp
+
+    @if($contents->first() && request('search') != null)
+    {{-- Section Search--}}
+    <section id="Planet" class="mb-12">
+        <div class="container w-full mx-auto">
+            {{-- card --}}
+            <div class="grid grid-cols-3 gap-4 place-items-stretch px-10">
+                @foreach ($contents as $content)
+                    @include('component.cardPlanet')
+                @endforeach
+            </div>
+        </div>
+    </section>
+    @elseif(!$contents->first())
+    <p>Not Found</p>
+    @else
     {{-- Section Tahokah Kamu --}}
     <section id="Tahokah kamu" class="mb-12">
         <div class="container mx-auto bg-mainclr rounded-xl shadow-lg border-x-4 border-secondaryclr">
@@ -47,9 +74,6 @@ style="background-image: url(/imgs/bg-listBendaLangit.png)">
                 <div class="flex">
                     <div class="relative basis-full">
                         <h1 class="text-2xl font-bold text-white pb-4">Taho kah kamu?</h1>
-                        @php
-                            $i = mt_rand(0, count($contents)-1);
-                        @endphp
                         <p class="text-base font-normal mb-16 text-white text-opacity-80 pr-10">
                             {{ $contents[$i]->trivia }}
                         </p>
@@ -72,7 +96,7 @@ style="background-image: url(/imgs/bg-listBendaLangit.png)">
             </div>
         </div>
     </section>
-
+    
     {{-- Section Planet--}}
     <section id="Planet" class="mb-12">
         <div class="container w-full mx-auto">
@@ -215,7 +239,7 @@ style="background-image: url(/imgs/bg-listBendaLangit.png)">
               </div>
         </div>
     </section>
-
+    @endif
 </div>
 </body>
 @include('component.Footer')
