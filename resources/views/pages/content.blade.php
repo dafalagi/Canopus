@@ -34,14 +34,14 @@
   </div>
   <div class="h-max w-full p-10" style="background-image: url(/imgs/bg-konten.png)">
     <div class="container rounded-lg w-full mx-auto bg-mainclr p-10 text-white">
-      <h1 class="text-3xl font-bold underline ml-12">Bumi</h1>
+      <h1 class="text-3xl font-bold underline ml-12">{{ $content->title }}</h1>
       <div class="flex text-white mt-10 ml-12">
         <div class="basis-full">
         <div class="flex-col text-justify">
-          <div class="text-2xl font-bold font-poppins">Apa itu Bumi?</div>
+          <div class="text-2xl font-bold font-poppins">Apa itu {{ $content->title }}?</div>
           <div class="mt-3 font-poppins" name="desc">{!! $content->intro !!}
           </div>
-            <div class="text-2xl font-bold pt-5 font-poppins">Sejarah Bumi</div>
+            <div class="text-2xl font-bold pt-5 font-poppins">Sejarah {{ $content->title }}</div>
               <div class="mt-3 font-poppins" name="desc">{!! $content->history !!}  
               </div>
         </div>
@@ -58,15 +58,20 @@
           </div>
         </div>
       </div>
-        @if($events)
+        @if($events->first() != null)
           @include('component.cardbendalgt')
         @endif
     </div>
     <div class="container rounded-lg w-full mx-auto bg-mainclr p-10 mt-10 text-white">
-      <h1 class="text-3xl font-bold underline text-center font-poppins">Planet Lainnya</h1>
+      @if ($content->category == 'Lainnya di Angkasa')
+        <h1 class="text-3xl font-bold underline text-center font-poppins">Lainnya di Angkasa</h1>
+      @else
+        <h1 class="text-3xl font-bold underline text-center font-poppins">{{ $content->category }} Lainnya</h1>
+      @endif
       <div class="grid grid-cols-3 gap-4 place-items-stretch px-10 mt-10">
-        @include('component.cardPlanet')
-        
+        @foreach ($others->except($content->id)->take(6) as $content)
+          @include('component.cardPlanet')
+        @endforeach
       </div>
     </div>
   </div>

@@ -91,7 +91,7 @@ style="background-image: url(/imgs/bg-listBendaLangit.png)">
             </div>
             {{-- card --}}
             <div class="grid grid-cols-3 gap-4 place-items-stretch px-10">
-                @foreach ($contents->where('category', 'Planet')->slice(0,3) as $content)
+                @foreach ($contents->where('category', 'Planet')->take(3) as $content)
                     {{-- card 1 --}}
                     @include('component.cardPlanet')
                 @endforeach
@@ -117,7 +117,7 @@ style="background-image: url(/imgs/bg-listBendaLangit.png)">
             </div>
             {{-- card --}}
             <div class="grid grid-cols-3 gap-4 place-items-stretch px-10">
-                @foreach ($contents->where('category', 'Bintang')->slice(0,3) as $content)
+                @foreach ($contents->where('category', 'Bintang')->take(3) as $content)
                     {{-- card 1 --}}
                     @include('component.cardPlanet')
                 @endforeach
@@ -143,7 +143,7 @@ style="background-image: url(/imgs/bg-listBendaLangit.png)">
             </div>
             {{-- card --}}
             <div class="grid grid-cols-3 gap-4 place-items-stretch px-10">
-                @foreach ($contents->where('category', 'Rasi Bintang')->slice(0,3) as $content)
+                @foreach ($contents->where('category', 'Rasi Bintang')->take(3) as $content)
                     {{-- card 1 --}}
                     @include('component.cardPlanet')
                 @endforeach
@@ -152,42 +152,62 @@ style="background-image: url(/imgs/bg-listBendaLangit.png)">
     </section>
 
     {{-- Section Benda Langit Lainnya--}}
-    @php
-        $category = $contents->where('category', 'Lainnya di Angkasa');
-    @endphp
     <section id="BendaLangitLainnya" class="mb-12">
         <div class="container w-full mx-auto">
             <h1 class="w-full text-2xl font-bold underline text-white pb-8">Lainnya di Angkasa</h1>
             <div class="grid grid-rows-2 grid-flow-col gap-4 w-full">
+                @php
+                    $content1 = $contents->where('category', 'Lainnya di Angkasa')->random();
+                    $content2 = $contents->where('category', 'Lainnya di Angkasa')->except($content1->id)->random();
+                    $content3 = $contents->where('category', 'Lainnya di Angkasa')->except([$content1->id, $content2->id])->random();
+                @endphp
                 {{-- card comet --}}
                 <div class="row-span-2 col-span-2 rounded-xl bg-white p-1">
-                    <a href="#">
+                    <a href="/contents/details/{{ $content1->slug }}">
                         <div class="container relative rounded-xl hover:scale-110 transition duration-300 ease-in-out">
-                            <img src="/imgs/comet.png" alt="Comet" class="object-none max-w-full mx-auto rounded-xl">
+                            @if ($content1->mainpicture)
+                                <img src="{{ asset('storage/'.$content1->mainpicture) }}" 
+                                alt="{{ $content1->title }}" class="object-none max-w-full mx-auto rounded-xl">
+                            @else
+                                <img src="https://source.unsplash.com/640x480?space" 
+                                alt="Default Image" class="object-none max-w-full mx-auto rounded-xl">
+                            @endif
                             <div class="absolute p-5 bottom-0 left-0">
-                                <p class="text-white text-lg">komet</p>
+                                <p class="text-white text-lg">{{ $content1->title }}</p>
                             </div>
                         </div>
                     </a>
                 </div>
                 {{-- card Meteor --}}
                 <div class="rounded-xl bg-white p-1">
-                    <a href="#">
+                    <a href="/contents/details/{{ $content2->slug }}">
                         <div class="container relative rounded-xl hover:scale-110 transition duration-300 ease-in-out">
-                            <img src="/imgs/meteor.png" alt="Meteor" class="object-none max-w-full mx-auto rounded-xl">
+                            @if ($content2->mainpicture)
+                                <img src="{{ asset('storage/'.$content2->mainpicture) }}" 
+                                alt="{{ $content2->title }}" class="object-none max-w-full mx-auto rounded-xl">
+                            @else
+                                <img src="https://source.unsplash.com/640x480?space" 
+                                alt="Default Image" class="object-none max-w-full mx-auto rounded-xl">
+                            @endif
                             <div class="absolute p-5 bottom-0 left-0">
-                                <p class="text-white text-lg">Meteor</p>
+                                <p class="text-white text-lg">{{ $content2->title }}</p>
                             </div>
                         </div>
                     </a>
                 </div>
                 {{-- card Asteroid --}}
                 <div class="rounded-xl bg-white p-1">
-                    <a href="#">
+                    <a href="/contents/details/{{ $content3->slug }}">
                         <div class="container relative rounded-xl hover:scale-110 transition duration-300 ease-in-out">
-                            <img src="/imgs/asteroid.png" alt="Asteroid" class="object-none max-w-full mx-auto rounded-xl">
+                            @if ($content3->mainpicture)
+                                <img src="{{ asset('storage/'.$content3->mainpicture) }}" 
+                                alt="{{ $content3->title }}" class="object-none max-w-full mx-auto rounded-xl">
+                            @else
+                                <img src="https://source.unsplash.com/640x480?space" 
+                                alt="Default Image" class="object-none max-w-full mx-auto rounded-xl">
+                            @endif
                             <div class="absolute p-5 bottom-0 left-0">
-                                <p class="text-white text-lg">Asteroid</p>
+                                <p class="text-white text-lg">{{ $content3->title }}</p>
                             </div>
                         </div>
                     </a>

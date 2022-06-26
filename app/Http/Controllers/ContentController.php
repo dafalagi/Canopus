@@ -28,7 +28,8 @@ class ContentController extends Controller
     {
         return view('pages.content', [
             'content' => $content,
-            'events' => Content::where('event', '!=', null)->get()
+            'events' => Content::where('event', $content->title)->get(),
+            'others' => Content::where('category', $content->category)->get()
         ]);
     }
 
