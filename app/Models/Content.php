@@ -20,7 +20,8 @@ class Content extends Model
         $query->when($filters ?? false, function($query, $search)
         {
             return $query->where('title', 'like', '%'.$search.'%')
-                         ->orWhere('body', 'like', '%'.$search.'%');
+                         ->orWhere('intro', 'like', '%'.$search.'%')
+                         ->orWhere('history', 'like', '%'.$search.'%');
         });
     }
 

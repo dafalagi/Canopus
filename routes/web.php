@@ -3,14 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContentController;
+use App\Http\Controllers\DiscussController;
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\DashboardCommentController;
 use App\Http\Controllers\DashboardContentController;
 use App\Http\Controllers\DashboardDiscussController;
 use App\Http\Controllers\DashboardFavoriteController;
 use App\Http\Controllers\DashboardReportController;
 use App\Http\Controllers\DashboardUserController;
-use App\Http\Controllers\DiscussController;
-use App\Http\Controllers\FavoriteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +28,7 @@ Route::view('/', 'pages.landing')->name('home');
 Route::view('/about', 'pages.about');
 
 Route::get('/contents', [ContentController::class, 'index']);
-Route::get('/contents/{content:slug}', [ContentController::class, 'show']);
+Route::get('/contents/details/{content}', [ContentController::class, 'show']);
 Route::get('/contents/{content:category}', [ContentController::class, 'category']);
 Route::get('/favorites/contents/{user:username}', [FavoriteController::class, 'showContents']);
 Route::get('/favorites/discusses/{user:username}', [FavoriteController::class, 'showDiscusses']);

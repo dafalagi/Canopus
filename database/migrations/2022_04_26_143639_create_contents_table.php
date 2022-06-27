@@ -16,7 +16,8 @@ class CreateContentsTable extends Migration
         Schema::create('contents', function (Blueprint $table) {
             $table->id();
             $table->string('title')->unique();
-            $table->longText('body');
+            $table->longText('intro');
+            $table->longText('history');
             $table->enum('category', ['Planet', 'Bintang', 'Rasi Bintang', 'Lainnya di Angkasa']);
             $table->string('coordinate')->nullable();
             $table->string('distance')->nullable();

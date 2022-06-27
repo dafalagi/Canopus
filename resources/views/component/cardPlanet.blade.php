@@ -1,10 +1,10 @@
 <div class="relative aspect-video bg-white p-1 rounded-xl">
     <div class="hover:scale-110 transition duration-300 ease-in-out">
-        <a href="#">
+        <a href="/contents/details/{{ $content->slug }}">
             @if ($content->mainpicture)
-                <img src="{{ asset('storage/'.$content->mainpicture) }}" alt="coomet" class="object-cover rounded-xl">
+                <img src="{{ asset('storage/'.$content->mainpicture) }}" alt="{{ $content->title }}" class="object-cover rounded-xl">
             @else
-                <img src="https://source.unsplash.com/640x480?space" alt="coomet" class="object-cover rounded-xl">
+                <img src="https://source.unsplash.com/640x480?space" alt="Default Image" class="object-cover rounded-xl">
             @endif
             <div class="absolute p-5 top-0 right-0 text-white opacity-70 text-sm">
                 <p>Jarak :</p>

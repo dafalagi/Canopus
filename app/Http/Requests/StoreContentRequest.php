@@ -32,7 +32,8 @@ class StoreContentRequest extends FormRequest
     {
         return [
             'title' => 'required|unique:contents|min:5',
-            'body' => 'required|string|min:20',
+            'intro' => 'required|string|min:20',
+            'history' => 'required|string|min:20',
             'category' => 'required|string',
             'coordinate' => 'nullable|string',
             'distance' => 'nullable|string',

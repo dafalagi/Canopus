@@ -29,7 +29,7 @@
                         src="/imgs/UpArrow.png" 
                         alt=""/>
             </button>
-            <p class="ml-1 text-white text-opacity-25">25</p>
+            <p class="ml-1 text-white text-opacity-25">{{ $discuss->likes-$discuss->dislikes }}</p>
             <button>
               <img 
                         class="w-6 mr-10" 
@@ -38,9 +38,8 @@
             </button>
         </div>
         <div class="flex-auto">
-              <h1 class="mb-5 font-bold text-3xl text-white">Covid-19 Mega Thread</h1>
-                <p class="text-white text-sm border-b border-white border-opacity-25 pb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+              <h1 class="mb-5 font-bold text-3xl text-white">{{ $discuss->title }}</h1>
+                <p class="text-white text-sm border-b border-white border-opacity-25 pb-6">{{ $discuss->excerpt }}</p>
         </div>
       </div>
           <div class="flex">
@@ -51,9 +50,9 @@
                     alt=""/>
                 <span class="text-white text-lg ml-12 pt-6 pb-5">Diunggah oleh</span>
                   <a href="" class="relative items-center">
-                      <span class="text-lg text-secondaryclr">ikhsan.n.rizki</span>
+                      <span class="text-lg text-secondaryclr">{{ $discuss->user->username }}</span>
                   </a>
-                <span class="text-lg text-white text-opacity-30 ml-3">2 jam yang lalu</span>
+                <span class="text-lg text-white text-opacity-30 ml-3">{{ $discuss->created_at->diffForHumans() }}</span>
             </div>
           <a href="">
             <img 
@@ -61,7 +60,7 @@
               src="/imgs/comment.png" 
               alt=""/>
           </a>
-          <span class="p-1 text-lg pt-4 text-white text-opacity-30">69+</span>
+          <span class="p-1 text-lg pt-4 text-white text-opacity-30">{{ $discuss->comments->count() }}</span>
       </div>
     </div>
 </div>

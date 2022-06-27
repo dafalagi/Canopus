@@ -39,20 +39,21 @@
               </div>
             </div>
             <div class="basis-5/6 w-full pl-64 py-3 bg-grey-50">
-              <form action="">
-                          <div class="relative flex items-center">
-                              <img 
-                                class="w-6 absolute ml-4 pointer-events-none" 
-                                src="/imgs/searchIcon.png" 
-                                alt=""/>
-                          <input 
-                              type="text"
-                              name="search"
-                              placeholder="Cari topik lainnya"
-                              autocomplete="off"
-                              class=" pr-56 pl-12 py-2 font-semibold placeholder-gray-50 text-black rounded-xl border-none ring-2 ring-gray-300 focus:ring-grey-50 focus:ring-2 shadow-lg">
-                          </div>
-                      </form>
+              <form action="/discusses">
+                <div class="relative flex items-center">
+                    <img 
+                      class="w-6 absolute ml-4 pointer-events-none" 
+                      src="/imgs/searchIcon.png" 
+                      alt=""/>
+                    <input 
+                      type="text"
+                      name="search"
+                      placeholder="Cari topik lainnya"
+                      autocomplete="off"
+                      class=" pr-56 pl-12 py-2 font-semibold placeholder-gray-50 text-black rounded-xl border-none ring-2 ring-gray-300 focus:ring-grey-50 focus:ring-2 shadow-lg"
+                      value="{{ request('search') }}">
+                </div>
+              </form>
             </div>
             <div class=" text-right basis-1/3 w-32 h-10 mr-16">
               <button
@@ -67,7 +68,9 @@
               </div>
             </div>
           </div>
-        @include('.component.bodyForum')
+          @foreach ($discusses as $discuss)
+            @include('.component.bodyForum')
+          @endforeach
         <div class="mx-auto">
           {{ $discusses->links() }}
         </div>
