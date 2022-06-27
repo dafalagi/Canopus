@@ -56,7 +56,7 @@
                         <div class="basis-1/3">
                             <img 
                                 class="w-36 ml-5 mr-5" 
-                                src="/imgs/default/default_avatar.png" 
+                                src="/imgs/default/default_avatar2.png" 
                                 alt="">
                         </div>
                         <div class="basis-3/5">
