@@ -34,6 +34,7 @@ Dalam pengembangannya, Canopus menggunakan bahasa, perangkat lunak bantuan, sert
 -   **[ClickUp](https://clickup.com/)**
 -   **[Laragon](https://laragon.org/)**
     <br>
+    <br>
     <a href="https://php.net"><img src="https://cdn.cdnlogo.com/logos/p/71/php.svg" width="80" height="80"></a>
     <a href="https://laravel.com"><img src="https://cdn.cdnlogo.com/logos/l/23/laravel.svg" width="80" height="80"></a>
     <a href="https://tailwindcss.com/"><img src="https://cdn.cdnlogo.com/logos/t/58/tailwind-css.svg" width="80" height="80"></a>
