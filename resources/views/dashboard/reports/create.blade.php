@@ -29,7 +29,7 @@
                 </div>
             @endif
         </div>
-        <div class="mb-4">
+        <div class="mb-3">
             <label class="form-label">Comment ID</label>
             <input type="text" class="form-control @error('comment_id') is-invalid @enderror" name="comment_id" 
             value="{{ old('comment_id') }}" @error('comment_id') autofocus @enderror aria-describedby="comment_idFeedback">
@@ -38,6 +38,45 @@
                     {{ $errors->first('comment_id') }}
                 </div>
             @endif
+        </div>
+        <div class="mb-4">
+            <label class="form-label">Values</label>
+            <div class="input-group mb-1">
+                <div class="input-group-text">
+                  <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                </div>
+                <input type="text" class="form-control" aria-label="Text input with checkbox" value="Ujaran kebencian" disabled>
+            </div>
+            <div class="input-group mb-1">
+                <div class="input-group-text">
+                  <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                </div>
+                <input type="text" class="form-control" aria-label="Text input with checkbox" value="Informasi palsu" disabled>
+            </div>
+            <div class="input-group mb-1">
+                <div class="input-group-text">
+                  <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                </div>
+                <input type="text" class="form-control" aria-label="Text input with checkbox" value="Kata-kata tidak pantas" disabled>
+            </div>
+            <div class="input-group mb-1">
+                <div class="input-group-text">
+                  <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                </div>
+                <input type="text" class="form-control" aria-label="Text input with checkbox" value="Spam" disabled>
+            </div>
+            <div class="input-group mb-1">
+                <div class="input-group-text">
+                  <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                </div>
+                <input type="text" class="form-control" aria-label="Text input with checkbox" value="Pornografi" disabled>
+            </div>
+            <div class="input-group mb-1">
+                <div class="input-group-text">
+                  <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                </div>
+                <input type="text" class="form-control" aria-label="Text input with checkbox" value="Lainnya" disabled>
+            </div>
         </div>
         <div class="mb-5 d-flex justify-content-end">
             <button type="submit" class="btn btn-primary">Submit</button>
