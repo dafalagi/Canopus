@@ -40,14 +40,30 @@
                                 Favorit
                             </a>
                         </li>
+                        @can('admin')
                         <li>
-                            <a href="#" class="flex px-4 py-2 rounded-b-lg text-red-600 text-red bg-mainclr hover:bg-thirdclr dark:hover:bg-gray-600">
+                            <a href="/dashboard" class="flex px-4 py-2 bg-mainclr text-white hover:bg-thirdclr dark:hover:bg-gray-600">
                                 <img
                                     class="mr-2 w-5"  
-                                    src="/imgs/logout.png" 
+                                    src="/imgs/favorite.png" 
                                     alt=""/>
-                                Keluar akun
+                                Dashboard
                             </a>
+                        </li>
+                        @endcan
+                        <li>
+                            <form action="/logout" method="post">
+                                @csrf
+                                <div class="flex px-4 py-2 rounded-b-lg text-red-600 text-red bg-mainclr hover:bg-thirdclr dark:hover:bg-gray-600">
+                                    <img
+                                        class="mr-2 w-5"  
+                                        src="/imgs/logout.png" 
+                                        alt=""/>
+                                    <button type="submit">
+                                        Keluar Akun
+                                    </button>
+                                </div>
+                            </form>
                         </li>
                         </ul>
                     </div>

@@ -9,6 +9,8 @@ use App\Models\Discuss;
 use App\Models\Report;
 use Illuminate\Support\Facades\Schema;
 
+use function PHPUnit\Framework\isEmpty;
+
 class DashboardReportController extends Controller
 {
     /**
@@ -53,6 +55,16 @@ class DashboardReportController extends Controller
         {
             $discuss = Discuss::where('title', $validated['discuss_title'])->first();
             $validated['discuss_id'] = $discuss->id;
+        }
+        if($request->input('values'))
+        {
+            $validated['values'] = $request->input('values');
+        }else
+        {
+            return back()->with([
+                'valuesError' => 'Values are empty!',
+                'oldData' => $validated
+            ]);
         }
         
         $validated['user_id'] = auth()->user()->id;

@@ -14,7 +14,7 @@ class ContentFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->sentence(mt_rand(1, 3)),
+            'title' => $this->faker->unique()->sentence(mt_rand(1, 3)),
             'intro' => collect($this->faker->paragraphs(mt_rand(5, 10)))->map(fn ($p) => "<p>$p</p>")->implode(''),
             'history' => collect($this->faker->paragraphs(mt_rand(5, 10)))->map(fn ($p) => "<p>$p</p>")->implode(''),
             'excerpt' => $this->faker->paragraph(mt_rand(5, 10)),

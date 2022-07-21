@@ -53,21 +53,6 @@ class DashboardContentController extends Controller
             $img = [];
             foreach($request->file('pictures') as $pictures)
             {
-                $rules = [
-                    'image' => 'image|file|max:2048'
-                ];
-
-                $validate = ['image' => $pictures];
-                $safe = Validator::make($validate, $rules);
-                
-                if($safe->fails())
-                {
-                    return back()->with([
-                        'picturesinvalid' => 'The pictures must be images.',
-                        'oldData' => $validated
-                    ]);
-                }
-
                 $file = $pictures->store('content-images');
                 $img[] = $file;
             }   
@@ -144,21 +129,6 @@ class DashboardContentController extends Controller
 
             foreach($request->file('pictures') as $pictures)
             {
-                $rules = [
-                    'image' => 'image|file|max:2048'
-                ];
-
-                $validate = ['image' => $pictures];
-                $safe = Validator::make($validate, $rules);
-                
-                if($safe->fails())
-                {
-                    return back()->with([
-                        'picturesinvalid' =>'The pictures must be images.',
-                        'oldData' => $validated
-                    ]);
-                }
-
                 $file = $pictures->store('content-images');
                 $img[] = $file;
             }   
