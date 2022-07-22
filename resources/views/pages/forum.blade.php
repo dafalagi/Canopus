@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   @include('component.head')
-  <body>
+  <body class="font-poppins">
     <div class="bg-mainclr">
     @include('.component.navbar')
       <h1 class="font-bold pb-3 text-center mt-7 mb-7 text-2xl text-white">Selamat datang di Forum Canopus, Astroners!</h1>
@@ -56,10 +56,10 @@
               </form>
             </div>
             <div class=" text-right basis-1/3 w-32 h-10 mr-16">
-              <button
-                    class="px-6 py-5 rounded-lg text-white bg-orange2 bg-opacity-90 hover:bg-secondaryclr shadow-lg">
-                    + Mulai dengan topik baru
+              <button class="px-6 py-5 rounded-lg text-white bg-[#FF9119] hover:bg-opacity-80 shadow-lg" type="button" data-modal-toggle="Adddiscussion-modal">
+                + Mulai dengan topik baru
               </button>
+              @include('.modal.AddDiscussion')
               <div class="absolute">
                 <img 
                     class="w-64 mx-14 my-16" 

@@ -8,7 +8,7 @@
 </button>
     
 <div id="defaultModal" data-modal-placement="top-right" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed mt-16 top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
-    <div class="relative p-3 min-w-fit h-full md:h-auto">
+    <div class="relative p-3 w-2/6 h-full md:h-auto">
         <div class="relative bg-mainclr rounded-lg shadow dark:bg-gray-700" id="modalbtn">
             <div class="flex justify-between items-start p-4 h-32 bg-cover bg-center rounded-t-lg" style="background-image: url(/imgs/bg-profile.png)">
                 <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="defaultModal">
@@ -43,10 +43,7 @@
                         @can('admin')
                         <li>
                             <a href="/dashboard" class="flex px-4 py-2 bg-mainclr text-white hover:bg-thirdclr dark:hover:bg-gray-600">
-                                <img
-                                    class="mr-2 w-5"  
-                                    src="/imgs/favorite.png" 
-                                    alt=""/>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 w-5" fill="white" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M64 400C64 408.8 71.16 416 80 416H480C497.7 416 512 430.3 512 448C512 465.7 497.7 480 480 480H80C35.82 480 0 444.2 0 400V64C0 46.33 14.33 32 32 32C49.67 32 64 46.33 64 64V400zM342.6 278.6C330.1 291.1 309.9 291.1 297.4 278.6L240 221.3L150.6 310.6C138.1 323.1 117.9 323.1 105.4 310.6C92.88 298.1 92.88 277.9 105.4 265.4L217.4 153.4C229.9 140.9 250.1 140.9 262.6 153.4L320 210.7L425.4 105.4C437.9 92.88 458.1 92.88 470.6 105.4C483.1 117.9 483.1 138.1 470.6 150.6L342.6 278.6z"/></svg>
                                 Dashboard
                             </a>
                         </li>
@@ -67,14 +64,14 @@
                     </div>
                         
                     <div class="flex">
-                        <div class="basis-1/3">
+                        <div class="basis-2/5 mr-9 mb-4">
                             <img 
-                                class="w-36 ml-5 mr-5" 
+                                class="w-24 h-24 ml-5 mr-5" 
                                 src="/imgs/default/default_avatar2.png" 
                                 alt="">
                         </div>
-                        <div class="basis-3/5">
-                            <div class=" text-white text-2xl mb-5">
+                        <div class="basis-full">
+                            <div class=" text-white text-2xl mb-1">
                                 {{ auth()->user()->username }}
                             </div>
                             <div class=" text-white text-left text-sm">

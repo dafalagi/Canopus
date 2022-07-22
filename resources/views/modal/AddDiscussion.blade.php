@@ -1,8 +1,3 @@
-<!-- Modal toggle -->
-<button class="px-6 py-5 rounded-lg text-white bg-[#FF9119] hover:bg-opacity-80 shadow-lg" type="button" data-modal-toggle="Adddiscussion-modal">
-        + Mulai dengan topik baru
-</button>
-
 <!-- Main modal -->
 <div id="Adddiscussion-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
     <div class="relative w-full max-w-2xl h-full md:h-auto">
