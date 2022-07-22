@@ -5,10 +5,16 @@
     <form action="/dashboard/reports/{{ $report->id }}" method="POST">
         @method('put')
         @csrf
+        @php
+            if(session()->has('oldData'))
+            {
+                $oldData = session('oldData');
+            }
+        @endphp
         <div class="mb-3">
             <label class="form-label">Content Title</label>
             <input type="text" class="form-control @error('content_title') is-invalid @enderror" name="content_title"
-            value="{{ old('content_title', $report->content->title ?? false) }}" 
+            value="{{ old('content_title', $oldData['content_title'] ?? $report->content->title ?? false) }}" 
             @if ($errors->hasAny('discuss_title', 'comment_id'))
             @else
                 autofocus
@@ -23,8 +29,8 @@
         <div class="mb-3">
             <label class="form-label">Discuss Title</label>
             <input type="text" class="form-control @error('discuss_title') is-invalid @enderror" name="discuss_title" 
-            value="{{ old('discuss_title', $report->discuss->title ?? false) }}" @error('discuss_title') autofocus @enderror
-            aria-describedby="discuss_titleFeedback">
+            value="{{ old('discuss_title', $oldData['discuss_title'] ?? $report->discuss->title ?? false) }}" 
+            @error('discuss_title') autofocus @enderror aria-describedby="discuss_titleFeedback">
             @if($errors->has('discuss_title'))
                 <div class="invalid-feedback" id="discuss_titleFeedback">
                     {{ $errors->first('discuss_title') }}
@@ -34,13 +40,24 @@
         <div class="mb-4">
             <label class="form-label">Comment ID</label>
             <input type="text" class="form-control @error('comment_id') is-invalid @enderror" name="comment_id" 
-            value="{{ old('comment_id', $report->comment_id) }}" @error('comment_id') autofocus @enderror
+            value="{{ old('comment_id', $oldData['comment_id'] ?? $report->comment_id ?? false) }}" @error('comment_id') autofocus @enderror
             aria-describedby="comment_idFeedback">
             @if($errors->has('comment_id'))
                 <div class="invalid-feedback" id="comment_idFeedback">
                     {{ $errors->first('comment_id') }}
                 </div>
             @endif
+        </div>
+        <div class="mb-4">
+            <label class="form-label">Values</label>
+            <div class="form-group">
+                <label><input type="checkbox" name="values[]" value="Ujaran Kebencian"> Ujaran kebencian</label>
+                <label><input type="checkbox" name="values[]" value="Informasi Palsu"> Informasi Palsu</label>
+                <label><input type="checkbox" name="values[]" value="Kata-kata Tidak Pantas"> Kata-kata Tidak Pantas</label>
+                <label><input type="checkbox" name="values[]" value="Spam"> Spam</label>
+                <label><input type="checkbox" name="values[]" value="Pornografi"> Pornografi</label>
+                <label><input type="checkbox" name="values[]" value="Lainnya"> Lainnya</label>
+            </div>  
         </div>
         <div class="mb-5 d-flex justify-content-end">
             <button type="submit" class="btn btn-primary">Submit</button>

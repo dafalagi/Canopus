@@ -134,6 +134,16 @@ class DashboardReportController extends Controller
         {
             $validated['discuss_id'] = null;
         }
+        if($request->input('values'))
+        {
+            $validated['values'] = $request->input('values');
+        }else
+        {
+            return back()->with([
+                'valuesError' => 'Values are empty!',
+                'oldData' => $validated
+            ]);
+        }
         if(auth()->user()->id != $report->user_id)
         {
             $validated['user_id'] = auth()->user()->id;
