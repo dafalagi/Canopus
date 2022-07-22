@@ -34,17 +34,17 @@
                 <div>
                     <h1 class="text-center text-2xl font-bold underline text-white pb-6">Benda Langit Favoritmu</h1>
                 </div> 
-                    <div class="grid grid-cols-3 gap-6 place-item-stretch px-10">                        
-                        {{-- card 1 --}}
-                        @foreach ($favorites as $content)
-                            @if ($content->content)
-                                @php
-                                    $content = $content->content;
-                                @endphp
-                                @include('component.cardPlanet')
-                            @endif
-                        @endforeach                                                                                                            
-                    </div>
+                <div class="grid grid-cols-3 gap-6 place-item-stretch px-10">                        
+                    {{-- card 1 --}}
+                    @foreach ($favorites as $favorite)
+                        @if ($favorite->content)
+                            @php
+                                $content = $favorite->content;
+                            @endphp
+                            @include('component.cardPlanet')
+                        @endif
+                    @endforeach                                                                                                            
+                </div>
             </div>            
         </div>
     </section>
@@ -60,10 +60,10 @@
                 {{-- card --}}
                 <div class="">
                     <div class=" justify-center">
-                        @foreach ($favorites as $discuss)
-                            @if ($discuss->discuss)    
+                        @foreach ($favorites as $favorite)
+                            @if ($favorite->discuss)    
                                 @php
-                                    $discuss = $discuss->discuss;
+                                    $discuss = $favorite->discuss;
                                 @endphp
                                 @include('component.carddiscuss')
                             @endif

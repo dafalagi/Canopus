@@ -51,15 +51,13 @@
                         <li>
                             <form action="/logout" method="post">
                                 @csrf
-                                <div class="flex px-4 py-2 rounded-b-lg text-red-600 text-red bg-mainclr hover:bg-thirdclr dark:hover:bg-gray-600">
+                                <button class="flex px-4 py-2 rounded-b-lg text-red-600 text-red bg-mainclr hover:bg-thirdclr dark:hover:bg-gray-600">
                                     <img
                                         class="mr-2 w-5"  
                                         src="/imgs/logout.png" 
                                         alt=""/>
-                                    <button type="submit">
-                                        Keluar Akun
-                                    </button>
-                                </div>
+                                    Keluar Akun
+                                </button>
                             </form>
                         </li>
                         </ul>

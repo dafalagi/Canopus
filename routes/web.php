@@ -53,8 +53,9 @@ Route::middleware('auth')->group(function(){
 
     // POST
     Route::post('/logout', [UserController::class, 'logout']);
-    Route::post('/favorites/{content}', [FavoriteController::class, 'storeContent']);
-    Route::post('/favorites/{discuss}', [FavoriteController::class, 'storeDiscuss']);
+    Route::post('/favorites/content/{content}', [FavoriteController::class, 'storeContent']);
+    Route::post('/favorites/discuss/{discuss}', [FavoriteController::class, 'storeDiscuss']);
+    Route::post('/favorites/delete/{favorite}', [FavoriteController::class, 'destroy']);
 
     // RESOURCE
     Route::resource('/discusses', DiscussController::class)->except('index', 'show');
