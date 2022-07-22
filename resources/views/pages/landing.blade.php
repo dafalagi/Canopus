@@ -2,7 +2,7 @@
 <html lang="en">
 @include('component.head')
 
-<body class="font-body">
+<body class="font-poppins">
     {{-- Hero section --}}
     <section id="HomeHero" class="w-full h-full bg-no-repeat bg-cover" 
     style="background-image: url(/imgs/bg-home.png)">
@@ -12,7 +12,7 @@
                     <div class="w-full px-24 pb-72">
                         <h1 class="text-3xl font-bold text-white">Hello Astroners!<br>Selamat Datang Di Canopus</h1>
                         <p class="text-white py-4 text-opacity-75 leading-relaxed">Sudah siapkah kamu untuk menjelajah<br>luasnya samudra luar angkasa?</p>
-                        <a class="py-2 rounded-lg w-32 block text-center text-white bg-orange2 hover:bg-secondaryclr shadow-lg transition duration-200"
+                        <a class="py-2 rounded-lg w-32 block text-center text-white bg-orange2 hover:bg-orange-500 shadow-lg transition duration-200"
                         href="/contents" role="button">
                             Let's Go!
                         </a>
@@ -34,7 +34,7 @@
                     <p class="text-white py-4 text-opacity-75 leading-relaxed">
                         Berdiskusilah dengan Astroners yang lain <br> agar pengetahuanmu semakin luas!
                     </p>
-                    <a class="py-2 px-6 rounded-lg text-center text-white bg-orange2 hover:bg-secondaryclr shadow-lg transition duration-200"
+                    <a class="py-2 px-6 rounded-lg text-center text-white bg-orange2 hover:bg-orange-500 shadow-lg transition duration-200"
                     href="/discusses" role="button">
                         Let's Go!
                     </a>

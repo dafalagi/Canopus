@@ -12,5 +12,6 @@
       {{ Request::is('contents*') ? 'Samudera Angkasa' : '' }}
     </title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/imgs/Favicon.png">
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.7/dist/flowbite.min.css" />
   </head>
