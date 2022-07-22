@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   @include('component.head')
-  <body>
+  <body class="font-poppins">
     <div class="bg-mainclr">
     @include('.component.navbar')
       <h1 class="font-bold pb-3 text-center mt-7 mb-7 text-2xl text-white">Selamat datang di Forum Canopus, Astroners!</h1>
@@ -14,21 +14,21 @@
                     class="w-6 absolute ml-4 pointer-events-none" 
                     src="/imgs/home.png" 
                     alt=""/>
-                    <span class="p-1 text-lg text-white pl-14 hover:text-secondaryclr">Beranda</span>
+                    <span class="p-1 text-lg text-white ml-11 hover:text-secondaryclr">Beranda</span>
                 </a>
                 <a href="" class="relative flex items-center">
                   <img 
                     class="w-6 absolute ml-4 pointer-events-none" 
                     src="/imgs/myTopik.png" 
                     alt=""/>
-                    <span class="p-1 text-lg text-white pl-14 hover:text-secondaryclr">Topik saya</span>
+                    <span class="p-1 text-lg text-white ml-11 hover:text-secondaryclr">Topik saya</span>
                 </a>
                 <a href="" class="relative flex items-center">
                   <img 
                     class="w-6 absolute ml-4 pointer-events-none" 
                     src="/imgs/myComment.png" 
                     alt=""/>
-                    <span class="p-1 text-lg text-white pl-14 hover:text-secondaryclr">Jawaban saya</span>
+                    <span class="p-1 text-lg text-white ml-11 hover:text-secondaryclr">Jawaban saya</span>
                 </a>
               </div>
               <div class="absolute">
@@ -38,7 +38,7 @@
                     alt=""/>
               </div>
             </div>
-            <div class="basis-5/6 w-full pl-64 py-3 bg-grey-50">
+            <div class="basis-5/6 pl-56 py-3 bg-grey-50">
               <form action="/discusses">
                 <div class="relative flex items-center">
                     <img 
@@ -50,16 +50,16 @@
                       name="search"
                       placeholder="Cari topik lainnya"
                       autocomplete="off"
-                      class=" pr-56 pl-12 py-2 font-semibold placeholder-gray-50 text-black rounded-xl border-none ring-2 ring-gray-300 focus:ring-grey-50 focus:ring-2 shadow-lg"
+                      class=" pr-56 pl-12 w-5/6 py-2 font-semibold placeholder-gray-50 text-black rounded-xl border-none ring-2 ring-gray-300 focus:ring-grey-50 focus:ring-2 shadow-lg"
                       value="{{ request('search') }}">
                 </div>
               </form>
             </div>
             <div class=" text-right basis-1/3 w-32 h-10 mr-16">
-              <button
-                    class="px-6 py-5 rounded-lg text-white bg-orange2 bg-opacity-90 hover:bg-secondaryclr shadow-lg">
-                    + Mulai dengan topik baru
+              <button class="px-6 py-5 rounded-lg text-white bg-[#FF9119] hover:bg-opacity-80 shadow-lg" type="button" data-modal-toggle="Adddiscussion-modal">
+                + Mulai dengan topik baru
               </button>
+              @include('.modal.AddDiscussion')
               <div class="absolute">
                 <img 
                     class="w-64 mx-14 my-16" 
@@ -71,7 +71,7 @@
           @foreach ($discusses as $discuss)
             @include('.component.bodyForum')
           @endforeach
-        <div class="mx-auto">
+        <div class="mx-auto pt-5 pb-8">
           {{ $discusses->links() }}
         </div>
         {{-- <div class="flex items-center justify-center pt-24 pb-9">

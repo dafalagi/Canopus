@@ -34,13 +34,16 @@
                 <div>
                     <h1 class="text-center text-2xl font-bold underline text-white pb-6">Benda Langit Favoritmu</h1>
                 </div> 
-                    <div class="grid grid-cols-3 gap-6 place-item-stretch px-10">                        
-                    {{-- card 1 --}}                                  
-                        @include('component.cardPlanet') 
-                        @include('component.cardPlanet')
-                        @include('component.cardPlanet')
-                        @include('component.cardPlanet')
-                        @include('component.cardPlanet')                                                                                                            
+                <div class="grid grid-cols-3 gap-6 place-item-stretch px-10">                        
+                    {{-- card 1 --}}
+                    @foreach ($favorites as $favorite)
+                        @if ($favorite->content)
+                            @php
+                                $content = $favorite->content;
+                            @endphp
+                            @include('component.cardPlanet')
+                        @endif
+                    @endforeach                                                                                                            
                 </div>
             </div>            
         </div>
@@ -57,8 +60,14 @@
                 {{-- card --}}
                 <div class="">
                     <div class=" justify-center">
-                        {{-- card 1 --}}
-                        @include('component.carddiscuss') 
+                        @foreach ($favorites as $favorite)
+                            @if ($favorite->discuss)    
+                                @php
+                                    $discuss = $favorite->discuss;
+                                @endphp
+                                @include('component.carddiscuss')
+                            @endif
+                        @endforeach
                     </div>
                 </div>
             </div>            

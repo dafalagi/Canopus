@@ -6,18 +6,35 @@ use App\Models\User;
 use App\Models\Favorite;
 use App\Http\Requests\StoreFavoriteRequest;
 use App\Http\Requests\UpdateFavoriteRequest;
+use App\Models\Content;
+use App\Models\Discuss;
 
 class FavoriteController extends Controller
-{
+{    
     /**
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StoreFavoriteRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreFavoriteRequest $request)
+    public function storeContent(Content $content)
     {
-        //Store Favorite
+        $data['content_id'] = $content->id;
+        $data['user_id'] = auth()->user()->id;
+
+        Favorite::create($data);
+
+        return back();
+    }
+
+    public function storeDiscuss(Discuss $discuss)
+    {
+        $data['discuss_id'] = $discuss->id;
+        $data['user_id'] = auth()->user()->id;
+
+        Favorite::create($data);
+
+        return back();
     }
 
     /**
@@ -26,32 +43,11 @@ class FavoriteController extends Controller
      * @param  \App\Models\Favorite  $favorite
      * @return \Illuminate\Http\Response
      */
-    public function showContents(User $user)
+    public function show(User $user)
     {
-        return view('favoriteContents', [
-            'title' => $user->username,
-            'favorites' => $user->favorites->sortDesc()->load('content'),
+        return view('pages.favorites', [
+            'favorites' => $user->favorites
         ]);
-    }
-
-    public function showDiscusses(User $user)
-    {
-        return view('favoriteDiscusses', [
-            'title' => $user->username,
-            'favorites' => $user->favorites->sortDesc()->load('discuss'),
-        ]);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateFavoriteRequest  $request
-     * @param  \App\Models\Favorite  $favorite
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateFavoriteRequest $request, Favorite $favorite)
-    {
-        //Update Favorite
     }
 
     /**
@@ -62,6 +58,8 @@ class FavoriteController extends Controller
      */
     public function destroy(Favorite $favorite)
     {
-        //Delete Favorite
+        Favorite::destroy($favorite->id);
+
+        return back();
     }
 }

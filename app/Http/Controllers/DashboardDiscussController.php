@@ -23,7 +23,7 @@ class DashboardDiscussController extends Controller
     public function index()
     {
         return view('dashboard.discusses.index', [
-            'discusses' => Discuss::filter(request('search'))->get(),
+            'discusses' => Discuss::filter(request('search'))->without('user', 'comments')->get(),
             'columns' => Schema::getColumnListing('discusses'),
         ]);
     }
