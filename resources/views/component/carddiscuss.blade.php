@@ -4,19 +4,23 @@
             {{-- pivot --}}
             <div class="flex absolute py-44">
                 <div class="flex-auto">
-                    <button>
-                        <img 
+                    <form action="/discusses/likes/{{ $discuss->slug }}" method="post">
+                        <button>
+                            <img 
                                 class="w-5" 
                                 src="/imgs/UpArrow.png" 
                                 alt=""/>
-                    </button>
+                        </button>
+                    </form>
                     <p class="pl-1 text-xs text-white text-opacity-25">{{ $discuss->likes - $discuss->dislikes }}</p>
-                    <button>
-                    <img 
+                    <form action="/discusses/dislikes/{{ $discuss->slug }}" method="post">
+                        <button>
+                            <img 
                                 class="w-5" 
                                 src="/imgs/DownArrow.png" 
                                 alt=""/>
-                    </button>
+                        </button>
+                    </form>
                 </div>
             </div>
             {{-- akhir pivot --}}      
