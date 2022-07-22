@@ -2,7 +2,7 @@
 <html lang="en">
   @include('component.head')
 
-<body class="font-body">
+<body class="font-poppins">
   <div class="w-full h-full bg-no-repeat bg-cover"
   style="background-image: url(/imgs/bg-login.png)"> 
     @include('component.navbar')
@@ -22,7 +22,7 @@
         alt="Logo">
       <div class="p-10">
         <div class="container mx-auto">
-          <div class="mx-auto max-w-md rounded-xl shadow-md p-12 bg-white bg-opacity-20" >
+          <div class="mx-auto max-w-md bg-opacity-10 bg-slate rounded-xl shadow-md p-12" >
             <h1 class="font-bold text-3xl text-white">Masuk</h1>
             <p class="text-white">Masuk untuk mengelola akun anda</p>
             <form action="/login" method="POST" class="mt-6">
@@ -58,7 +58,7 @@
                 </label>
               </div>
               <div class="pt-6">
-                <button class="py-2 rounded-lg w-full block text-white bg-orange2 bg-opacity-90 hover:bg-secondaryclr shadow-lg">
+                <button class="py-2 rounded-lg w-full block text-white bg-orange2 bg-opacity-90 hover:bg-orange-500 shadow-lg">
                       Masuk
                     </button>
               </div>

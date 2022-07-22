@@ -2,7 +2,7 @@
 <html lang="en">
 @include('component.head')
 
-<body class="font-body">
+<body class="font-poppins">
 <div class="container">
     {{-- Section hero --}}
     <section class="w-full h-full bg-no-repeat bg-cover" style="background-image: url(/imgs/bg-about1.png)">
@@ -44,7 +44,7 @@
             </div>
             <div class="basis-full flex gap-4 flex-wrap justify-center">
                 <!-- tim 1 Dafa-->
-                <div class="lg:w-2/5 md:w-1/2 w-full">
+                <div class="md:w-1/2 lg:w-2/5">
                   <div class="flex items-center bg-mainclr p-4 rounded-lg">
                     <img
                       alt="team"
@@ -92,7 +92,7 @@
                   </div>
                 </div>
                 {{-- tim 2 Saeful--}}
-                <div class="lg:w-2/5 md:w-1/2 w-full">
+                <div class="lg:w-2/5 md:w-1/2">
                   <div class="flex items-center bg-mainclr p-4 rounded-lg">
                     <img
                       alt="team"
@@ -140,7 +140,7 @@
                   </div>
                 </div>
                 {{-- tim 3 Arif--}}
-                <div class="lg:w-2/5 md:w-1/2 w-full">
+                <div class="lg:w-2/5 md:w-1/2">
                   <div class="flex items-center bg-mainclr p-4 rounded-lg">
                     <img
                       alt="team"
@@ -188,7 +188,7 @@
                   </div>
                 </div>
                 {{-- tim 4 Ikhsan--}}
-                <div class="lg:w-2/5 md:w-1/2 w-full">
+                <div class="lg:w-2/5 md:w-1/2">
                   <div class="flex items-center bg-mainclr p-4 rounded-lg">
                     <img
                       alt="team"
@@ -236,7 +236,7 @@
                   </div>
                 </div>
                 {{-- tim 5 Fauzi--}}
-                <div class="lg:w-2/5 md:w-1/2 w-full">
+                <div class="lg:w-2/5 md:w-1/2">
                   <div class="flex items-center bg-mainclr p-4 rounded-lg">
                     <img
                       alt="team"

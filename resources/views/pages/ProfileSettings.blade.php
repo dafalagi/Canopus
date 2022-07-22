@@ -21,6 +21,11 @@
                         </div>
                     </a>
                 </div>
+                <div class="py-4 px-3">
+                    <button type="button" class="w-full border border-red-500 text-red-500 hover:text-white hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2">
+                        Hapus akun
+                    </button>   
+                </div>
             </aside>
             <div class="mt-10">
                 <img src="/imgs/astro1.png" alt="">
