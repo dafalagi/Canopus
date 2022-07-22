@@ -58,6 +58,8 @@ class FavoriteController extends Controller
      */
     public function destroy(Favorite $favorite)
     {
-        //Delete Favorite
+        Favorite::destroy($favorite->id);
+
+        return back();
     }
 }
