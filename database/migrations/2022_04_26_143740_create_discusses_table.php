@@ -18,7 +18,7 @@ class CreateDiscussesTable extends Migration
             $table->foreignId('user_id');
             $table->string('title');
             $table->text('body');
-            $table->binary('picture')->nullable();
+            $table->string('picture')->nullable();
             $table->text('excerpt');
             $table->string('slug')->unique();
             $table->integer('likes')->nullable();

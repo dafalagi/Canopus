@@ -19,7 +19,7 @@ class DashboardFavoriteController extends Controller
     public function index()
     {
         return view('dashboard.favorites.index', [
-            'favorites' => Favorite::filter(request('search'))->get(),
+            'favorites' => Favorite::filter(request('search'))->without('user', 'content', 'discuss')->get(),
             'columns' => Schema::getColumnListing('favorites'),
         ]);
     }

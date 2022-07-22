@@ -6,18 +6,24 @@ use App\Models\User;
 use App\Models\Favorite;
 use App\Http\Requests\StoreFavoriteRequest;
 use App\Http\Requests\UpdateFavoriteRequest;
+use App\Models\Content;
 
 class FavoriteController extends Controller
-{
+{    
     /**
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StoreFavoriteRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreFavoriteRequest $request)
+    public function storeContent(Content $content)
     {
-        //Store Favorite
+        $data['content_id'] = $content->id;
+        $data['user_id'] = auth()->user()->id;
+
+        Favorite::create($data);
+
+        return back();
     }
 
     /**
@@ -26,19 +32,10 @@ class FavoriteController extends Controller
      * @param  \App\Models\Favorite  $favorite
      * @return \Illuminate\Http\Response
      */
-    public function showContents(User $user)
+    public function show(User $user)
     {
-        return view('favoriteContents', [
-            'title' => $user->username,
-            'favorites' => $user->favorites->sortDesc()->load('content'),
-        ]);
-    }
-
-    public function showDiscusses(User $user)
-    {
-        return view('favoriteDiscusses', [
-            'title' => $user->username,
-            'favorites' => $user->favorites->sortDesc()->load('discuss'),
+        return view('pages.favorites', [
+            'favorites' => $user->favorites
         ]);
     }
 

@@ -39,7 +39,7 @@ class StoreContentRequest extends FormRequest
             'distance' => 'nullable|string',
             'event' => 'nullable|string',
             'mainpicture' => 'nullable|image|file|max:2048',
-            'pictures[]' => 'nullable|array',
+            'pictures.*' => 'nullable|image|file|max:2048',
             'trivia' => 'required|string|min:20',
         ];
     }

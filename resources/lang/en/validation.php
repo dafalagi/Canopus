@@ -142,9 +142,18 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'pictures.*' => [
+            'image' => 'The additional pictures must be images.',
+            'max' => 'The additional pictures must not be greater than 2MB.'
         ],
+        'mainpicture' => [
+            'image' => 'The main picture must be an image.',
+            'max' => 'The main picture must not be greater than 2MB.'
+        ],
+        'picture' => [
+            'image' => 'The picture must be an image.',
+            'max' => 'The picture must not be greater than 2MB.'
+        ]
     ],
 
     /*

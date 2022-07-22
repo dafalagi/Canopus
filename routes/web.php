@@ -30,10 +30,8 @@ Route::view('/about', 'pages.about');
 Route::get('/contents', [ContentController::class, 'index']);
 Route::get('/contents/details/{content}', [ContentController::class, 'show']);
 Route::get('/contents/{content:category}', [ContentController::class, 'category']);
-Route::get('/favorites/contents/{user:username}', [FavoriteController::class, 'showContents']);
-Route::get('/favorites/discusses/{user:username}', [FavoriteController::class, 'showDiscusses']);
 Route::get('/discusses', [DiscussController::class, 'index']);
-Route::get('/discusses/{discuss:slug}', [DiscussController::class, 'show']);
+Route::get('/discusses/{discuss}', [DiscussController::class, 'show']);
 
 // Not Logged In Only
 Route::middleware('guest')->group(function(){
@@ -50,8 +48,12 @@ Route::middleware('guest')->group(function(){
 // Logged In Only
 Route::middleware('auth')->group(function(){
 
+    // GET
+    Route::get('/favorites/{user}', [FavoriteController::class, 'show']);
+
     // POST
     Route::post('/logout', [UserController::class, 'logout']);
+    Route::post('/favorites/{content}', [FavoriteController::class, 'storeContent']);
 
     // RESOURCE
     Route::resource('/discusses', DiscussController::class)->except('index', 'show');
@@ -64,12 +66,14 @@ Route::middleware('admin')->group(function(){
     Route::view('/dashboard', 'dashboard.layouts.main');
 
     // RESOURCE
-    Route::resource('/dashboard/users', DashboardUserController::class);
-    Route::resource('/dashboard/contents', DashboardContentController::class);
-    Route::resource('/dashboard/discusses', DashboardDiscussController::class);
-    Route::resource('/dashboard/favorites', DashboardFavoriteController::class);
-    Route::resource('/dashboard/comments', DashboardCommentController::class);
-    Route::resource('/dashboard/reports', DashboardReportController::class);
+    Route::resources([
+        '/dashboard/users' => DashboardUserController::class,
+        '/dashboard/contents' => DashboardContentController::class,
+        '/dashboard/discusses' => DashboardDiscussController::class,
+        '/dashboard/favorites' => DashboardFavoriteController::class,
+        '/dashboard/comments' => DashboardCommentController::class,
+        '/dashboard/reports' => DashboardReportController::class,
+    ]);
 });
 
 // DEV

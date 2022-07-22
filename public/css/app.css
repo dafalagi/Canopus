@@ -1136,6 +1136,9 @@ input:checked + .toggle-bg{
 .mb-1{
   margin-bottom: 0.25rem;
 }
+.-mb-5{
+  margin-bottom: -1.25rem;
+}
 .block{
   display: block;
 }
@@ -2164,6 +2167,18 @@ input:checked + .toggle-bg{
 .placeholder-gray-50::placeholder{
   --tw-placeholder-opacity: 1;
   color: rgb(249 250 251 / var(--tw-placeholder-opacity));
+}
+.placeholder-white::-moz-placeholder{
+  --tw-placeholder-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-placeholder-opacity));
+}
+.placeholder-white:-ms-input-placeholder{
+  --tw-placeholder-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-placeholder-opacity));
+}
+.placeholder-white::placeholder{
+  --tw-placeholder-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-placeholder-opacity));
 }
 .opacity-70{
   opacity: 0.7;

@@ -35,13 +35,14 @@
                     <h1 class="text-center text-2xl font-bold underline text-white pb-6">Benda Langit Favoritmu</h1>
                 </div> 
                     <div class="grid grid-cols-3 gap-6 place-item-stretch px-10">                        
-                    {{-- card 1 --}}                                  
-                        @include('component.cardPlanet') 
-                        @include('component.cardPlanet')
-                        @include('component.cardPlanet')
-                        @include('component.cardPlanet')
-                        @include('component.cardPlanet')                                                                                                            
-                </div>
+                        {{-- card 1 --}}
+                        @foreach ($favorites as $content)
+                        @php
+                            $content = $content->content;
+                        @endphp
+                            @include('component.cardPlanet')
+                        @endforeach                                                                                                            
+                    </div>
             </div>            
         </div>
     </section>
@@ -57,8 +58,12 @@
                 {{-- card --}}
                 <div class="">
                     <div class=" justify-center">
-                        {{-- card 1 --}}
-                        @include('component.carddiscuss') 
+                        @foreach ($favorites as $discuss)
+                        @php
+                            $discuss = $discuss->discuss;
+                        @endphp
+                            @include('component.carddiscuss') 
+                        @endforeach
                     </div>
                 </div>
             </div>            

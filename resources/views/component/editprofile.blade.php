@@ -47,7 +47,7 @@
                 </div>
                 <div class="flex p-5 text-white">
                     {{-- avatar profil --}}
-                    <img class="rounded-full shadow-2xl" src="/imgs/p-arif.png" width="150" height="150" alt="">
+                    <img class="rounded-full shadow-2xl" src="/imgs/p-arif.png" width="200" height="200" alt="Profil">
                     <div class="pl-4 my-12">
                         <h3 class="pl-2">Ganti Profil</h3>
                         <label for="" class="block">
@@ -57,7 +57,7 @@
                             id="" 
                             class="
                                 file:bg-blue-500
-                                file:px-6 file:py-3 file:m-5
+                                file:px-6 file:py-3
                                 file:border-none
                                 file:rounded-full
                                 file:text-white

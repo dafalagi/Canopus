@@ -38,7 +38,11 @@
                       </form>
                     </td>
                     @foreach ($columns as $column)
-                        <td>{{ $report->$column }}</td>
+                      @if ($column == 'values')
+                        <td>{{ collect($report->values)->implode(' | ') }}</td>
+                      @else
+                        <td>{{ $report->$column }}</td>  
+                      @endif
                     @endforeach
                 </tr>
             @endforeach
