@@ -37,10 +37,12 @@
                     <div class="grid grid-cols-3 gap-6 place-item-stretch px-10">                        
                         {{-- card 1 --}}
                         @foreach ($favorites as $content)
-                        @php
-                            $content = $content->content;
-                        @endphp
-                            @include('component.cardPlanet')
+                            @if ($content->content)
+                                @php
+                                    $content = $content->content;
+                                @endphp
+                                @include('component.cardPlanet')
+                            @endif
                         @endforeach                                                                                                            
                     </div>
             </div>            
@@ -59,10 +61,12 @@
                 <div class="">
                     <div class=" justify-center">
                         @foreach ($favorites as $discuss)
-                        @php
-                            $discuss = $discuss->discuss;
-                        @endphp
-                            @include('component.carddiscuss') 
+                            @if ($discuss->discuss)    
+                                @php
+                                    $discuss = $discuss->discuss;
+                                @endphp
+                                @include('component.carddiscuss')
+                            @endif
                         @endforeach
                     </div>
                 </div>

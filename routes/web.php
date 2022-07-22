@@ -54,9 +54,11 @@ Route::middleware('auth')->group(function(){
     // POST
     Route::post('/logout', [UserController::class, 'logout']);
     Route::post('/favorites/{content}', [FavoriteController::class, 'storeContent']);
+    Route::post('/favorites/{discuss}', [FavoriteController::class, 'storeDiscuss']);
 
     // RESOURCE
     Route::resource('/discusses', DiscussController::class)->except('index', 'show');
+    Route::resource('/users', UserController::class);
 });
 
 // Admin Only

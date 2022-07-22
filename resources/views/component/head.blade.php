@@ -10,6 +10,8 @@
       {{ Request::is('emailver') ? 'Email Verification' : '' }}
       {{ Request::is('discusses*') ? 'Forum' : '' }}
       {{ Request::is('contents*') ? 'Samudera Angkasa' : '' }}
+      {{ Request::is('user*') ? auth()->user()->username : '' }}
+      {{ Request::is('favorites*') ? 'Favorites' : '' }}
     </title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.7/dist/flowbite.min.css" />

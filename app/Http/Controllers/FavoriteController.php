@@ -7,6 +7,7 @@ use App\Models\Favorite;
 use App\Http\Requests\StoreFavoriteRequest;
 use App\Http\Requests\UpdateFavoriteRequest;
 use App\Models\Content;
+use App\Models\Discuss;
 
 class FavoriteController extends Controller
 {    
@@ -26,6 +27,16 @@ class FavoriteController extends Controller
         return back();
     }
 
+    public function storeDiscuss(Discuss $discuss)
+    {
+        $data['discuss_id'] = $discuss->id;
+        $data['user_id'] = auth()->user()->id;
+
+        Favorite::create($data);
+
+        return back();
+    }
+
     /**
      * Display the specified resource.
      *
@@ -37,18 +48,6 @@ class FavoriteController extends Controller
         return view('pages.favorites', [
             'favorites' => $user->favorites
         ]);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateFavoriteRequest  $request
-     * @param  \App\Models\Favorite  $favorite
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateFavoriteRequest $request, Favorite $favorite)
-    {
-        //Update Favorite
     }
 
     /**
