@@ -1,11 +1,11 @@
 <div class="grid grid-cols-1 -my-2 gap-44 p-5 ">
     <div class="container">
         <div class="relative mx-auto max-w-3xl rounded-xl shadow-md p-6 bg-thirdclr">
-          <button id="dropdownForum" data-dropdown-toggle="dropdownForum" class="absolute top-0 right-0 text-white px-4 py-2.5 text-center inline-flex items-center" type="button">
+          <button id="dropdownForum" data-dropdown-toggle="dropdownFrm" class="absolute top-0 right-0 text-white px-4 py-2.5 text-center inline-flex items-center" type="button">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5" fill="white" viewBox="0 0 320 512"><path d="M310.6 246.6l-127.1 128C176.4 380.9 168.2 384 160 384s-16.38-3.125-22.63-9.375l-127.1-128C.2244 237.5-2.516 223.7 2.438 211.8S19.07 192 32 192h255.1c12.94 0 24.62 7.781 29.58 19.75S319.8 237.5 310.6 246.6z"/></svg>
           </button>
-          <!-- Dropdown menu -->
-          <div id="dropdownForum" class=" \z-10 hidden divide-y divide-gray-100 rounded-lg shadow w-auto dark:bg-gray-700">
+            <!-- Dropdown menu -->
+          <div id="dropdownFrm" class="z-10 hidden divide-y divide-gray-100 rounded-lg shadow w-auto dark:bg-gray-700">
             <ul class="text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownForum">
             <li>
                 <a href="#" class="border-b flex px-4 py-2 rounded-t-lg text-white bg-mainclr hover:bg-thirdclr dark:hover:bg-gray-600">
