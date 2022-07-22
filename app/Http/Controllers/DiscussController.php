@@ -98,6 +98,26 @@ class DiscussController extends Controller
      */
     public function destroy(Discuss $discuss)
     {
-        //Delete Discuss
-    }   
+        Discuss::destroy($discuss->id);
+
+        return redirect('/forum');
+    }
+
+    public function likes(Discuss $discuss)
+    {
+        $data['likes'] = $discuss->likes++;
+
+        Discuss::where('id', $discuss->id)->update($data);
+
+        return back();
+    }
+
+    public function dislikes(Discuss $discuss)
+    {
+        $data['dislikes'] = $discuss->dislikes++;
+
+        Discuss::where('id', $discuss->id)->update($data);
+
+        return back();
+    }
 }
