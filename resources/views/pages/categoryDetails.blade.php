@@ -48,14 +48,11 @@
         }
     @endphp
 
-<<<<<<< HEAD
     @if (!$contents->first())
         <div class="my-5">
             @include('component.AlertNotFound')
         </div>
     @else
-=======
->>>>>>> 6d21189d7c7f2887734c3beb22a96dfe0925ec14
         {{-- Section List--}}
         <section id="ViewMore" class="pb-12">
             <div class="container w-full mx-auto">
@@ -64,7 +61,6 @@
                     <h1 class="text-center text-2xl font-bold underline text-white pb-6">Planet</h1>
                 </div>
                 {{-- card --}}
-<<<<<<< HEAD
                 <div class="">
                     <div class="grid grid-cols-3 gap-4 px-10 justify-center">
                         @foreach ($contents as $content)
@@ -76,17 +72,6 @@
             </div>
         </section>
     @endif
-=======
-                <div class="grid grid-cols-3 gap-4 px-10 justify-center">
-                    @foreach ($contents as $content)
-                        {{-- card 1 --}}
-                        @include('component.cardPlanet') 
-                    @endforeach
-                </div>
-            </div>
-        </section>
-    </div>
->>>>>>> 6d21189d7c7f2887734c3beb22a96dfe0925ec14
 </div>
 </body>
 @include('component.Footer')
