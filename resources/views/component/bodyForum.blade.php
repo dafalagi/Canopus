@@ -1,6 +1,6 @@
-<div class="grid grid-cols-1 -my-2 gap-44 p-5 ">
+<div class="grid grid-cols-1 p-5 ">
     <div class="container">
-        <div class="relative mx-auto max-w-3xl rounded-xl shadow-md p-6 bg-thirdclr">
+      <div class="relative mx-auto max-w-3xl rounded-xl shadow-md p-6 bg-thirdclr">
           <button id="dropdownForum" data-dropdown-toggle="dropdownFrm" class="absolute top-0 right-0 text-white px-4 py-2.5 text-center inline-flex items-center" type="button">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5" fill="white" viewBox="0 0 320 512"><path d="M310.6 246.6l-127.1 128C176.4 380.9 168.2 384 160 384s-16.38-3.125-22.63-9.375l-127.1-128C.2244 237.5-2.516 223.7 2.438 211.8S19.07 192 32 192h255.1c12.94 0 24.62 7.781 29.58 19.75S319.8 237.5 310.6 246.6z"/></svg>
           </button>
@@ -21,27 +21,29 @@
             </li>
             </ul>
           </div>
-          <div class="flex">
-            <div class="flex-auto mt-16 items-start">
-                <button>
+          <a href="">
+            <div class="flex">
+              <div class="flex-auto mt-16 items-start">
+                  <button>
+                      <img 
+                              class="w-6 mr-10" 
+                              src="/imgs/UpArrow.png" 
+                              alt=""/>
+                  </button>
+                  <p class="ml-1 text-white text-opacity-25">{{ $discuss->likes-$discuss->dislikes }}</p>
+                  <button>
                     <img 
-                            class="w-6 mr-10" 
-                            src="/imgs/UpArrow.png" 
-                            alt=""/>
-                </button>
-                <p class="ml-1 text-white text-opacity-25">{{ $discuss->likes-$discuss->dislikes }}</p>
-                <button>
-                  <img 
-                            class="w-6 mr-10" 
-                            src="/imgs/DownArrow.png" 
-                            alt=""/>
-                </button>
+                              class="w-6 mr-10" 
+                              src="/imgs/DownArrow.png" 
+                              alt=""/>
+                  </button>
+              </div>
+              <div class="flex-auto">
+                    <h1 class="mb-5 font-bold text-3xl text-white">{{ $discuss->title }}</h1>
+                      <p class="text-white text-sm border-b border-white border-opacity-25 pb-6">{{ $discuss->excerpt }}</p>
+              </div>
             </div>
-            <div class="flex-auto">
-                  <h1 class="mb-5 font-bold text-3xl text-white">{{ $discuss->title }}</h1>
-                    <p class="text-white text-sm border-b border-white border-opacity-25 pb-6">{{ $discuss->excerpt }}</p>
-            </div>
-          </div>
+          </a>
             <div class="flex">
               <div class="flex-auto pt-4">
                   <img 
@@ -60,7 +62,7 @@
                 alt=""/>
             </a>
             <span class="p-1 text-lg pt-4 text-white text-opacity-30">{{ $discuss->comments->count() }}</span>
+          </div>
       </div>
-    </div>
   </div>
 </div>
