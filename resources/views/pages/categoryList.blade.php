@@ -209,7 +209,7 @@
             </div>
         </section>
 
-        Section Benda Langit Lainnya
+        {{-- Section Benda Langit Lainnya --}}
         <section id="BendaLangitLainnya" class="mb-12">
             <div class="container w-full mx-auto">
                 <h1 class="w-full text-2xl font-bold underline text-white pb-8">Lainnya di Angkasa</h1>
