@@ -40,6 +40,10 @@ style="background-image: url(/imgs/bg-listBendaLangit.png)">
         </div>
     </section>
 
+    @php
+        
+    @endphp
+    
     {{-- Section List--}}
     <section id="ViewMore" class="pb-12">
         <div class="container w-full mx-auto">

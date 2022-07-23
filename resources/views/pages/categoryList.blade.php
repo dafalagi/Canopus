@@ -43,9 +43,6 @@
                                     value="{{ request('search') }}">
                             </div>                       
                         </form>
-                        <div class="my-5">
-                            @include('component.AlertNotFound')
-                        </div>
                     </div>
                     <div class="basis-1/3">
                         <div class="w-full self-end">
@@ -65,6 +62,7 @@
             }
 
             $i = mt_rand(0, $count);
+            $favorites = auth()->user()->favorites;
         @endphp
 
         @if($contents->first() && request('search') != null)
@@ -80,7 +78,9 @@
             </div>
         </section>
         @elseif(!$contents->first())
-        <h1 class="text-white">Not Found</h1>
+        <div class="my-5">
+            @include('component.AlertNotFound')
+        </div>
         @else
         {{-- Section Tahokah Kamu --}}
         <section id="Tahokah kamu" class="mb-12">
@@ -121,7 +121,7 @@
                         <h1 class="text-2xl font-bold underline text-white pb-4">Planet</h1>
                     </div>
                     <div>
-                        <a href="">
+                        <a href="/contents/planet">
                             <p class="text-white mx-auto opacity-80">
                                 Lihat lainnya
                             </p>
@@ -132,12 +132,8 @@
                 <div class="grid grid-cols-3 gap-4 place-items-stretch px-10">
                     @foreach ($contents->where('category', 'Planet')->take(3) as $content)
                         @php
-                            foreach(auth()->user()->favorites as $fav)
-                            {
-                                $favorite[] = $fav;
-                            }
+                            $favorite = $favorites->whereIn('content_id', $content->id);
                         @endphp
-                        {{-- card 1 --}}
                         @include('component.cardPlanet')
                     @endforeach
                 </div>
@@ -153,7 +149,7 @@
                         <h1 class="text-2xl font-bold underline text-white pb-4">Bintang</h1>
                     </div>
                     <div>
-                        <a href="">
+                        <a href="/contents/bintang">
                             <p class="text-white mx-auto opacity-80">
                                 Lihat lainnya
                             </p>
@@ -163,7 +159,9 @@
                 {{-- card --}}
                 <div class="grid grid-cols-3 gap-4 place-items-stretch px-10">
                     @foreach ($contents->where('category', 'Bintang')->take(3) as $content)
-                        {{-- card 1 --}}
+                        @php
+                            $favorite = $favorites->whereIn('content_id', $content->id);
+                        @endphp
                         @include('component.cardPlanet')
                     @endforeach
                 </div>
@@ -179,7 +177,7 @@
                         <h1 class="text-2xl font-bold underline text-white pb-4">Rasi Bintang</h1>
                     </div>
                     <div>
-                        <a href="">
+                        <a href="/contents/rasi%20bintang">
                             <p class="text-white mx-auto opacity-80">
                                 Lihat lainnya
                             </p>
@@ -189,14 +187,16 @@
                 {{-- card --}}
                 <div class="grid grid-cols-3 gap-4 place-items-stretch px-10">
                     @foreach ($contents->where('category', 'Rasi Bintang')->take(3) as $content)
-                        {{-- card 1 --}}
+                        @php
+                            $favorite = $favorites->whereIn('content_id', $content->id);
+                        @endphp
                         @include('component.cardPlanet')
                     @endforeach
                 </div>
             </div>
         </section>
 
-        {{-- Section Benda Langit Lainnya--}}
+        Section Benda Langit Lainnya
         <section id="BendaLangitLainnya" class="mb-12">
             <div class="container w-full mx-auto">
                 <h1 class="w-full text-2xl font-bold underline text-white pb-8">Lainnya di Angkasa</h1>
@@ -220,18 +220,28 @@
                                 <div class="absolute p-5 bottom-0 left-0">
                                     <p class="text-white text-lg">{{ $content1->title }}</p>
                                 </div>
-                                {{-- Fav putih --}}
-                                <button class="absolute p-5 bottom-3 right-3 fill-white">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 576 512">
-                                        <path d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"/>
-                                    </svg>
-                                </button>
-                                {{-- Fav persija --}}
-                                <button class="absolute p-5 bottom-3 right-3 fill-secondaryclr">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 576 512">
-                                        <path d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"/>
-                                    </svg>
-                                </button>
+                                @php
+                                    $favorite = $favorites->whereIn('content_id', $content1->id);
+                                @endphp
+                                @if ($favorite->isNotEmpty() && $favorite->first()->content_id == $content1->id)
+                                    <form action="/favorites/delete/{{ $favorite->first()->id }}" method="post">
+                                        @csrf
+                                        <button class="absolute p-5 bottom-3 right-3 fill-secondaryclr">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 576 512">
+                                                <path d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"/>
+                                            </svg>
+                                        </button>
+                                    </form>
+                                @else
+                                    <form action="/favorites/content/{{ $content1->slug }}" method="post">
+                                        @csrf
+                                        <button class="absolute p-5 bottom-3 right-3 fill-white">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 576 512">
+                                                <path d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"/>
+                                            </svg>
+                                        </button>
+                                    </form>
+                                @endif
                             </div>
                         </a>
                     </div>
@@ -249,8 +259,11 @@
                                 <div class="absolute p-5 bottom-0 left-0">
                                     <p class="text-white text-lg">{{ $content2->title }}</p>
                                 </div>
-                                @if ($favorite ?? false)
-                                    <form action="/favorites/delete/{{ $favorite->id }}" method="post">
+                                @php
+                                    $favorite = $favorites->whereIn('content_id', $content2->id);
+                                @endphp
+                                @if ($favorite->isNotEmpty() && $favorite->first()->content_id == $content2->id)
+                                    <form action="/favorites/delete/{{ $favorite->first()->id }}" method="post">
                                         @csrf
                                         <button class="absolute p-5 bottom-3 right-3 fill-secondaryclr">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 576 512">
@@ -259,7 +272,7 @@
                                         </button>
                                     </form>
                                 @else
-                                    <form action="/favorites/content/{{ $content->slug }}" method="post">
+                                    <form action="/favorites/content/{{ $content2->slug }}" method="post">
                                         @csrf
                                         <button class="absolute p-5 bottom-3 right-3 fill-white">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 576 512">
@@ -285,18 +298,28 @@
                                 <div class="absolute p-5 bottom-0 left-0">
                                     <p class="text-white text-lg">{{ $content3->title }}</p>
                                 </div>
-                                {{-- Fav putih --}}
-                                <button class="absolute p-5 bottom-3 right-3 fill-white">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 576 512">
-                                        <path d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"/>
-                                    </svg>
-                                </button>
-                                {{-- Fav persija --}}
-                                <button class="absolute p-5 bottom-3 right-3 fill-secondaryclr">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 576 512">
-                                        <path d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"/>
-                                    </svg>
-                                </button>
+                                @php
+                                    $favorite = $favorites->whereIn('content_id', $content3->id);
+                                @endphp
+                                @if ($favorite->isNotEmpty() && $favorite->first()->content_id == $content3->id)
+                                    <form action="/favorites/delete/{{ $favorite->first()->id }}" method="post">
+                                        @csrf
+                                        <button class="absolute p-5 bottom-3 right-3 fill-secondaryclr">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 576 512">
+                                                <path d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"/>
+                                            </svg>
+                                        </button>
+                                    </form>
+                                @else
+                                    <form action="/favorites/content/{{ $content3->slug }}" method="post">
+                                        @csrf
+                                        <button class="absolute p-5 bottom-3 right-3 fill-white">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 576 512">
+                                                <path d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"/>
+                                            </svg>
+                                        </button>
+                                    </form>
+                                @endif
                             </div>
                         </a>
                     </div>
