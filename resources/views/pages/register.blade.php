@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
   @include('component.head')
-  <body class="">
-  <div class="min-h-screen w-full pt-8 bg-no-repeat" style="background-image: url(/imgs/bg-regis.png)">
+  <body class="font-poppins">
+    <div class="w-full h-full bg-cover bg-no-repeat" style="background-image: url(/imgs/bg-login.png)">
+      @include('component.navbar')
   <img 
         class="mx-auto w-96" 
         src="/imgs/logo2.png" 
         alt="">
-    <div class="mx-auto max-w-lg rounded-xl shadow-md p-12 bg-white bg-opacity-20">
+    <div class="mx-auto max-w-lg rounded-xl shadow-md p-4 bg-slate bg-opacity-10">
         <div class="p-10">
           <div class="container">
-                <h1 class="font-bold text-3xl text-center text-white">Buat Akun Anda</h1>
-                <p class="text-white text-center">Daftarkan diri anda dan mulai menjelajahi alam semesta</p>
+                <h1 class="font-bold text-3xl text-white">Buat Akun Kamu</h1>
+                <p class="text-white">Daftarkan diri kamu dan mulai menjelajahi alam semesta</p>
                 <form action="/register" method="POST" class="mt-6">
                   @csrf
                   <div class="mt-4 pb-4">
                       <label for = "username">
                           <input name="username" type="username" id="username" placeholder="Username" 
-                          class="px-7 py-3 border shadow rounded-lg w-full block bg-transparent text-white border-grey focus:outline-none focus:ring-1 focus:ring-blue focus:border-blue"
+                          class="px-3 py-3 border shadow rounded-lg w-full block bg-transparent text-white border-grey focus:outline-none focus:ring-1 focus:ring-blue focus:border-blue"
                           autofocus
                           value="{{ old('username') }}"/>
                       </label>
