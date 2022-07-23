@@ -27,8 +27,7 @@ style="background-image: url(/imgs/bg-listBendaLangit.png)">
                             name="search"
                             placeholder="Benda langit apa yang ingin kamu kunjungi??"
                             autocomplete="off"
-                            class="w-full lg:pl-20 py-3 font-semibold rounded-xl border-none ring-2 ring-gray-300 focus:ring-grey-50 focus:ring-2 shadow-lg"
-                            value="{{ request('search') }}">
+                            class="w-full lg:pl-20 py-3 font-semibold rounded-xl border-none ring-2 ring-gray-300 focus:ring-grey-50 focus:ring-2 shadow-lg">
                         </div>
                     </form>
                 </div>
@@ -42,12 +41,9 @@ style="background-image: url(/imgs/bg-listBendaLangit.png)">
     </section>
 
     @php
-        if(auth()->user())
-        {
-            $favorites = auth()->user()->favorites;
-        }
+        
     @endphp
-
+    
     {{-- Section List--}}
     <section id="ViewMore" class="pb-12">
         <div class="container w-full mx-auto">

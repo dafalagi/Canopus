@@ -62,10 +62,7 @@
             }
 
             $i = mt_rand(0, $count);
-            if(auth()->user())
-            {
-                $favorites = auth()->user()->favorites;
-            }
+            $favorites = auth()->user()->favorites;
         @endphp
 
         @if($contents->first() && request('search') != null)
@@ -135,10 +132,7 @@
                 <div class="grid grid-cols-3 gap-4 place-items-stretch px-10">
                     @foreach ($contents->where('category', 'Planet')->take(3) as $content)
                         @php
-                            if(isset($favorites))
-                            {
-                                $favorite = $favorites->whereIn('content_id', $content->id);
-                            }
+                            $favorite = $favorites->whereIn('content_id', $content->id);
                         @endphp
                         @include('component.cardPlanet')
                     @endforeach
@@ -166,10 +160,7 @@
                 <div class="grid grid-cols-3 gap-4 place-items-stretch px-10">
                     @foreach ($contents->where('category', 'Bintang')->take(3) as $content)
                         @php
-                            if(isset($favorites))
-                            {
-                                $favorite = $favorites->whereIn('content_id', $content->id);
-                            }
+                            $favorite = $favorites->whereIn('content_id', $content->id);
                         @endphp
                         @include('component.cardPlanet')
                     @endforeach
@@ -197,10 +188,7 @@
                 <div class="grid grid-cols-3 gap-4 place-items-stretch px-10">
                     @foreach ($contents->where('category', 'Rasi Bintang')->take(3) as $content)
                         @php
-                            if(isset($favorites))
-                            {
-                                $favorite = $favorites->whereIn('content_id', $content->id);
-                            }
+                            $favorite = $favorites->whereIn('content_id', $content->id);
                         @endphp
                         @include('component.cardPlanet')
                     @endforeach
@@ -233,12 +221,9 @@
                                     <p class="text-white text-lg">{{ $content1->title }}</p>
                                 </div>
                                 @php
-                                    if(isset($favorites))
-                                    {
-                                        $favorite = $favorites->whereIn('content_id', $content1->id);
-                                    }
+                                    $favorite = $favorites->whereIn('content_id', $content1->id);
                                 @endphp
-                                @if (auth()->user() && $favorite->isNotEmpty() && $favorite->first()->content_id == $content1->id)
+                                @if ($favorite->isNotEmpty() && $favorite->first()->content_id == $content1->id)
                                     <form action="/favorites/delete/{{ $favorite->first()->id }}" method="post">
                                         @csrf
                                         <button class="absolute p-5 bottom-3 right-3 fill-secondaryclr">
@@ -275,12 +260,9 @@
                                     <p class="text-white text-lg">{{ $content2->title }}</p>
                                 </div>
                                 @php
-                                    if(isset($favorites))
-                                    {
-                                        $favorite = $favorites->whereIn('content_id', $content2->id);
-                                    }
+                                    $favorite = $favorites->whereIn('content_id', $content2->id);
                                 @endphp
-                                @if (auth()->user() && $favorite->isNotEmpty() && $favorite->first()->content_id == $content2->id)
+                                @if ($favorite->isNotEmpty() && $favorite->first()->content_id == $content2->id)
                                     <form action="/favorites/delete/{{ $favorite->first()->id }}" method="post">
                                         @csrf
                                         <button class="absolute p-5 bottom-3 right-3 fill-secondaryclr">
@@ -317,12 +299,9 @@
                                     <p class="text-white text-lg">{{ $content3->title }}</p>
                                 </div>
                                 @php
-                                    if(isset($favorites))
-                                    {
-                                        $favorite = $favorites->whereIn('content_id', $content3->id);
-                                    }
+                                    $favorite = $favorites->whereIn('content_id', $content3->id);
                                 @endphp
-                                @if (auth()->user() && $favorite->isNotEmpty() && $favorite->first()->content_id == $content3->id)
+                                @if ($favorite->isNotEmpty() && $favorite->first()->content_id == $content3->id)
                                     <form action="/favorites/delete/{{ $favorite->first()->id }}" method="post">
                                         @csrf
                                         <button class="absolute p-5 bottom-3 right-3 fill-secondaryclr">
