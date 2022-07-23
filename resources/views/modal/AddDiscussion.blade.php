@@ -16,15 +16,22 @@
                 {{-- Form --}}
                 <form class="space-y-6 font-light" action="#">
                     <div class="relative">
-                        {{-- Field buat diskusi --}}
+                        {{-- Field judul diskusi --}}
+                        <div class="relative pb-1">
+                            <input type="text" id="headerDiskusi" name="headerDiskusi" class="block px-2.5 pb-2.5 pt-4 w-full text-base text-white bg-transparent rounded-lg border-1 border-gray-300 appearance-none peer" placeholder=" " />
+                            <label for="headerDiskusi" class="absolute text-white text-base font-normal duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-thirdclr px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">
+                                Masukan judul disini
+                        </div>
+                        {{-- Field body diskusi --}}
                         <div class="pb-1">
-                            <textarea id="IsiDiskusi" name="IsiDiskusi" placeholder="Apa yang ingin kamu diskusikan?"
-                            class="w-full lg:w-8/12 bg-transparent rounded-lg placeholder-white border border-white focus:border-white focus:ring-2 focus:ring-white h-44 text-base outline-none py-3 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+                            <textarea id="bodyDiskusi" name="bodyDiskusi" placeholder="Masukan topik diskusi disini"
+                            class="w-full lg:w-8/12 font-light text-sm bg-transparent rounded-lg placeholder-white border border-white h-44 outline-none py-3 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
                         </div>
                         {{-- Input File img --}}   
                         <div class="pb-5">
-                            <label class="block mb-1 text-sm font-medium text-white" for="file_input">Masukan foto jika diinginkan:</label>
-                            <input class="block w-full text-sm text-gray-900 bg-gray-50 rounded-full cursor-pointer dark:text-gray-400 focus:outline-none" id="file_input" type="file">
+                            <label class="flex justify-start mb-1 text-sm font-medium text-white" for="file_input">Masukan foto jika diinginkan:</label>
+                            <input id="photoDiskusi" name="photoDiskusi"
+                             class="block w-full text-sm text-gray-900 bg-gray-50 rounded-full cursor-pointer focus:outline-none" id="file_input" type="file">
                         </div>                            
                         {{-- Btn submit --}}
                         <div class="absolute pt-3 right-0">
