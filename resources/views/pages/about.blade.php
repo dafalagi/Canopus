@@ -57,7 +57,7 @@
                       </h2>
                       <ul class="list-disc list-inside text-white text-sm">
                         <li>Project Manager</li>
-                        <li>Backend</li>
+                        <li>Back-end</li>
                       </ul>
                       <div class="mt-4 text-white">
                         <h2>Connect</h2>
@@ -104,7 +104,7 @@
                         Saeful Anwar
                       </h2>
                       <ul class="list-disc list-inside text-white text-sm">
-                        <li>Front end</li>
+                        <li>Front-end</li>
                         <li>Designer</li>
                       </ul>
                       <div class="mt-4 text-white">
@@ -152,7 +152,7 @@
                         Arif Abdan Syakur
                       </h2>
                       <ul class="list-disc list-inside text-white text-sm">
-                        <li>Front end</li>
+                        <li>Front-end</li>
                         <li>Designer</li>
                       </ul>
                       <div class="mt-4 text-white">
@@ -200,7 +200,7 @@
                         Ikhsan Nurul Rizki
                       </h2>
                       <ul class="list-disc list-inside text-white text-sm">
-                        <li>Front end</li>
+                        <li>Front-end</li>
                         <li>Designer</li>
                       </ul>
                       <div class="mt-4 text-white">
@@ -245,10 +245,10 @@
                     />
                     <div class="flex-grow ml-10">
                       <h2 class="text-white title-font font-medium text-lg mb-2">
-                        Muhammad rojabi
+                        Muhammad Rojabi
                       </h2>
                       <ul class="list-disc list-inside text-white text-sm">
-                        <li>Front end</li>
+                        <li>Front-end</li>
                         <li>Designer</li>
                       </ul>
                       <div class="mt-4 text-white">

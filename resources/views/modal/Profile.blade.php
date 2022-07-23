@@ -23,7 +23,7 @@
                     <div id="dropdown" class=" \z-10 hidden divide-y divide-gray-100 rounded-lg shadow w-auto dark:bg-gray-700">
                         <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
                         <li>
-                            <a href="/settings/{{ auth()->user()->username }}" class="flex px-4 py-2 rounded-t-lg text-white bg-mainclr hover:bg-thirdclr dark:hover:bg-gray-600">
+                            <a href="/users/{{ auth()->user()->username }}/edit" class="flex px-4 py-2 rounded-t-lg text-white bg-mainclr hover:bg-thirdclr dark:hover:bg-gray-600">
                                 <img
                                     class="mr-2 w-5"  
                                     src="/imgs/settings.png" 
@@ -67,7 +67,7 @@
                         <div class="basis-2/5 mr-9 mb-4">
                             <img 
                                 class="w-24 h-24 ml-5 mr-5" 
-                                src="/imgs/default/default_avatar2.png" 
+                                src="/imgs/default/avatar.png" 
                                 alt="">
                         </div>
                         <div class="basis-full">

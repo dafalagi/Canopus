@@ -37,7 +37,7 @@ class StoreUserRequest extends FormRequest
             'confirm_password' => 'required|same:password',
             'avatar' => 'nullable|image|file|max:2048',
             'bio' => 'nullable|string',
-            'is_admin' => 'boolean'
+            'is_admin' => 'nullable|boolean'
         ];
     }
 }
