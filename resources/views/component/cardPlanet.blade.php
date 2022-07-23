@@ -14,7 +14,7 @@
                 <p class="text-white">{{ $content->title }}</p>
             </div>
         </a>
-        @if ($favorite ?? false)
+        @if (isset($favorite) && $favorite->content_id == $content->id)
             <form action="/favorites/delete/{{ $favorite->id }}" method="post">
                 @csrf
                 <button class="absolute p-5 bottom-3 right-3 fill-secondaryclr">

@@ -128,6 +128,12 @@
                 {{-- card --}}
                 <div class="grid grid-cols-3 gap-4 place-items-stretch px-10">
                     @foreach ($contents->where('category', 'Planet')->take(3) as $content)
+                        @php
+                            foreach(auth()->user()->favorites as $fav)
+                            {
+                                $favorite[] = $fav;
+                            }
+                        @endphp
                         {{-- card 1 --}}
                         @include('component.cardPlanet')
                     @endforeach
