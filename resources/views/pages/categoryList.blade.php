@@ -43,6 +43,9 @@
                                     value="{{ request('search') }}">
                             </div>                       
                         </form>
+                        <div class="my-5">
+                            @include('component.AlertNotFound')
+                        </div>
                     </div>
                     <div class="basis-1/3">
                         <div class="w-full self-end">
