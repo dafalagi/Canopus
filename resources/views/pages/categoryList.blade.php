@@ -62,6 +62,7 @@
             }
 
             $i = mt_rand(0, $count);
+            
             if(auth()->user())
             {
                 $favorites = auth()->user()->favorites;

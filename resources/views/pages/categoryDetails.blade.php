@@ -48,25 +48,30 @@ style="background-image: url(/imgs/bg-listBendaLangit.png)">
         }
     @endphp
 
-    {{-- Section List--}}
-    <section id="ViewMore" class="pb-12">
-        <div class="container w-full mx-auto">
-            {{-- subheader --}}
-            <div class="">
-                <h1 class="text-center text-2xl font-bold underline text-white pb-6">Planet</h1>
-            </div>
-            {{-- card --}}
-            <div class="">
-                <div class="grid grid-cols-3 gap-4 px-10 justify-center">
-                    @foreach ($contents as $content)
-                        {{-- card 1 --}}
-                        @include('component.cardPlanet') 
-                    @endforeach
+    @if (!$contents->first())
+        <div class="my-5">
+            @include('component.AlertNotFound')
+        </div>
+    @else
+        {{-- Section List--}}
+        <section id="ViewMore" class="pb-12">
+            <div class="container w-full mx-auto">
+                {{-- subheader --}}
+                <div class="">
+                    <h1 class="text-center text-2xl font-bold underline text-white pb-6">Planet</h1>
+                </div>
+                {{-- card --}}
+                <div class="">
+                    <div class="grid grid-cols-3 gap-4 px-10 justify-center">
+                        @foreach ($contents as $content)
+                            {{-- card 1 --}}
+                            @include('component.cardPlanet') 
+                        @endforeach
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
+        </section>
+    @endif
 </div>
 </body>
 @include('component.Footer')

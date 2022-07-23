@@ -36,7 +36,7 @@ class ContentController extends Controller
     public function category(Content $content)
     {
         return view('pages.categoryDetails', [
-            'contents' => Content::where('category', $content->category)->get()
+            'contents' => Content::filter(request('search'))->where('category', $content->category)->get()
         ]);
     }
 }
