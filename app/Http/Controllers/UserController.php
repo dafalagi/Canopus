@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -38,19 +39,6 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function show(User $user)
-    {
-        return view('profile', [
-            'user' => $user
-        ]);
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\User  $user
@@ -58,7 +46,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('settings', [
+        return view('pages.settings', [
             'user' => $user
         ]);
     }
@@ -72,9 +60,48 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user)
     {
-        User::where('id', $user->id)->update($request);
+        if($request->username != $user->username && $request->email != $user->email)
+        {
+            $add = $request->validate([
+                'username' => 'required|unique:users|string|min:6|max:30',
+                'email' => 'required|unique:users|email:dns',
+            ]);
+            $validated = $request->safe()->merge($add)->toArray();
+            $validated['password'] = Hash::make($validated['password']);
+        }else if($request->username != $user->username)
+        {
+            $add = $request->validate([
+                'username' => 'required|unique:users|string|min:6|max:30',
+            ]);
+            $validated = $request->safe()->merge($add)->toArray();
+            $validated['password'] = Hash::make($validated['password']);
+        }else if($request->email != $user->email)
+        {
+            $add = $request->validate([
+                'email' => 'required|unique:users|email:dns',
+            ]);
+            $validated = $request->safe()->merge($add)->toArray();
+            $validated['password'] = Hash::make($validated['password']);
+        }else
+        {
+            $validated = $request->validated();
+            $validated['password'] = Hash::make($validated['password']);
+        }
+        if($request->file('avatar'))
+        {
+            if($user->avatar)
+            {
+                Storage::delete($user->avatar);
+            }
 
-        return redirect()->route('settings');
+            $validated['avatar'] = $request->file('avatar')->store('user-avatars');
+        }
+
+        unset($validated['confirm_password']);
+
+        User::where('id', $user->id)->update($validated);
+
+        return back();
     }
 
     /**
@@ -85,7 +112,9 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //Delete User
+        User::destroy($user->id);
+
+        return redirect('/');
     }
 
     // Show login form
