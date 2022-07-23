@@ -1,7 +1,9 @@
 <div class="px-6">
     {{-- Form ubah profil --}}
     <h1 class="font-bold text-xl text-white border-b mb-10">Ubah Profil</h1>
-    <form action="" class="mb-16">
+    <form action="/users/{{ $user->username }}" class="mb-16" method="POST">
+        @method('put')
+        @csrf
         <div class="relative w-full h-fit">
             {{-- bg-profile --}}
             <div class="w-full bg-cover bg-center rounded-lg" style="background-image: url(/imgs/bg-profile.png)">
@@ -47,13 +49,13 @@
                 </div>
                 <div class="flex p-5 text-white">
                     {{-- avatar profil --}}
-                    <img class="rounded-full shadow-2xl" src="/imgs/p-arif.png" width="200" height="200" alt="Profil">
+                    <img class="rounded-full shadow-2xl" src="{{ $user->avatar ? asset('storage/'.$user->avatar) : '/imgs/default/avatar.png' }}" width="200" height="200" alt="Profil">
                     <div class="pl-4 my-12">
                         <h3 class="pl-2">Ganti Profil</h3>
                         <label for="" class="block">
                             {{-- input file photo profile --}}
                             <input type="file" 
-                            name="" 
+                            name="avatar"
                             id="" 
                             class="
                                 file:bg-blue-500
@@ -80,17 +82,20 @@
             <div class="basis-1/2 mr-5">
                 <div class="mb-3">
                     <label for="username" class="block mb-2 text-base font-medium text-white">Username</label>
-                    <input type="text" id="username" placeholder="Arip Abdan" class="bg-thirdclr border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                    <input type="text" id="username" placeholder="Arip Abdan" class="bg-thirdclr border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    value="{{ old('username', $user->username) }}" name="username">
                 </div>
                 <div class="mb-3">
                     <label for="e-mail" class="block mb-2 text-base font-medium text-white">E-mail</label>
-                    <input type="text" id="e-mail" placeholder="aripsempak@gmail.com" class="bg-thirdclr border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                    <input type="text" id="e-mail" placeholder="aripsempak@gmail.com" class="bg-thirdclr border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    value="{{ old('email', $user->email) }}" name="email">
                 </div>
             </div>
             <div class="basis-1/2">
                 <div class="mb-3">
                     <label for="bio" class="block mb-3 text-sm font-medium text-white">Bio</label>
-                    <textarea id="bio" rows="5" placeholder="Ini bio pengguna" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
+                    <textarea id="bio" rows="5" placeholder="Ini bio pengguna" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    name="bio">{{ old('bio', $user->bio) }}</textarea>
                 </div>
             </div>
         </div>
