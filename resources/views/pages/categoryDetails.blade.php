@@ -13,7 +13,6 @@
                 <div class="flex flex-row p-8">
                     <div class="basis-1/3">
                     </div>
-<<<<<<< HEAD
                     <div class="basis-full w-full py-5">
                         <div class="text-center pb-10">
                             <h1 class="text-3xl font-bold text-white">Selamat datang di samudra angkasa, Astroners!</h1>
@@ -36,7 +35,6 @@
                     <div class="basis-1/3">
                         <div class="w-full self-end">
                             <img src="/imgs/astro-daftar1.png" alt="astro" class="max-w-full mx-auto">
-=======
                     {{-- Search --}}
                     <form action="">
                         <div class="flex items-center">
@@ -50,12 +48,10 @@
                             autocomplete="off"
                             class="w-full lg:pl-20 py-3 font-semibold rounded-xl border-none ring-2 ring-gray-300 focus:ring-grey-50 focus:ring-2 shadow-lg"
                             value="{{ request('search') }}">
->>>>>>> 16d2b0d6b97d03a8985ed6a18ae961f69795a194
                         </div>
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
         </section>
     
         @php
@@ -80,7 +76,6 @@
                             @include('component.cardPlanet') 
                         @endforeach
                     </div>
-=======
         </div>
     </section>
 
@@ -105,7 +100,6 @@
                         {{-- card 1 --}}
                         @include('component.cardPlanet') 
                     @endforeach
->>>>>>> 16d2b0d6b97d03a8985ed6a18ae961f69795a194
                 </div>
             </div>
         </section>
