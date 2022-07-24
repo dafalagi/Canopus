@@ -58,7 +58,7 @@
             <div class="container w-full mx-auto">
                 {{-- subheader --}}
                 <div class="">
-                    <h1 class="text-center text-2xl font-bold underline text-white pb-6">Planet</h1>
+                    <h1 class="text-center text-2xl font-bold underline text-white pb-6">{{ $contents->first()->category }}</h1>
                 </div>
                 {{-- card --}}
                 <div class="">
