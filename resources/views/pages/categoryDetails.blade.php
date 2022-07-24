@@ -64,7 +64,12 @@
                 <div class="">
                     <div class="grid grid-cols-3 gap-4 px-10 justify-center">
                         @foreach ($contents as $content)
-                            {{-- card 1 --}}
+                            @php
+                                if(isset($favorites))
+                                {
+                                    $favorite = $favorites->whereIn('content_id', $content->id);
+                                }
+                            @endphp
                             @include('component.cardPlanet') 
                         @endforeach
                     </div>

@@ -67,9 +67,15 @@
                     </div>
               </form>
               <div class="mx-auto">
-                @foreach ($discusses as $discuss)
-                  @include('.component.bodyForum')
-                @endforeach
+                @if (!$discusses->first())
+                  <div class="fill-white">
+                    <p>Not Found</p>
+                  </div>
+                @else
+                  @foreach ($discusses as $discuss)
+                    @include('.component.bodyForum')
+                  @endforeach
+                @endif
               </div>
             </div>
 

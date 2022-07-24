@@ -18,18 +18,8 @@ class DiscussController extends Controller
     public function index()
     {
         return view('pages.forum', [
-            'discusses' => Discuss::latest()->filter(request('search'))->with(['user', 'comments'])->paginate(5)->withQueryString(),
+            'discusses' => Discuss::latest()->filter(request('search'))->paginate(5)->withQueryString(),
         ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('pages.creatediscuss');
     }
 
     /**
@@ -45,6 +35,11 @@ class DiscussController extends Controller
         $validated['slug'] = SlugService::createSlug(Discuss::class, 'slug', $validated['title']);
         $validated['excerpt'] = Str::limit(strip_tags($validated['body']), 200, '...');
 
+        if($request->file('picture'))
+        {
+            $validated['picture'] = $request->file('picture')->store('discuss-images');
+        }
+
         Discuss::create($validated);
 
         return redirect('/discusses')->with('success', 'Post Created!');
@@ -58,10 +53,9 @@ class DiscussController extends Controller
      */
     public function show(Discuss $discuss)
     {
-        return view('discuss', [
+        return view('pages.discuss', [
             'discuss' => $discuss,
-            'comments' => $discuss->comments->sortByDesc('likes')->load('user'),
-            'score' => $discuss->likes - $discuss->dislikes,
+            'comments' => $discuss->comments->sortByDesc('likes'),
         ]);
     }
 

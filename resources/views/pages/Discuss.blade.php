@@ -82,22 +82,18 @@
                 {{-- isian --}}
                 <div class="static w-full px-24 pb-72">
                   <div class="border-b border-white border-opacity-25 pb-2">
-                    <h1 class="mb-2 font-bold text-3xl text-white">Manusia Swag</h1>                     
+                    <h1 class="mb-2 font-bold text-3xl text-white">{{ $discuss->title }}</h1>                     
                       <img 
                         class="w-6 absolute" 
-                        src="/imgs/profil.png" 
+                        src="{{ $discuss->user->avatar ? asset('storage/'.$discuss->user->avatar) : '/imgs/default/avatar.png' }}" 
                         alt=""/>
                       <span class="text-white text-sm ml-10 pt-6 pb-5">Diunggah oleh</span>                       
-                      <span class="text-sm ml-1 text-secondaryclr">ikhsan.n.rizki</span>
-                      <span class="text-sm text-white text-opacity-30 ml-2">2 jam yang lalu</span>
+                      <span class="text-sm ml-1 text-secondaryclr">{{ $discuss->user->username }}</span>
+                      <span class="text-sm text-white text-opacity-30 ml-2">{{ $discuss->created_at->diffForHumans() }}</span>
                   </div>      
                   
                   <p class=" text-white text-base tracking-wide border-b border-white border-opacity-25 pb-6 pt-6 ">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea. 
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                   {!! $discuss->body !!}
                   <img class="pt-2 shadow-lg" src="imgs/aripmanusiaswag.jfif" width="300" >
                   </p>
                 
@@ -107,11 +103,12 @@
                         class="w-6 pt-5 mx-1 pointer-events-none" 
                         src="/imgs/comment.png" 
                         alt=""/></a>
-                      <span class="p-1 text-lg pt-4 text-white text-opacity-30">69</span>                  
+                      <span class="p-1 text-lg pt-4 text-white text-opacity-30">{{ count($discuss->comments) }}</span>                  
                   </div>
                     <p class="border-b border-white border-opacity-25 mb-6 pt-4"></p>
 
                   {{-- komentar --}}
+                  @foreach ($discuss->comments as $comment)
                   <div class="relative rounded-xl p-4 max-w-sm bg-mainclr">
                     <!-- Dropdown menu bawah -->
                     <button id="menubawah-btn" data-dropdown-toggle="dropdownRight" data-dropdown-placement="right" class="absolute top-0 right-0 md:mb-0 text-white hover:bg-thirdclr font-medium rounded-lg text-sm px-4 py-2.5 text-center items-center " type="button"><svg class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></button>
@@ -159,12 +156,13 @@
 
                     <img 
                         class="w-6 absolute" 
-                        src="/imgs/profil.png" 
+                        src="{{ $discuss->user->avatar ? asset('storage/'.$discuss->user->avatar) : '/imgs/default/avatar.png' }}" 
                         alt=""/>
-                    <h3 class="mb-2 ml-10 font-bold text-sm text-white">Manusia Swag</h3>
-                    <p class="pl-10 text-sm text-white">Arip swag bangeets</p>                   
+                    <h3 class="mb-2 ml-10 font-bold text-sm text-white">{{ $comment->user->username }}</h3>
+                    <p class="pl-10 text-sm text-white">{!! $comment->body !!}</p>                   
 
                   </div>
+                  @endforeach
                   {{-- batas komentar --}}
 
                   <div class="relative flex pt-2">                    
@@ -173,9 +171,9 @@
                       <span class="pl-5">Suka</span>
                     </a>
                     <a href="#" class="hover:text-blue-400 text-white text-xs pl-3">
-                      Balasan 69
+                      Balasan {{ $comment->likes }}
                     </a>
-                    <p class="ml-5 text-xs text-white text-opacity-25"> | 18 menit yang lalu</p>                   
+                    <p class="ml-5 text-xs text-white text-opacity-25"> | {{ $comment->created_at->diffForHumans() }}</p>                   
                   </div>
                   
                 </div>

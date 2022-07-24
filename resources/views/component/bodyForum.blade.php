@@ -21,7 +21,7 @@
             </li>
             </ul>
           </div>
-          <a href="">
+          <a href="/discusses/{{ $discuss->slug }}">
             <div class="flex">
               <div class="flex-auto mt-16 items-start">
                   <button>
@@ -48,7 +48,7 @@
               <div class="flex-auto pt-4">
                   <img 
                       class="w-8 absolute" 
-                      src="/imgs/profil.png" 
+                      src="{{ $discuss->user->avatar ? asset('storage/'.$discuss->user->avatar) : '/imgs/default/avatar.png' }}" 
                       alt=""/>
                   <span class="text-white text-lg ml-12 pt-6 pb-5">Diunggah oleh</span>
                   <span class="relative items-center text-lg text-secondaryclr">{{ $discuss->user->username }}</span>
