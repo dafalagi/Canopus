@@ -68,7 +68,7 @@
                   </div>
                   <input class="mr-2 leading-tight" type="checkbox" required>
                     <span class="text-sm text-white">
-                        Saya menyetujui syarat dan ketentuan!
+                        Saya menyetujui syarat dan ketentuan.
                     </span>
                   <div class="pt-6">
                     <button
