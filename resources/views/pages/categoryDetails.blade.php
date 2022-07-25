@@ -6,9 +6,14 @@
 <div class="w-full h-full bg-no-repeat bg-cover"
     style="background-image: url(/imgs/bg-konten.png)">
 @include('component.navbar')
+    {{-- Alert berhasil menambha favorit --}}
+    <div class="mt-5 -mb-5">
+        @include('component.AlertSuccess')
+    </div>
+    {{-- Main content --}}
     <div class="p-10">
         {{-- Section Welcome --}}
-        <section id="Welcome" class="mb-16">
+        <section id="Welcome" class="mb-12">
             <div class="container w-full mx-auto">
                 <div class="flex flex-row p-8">
                     <div class="basis-1/3">
