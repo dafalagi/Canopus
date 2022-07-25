@@ -8,7 +8,8 @@
         <div id="dropdownfrm" class="hidden z-10 w-auto divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700">
             <ul class="py-1 text-sm text-gray-700" aria-labelledby="dropdownForum">
               <li>
-              <form action="">
+              <form action="/favorites/discuss/{{ $discuss->slug }}" method="post">
+                @csrf
                 <button class="border-b flex px-3 py-2 rounded-t-lg text-white bg-mainclr hover:bg-thirdclr dark:hover:bg-gray-600">
                   <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-5 fill-white" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M384 48V512l-192-112L0 512V48C0 21.5 21.5 0 48 0h288C362.5 0 384 21.5 384 48z"/></svg>
                     Simpan    

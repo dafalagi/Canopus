@@ -3,6 +3,6 @@
     <span class="sr-only">Info</span>
     {{-- body text --}}
     <div class="ml-3 text-sm font-medium text-green-700">
-      Akun kamu berhasil dibuat
+      {{ session('success') }}
     </div>
 </div>
