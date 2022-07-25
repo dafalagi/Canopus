@@ -1,4 +1,4 @@
-<div class="px-6">
+<div id="editprofile" class="px-6">
     {{-- Form ubah profil --}}
     <h1 class="font-bold text-xl text-white border-b mb-10">Ubah Profil</h1>
     <form action="/users/{{ $user->username }}" class="mb-16" method="POST">
@@ -22,34 +22,49 @@
                             </li>
                             {{-- item 1 --}}
                             <li>
-                                <a href="#" class="block px-2 py-1 hover:bg-gray-100">
-                                    <img class="rounded-md" src="/imgs/bg-profile.png" alt="">
-                                </a>
+                                {{-- apus checkednya, itu buat nandain kalo itu udah dipilih --}}
+                                <input checked type="radio" id="bg-choose1" name="#" value="bg-choose1" class="hidden peer" required>
+                                <label for="bg-choose1" class="inline-flex items-center w-full bg-white rounded-lg border-2 border-gray-200 cursor-pointer  peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">                           
+                                    <div class="block mx-auto p-0.5">
+                                        <img class="rounded-md" src="/imgs/bg-profile.png" alt="">
+                                    </div>
+                                </label>
                             </li>
                             {{-- item 2 --}}
                             <li>
-                                <a href="#" class="block px-2 py-1 hover:bg-gray-100">
-                                    <img class="rounded-md" src="/imgs/bg-profile2.png" alt="">
-                                </a>
+                                <input type="radio" id="bg-choose2" name="#" value="bg-choose2" class="hidden peer" required>
+                                <label for="bg-choose2" class="inline-flex items-center w-full bg-white rounded-lg border-2 border-gray-200 cursor-pointer  peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">                           
+                                    <div class="block mx-auto p-0.5">
+                                        <img class="rounded-md" src="/imgs/bg-profile2.png" alt="">
+                                    </div>
+                                </label>
                             </li>
                             {{-- item 3 --}}
                             <li>
-                                <a href="#" class="block px-2 py-1 hover:bg-gray-100">
-                                    <img class="rounded-md" src="/imgs/bg-profile3.png" alt="">
-                                </a>
+                                <input type="radio" id="bg-choose3" name="#" value="bg-choose3" class="hidden peer" required>
+                                <label for="bg-choose3" class="inline-flex items-center w-full bg-white rounded-lg border-2 border-gray-200 cursor-pointer  peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">                           
+                                    <div class="block mx-auto p-0.5">
+                                        <img class="rounded-md" src="/imgs/bg-profile3.png" alt="">
+                                    </div>
+                                </label>
                             </li>
                             {{-- item 4 --}}
                             <li>
-                                <a href="#" class="block px-2 py-1 hover:bg-gray-100">
-                                    <img class="rounded-md" src="/imgs/bg-profile4.png" alt="">
-                                </a>
+                                <input type="radio" id="bg-choose4" name="#" value="bg-choose4" class="hidden peer" required>
+                                <label for="bg-choose4" class="inline-flex items-center w-full bg-white rounded-lg border-2 border-gray-200 cursor-pointer  peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">                           
+                                    <div class="block mx-auto p-0.5">
+                                        <img class="rounded-md" src="/imgs/bg-profile4.png" alt="">
+                                    </div>
+                                </label>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="flex p-5 text-white">
                     {{-- avatar profil --}}
-                    <img class="rounded-full shadow-2xl" src="{{ $user->avatar ? asset('storage/'.$user->avatar) : '/imgs/default/avatar.png' }}" width="200" height="200" alt="Profil">
+                    <div class="flex items-center">
+                        <img class="rounded-full shadow-2xl aspect-square" src="{{ $user->avatar ? asset('storage/'.$user->avatar) : '/imgs/default/avatar.png' }}" width="100" height="100" alt="Profil">
+                    </div>
                     <div class="pl-4 my-12">
                         <h3 class="pl-2">Ganti Profil</h3>
                         <label for="" class="block">
@@ -82,19 +97,19 @@
             <div class="basis-1/2 mr-5">
                 <div class="mb-3">
                     <label for="username" class="block mb-2 text-base font-medium text-white">Username</label>
-                    <input type="text" id="username" placeholder="Arip Abdan" class="bg-thirdclr border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    <input type="text" id="username" placeholder="Example" class="bg-thirdclr border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                     value="{{ old('username', $user->username) }}" name="username">
                 </div>
                 <div class="mb-3">
                     <label for="e-mail" class="block mb-2 text-base font-medium text-white">E-mail</label>
-                    <input type="text" id="e-mail" placeholder="aripsempak@gmail.com" class="bg-thirdclr border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    <input type="text" id="e-mail" placeholder="Example@email.com" class="bg-thirdclr border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                     value="{{ old('email', $user->email) }}" name="email">
                 </div>
             </div>
             <div class="basis-1/2">
                 <div class="mb-3">
                     <label for="bio" class="block mb-3 text-sm font-medium text-white">Bio</label>
-                    <textarea id="bio" rows="5" placeholder="Ini bio pengguna" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    <textarea id="bio" rows="5" placeholder="Isi bio mu disini" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     name="bio">{{ old('bio', $user->bio) }}</textarea>
                 </div>
             </div>
@@ -103,7 +118,7 @@
             <button type="button" class="text-orange2 bg-white hover:bg-slate focus:ring-2 focus:outline-none focus:ring-secondaryclr font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                 Batal
             </button>
-            <button type="submit" class="text-white bg-[#FF9119] hover:bg-opacity-80 focus:ring-2 focus:outline-none focus:ring-orange2 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+            <button type="submit" class="text-white bg-[#FF9119] hover:bg-orange-600 focus:ring-2 focus:outline-none focus:ring-orange2 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                 Simpan
             </button>
         </div>
