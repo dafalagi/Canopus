@@ -3,7 +3,7 @@
 @include('component.head')
 
 <body class="font-poppins">
-<div class="container">
+<div class="">
     {{-- Section hero --}}
     <section class="w-full h-full bg-no-repeat bg-cover" style="background-image: url(/imgs/bg-about1.png)">
         @include('component.navbar')
@@ -297,11 +297,11 @@
           <div class="basis-full">
             <h2 class="underline text-2xl text-white font-bold text-center pb-6">Resource</h2>
             <div class="flex w-full justify-center gap-5">
-              <a href="">
+              <a href="https://www.wikipedia.org/">
                 <img src="/imgs/wiki.png" alt="">
                 <p class="text-center text-white">Wikipedia</p>
               </a>
-              <a href="">
+              <a href="https://www.nasa.gov/">
                 <img src="/imgs/nasa.png" alt="">
                 <p class="text-center text-white">Nasa</p>
               </a>

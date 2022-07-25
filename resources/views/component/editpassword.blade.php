@@ -1,5 +1,5 @@
 {{-- ubah password --}}
-<div class="px-6">
+<div id="editpassword" class="px-6">
     <h1 class="font-bold text-xl text-white border-b">Ubah Password</h1>
     {{-- form --}}
     <form action="">
@@ -21,7 +21,7 @@
             <button type="button" class="text-orange2 bg-white hover:bg-slate focus:ring-2 focus:outline-none focus:ring-secondaryclr font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                 Batal
             </button>
-            <button type="button" class="text-white bg-[#FF9119] hover:bg-opacity-80 focus:ring-2 focus:outline-none focus:ring-orange2 font-medium rounded-lg text-sm px-5 py-2.5 text-center shadow-md">
+            <button type="button" class="text-white bg-[#FF9119] hover:bg-orange-600 focus:ring-2 focus:outline-none focus:ring-orange2 font-medium rounded-lg text-sm px-5 py-2.5 text-center shadow-md">
                 Simpan
             </button>
         </div>
