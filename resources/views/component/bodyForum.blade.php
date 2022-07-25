@@ -60,7 +60,6 @@
                       alt=""/>
                   <span class="text-white text-lg ml-12 pt-6 pb-5">Diunggah oleh</span>
                   <span class="relative items-center text-lg text-secondaryclr">{{ $discuss->user->username }}</span>
-
                   <span class="text-lg text-white text-opacity-30 ml-3">{{ $discuss->created_at->diffForHumans() }}</span>
               </div>
             <a href="">
