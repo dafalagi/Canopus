@@ -60,6 +60,8 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user)
     {
+        $username = $user->username;
+
         if($request->username != $user->username && $request->email != $user->email)
         {
             $add = $request->validate([
@@ -67,25 +69,43 @@ class UserController extends Controller
                 'email' => 'required|unique:users|email:dns',
             ]);
             $validated = $request->safe()->merge($add)->toArray();
-            $validated['password'] = Hash::make($validated['password']);
+            $username = $validated['username'];
+
+            if(isset($validated['password']))
+            {
+                $validated['password'] = Hash::make($validated['password']);
+            }
         }else if($request->username != $user->username)
         {
             $add = $request->validate([
                 'username' => 'required|unique:users|string|min:6|max:30',
             ]);
             $validated = $request->safe()->merge($add)->toArray();
-            $validated['password'] = Hash::make($validated['password']);
+            $username = $validated['username'];
+
+            if(isset($validated['password']))
+            {
+                $validated['password'] = Hash::make($validated['password']);
+            }
         }else if($request->email != $user->email)
         {
             $add = $request->validate([
                 'email' => 'required|unique:users|email:dns',
             ]);
             $validated = $request->safe()->merge($add)->toArray();
-            $validated['password'] = Hash::make($validated['password']);
+            
+            if(isset($validated['password']))
+            {
+                $validated['password'] = Hash::make($validated['password']);
+            }
         }else
         {
             $validated = $request->validated();
-            $validated['password'] = Hash::make($validated['password']);
+            
+            if(isset($validated['password']))
+            {
+                $validated['password'] = Hash::make($validated['password']);
+            }
         }
         if($request->file('avatar'))
         {
@@ -101,7 +121,7 @@ class UserController extends Controller
 
         User::where('id', $user->id)->update($validated);
 
-        return back();
+        return redirect('/users/'.$username.'/edit');
     }
 
     /**
