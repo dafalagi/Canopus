@@ -35,7 +35,7 @@ class UserController extends Controller
 
         User::create($validated);
 
-        return redirect('/login');
+        return redirect('/login')->with('success', 'Akun kamu berhasil dibuat!');
     }
 
     /**
@@ -141,7 +141,7 @@ class UserController extends Controller
         }
 
         return back()->with([
-            'loginError' => 'Email atau Password salah. Silakan cek kembali Email dan Password kamu!',
+            'error' => 'Email atau Password salah. Silakan cek kembali Email dan Password kamu!',
             'email' => $credentials['email'],
         ]);
     }
