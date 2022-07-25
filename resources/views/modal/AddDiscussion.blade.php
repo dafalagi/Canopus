@@ -14,23 +14,27 @@
                     Buat diskusi 
                 </h3>
                 {{-- Form --}}
-                <form class="space-y-6 font-light" action="#">
+                <form action="/discusses" class="space-y-6 font-light" method="post">
+                    @csrf
                     <div class="relative">
                         {{-- Field judul diskusi --}}
                         <div class="relative pb-1">
-                            <input type="text" id="headerDiskusi" name="headerDiskusi" class="block px-2.5 pb-2.5 pt-4 w-full text-base text-white bg-transparent rounded-lg border-1 border-gray-300 appearance-none peer" placeholder=" " />
+                            <input type="text" id="headerDiskusi" name="title" class="block px-2.5 pb-2.5 pt-4 w-full text-base text-white bg-transparent rounded-lg border-1 border-gray-300 appearance-none peer" placeholder=" " 
+                            value="{{ old('title') }}"/>
                             <label for="headerDiskusi" class="absolute text-white text-base font-normal duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-thirdclr px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">
                                 Masukan judul disini
                         </div>
                         {{-- Field body diskusi --}}
                         <div class="pb-1">
-                            <textarea id="bodyDiskusi" name="bodyDiskusi" placeholder="Masukan topik diskusi disini"
-                            class="w-full lg:w-8/12 font-light text-sm bg-transparent rounded-lg placeholder-white border border-white h-44 outline-none py-3 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+                            <textarea id="bodyDiskusi" name="body" placeholder="Masukan topik diskusi disini"
+                            class="w-full lg:w-8/12 font-light text-sm bg-transparent rounded-lg placeholder-white border border-white h-44 outline-none py-3 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out">
+                            {{ old('body') }}
+                            </textarea>
                         </div>
                         {{-- Input File img --}}   
                         <div class="pb-5">
                             <label class="flex justify-start mb-1 text-sm font-medium text-white" for="file_input">Masukan foto jika diinginkan:</label>
-                            <input id="photoDiskusi" name="photoDiskusi"
+                            <input id="photoDiskusi" name="picture"
                              class="block w-full text-sm text-gray-900 bg-gray-50 rounded-full cursor-pointer focus:outline-none" id="file_input" type="file">
                         </div>                            
                         {{-- Btn submit --}}

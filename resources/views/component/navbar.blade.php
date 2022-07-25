@@ -19,7 +19,7 @@
                   Forum
                 </a>
                 <a href="/about" class="px-4 py-2 
-                  {{ Request::is('/about') ? 'text-secondaryclr' : 'text-white hover:bg-secondaryclr transition duration-200 rounded-lg' }} ">
+                  {{ Request::is('about') ? 'text-secondaryclr' : 'text-white hover:bg-secondaryclr transition duration-200 rounded-lg' }} ">
                   Tentang
                 </a>
               </div>

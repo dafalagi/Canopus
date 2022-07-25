@@ -68,7 +68,7 @@
                               src="/imgs/UpArrow.png" 
                               alt=""/>
                   </button>
-                  <p class="ml-2.5 text-lg mb-2 text-white text-opacity-25">25</p>
+                  <p class="ml-2.5 text-lg mb-2 text-white text-opacity-25">{{ $discuss->likes - $discuss->dislikes }}</p>
                   <button>
                     <img 
                               class="w-10 mr-10" 
@@ -82,22 +82,18 @@
                 {{-- isian --}}
                 <div class="static w-full px-24 pb-72">
                   <div class="border-b border-white border-opacity-25 pb-2">
-                    <h1 class="mb-2 font-bold text-3xl text-white">Manusia Swag</h1>                     
+                    <h1 class="mb-2 font-bold text-3xl text-white">{{ $discuss->title }}</h1>                     
                       <img 
                         class="w-6 absolute" 
-                        src="/imgs/profil.png" 
+                        src="{{ $discuss->user->avatar ? asset('storage/'.$discuss->user->avatar) : '/imgs/default/avatar.png' }}" 
                         alt=""/>
                       <span class="text-white text-sm ml-10 pt-6 pb-5">Diunggah oleh</span>                       
-                      <span class="text-sm ml-1 text-secondaryclr">ikhsan.n.rizki</span>
-                      <span class="text-sm text-white text-opacity-30 ml-2">2 jam yang lalu</span>
+                      <span class="text-sm ml-1 text-secondaryclr">{{ $discuss->user->username }}</span>
+                      <span class="text-sm text-white text-opacity-30 ml-2">{{ $discuss->created_at->diffForHumans() }}</span>
                   </div>      
                   
                   <p class=" text-white text-base tracking-wide border-b border-white border-opacity-25 pb-6 pt-6 ">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea. 
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                   {!! $discuss->body !!}
                   <img class="pt-2 shadow-lg" src="imgs/aripmanusiaswag.jfif" width="300" >
                   </p>
                 
@@ -107,11 +103,12 @@
                         class="w-6 pt-5 mx-1 pointer-events-none" 
                         src="/imgs/comment.png" 
                         alt=""/></a>
-                      <span class="p-1 text-lg pt-4 text-white text-opacity-30">69</span>                  
+                      <span class="p-1 text-lg pt-4 text-white text-opacity-30">{{ count($discuss->comments) }}</span>                  
                   </div>
                     <p class="border-b border-white border-opacity-25 mb-6 pt-4"></p>
 
                   {{-- komentar --}}
+                  @foreach ($discuss->comments as $comment)
                   <div class="relative rounded-xl p-4 max-w-sm bg-mainclr">
                     <!-- Dropdown menu bawah -->
                     <button id="menubawah-btn" data-dropdown-toggle="dropdownRight" data-dropdown-placement="right" class="absolute top-0 right-0 md:mb-0 text-white hover:bg-thirdclr font-medium rounded-lg text-sm px-4 py-2.5 text-center items-center " type="button"><svg class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></button>
@@ -159,24 +156,25 @@
 
                     <img 
                         class="w-6 absolute" 
-                        src="/imgs/profil.png" 
+                        src="{{ $discuss->user->avatar ? asset('storage/'.$discuss->user->avatar) : '/imgs/default/avatar.png' }}" 
                         alt=""/>
-                    <h3 class="mb-2 ml-10 font-bold text-sm text-white">Manusia Swag</h3>
-                    <p class="pl-10 text-sm text-white">Arip swag bangeets</p>                   
+                    <h3 class="mb-2 ml-10 font-bold text-sm text-white">{{ $comment->user->username }}</h3>
+                    <p class="pl-10 text-sm text-white">{!! $comment->body !!}</p>                   
 
                   </div>
                   {{-- batas komentar --}}
-
+                  
                   <div class="relative flex pt-2">                    
                     <a href="#" class="hover:text-blue-400 hover:fill-blue-400 text-white text-xs">
                       <svg class="absolute w-4 "xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z"/></svg>
                       <span class="pl-5">Suka</span>
                     </a>
                     <a href="#" class="hover:text-blue-400 text-white text-xs pl-3">
-                      Balasan 69
+                      Balasan {{ $comment->likes }}
                     </a>
-                    <p class="ml-5 text-xs text-white text-opacity-25"> | 18 menit yang lalu</p>                   
+                    <p class="ml-5 text-xs text-white text-opacity-25"> | {{ $comment->created_at->diffForHumans() }}</p>                   
                   </div>
+                  @endforeach
                   
                 </div>
                 {{-- akhir isian --}}

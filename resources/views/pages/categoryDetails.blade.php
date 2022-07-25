@@ -58,13 +58,18 @@
             <div class="container w-full mx-auto">
                 {{-- subheader --}}
                 <div class="">
-                    <h1 class="text-center text-2xl font-bold underline text-white pb-6">Planet</h1>
+                    <h1 class="text-center text-2xl font-bold underline text-white pb-6">{{ $contents->first()->category }}</h1>
                 </div>
                 {{-- card --}}
                 <div class="">
                     <div class="grid grid-cols-3 gap-4 px-10 justify-center">
                         @foreach ($contents as $content)
-                            {{-- card 1 --}}
+                            @php
+                                if(isset($favorites))
+                                {
+                                    $favorite = $favorites->whereIn('content_id', $content->id);
+                                }
+                            @endphp
                             @include('component.cardPlanet') 
                         @endforeach
                     </div>

@@ -61,15 +61,21 @@
                         <input 
                             type="text" 
                             id="default-search" 
-                            class="block p-4 pl-10 w-full text-base text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Benda langit apa yang ingin kamu kunjungi??" 
+                            class="block p-2 pl-10 w-full text-base text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Cari topik lainnya" 
                             name="search"
                             value="{{ request('search') }}">
                     </div>
               </form>
               <div class="mx-auto">
-                @foreach ($discusses as $discuss)
-                  @include('.component.bodyForum')
-                @endforeach
+                @if (!$discusses->first())
+                  <div class="fill-white">
+                    <p>Not Found</p>
+                  </div>
+                @else
+                  @foreach ($discusses as $discuss)
+                    @include('.component.bodyForum')
+                  @endforeach
+                @endif
               </div>
             </div>
 
