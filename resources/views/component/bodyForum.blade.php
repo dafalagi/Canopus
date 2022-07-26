@@ -31,7 +31,7 @@
             </ul>
         </div>
             <div class="flex">
-              <div class="flex-auto mt-16 mr-7">
+              <div class="flex-auto justify-center text-sm mt-16 mr-7">
                 <form action="">
                   <button>
                       <img 
