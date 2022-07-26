@@ -85,6 +85,9 @@ class UserController extends Controller
                     'email' => 'required|unique:users|email:dns',
                 ]);
                 $validated = $request->safe()->merge($add)->toArray();
+            }else
+            {
+                $validated = $request->validated();
             }
         }else
         {
@@ -98,9 +101,8 @@ class UserController extends Controller
             }
 
             $validated['password'] = Hash::make($validated['password']);
-        }else
-        {
-            unset($validated['password']);
+            unset($validated['currentPassword']);
+            unset($validated['confirm_password']);
         }
         if($request->file('avatar'))
         {
@@ -111,9 +113,6 @@ class UserController extends Controller
 
             $validated['avatar'] = $request->file('avatar')->store('user-avatars');
         }
-
-        unset($validated['currentPassword']);
-        unset($validated['confirm_password']);
 
         User::where('id', $user->id)->update($validated);
 

@@ -1,6 +1,9 @@
 {{-- ubah password --}}
 <div id="editpassword" class="px-6">
     <h1 class="font-bold text-xl text-white border-b">Ubah Password</h1>
+    @if ($errors->hasAny('username', 'email', 'currentPassword', 'password', 'confirm_password', 'avatar', 'bio', 'is_admin'))
+    <h1 class="font-bold text-xl text-white border-b">{{ $errors->first() }}</h1>
+    @endif
     {{-- form --}}
     <form action="/users/{{ $user->username }}" method="POST">
         @method('put')
