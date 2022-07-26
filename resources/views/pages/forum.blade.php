@@ -69,13 +69,25 @@
                     </div>
               </form>
               <div class="mx-auto">
+                @php
+                    if(auth()->user())
+                    {
+                      $favorites = auth()->user()->favorites;
+                    }
+                @endphp
                 @if (!$discusses->first())
                   <div class="fill-white">
                     <p>Not Found</p>
                   </div>
                 @else
                   @foreach ($discusses as $discuss)
-                    @include('.component.bodyForum')
+                    @php
+                        if(isset($favorites))
+                        {
+                          $favorite = $favorites->whereIn('discuss_id', $discuss->id);
+                        }
+                    @endphp
+                    @include('component.bodyForum')
                   @endforeach
                 @endif
               </div>
