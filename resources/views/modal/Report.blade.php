@@ -1,15 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-@include('component.head')
-
-<body class="font-poppins bg-white">
-    <!-- Modal toggle -->
-    <button class="flex rounded-b-lg px-2 py-2 text-white show-modal bg-mainclr hover:bg-opacity-80" type="button" data-modal-toggle="authentication-modal">
-        <p>Laporkan</p>
-        <svg class="w-2 h-2 ml-1 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-            <path d="M64 496C64 504.8 56.75 512 48 512h-32C7.25 512 0 504.8 0 496V32c0-17.75 14.25-32 32-32s32 14.25 32 32V496zM476.3 0c-6.365 0-13.01 1.35-19.34 4.233c-45.69 20.86-79.56 27.94-107.8 27.94c-59.96 0-94.81-31.86-163.9-31.87C160.9 .3055 131.6 4.867 96 15.75v350.5c32-9.984 59.87-14.1 84.85-14.1c73.63 0 124.9 31.78 198.6 31.78c31.91 0 68.02-5.971 111.1-23.09C504.1 355.9 512 344.4 512 332.1V30.73C512 11.1 495.3 0 476.3 0z"/></svg>
-    </button>
-  
     <!-- Main modal -->
     <div id="authentication-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
         <div class="relative w-full max-w-2xl h-full md:h-auto">
@@ -84,6 +72,3 @@
       </div>
   </div> 
     {{--  --}}
-    @include('component.script')
-    </body>
-</html>
