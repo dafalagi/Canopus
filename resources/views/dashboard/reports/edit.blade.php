@@ -11,6 +11,11 @@
                 $oldData = session('oldData');
             }
         @endphp
+        @if (session()->has('valuesError'))
+            <div class="alert alert-danger" role="alert">
+                {{ session('valuesError') }}
+            </div>
+        @endif
         <div class="mb-3">
             <label class="form-label">Content Title</label>
             <input type="text" class="form-control @error('content_title') is-invalid @enderror" name="content_title"

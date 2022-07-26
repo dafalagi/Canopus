@@ -6,9 +6,14 @@
 <div class="w-full h-full bg-no-repeat bg-cover"
     style="background-image: url(/imgs/bg-konten.png)">
 @include('component.navbar')
+    {{-- Alert berhasil menambha favorit --}}
+    <div class="mt-5 -mb-5">
+        @include('component.AlertSuccess')
+    </div>
+    {{-- Main content --}}
     <div class="p-10">
         {{-- Section Welcome --}}
-        <section id="Welcome" class="mb-16">
+        <section id="Welcome" class="mb-12">
             <div class="container w-full mx-auto">
                 <div class="flex flex-row p-8">
                     <div class="basis-1/3">
@@ -26,7 +31,7 @@
                                 <input 
                                     type="text" 
                                     id="default-search" 
-                                    class="block p-4 pl-10 w-full text-base text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Benda langit apa yang ingin kamu kunjungi??" 
+                                    class="block p-4 pl-10 w-full text-base text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Benda langit apa yang ingin kamu kunjungi?" 
                                     name="search"
                                     value="{{ request('search') }}">
                             </div> 
@@ -58,7 +63,7 @@
             <div class="container w-full mx-auto">
                 {{-- subheader --}}
                 <div class="">
-                    <h1 class="text-center text-2xl font-bold underline text-white pb-6">Planet</h1>
+                    <h1 class="text-center text-2xl font-bold underline text-white pb-6">{{ $contents->first()->category }}</h1>
                 </div>
                 {{-- card --}}
                 <div class="">

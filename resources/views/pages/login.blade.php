@@ -7,10 +7,10 @@
   style="background-image: url(/imgs/bg-login.png)"> 
     @include('component.navbar')
     {{-- Username atau Passwoord salah --}}
-    @if(session()->has('loginError'))
-    <div class="bg-red py-1">
+    @if(session()->has('error'))
+    <div class="bg-red-700 py-1">
       <p class="text-center text-white">
-        {{ session('loginError') }}
+        {{ session('error') }}
       </p>
     </div>
     @endif
@@ -20,7 +20,13 @@
         class="mx-auto w-96 -mb-5" 
         src="/imgs/logo2.png" 
         alt="Logo">
-      <div class="p-10">
+    {{-- alert jika berhasil register --}}
+    @if (session()->has('success'))
+    <div class="">
+      @include('component.AlertSuccess')
+    </div>
+    @endif
+      <div class="p-5">
         <div class="container">
           <div class="mx-auto max-w-lg bg-opacity-10 bg-slate rounded-xl shadow-md p-12" >
             <h1 class="font-bold text-3xl text-white">Masuk</h1>

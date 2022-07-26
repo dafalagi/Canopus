@@ -5,6 +5,11 @@
 <body class="font-poppins">
 <div class="w-full h-full bg-no-repeat bg-cover" style="background-image: url(/imgs/bg-konten.png)">
     @include('component.navbar')
+    {{-- Alert berhasil menambha favorit --}}
+    <div class="mt-5 -mb-5">
+        @include('component.AlertSuccess')
+    </div>
+    {{-- Main content --}}
     <div class="p-10">
         {{-- Section Welcome --}}
         <section id="Welcome" class="mb-12">
@@ -18,18 +23,6 @@
                         </div>
                         {{-- Search --}}
                         <form action="/contents">
-                            {{-- <div class="flex items-center">
-                                <svg class="h-8 w-8 absolute ml-3 text-black"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                                </svg>                          
-                                <input 
-                                type="text"
-                                name="search"
-                                placeholder="Benda langit apa yang ingin kamu kunjungi??"
-                                autocomplete="off"
-                                class="w-full lg:pl-20 py-3 font-semibold rounded-xl border-none ring-2 ring-gray-300 focus:ring-grey-50 focus:ring-2 shadow-lg"
-                                value="{{ request('search') }}">
-                            </div> --}}
                             <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">Search</label>
                             <div class="relative">
                                 <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
@@ -38,7 +31,7 @@
                                 <input 
                                     type="text" 
                                     id="default-search" 
-                                    class="block p-4 pl-10 w-full text-base text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Benda langit apa yang ingin kamu kunjungi??" 
+                                    class="block p-4 pl-10 w-full text-base text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Benda langit apa yang ingin kamu kunjungi?" 
                                     name="search"
                                     value="{{ request('search') }}">
                             </div>                       
@@ -212,7 +205,18 @@
         {{-- Section Benda Langit Lainnya --}}
         <section id="BendaLangitLainnya" class="mb-12">
             <div class="container w-full mx-auto">
-                <h1 class="w-full text-2xl font-bold underline text-white pb-8">Lainnya di Angkasa</h1>
+                <div class="flex justify-between">
+                    <div>
+                        <h1 class="text-2xl font-bold underline text-white pb-4">Lainnya Di Angkasa</h1>
+                    </div>
+                    <div>
+                        <a href="/contents/lainnya%20di%20angkasa">
+                            <p class="text-white mx-auto opacity-80">
+                                Lihat lainnya
+                            </p>
+                        </a>
+                    </div>
+                </div>
                 <div class="grid grid-rows-2 grid-flow-col gap-4 w-full">
                     @php
                         $content1 = $contents->where('category', 'Lainnya di Angkasa')->random();

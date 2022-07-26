@@ -22,7 +22,7 @@ class FavoriteController extends Controller
 
         Favorite::create($data);
 
-        return back();
+        return back()->with('success', 'Berhasil ditambahkan ke favorit!');
     }
 
     public function storeDiscuss(Discuss $discuss)
@@ -32,7 +32,7 @@ class FavoriteController extends Controller
 
         Favorite::create($data);
 
-        return back();
+        return back()->with('success', 'Berhasil ditambahkan ke favorit!');
     }
 
     /**
@@ -58,6 +58,6 @@ class FavoriteController extends Controller
     {
         Favorite::destroy($favorite->id);
 
-        return back();
+        return back()->with('success', 'Berhasil dihapus dari favorit!');
     }
 }

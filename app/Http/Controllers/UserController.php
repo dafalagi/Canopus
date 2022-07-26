@@ -35,7 +35,7 @@ class UserController extends Controller
 
         User::create($validated);
 
-        return redirect('/login');
+        return redirect('/login')->with('success', 'Akun kamu berhasil dibuat!');
     }
 
     /**
@@ -60,32 +60,47 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user)
     {
-        if($request->username != $user->username && $request->email != $user->email)
+        $username = $user->username;
+
+        if($request->username && $request->email)
         {
-            $add = $request->validate([
-                'username' => 'required|unique:users|string|min:6|max:30',
-                'email' => 'required|unique:users|email:dns',
-            ]);
-            $validated = $request->safe()->merge($add)->toArray();
-            $validated['password'] = Hash::make($validated['password']);
-        }else if($request->username != $user->username)
-        {
-            $add = $request->validate([
-                'username' => 'required|unique:users|string|min:6|max:30',
-            ]);
-            $validated = $request->safe()->merge($add)->toArray();
-            $validated['password'] = Hash::make($validated['password']);
-        }else if($request->email != $user->email)
-        {
-            $add = $request->validate([
-                'email' => 'required|unique:users|email:dns',
-            ]);
-            $validated = $request->safe()->merge($add)->toArray();
-            $validated['password'] = Hash::make($validated['password']);
+            if($request->username != $user->username && $request->email != $user->email)
+            {
+                $add = $request->validate([
+                    'username' => 'required|unique:users|string|min:6|max:30',
+                    'email' => 'required|unique:users|email:dns',
+                ]);
+                $validated = $request->safe()->merge($add)->toArray();
+                $username = $validated['username'];
+            }else if($request->username != $user->username)
+            {
+                $add = $request->validate([
+                    'username' => 'required|unique:users|string|min:6|max:30',
+                ]);
+                $validated = $request->safe()->merge($add)->toArray();
+                $username = $validated['username'];
+            }else if($request->email != $user->email)
+            {
+                $add = $request->validate([
+                    'email' => 'required|unique:users|email:dns',
+                ]);
+                $validated = $request->safe()->merge($add)->toArray();
+            }
         }else
         {
             $validated = $request->validated();
+        }
+        if(isset($validated['password']))
+        {
+            if(!Hash::check($validated['currentPassword'], $user->password))
+            {
+                return back()->with('error', 'Password lamamu tidak sesuai!');
+            }
+
             $validated['password'] = Hash::make($validated['password']);
+        }else
+        {
+            unset($validated['password']);
         }
         if($request->file('avatar'))
         {
@@ -97,11 +112,12 @@ class UserController extends Controller
             $validated['avatar'] = $request->file('avatar')->store('user-avatars');
         }
 
+        unset($validated['currentPassword']);
         unset($validated['confirm_password']);
 
         User::where('id', $user->id)->update($validated);
 
-        return back();
+        return redirect('/users/'.$username.'/edit');
     }
 
     /**
@@ -141,7 +157,7 @@ class UserController extends Controller
         }
 
         return back()->with([
-            'loginError' => 'Email atau Password salah. Silakan cek kembali Email dan Password kamu!',
+            'error' => 'Email atau Password salah. Silakan cek kembali Email dan Password kamu!',
             'email' => $credentials['email'],
         ]);
     }

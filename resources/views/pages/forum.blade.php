@@ -16,20 +16,22 @@
                     alt=""/>
                     <span class="p-1 text-lg text-white ml-11 hover:text-secondaryclr">Beranda</span>
                 </a>
-                <a href="" class="relative flex items-center">
-                  <img 
-                    class="w-6 absolute ml-4 pointer-events-none" 
-                    src="/imgs/myTopik.png" 
-                    alt=""/>
-                    <span class="p-1 text-lg text-white ml-11 hover:text-secondaryclr">Topik saya</span>
-                </a>
-                <a href="" class="relative flex items-center">
-                  <img 
-                    class="w-6 absolute ml-4 pointer-events-none" 
-                    src="/imgs/myComment.png" 
-                    alt=""/>
-                    <span class="p-1 text-lg text-white ml-11 hover:text-secondaryclr">Jawaban saya</span>
-                </a>
+                @auth
+                  <a href="/discusses?user={{ auth()->user()->username }}" class="relative flex items-center">
+                    <img 
+                      class="w-6 absolute ml-4 pointer-events-none" 
+                      src="/imgs/myTopik.png" 
+                      alt=""/>
+                      <span class="p-1 text-lg text-white ml-11 hover:text-secondaryclr">Topik saya</span>
+                  </a>
+                  <a href="/discusses?answer={{ auth()->user()->username }}" class="relative flex items-center">
+                    <img 
+                      class="w-6 absolute ml-4 pointer-events-none" 
+                      src="/imgs/myComment.png" 
+                      alt=""/>
+                      <span class="p-1 text-lg text-white ml-11 hover:text-secondaryclr">Jawaban saya</span>
+                  </a>
+                @endauth
               </div>
               <div class="absolute">
                 <img 
@@ -61,7 +63,7 @@
                         <input 
                             type="text" 
                             id="default-search" 
-                            class="block p-4 pl-10 w-full text-base text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Benda langit apa yang ingin kamu kunjungi??" 
+                            class="block p-2 pl-10 w-full text-base text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Cari topik lainnya" 
                             name="search"
                             value="{{ request('search') }}">
                     </div>
