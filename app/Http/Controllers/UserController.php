@@ -62,27 +62,30 @@ class UserController extends Controller
     {
         $username = $user->username;
 
-        if($request->username != $user->username && $request->email != $user->email)
+        if($request->username && $request->email)
         {
-            $add = $request->validate([
-                'username' => 'required|unique:users|string|min:6|max:30',
-                'email' => 'required|unique:users|email:dns',
-            ]);
-            $validated = $request->safe()->merge($add)->toArray();
-            $username = $validated['username'];
-        }else if($request->username != $user->username)
-        {
-            $add = $request->validate([
-                'username' => 'required|unique:users|string|min:6|max:30',
-            ]);
-            $validated = $request->safe()->merge($add)->toArray();
-            $username = $validated['username'];
-        }else if($request->email != $user->email)
-        {
-            $add = $request->validate([
-                'email' => 'required|unique:users|email:dns',
-            ]);
-            $validated = $request->safe()->merge($add)->toArray();
+            if($request->username != $user->username && $request->email != $user->email)
+            {
+                $add = $request->validate([
+                    'username' => 'required|unique:users|string|min:6|max:30',
+                    'email' => 'required|unique:users|email:dns',
+                ]);
+                $validated = $request->safe()->merge($add)->toArray();
+                $username = $validated['username'];
+            }else if($request->username != $user->username)
+            {
+                $add = $request->validate([
+                    'username' => 'required|unique:users|string|min:6|max:30',
+                ]);
+                $validated = $request->safe()->merge($add)->toArray();
+                $username = $validated['username'];
+            }else if($request->email != $user->email)
+            {
+                $add = $request->validate([
+                    'email' => 'required|unique:users|email:dns',
+                ]);
+                $validated = $request->safe()->merge($add)->toArray();
+            }
         }else
         {
             $validated = $request->validated();
