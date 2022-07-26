@@ -126,6 +126,8 @@ class DashboardUserController extends Controller
             }
 
             $validated['password'] = Hash::make($validated['password']);
+            unset($validated['currentPassword']);
+            unset($validated['confirm_password']);
         }else
         {
             unset($validated['password']);
@@ -139,9 +141,6 @@ class DashboardUserController extends Controller
 
             $validated['avatar'] = $request->file('avatar')->store('user-avatars');
         }
-
-        unset($validated['currentPassword']);
-        unset($validated['confirm_password']);
 
         User::where('id', $user->id)->update($validated);
 
