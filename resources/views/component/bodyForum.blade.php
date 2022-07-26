@@ -8,7 +8,7 @@
         <div id="dropdownfrm" class="hidden w-auto divide-y bg-mainclr divide-gray-100 rounded-lg shadow dark:bg-gray-700">
             <ul class="text-sm text-gray-700" aria-labelledby="dropdownForum">
               <li>
-                @if ($favorite->isNotEmpty() && $favorite->discuss_id == $discuss->id)
+                @if (isset($favorite) && $favorite->isNotEmpty() && $favorite->first()->discuss_id == $discuss->id)
                   <!-- Setelah tersimpan -->
                   <form action="/favorites/delete/{{ $discuss->slug }}" method="POST">
                     @csrf
