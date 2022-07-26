@@ -31,9 +31,11 @@ class UpdateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'password' => 'required|string|min:8|max:15',
-            'confirm_password' => 'required|same:password',
+            'currentPassword' => 'nullable|required_with:password,confirm_password|string|min:8|max:15',
+            'password' => 'nullable|required_with:currentPassword,confirm_password|string|min:8|max:15',
+            'confirm_password' => 'nullable|required_with:currentPassword,password|same:password',
             'avatar' => 'nullable|image|file|max:2048',
+            'banner' => 'nullable|string',
             'bio' => 'nullable|string',
             'is_admin' => 'nullable|boolean'
         ];
