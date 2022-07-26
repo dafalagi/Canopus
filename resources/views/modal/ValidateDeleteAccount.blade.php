@@ -58,7 +58,9 @@
                 <p class="text-sm mb-8 font-light text-gray-200">Apakah kamu yakin ingin menghapus akun kamu?? Ketika kamu menghapus akunmu, kamu tidak akan memiliki akses kembali ke forum Canopus loh.</p>
                 <div class="mx-auto">
                     {{-- form button --}}
-                    <form action="">
+                    <form action="/users/{{ $user->username }}" method="POST">
+                        @method('delete')
+                        @csrf
                         <button type="submit" class="bg-white hover:bg-secondaryclr mr-7 px-7 py-2 ring-2 ring-secondaryclr hover:ring-white rounded-md text-secondaryclr hover:text-white text-center">
                           Hapus
                         </button>

@@ -205,7 +205,18 @@
         {{-- Section Benda Langit Lainnya --}}
         <section id="BendaLangitLainnya" class="mb-12">
             <div class="container w-full mx-auto">
-                <h1 class="w-full text-2xl font-bold underline text-white pb-8">Lainnya di Angkasa</h1>
+                <div class="flex justify-between">
+                    <div>
+                        <h1 class="text-2xl font-bold underline text-white pb-4">Lainnya Di Angkasa</h1>
+                    </div>
+                    <div>
+                        <a href="/contents/lainnya%20di%20angkasa">
+                            <p class="text-white mx-auto opacity-80">
+                                Lihat lainnya
+                            </p>
+                        </a>
+                    </div>
+                </div>
                 <div class="grid grid-rows-2 grid-flow-col gap-4 w-full">
                     @php
                         $content1 = $contents->where('category', 'Lainnya di Angkasa')->random();

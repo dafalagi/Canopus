@@ -153,6 +153,10 @@ return [
         'picture' => [
             'image' => 'The picture must be an image.',
             'max' => 'The picture must not be greater than 2MB.'
+        ],
+        'avatar' => [
+            'image' => 'The picture must be an image.',
+            'max' => 'The picture must not be greater than 2MB.'
         ]
     ],
 
