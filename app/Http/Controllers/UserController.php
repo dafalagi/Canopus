@@ -70,11 +70,6 @@ class UserController extends Controller
             ]);
             $validated = $request->safe()->merge($add)->toArray();
             $username = $validated['username'];
-
-            if(isset($validated['password']))
-            {
-                $validated['password'] = Hash::make($validated['password']);
-            }
         }else if($request->username != $user->username)
         {
             $add = $request->validate([
@@ -82,30 +77,27 @@ class UserController extends Controller
             ]);
             $validated = $request->safe()->merge($add)->toArray();
             $username = $validated['username'];
-
-            if(isset($validated['password']))
-            {
-                $validated['password'] = Hash::make($validated['password']);
-            }
         }else if($request->email != $user->email)
         {
             $add = $request->validate([
                 'email' => 'required|unique:users|email:dns',
             ]);
             $validated = $request->safe()->merge($add)->toArray();
-            
-            if(isset($validated['password']))
-            {
-                $validated['password'] = Hash::make($validated['password']);
-            }
         }else
         {
             $validated = $request->validated();
-            
-            if(isset($validated['password']))
+        }
+        if(isset($validated['password']))
+        {
+            if(!Hash::check($validated['currentPassword'], $user->password))
             {
-                $validated['password'] = Hash::make($validated['password']);
+                return back()->with('error', 'Password lamamu tidak sesuai!');
             }
+
+            $validated['password'] = Hash::make($validated['password']);
+        }else
+        {
+            unset($validated['password']);
         }
         if($request->file('avatar'))
         {
@@ -117,6 +109,7 @@ class UserController extends Controller
             $validated['avatar'] = $request->file('avatar')->store('user-avatars');
         }
 
+        unset($validated['currentPassword']);
         unset($validated['confirm_password']);
 
         User::where('id', $user->id)->update($validated);

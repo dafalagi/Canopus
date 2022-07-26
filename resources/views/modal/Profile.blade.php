@@ -67,7 +67,7 @@
                         <div class="basis-2/5 mr-9 mb-4">
                             <img 
                                 class="w-24 h-24 ml-5 mr-5" 
-                                src="/imgs/default/avatar.png" 
+                                src="{{ auth()->user()->avatar ? asset('storage/'.auth()->user()->avatar) : '/imgs/default/avatar.png' }}" 
                                 alt="">
                         </div>
                         <div class="basis-full">

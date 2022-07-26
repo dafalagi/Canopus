@@ -1,7 +1,7 @@
 <div id="editprofile" class="px-6">
     {{-- Form ubah profil --}}
     <h1 class="font-bold text-xl text-white border-b mb-10">Ubah Profil</h1>
-    <form action="/users/{{ $user->username }}" class="mb-16" method="POST">
+    <form action="/users/{{ $user->username }}" class="mb-16" method="POST" enctype="multipart/form-data">
         @method('put')
         @csrf
         <div class="relative w-full h-fit">
