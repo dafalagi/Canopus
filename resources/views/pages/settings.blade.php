@@ -12,7 +12,7 @@
                 <div class="py-4 px-3">
                     <a href="#editprofile">
                         <div class="hover:bg-secondaryclr active:bg-secondaryclr items-center text-center p-2 text-base rounded-lg">
-                            <p>Akun</p>
+                            <p>Profil</p>
                         </div>
                     </a>
                     <a href="#editpassword" target="_parent">
@@ -34,6 +34,11 @@
         </div>
         {{-- Main content --}}
         <div class="basis-full ml-10">
+            {{-- Alert jika perbarui berhasil --}}
+            @include('component.AlertSuccess')
+            {{-- Alert jika perbarui gagal --}}
+            @include('component.AlertFailed')
+
             @include('component.editprofile')
             @include('component.editpassword')
         </div>

@@ -3,7 +3,7 @@
   @include('component.head')
 
 <body class="font-poppins">
-  <div class="w-full h-screen bg-no-repeat bg-cover"
+  <div class="w-full md:h-full lg:h-screen bg-no-repeat bg-cover"
   style="background-image: url(/imgs/bg-login.png)"> 
     @include('component.navbar')
     {{-- Username atau Passwoord salah --}}
