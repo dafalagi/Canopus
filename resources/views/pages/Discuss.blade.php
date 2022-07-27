@@ -43,15 +43,15 @@
       </div>              
 
     {{-- ini isian --}}
-    <h1 class="font-bold text-3xl text-white">Arip Manusia Swag</h1>
+    <h1 class="font-bold text-3xl text-white">{{ $discuss->title }}</h1>
       <div class="border-b mt-2">
       <img 
         class="w-6 absolute" 
         src="/imgs/profil2.png" 
         alt=""/>
-      <p class="text-sm ml-10 text-white mb-3">Di unggah oleh <span><a href="#" class="text-secondaryclr hover:text-white">Arip Paling Slebew</a></span> | <span>18 menit yang lalu</span></p>
+      <p class="text-sm ml-10 text-white mb-3">Di unggah oleh <span><a href="#" class="text-secondaryclr hover:text-white">{{ $discuss->user->username }}</a></span> | <span>{{ $discuss->created_at->diffForHumans() }}</span></p>
       </div>
-      <article class="mt-3 text-sm text-white">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui placeat officia quo vel minus? Illo, odio debitis. Neque, eaque laborum eius esse, debitis repudiandae, architecto repellat sapiente iure facere voluptates vel dolor. Architecto voluptas, numquam incidunt dolorem, possimus, eos voluptates minima dolore maxime pariatur et corporis quaerat ad laudantium aperiam.</article>
+      <article class="mt-3 text-sm text-white">{{ $discuss->body }}</article>
       
       {{-- ini gambar --}}
       <div class="grid grid-cols-2 max-w-2xl mx-auto gap-2 ">

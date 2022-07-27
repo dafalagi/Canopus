@@ -116,7 +116,7 @@ class UserController extends Controller
 
         User::where('id', $user->id)->update($validated);
 
-        return redirect('/users/'.$username.'/edit');
+        return redirect('/users/'.$username.'/edit')->with('success', 'Profil kamu berhasil diubah!');
     }
 
     /**
