@@ -141,17 +141,6 @@ class DashboardContentController extends Controller
             }
 
             $validated['pictures'] = $img;
-        }else
-        {
-            if($content->pictures)
-            {
-                foreach($content->pictures as $oldpictures)
-                {
-                    Storage::delete($oldpictures);
-                }
-            }
-
-            $validated['pictures'] = null;
         }
         if($request->file('mainpicture'))
         {
@@ -161,14 +150,6 @@ class DashboardContentController extends Controller
             }
 
             $validated['mainpicture'] = $request->file('mainpicture')->store('content-images');
-        }else
-        {
-            if($content->mainpicture)
-            {
-                Storage::delete($content->mainpicture);
-            }
-
-            $validated['mainpicture'] = null;
         }
         
         Content::where('id', $content->id)->update($validated);

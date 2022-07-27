@@ -15,9 +15,7 @@
           <div class="flex flex-wrap w-1/3">
             <div class="hover:scale-110 transition duration-300 ease-in-out">
               <div class="w-full p-1 md:p-2">
-                <a href="">
-                  <img src="{{ asset('storage/'.$picture) }}" alt="Picture" class="shadow rounded-xl max-w-full h-auto align-middle border-none" />
-                </a>
+                <img src="{{ asset('storage/'.$picture) }}" alt="Picture" class="shadow rounded-xl max-w-full h-auto align-middle border-none" />
               </div>
             </div>
           </div>
