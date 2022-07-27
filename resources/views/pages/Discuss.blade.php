@@ -47,7 +47,7 @@
       <div class="border-b mt-2">
       <img 
         class="w-6 absolute" 
-        src="/imgs/profil2.png" 
+        src="{{ $discuss->user->avatar ? asset('storage/'.$discuss->user->avatar) : '/imgs/default/avatar.png' }}" 
         alt=""/>
       <p class="text-sm ml-10 text-white mb-3">Di unggah oleh <span><a href="#" class="text-secondaryclr hover:text-white">{{ $discuss->user->username }}</a></span> | <span>{{ $discuss->created_at->diffForHumans() }}</span></p>
       </div>
