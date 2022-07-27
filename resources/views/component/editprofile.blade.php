@@ -1,12 +1,12 @@
-<div id="editprofile" class="px-6">
+<div id="editprofile" class="px-6 h-screen">
     {{-- Form ubah profil --}}
-    <h1 class="font-bold text-xl text-white border-b mb-10">Ubah Profil</h1>
-    <form action="/users/{{ $user->username }}" class="mb-16" method="POST">
+    <h1 class="font-bold text-xl text-white border-b md:mb-5 lg:mb-10">Perbarui Profil</h1>
+    <form action="/users/{{ $user->username }}" class="mb-16" method="POST" enctype="multipart/form-data">
         @method('put')
         @csrf
         <div class="relative w-full h-fit">
             {{-- bg-profile --}}
-            <div class="w-full bg-cover bg-center rounded-lg" style="background-image: url(/imgs/bg-profile.png)">
+            <div class="w-full bg-cover bg-center rounded-lg" style="background-image: url({{ $user->banner }})">
                 <div class="absolute top-4 right-4">
                     <button id="dropdownBg-Profile" data-dropdown-toggle="dropdownBgProfile" class="" type="button">
                         <svg class="fill-white w-6 ml-2 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -23,7 +23,7 @@
                             {{-- item 1 --}}
                             <li>
                                 {{-- apus checkednya, itu buat nandain kalo itu udah dipilih --}}
-                                <input checked type="radio" id="bg-choose1" name="#" value="bg-choose1" class="hidden peer" required>
+                                <input {{ $user->banner == '/imgs/bg-profile.png' ? 'checked' : '' }} type="radio" id="bg-choose1" name="banner" value="/imgs/bg-profile.png" class="hidden peer" required>
                                 <label for="bg-choose1" class="inline-flex items-center w-full bg-white rounded-lg border-2 border-gray-200 cursor-pointer  peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">                           
                                     <div class="block mx-auto p-0.5">
                                         <img class="rounded-md" src="/imgs/bg-profile.png" alt="">
@@ -32,7 +32,7 @@
                             </li>
                             {{-- item 2 --}}
                             <li>
-                                <input type="radio" id="bg-choose2" name="#" value="bg-choose2" class="hidden peer" required>
+                                <input {{ $user->banner == '/imgs/bg-profile2.png' ? 'checked' : '' }} type="radio" id="bg-choose2" name="banner" value="/imgs/bg-profile2.png" class="hidden peer" required>
                                 <label for="bg-choose2" class="inline-flex items-center w-full bg-white rounded-lg border-2 border-gray-200 cursor-pointer  peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">                           
                                     <div class="block mx-auto p-0.5">
                                         <img class="rounded-md" src="/imgs/bg-profile2.png" alt="">
@@ -41,7 +41,7 @@
                             </li>
                             {{-- item 3 --}}
                             <li>
-                                <input type="radio" id="bg-choose3" name="#" value="bg-choose3" class="hidden peer" required>
+                                <input {{ $user->banner == '/imgs/bg-profile3.png' ? 'checked' : '' }} type="radio" id="bg-choose3" name="banner" value="/imgs/bg-profile3.png" class="hidden peer" required>
                                 <label for="bg-choose3" class="inline-flex items-center w-full bg-white rounded-lg border-2 border-gray-200 cursor-pointer  peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">                           
                                     <div class="block mx-auto p-0.5">
                                         <img class="rounded-md" src="/imgs/bg-profile3.png" alt="">
@@ -50,7 +50,7 @@
                             </li>
                             {{-- item 4 --}}
                             <li>
-                                <input type="radio" id="bg-choose4" name="#" value="bg-choose4" class="hidden peer" required>
+                                <input {{ $user->banner == '/imgs/bg-profile4.png' ? 'checked' : '' }} type="radio" id="bg-choose4" name="banner" value="/imgs/bg-profile4.png" class="hidden peer" required>
                                 <label for="bg-choose4" class="inline-flex items-center w-full bg-white rounded-lg border-2 border-gray-200 cursor-pointer  peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">                           
                                     <div class="block mx-auto p-0.5">
                                         <img class="rounded-md" src="/imgs/bg-profile4.png" alt="">
@@ -118,9 +118,10 @@
             <button type="button" class="text-orange2 bg-white hover:bg-slate focus:ring-2 focus:outline-none focus:ring-secondaryclr font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                 Batal
             </button>
-            <button type="submit" class="text-white bg-[#FF9119] hover:bg-orange-600 focus:ring-2 focus:outline-none focus:ring-orange2 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+            <button data-modal-toggle="editProfile-modal" type="button" class="text-white bg-[#FF9119] hover:bg-orange-600 focus:ring-2 focus:outline-none focus:ring-orange2 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                 Simpan
             </button>
         </div>
+        @include('modal.ValidateEditAccount')
     </form>
 </div>

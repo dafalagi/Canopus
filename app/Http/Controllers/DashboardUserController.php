@@ -102,25 +102,35 @@ class DashboardUserController extends Controller
                 'email' => 'required|unique:users|email:dns',
             ]);
             $validated = $request->safe()->merge($add)->toArray();
-            $validated['password'] = Hash::make($validated['password']);
         }else if($request->username != $user->username)
         {
             $add = $request->validate([
                 'username' => 'required|unique:users|string|min:6|max:30',
             ]);
             $validated = $request->safe()->merge($add)->toArray();
-            $validated['password'] = Hash::make($validated['password']);
         }else if($request->email != $user->email)
         {
             $add = $request->validate([
                 'email' => 'required|unique:users|email:dns',
             ]);
             $validated = $request->safe()->merge($add)->toArray();
-            $validated['password'] = Hash::make($validated['password']);
         }else
         {
             $validated = $request->validated();
+        }
+        if(isset($validated['password']))
+        {
+            if(!Hash::check($validated['currentPassword'], $user->password))
+            {
+                return back()->with('error', 'Current password is incorrect!');
+            }
+
             $validated['password'] = Hash::make($validated['password']);
+            unset($validated['currentPassword']);
+            unset($validated['confirm_password']);
+        }else
+        {
+            unset($validated['password']);
         }
         if($request->file('avatar'))
         {
@@ -131,8 +141,6 @@ class DashboardUserController extends Controller
 
             $validated['avatar'] = $request->file('avatar')->store('user-avatars');
         }
-
-        unset($validated['confirm_password']);
 
         User::where('id', $user->id)->update($validated);
 

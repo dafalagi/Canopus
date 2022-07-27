@@ -16,20 +16,22 @@
                     alt=""/>
                     <span class="p-1 text-lg text-white ml-11 hover:text-secondaryclr">Beranda</span>
                 </a>
-                <a href="/discusses?user={{ auth()->user()->username }}" class="relative flex items-center">
-                  <img 
-                    class="w-6 absolute ml-4 pointer-events-none" 
-                    src="/imgs/myTopik.png" 
-                    alt=""/>
-                    <span class="p-1 text-lg text-white ml-11 hover:text-secondaryclr">Topik saya</span>
-                </a>
-                <a href="/discusses?answer={{ auth()->user()->username }}" class="relative flex items-center">
-                  <img 
-                    class="w-6 absolute ml-4 pointer-events-none" 
-                    src="/imgs/myComment.png" 
-                    alt=""/>
-                    <span class="p-1 text-lg text-white ml-11 hover:text-secondaryclr">Jawaban saya</span>
-                </a>
+                @auth
+                  <a href="/discusses?user={{ auth()->user()->username }}" class="relative flex items-center">
+                    <img 
+                      class="w-6 absolute ml-4 pointer-events-none" 
+                      src="/imgs/myTopik.png" 
+                      alt=""/>
+                      <span class="p-1 text-lg text-white ml-11 hover:text-secondaryclr">Topik saya</span>
+                  </a>
+                  <a href="/discusses?answer={{ auth()->user()->username }}" class="relative flex items-center">
+                    <img 
+                      class="w-6 absolute ml-4 pointer-events-none" 
+                      src="/imgs/myComment.png" 
+                      alt=""/>
+                      <span class="p-1 text-lg text-white ml-11 hover:text-secondaryclr">Jawaban saya</span>
+                  </a>
+                @endauth
               </div>
               <div class="absolute">
                 <img 
@@ -67,13 +69,25 @@
                     </div>
               </form>
               <div class="mx-auto">
+                @php
+                    if(auth()->user())
+                    {
+                      $favorites = auth()->user()->favorites;
+                    }
+                @endphp
                 @if (!$discusses->first())
                   <div class="fill-white">
                     <p>Not Found</p>
                   </div>
                 @else
                   @foreach ($discusses as $discuss)
-                    @include('.component.bodyForum')
+                    @php
+                        if(isset($favorites))
+                        {
+                          $favorite = $favorites->whereIn('discuss_id', $discuss->id);
+                        }
+                    @endphp
+                    @include('component.bodyForum')
                   @endforeach
                 @endif
               </div>

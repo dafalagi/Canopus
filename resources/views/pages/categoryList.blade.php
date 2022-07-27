@@ -5,10 +5,12 @@
 <body class="font-poppins">
 <div class="w-full h-full bg-no-repeat bg-cover" style="background-image: url(/imgs/bg-konten.png)">
     @include('component.navbar')
-    {{-- Alert berhasil menambha favorit --}}
-    <div class="mt-5 -mb-5">
-        @include('component.AlertSuccess')
-    </div>
+    @if (session()->has('success'))
+        {{-- Alert berhasil menambha favorit --}}
+        <div class="mt-5 -mb-5">
+            @include('component.AlertSuccess')
+        </div>
+    @endif
     {{-- Main content --}}
     <div class="p-10">
         {{-- Section Welcome --}}
@@ -207,10 +209,10 @@
             <div class="container w-full mx-auto">
                 <div class="flex justify-between">
                     <div>
-                        <h1 class="text-2xl font-bold underline text-white pb-4">Lainnya Diangkasa</h1>
+                        <h1 class="text-2xl font-bold underline text-white pb-4">Lainnya Di Angkasa</h1>
                     </div>
                     <div>
-                        <a href="/contents/rasi%20bintang">
+                        <a href="/contents/lainnya%20di%20angkasa">
                             <p class="text-white mx-auto opacity-80">
                                 Lihat lainnya
                             </p>

@@ -5,11 +5,16 @@
     <form action="/dashboard/users/{{ $user->username }}" method="POST" enctype="multipart/form-data">
         @method('put')
         @csrf
+        @if (session()->has('error'))
+            <div class="alert alert-danger" role="alert">
+                {{ session('error') }}
+            </div>
+        @endif
         <div class="mb-3">
             <label class="form-label">Username</label>
             <input type="text" class="form-control @error('username') is-invalid @enderror" name="username" 
             value="{{ old('username', $user->username) }}" required 
-            @if ($errors->hasAny('email', 'password', 'confirm_password', 'avatar', 'bio', 'is_admin'))
+            @if ($errors->hasAny('email', 'currentPassword', 'password', 'confirm_password', 'avatar', 'bio', 'is_admin'))
             @else
                 autofocus
             @endif
@@ -31,9 +36,19 @@
             @endif
         </div>
         <div class="mb-3">
-            <label class="form-label">Password</label>
+            <label class="form-label">Current Password (Optional)</label>
+            <input type="password" class="form-control @error('currentPassword') is-invalid @enderror" name="currentPassword" 
+            @error('currentPassword') autofocus @enderror aria-describedby="currentPasswordFeedback">
+            @if($errors->has('currentPassword'))
+                <div class="invalid-feedback" id="currentPasswordFeedback">
+                    {{ $errors->first('currentPassword') }}
+                </div>
+            @endif
+        </div>
+        <div class="mb-3">
+            <label class="form-label">New Password (Optional)</label>
             <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" 
-            required @error('password') autofocus @enderror aria-describedby="passwordFeedback">
+            @error('password') autofocus @enderror aria-describedby="passwordFeedback">
             @if($errors->has('password'))
                 <div class="invalid-feedback" id="passwordFeedback">
                     {{ $errors->first('password') }}
@@ -41,9 +56,9 @@
             @endif
         </div>
         <div class="mb-3">
-            <label class="form-label">Confirm Password</label>
+            <label class="form-label">Confirm New Password (Optional)</label>
             <input type="password" class="form-control @error('confirm_password') is-invalid @enderror" name="confirm_password" 
-            required @error('confirm_password') autofocus @enderror aria-describedby="confirmPasswordFeedback">
+            @error('confirm_password') autofocus @enderror aria-describedby="confirmPasswordFeedback">
             @if($errors->has('confirm_password'))
                 <div class="invalid-feedback" id="confirmPasswordFeedback">
                     {{ $errors->first('confirm_password') }}

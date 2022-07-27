@@ -20,7 +20,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('avatar')->nullable();
-            $table->string('banner')->nullable();
+            $table->string('banner')->nullable()->default('/imgs/bg-profile.png');
             $table->string('bio')->nullable();
             $table->boolean('is_admin')->default(false);
             $table->rememberToken();
