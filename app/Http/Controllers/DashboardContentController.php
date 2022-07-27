@@ -111,7 +111,7 @@ class DashboardContentController extends Controller
         if($request->title != $content->title)
         {
             $add = $request->validate([
-                'title' => 'required|unique:contents|min:5'
+                'title' => 'required|unique:contents|min:2'
             ]);
             $validated = $request->safe()->merge($add)->toArray();
             $validated['slug'] = SlugService::createSlug(Content::class, 'slug', $validated['title']);

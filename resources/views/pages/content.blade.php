@@ -74,11 +74,13 @@
           </div>
         </div>
       </div>
-      <h1 class="text-2xl py-5 font-bold underline text-center">Foto</h1>
-      @include('component.carouselfoto')
-        @if($events->first() != null)
-          @include('component.cardbendalgt')
-        @endif
+      @if ($content->pictures != null)
+        <h1 class="text-2xl py-5 font-bold underline text-center">Foto</h1>
+        @include('component.carouselfoto')
+      @endif
+      @if($events->first() != null)
+        @include('component.cardbendalgt')
+      @endif
     </div>
     <div class="container rounded-lg w-full mx-auto bg-mainclr p-10 mt-10 text-white">
       @if ($content->category == 'Lainnya di Angkasa')
