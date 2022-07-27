@@ -66,7 +66,7 @@
                     <div class="flex">
                         <div class="basis-2/5 mr-9 mb-4">
                             <img 
-                                class="w-24 h-24 ml-5 mr-5" 
+                                class="w-24 h-24 ml-5 mr-5 rounded-full shadow-2xl aspect-square" 
                                 src="{{ auth()->user()->avatar ? asset('storage/'.auth()->user()->avatar) : '/imgs/default/avatar.png' }}" 
                                 alt="">
                         </div>

@@ -1,11 +1,11 @@
 <div class="grid grid-cols-1 p-5 ">
     <div class="container">
-      <div class="relative mx-auto max-w-4xl rounded-xl shadow-md p-8 bg-thirdclr">
+      <div class="relative mx-auto max-w-4xl rounded-xl shadow-md p-4 bg-thirdclr">
         <button id="dropdownForum" data-dropdown-toggle="dropdownfrm" class="absolute text-white top-0 right-0 hover:bg-mainclr rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center" type="button">
           <svg class="w-6 h-6" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="5" d="M19 9l-7 7-7-7"></path></svg>
         </button>
         <!-- Dropdown menu -->
-        <div id="dropdownfrm" class="hidden w-auto divide-y bg-mainclr divide-gray-100 rounded-lg shadow dark:bg-gray-700">
+        <div id="dropdownfrm" class="z-10 hidden w-auto divide-y bg-mainclr divide-gray-100 rounded-lg shadow dark:bg-gray-700">
             <ul class="text-sm text-gray-700" aria-labelledby="dropdownForum">
               <li>
                 @if (isset($favorite) && $favorite->isNotEmpty() && $favorite->first()->discuss_id == $discuss->id)
@@ -20,8 +20,8 @@
                 @else
                   <form action="/favorites/discuss/{{ $discuss->slug }}" method="POST">
                     @csrf
-                    <button class="border-b flex px-3 py-2 rounded-t-lg w-full justify-center text-white hover:bg-thirdclr dark:hover:bg-gray-600">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-5 fill-white" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M384 48V512l-192-112L0 512V48C0 21.5 21.5 0 48 0h288C362.5 0 384 21.5 384 48z"/></svg>
+                    <button class="border-b flex px-2 py-2 rounded-t-lg w-full justify-center text-white hover:bg-thirdclr dark:hover:bg-gray-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2 fill-white" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M384 48V512l-192-112L0 512V48C0 21.5 21.5 0 48 0h288C362.5 0 384 21.5 384 48z"/></svg>
                         Simpan    
                     </button>
                   </form>
@@ -35,44 +35,42 @@
               </li>
             </ul>
         </div>
-            <div class="flex">
-              <div class="flex-auto mt-16 mr-7">
-                <form action="">
-                  <button>
-                      <img 
-                        class="w-14" 
-                        src="/imgs/UpArrow.png" 
-                        alt=""/>
-                  </button>
-                </form>
-                  <div class="text-center">
-                    <p class=" text-white text-opacity-30">{{ $discuss->likes-$discuss->dislikes }}</p>
-                  </div>
+            <div class="flex items-center">
+              <div class="basis-1/12 text-center mt-10 mr-2">
                 <form action="">
                   <button>
                     <img 
-                      class="w-14" 
-                      src="/imgs/DownArrow.png" 
-                      alt=""/>
-                  </button>
+                        class="w-5" 
+                        src="/imgs/UpArrow.png" 
+                        alt=""/>
+                </button>
+                </form>
+                    <p class=" text-slate text-sm text-center text-opacity-50">{{ $discuss->likes-$discuss->dislikes }}</p>
+                <form action="">
+                  <button>
+                    <img 
+                        class="w-5" 
+                        src="/imgs/DownArrow.png" 
+                        alt=""/>
+                </button>
                 </form>
               </div>
             <a href="/discusses/{{ $discuss->slug }}">
-              <div class="flex-auto">
-                    <h1 class="mb-5 font-bold text-2xl text-white">{{ $discuss->title }}</h1>
-                    <p class="text-white text-sm border-b border-white border-opacity-25 pb-6">{{ $discuss->excerpt }}</p>
+              <div class="pl-2">
+                    <h1 class="mb-5 font-bold text-xl pr-3 text-white">{{ $discuss->title }}</h1>
+                    <p class="text-white text-sm tracking-wide border-b border-white border-opacity-25 pr-2 pb-6">{{ $discuss->excerpt }}</p>
               </div>
             </a>
           </div>
-            <div class="flex">
-              <div class="flex-auto pt-4">
+            <div class="flex pl-5">
+              <div class="flex-auto pl-5 pt-4">
                   <img 
-                      class="w-8 absolute" 
+                      class="w-6 absolute" 
                       src="{{ $discuss->user->avatar ? asset('storage/'.$discuss->user->avatar) : '/imgs/default/avatar.png' }}" 
                       alt=""/>
-                  <span class="text-white text-lg ml-12 pt-6 pb-5">Diunggah oleh</span>
-                  <span class="relative items-center text-lg text-secondaryclr">{{ $discuss->user->username }}</span>
-                  <span class="text-lg text-white text-opacity-30 ml-3">{{ $discuss->created_at->diffForHumans() }}</span>
+                  <span class="text-white text-base ml-12 pt-6">Diunggah oleh</span>
+                  <span class="relative items-center text-base ml-1 mr-1 text-secondaryclr">{{ $discuss->user->username }}</span>
+                  <span class="text-base text-slate text-opacity-50">{{ $discuss->created_at->diffForHumans() }}</span>
               </div>
             <a href="">
               <img 
