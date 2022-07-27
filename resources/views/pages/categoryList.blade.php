@@ -5,10 +5,12 @@
 <body class="font-poppins">
 <div class="w-full h-full bg-no-repeat bg-cover" style="background-image: url(/imgs/bg-konten.png)">
     @include('component.navbar')
-    {{-- Alert berhasil menambha favorit --}}
-    <div class="mt-5 -mb-5">
-        @include('component.AlertSuccess')
-    </div>
+    @if (session()->has('success'))
+        {{-- Alert berhasil menambha favorit --}}
+        <div class="mt-5 -mb-5">
+            @include('component.AlertSuccess')
+        </div>
+    @endif
     {{-- Main content --}}
     <div class="p-10">
         {{-- Section Welcome --}}
