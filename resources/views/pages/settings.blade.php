@@ -34,10 +34,14 @@
         </div>
         {{-- Main content --}}
         <div class="basis-full ml-10">
-            {{-- Alert jika perbarui berhasil --}}
-            @include('component.AlertSuccess')
-            {{-- Alert jika perbarui gagal --}}
-            @include('component.AlertFailed')
+            @if (session()->has('success'))
+                {{-- Alert jika perbarui berhasil --}}
+                @include('component.AlertSuccess')
+            @endif
+            @if (session()->has('error'))
+                {{-- Alert jika perbarui gagal --}}
+                @include('component.AlertFailed')
+            @endif
 
             @include('component.editprofile')
             @include('component.editpassword')
