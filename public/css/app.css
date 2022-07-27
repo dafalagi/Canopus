@@ -982,6 +982,9 @@ input:checked + .toggle-bg{
 .m-auto{
   margin: auto;
 }
+.-m-1{
+  margin: -0.25rem;
+}
 .mx-auto{
   margin-left: auto;
   margin-right: auto;
@@ -1305,6 +1308,9 @@ input:checked + .toggle-bg{
 .h-9{
   height: 2.25rem;
 }
+.h-auto{
+  height: auto;
+}
 .min-h-screen{
   min-height: 100vh;
 }
@@ -1402,6 +1408,9 @@ input:checked + .toggle-bg{
 }
 .w-11\/12{
   width: 91.666667%;
+}
+.w-6\/12{
+  width: 50%;
 }
 .max-w-4xl{
   max-width: 56rem;
@@ -2191,6 +2200,9 @@ input:checked + .toggle-bg{
 }
 .indent-8{
   text-indent: 2rem;
+}
+.align-middle{
+  vertical-align: middle;
 }
 .align-text-bottom{
   vertical-align: text-bottom;
@@ -2986,6 +2998,10 @@ input:checked + .toggle-bg{
     width: 2.5rem;
   }
 
+  .sm\:w-4\/12{
+    width: 33.333333%;
+  }
+
   .sm\:flex-row{
     flex-direction: row;
   }
@@ -3002,6 +3018,10 @@ input:checked + .toggle-bg{
     right: 0px;
     bottom: 0px;
     left: 0px;
+  }
+
+  .md\:-m-2{
+    margin: -0.5rem;
   }
 
   .md\:mx-4{
@@ -3069,6 +3089,10 @@ input:checked + .toggle-bg{
     margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
   }
 
+  .md\:p-2{
+    padding: 0.5rem;
+  }
+
   .md\:pl-5{
     padding-left: 1.25rem;
   }
@@ -3114,6 +3138,15 @@ input:checked + .toggle-bg{
   .lg\:px-8{
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+
+  .lg\:px-32{
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+
+  .lg\:pt-5{
+    padding-top: 1.25rem;
   }
 }
 @media (min-width: 1280px){
