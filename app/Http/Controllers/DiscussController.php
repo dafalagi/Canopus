@@ -44,7 +44,7 @@ class DiscussController extends Controller
 
         Discuss::create($validated);
 
-        return redirect('/discusses')->with('success', 'Post Created!');
+        return redirect('/discusses')->with('success', 'Diskusi kamu berhasil dibuat!');
     }
 
     /**

@@ -15,39 +15,41 @@
                     </h3>
                     <p class="font-normal">Silahkan ajukan laporanmu dibawah ini</p>
                     {{-- Form --}}
-                    <form class="space-y-6 font-light" action="#">
+                    <form class="space-y-6 font-light" action="/reports" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="pl-8 pt-1">
+                            <input type="hidden" value="{{ $discuss->id }}" name="discuss_id">
                             {{-- checkbox Ujaran kebencian --}}
                             <div class="form-check">
-                                <input class="rounded-full" type="checkbox" value="Ujaran kebencian" id="report1">
+                                <input class="rounded-full" type="checkbox" value="Ujaran kebencian" id="report1" name="values[]">
                                 <label class="form-check-label text-sm inline-block" for="flexCheckDefault">
                                     Ujaran kebencian
                                 </label>
                             </div>
                             {{-- checkbox Informasi palsu --}}
                             <div class="form-check">
-                                <input class="rounded-full" type="checkbox" value="Informasi palsu" id="report2">
+                                <input class="rounded-full" type="checkbox" value="Informasi palsu" id="report2" name="values[]">
                                 <label class="form-check-label text-sm inline-block" for="flexCheckDefault">
                                     Informasi palsu
                                 </label>
                             </div>
                             {{-- checkbox Kata-kata tidak pantas --}}
                             <div class="form-check">
-                                <input class="rounded-full" type="checkbox" value="Kata-kata tidak pantas" id="report3">
+                                <input class="rounded-full" type="checkbox" value="Kata-kata tidak pantas" id="report3" name="values[]">
                                 <label class="form-check-label text-sm inline-block" for="flexCheckDefault">
                                     Kata-kata tidak pantas
                                 </label>
                             </div>
                             {{-- checkbox Spam --}}
                             <div class="form-check">
-                                <input class="rounded-full" type="checkbox" value="Spam" id="report4">
+                                <input class="rounded-full" type="checkbox" value="Spam" id="report4" name="values[]">
                                 <label class="form-check-label text-sm inline-block" for="flexCheckDefault">
                                     Spam
                                 </label>
                             </div>
                             {{-- checkbox Pornografi --}}
                             <div class="form-check">
-                                <input class="rounded-full" type="checkbox" value="Pornografi" id="report5">
+                                <input class="rounded-full" type="checkbox" value="Pornografi" id="report5" name="values[]">
                                 <label class="form-check-label text-sm inline-block" for="flexCheckDefault">
                                     Pornografi
                                 </label>
@@ -56,7 +58,7 @@
                         {{-- Field hal lain --}}
                         <div class="mt-1">
                             <p class="font-normal">Atau ada hal lain?</p>
-                            <textarea id="halain" name="halain" placeholder="Beritahu kami apa yang sedang terjadi"
+                            <textarea id="halain" name="values[]" placeholder="Beritahu kami apa yang sedang terjadi"
                             class="w-full lg:w-8/12 mt-1 bg-transparent rounded-lg border border-slate focus:border-white focus:ring-2 focus:ring-white h-32 text-base outline-none py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
                         </div>
                         {{-- Btn submit --}}

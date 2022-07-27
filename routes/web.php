@@ -11,6 +11,7 @@ use App\Http\Controllers\DashboardDiscussController;
 use App\Http\Controllers\DashboardFavoriteController;
 use App\Http\Controllers\DashboardReportController;
 use App\Http\Controllers\DashboardUserController;
+use App\Http\Controllers\ReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,6 +59,7 @@ Route::middleware('auth')->group(function(){
     Route::post('/favorites/delete/{favorite}', [FavoriteController::class, 'destroy']);
     Route::post('/discusses/likes/{discuss}', [DiscussController::class, 'likes']);
     Route::post('/discusses/dislikes/{discuss}', [DiscussController::class, 'dislikes']);
+    Route::post('/reports', [ReportController::class, 'store']);
 
     // RESOURCE
     Route::resource('/discusses', DiscussController::class)->except('index', 'show');

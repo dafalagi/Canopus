@@ -11,9 +11,9 @@
                 $oldData = session('oldData');
             }
         @endphp
-        @if (session()->has('valuesError'))
+        @if (session()->has('error'))
             <div class="alert alert-danger" role="alert">
-                {{ session('valuesError') }}
+                {{ session('error') }}
             </div>
         @endif
         <div class="mb-3">
