@@ -1,11 +1,14 @@
 {{-- ubah password --}}
 <div id="editpassword" class="px-6">
-    <h1 class="font-bold text-xl text-white border-b">Ubah Password</h1>
+    <h1 class="font-bold text-xl text-white border-b">Perbarui Password</h1>
+    @if ($errors->hasAny('username', 'email', 'currentPassword', 'password', 'confirm_password', 'avatar', 'bio', 'is_admin'))
+    <h1 class="font-bold text-xl text-white border-b">{{ $errors->first() }}</h1>
+    @endif
     {{-- form --}}
     <form action="/users/{{ $user->username }}" method="POST">
         @method('put')
         @csrf
-        <div class="mt-10 mr-5">
+        <div class="md:mt-5 lg:mt-10 mr-5">
             <div class="mb-3">
                 <label for="currentPassword" class="block mb-2 text-base font-medium text-white">Password sebelumnya</label>
                 <input type="password" id="currentPassword" class="bg-thirdclr border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
@@ -26,10 +29,11 @@
             <button type="button" class="text-orange2 bg-white hover:bg-slate focus:ring-2 focus:outline-none focus:ring-secondaryclr font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                 Batal
             </button>
-            <button type="submit" class="text-white bg-[#FF9119] hover:bg-orange-600 focus:ring-2 focus:outline-none focus:ring-orange2 font-medium rounded-lg text-sm px-5 py-2.5 text-center shadow-md">
+            <button type="button" data-modal-toggle="editPassword-modal" class="text-white bg-[#FF9119] hover:bg-orange-600 focus:ring-2 focus:outline-none focus:ring-orange2 font-medium rounded-lg text-sm px-5 py-2.5 text-center shadow-md">
                 Simpan
             </button>
         </div>
+        @include('modal.ValidateEditPassword')
     </form>
     <div class="flex justify-center">
         <img src="/imgs/astro-pass.png" alt="astro" width="350">
