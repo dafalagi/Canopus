@@ -31,7 +31,7 @@ class StoreContentRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|unique:contents|min:5',
+            'title' => 'required|unique:contents|min:2',
             'intro' => 'required|string|min:20',
             'history' => 'required|string|min:20',
             'category' => 'required|string',

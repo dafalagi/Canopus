@@ -14,7 +14,7 @@
                     Buat diskusi 
                 </h3>
                 {{-- Form --}}
-                <form action="/discusses" class="space-y-6 font-light" method="post">
+                <form action="/discusses" class="space-y-6 font-light" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="relative">
                         {{-- Field judul diskusi --}}
