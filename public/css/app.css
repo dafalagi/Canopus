@@ -1023,6 +1023,34 @@ input:checked + .toggle-bg{
   margin-top: 4rem;
   margin-bottom: 4rem;
 }
+.-mx-5{
+  margin-left: -1.25rem;
+  margin-right: -1.25rem;
+}
+.-mx-11{
+  margin-left: -2.75rem;
+  margin-right: -2.75rem;
+}
+.-mx-12{
+  margin-left: -3rem;
+  margin-right: -3rem;
+}
+.-mx-14{
+  margin-left: -3.5rem;
+  margin-right: -3.5rem;
+}
+.-mx-2{
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+}
+.-mx-6{
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+}
+.-mx-7{
+  margin-left: -1.75rem;
+  margin-right: -1.75rem;
+}
 .mb-4{
   margin-bottom: 1rem;
 }
@@ -1172,6 +1200,9 @@ input:checked + .toggle-bg{
 }
 .-ml-px{
   margin-left: -1px;
+}
+.mr-3{
+  margin-right: 0.75rem;
 }
 .block{
   display: block;
@@ -1769,6 +1800,10 @@ input:checked + .toggle-bg{
   --tw-bg-opacity: 1;
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 }
+.bg-\[\#FF9636\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 150 54 / var(--tw-bg-opacity));
+}
 .bg-opacity-50{
   --tw-bg-opacity: 0.5;
 }
@@ -2066,6 +2101,15 @@ input:checked + .toggle-bg{
 }
 .pb-72{
   padding-bottom: 18rem;
+}
+.pr-40{
+  padding-right: 10rem;
+}
+.pr-7{
+  padding-right: 1.75rem;
+}
+.pr-6{
+  padding-right: 1.5rem;
 }
 .text-left{
   text-align: left;

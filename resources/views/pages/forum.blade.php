@@ -66,8 +66,8 @@
                     }
                 @endphp
                 @if (!$discusses->first())
-                  <div class="fill-white">
-                    <p>Not Found</p>
+                  <div class="fill-white h-screen">
+                    @include('.component.AlertNotFound')
                   </div>
                 @else
                   @foreach ($discusses as $discuss)
@@ -96,7 +96,7 @@
               </div>
             </div>
           </div>
-        <div class="flex justify-center pr-44 pt-5 pb-8">
+        <div class="flex justify-center mx-auto pb-8">
           {{ $discusses->links() }}
         </div>
         </div>
