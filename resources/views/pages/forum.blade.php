@@ -22,7 +22,7 @@
                 @auth
                   <a href="/discusses?user={{ auth()->user()->username }}" class="relative flex items-center">
                     <img 
-                      class="w-6 absolute ml-4 pointer-events-none" 
+                      class="w-9 absolute ml-3 pointer-events-none" 
                       src="/imgs/myTopik.png" 
                       alt=""/>
                       <span class="p-1 text-lg text-white ml-11 hover:text-secondaryclr">Topik saya</span>
