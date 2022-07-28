@@ -32,7 +32,7 @@ class UpdateCommentRequest extends FormRequest
     {
         return [
             'body' => 'required|string',
-            'discuss_title' => 'required|exists:discusses,title',
+            'discuss_id' => 'required|exists:discusses,id',
         ];
     }
 }

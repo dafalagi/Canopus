@@ -37,7 +37,8 @@
         </div>
             <div class="flex items-center">
               <div class="basis-1/12 text-center mt-10 mr-2">
-                <form action="">
+                <form action="/discusses/likes/{{ $discuss->slug }}" method="POST">
+                  @csrf
                   <button>
                     <img 
                         class="w-5" 
@@ -46,7 +47,8 @@
                 </button>
                 </form>
                     <p class=" text-slate text-sm text-center text-opacity-50">{{ $discuss->likes-$discuss->dislikes }}</p>
-                <form action="">
+                <form action="/discusses/dislikes/{{ $discuss->slug }}" method="POST">
+                  @csrf
                   <button>
                     <img 
                         class="w-5" 

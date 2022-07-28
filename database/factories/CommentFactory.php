@@ -16,7 +16,7 @@ class CommentFactory extends Factory
         return [
             'user_id' => mt_rand(1, 20),
             'discuss_id' => mt_rand(1, 30),
-            'body' => collect($this->faker->paragraphs(mt_rand(10, 20)))->map(fn ($p) => "<p>$p</p>")->implode(''),
+            'body' => collect($this->faker->paragraphs(mt_rand(1, 10)))->map(fn ($p) => "<p>$p</p>")->implode(''),
             'likes' => mt_rand(10, 100),
         ];
     }

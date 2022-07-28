@@ -6,6 +6,7 @@ use App\Models\Discuss;
 use App\Http\Requests\StoreDiscussRequest;
 use App\Http\Requests\UpdateDiscussRequest;
 use Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class DiscussController extends Controller
@@ -17,9 +18,16 @@ class DiscussController extends Controller
      */
     public function index()
     {
+        if(request(['search']))
+        {
+            return view('pages.forum', [
+                'discusses' => Discuss::filter(request(['search']))->paginate(5)->withQueryString(),
+            ]);    
+        }
+
         return view('pages.forum', [
             'discusses' => Discuss::orderBy('discusses.created_at', 'desc')
-                           ->filter(request(['search', 'user', 'answer']))
+                           ->filter(request(['user', 'answer']))
                            ->paginate(5)->withQueryString(),
         ]);
     }
@@ -83,7 +91,33 @@ class DiscussController extends Controller
      */
     public function update(UpdateDiscussRequest $request, Discuss $discuss)
     {
-        //Update Discuss
+        $validated = $request->validated();
+
+        if(auth()->user()->id != $discuss->user_id)
+        {
+            $validated['user_id'] = auth()->user()->id;
+        }
+        if($request->title != $discuss->title)
+        {
+            $validated['slug'] = SlugService::createSlug(Discuss::class, 'slug', $validated['title']);
+        }
+        if($request->body != $discuss->body)
+        {
+            $validated['excerpt'] = Str::limit(strip_tags($validated['body']), 200, '...');
+        }
+        if($request->file('picture'))
+        {
+            if($discuss->picture)
+            {
+                Storage::delete($discuss->picture);
+            }
+
+            $validated['picture'] = $request->file('picture')->store('discuss-images');
+        }
+
+        Discuss::where('id', $discuss->id)->update($validated);
+
+        return back()->with('success', 'Diskusi kamu berhasil diubah!');
     }
 
     /**
@@ -101,7 +135,7 @@ class DiscussController extends Controller
 
     public function likes(Discuss $discuss)
     {
-        $data['likes'] = $discuss->likes++;
+        $data['likes'] = $discuss->likes + 1;
 
         Discuss::where('id', $discuss->id)->update($data);
 
@@ -110,7 +144,7 @@ class DiscussController extends Controller
 
     public function dislikes(Discuss $discuss)
     {
-        $data['dislikes'] = $discuss->dislikes++;
+        $data['dislikes'] = $discuss->dislikes + 1;
 
         Discuss::where('id', $discuss->id)->update($data);
 

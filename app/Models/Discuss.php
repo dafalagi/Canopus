@@ -18,7 +18,9 @@ class Discuss extends Model
         $query->when($filters['search'] ?? false, function($query, $search)
         {
             return $query->where('title', 'like', '%'.$search.'%')
-                         ->orWhere('body', 'like', '%'.$search.'%');
+                         ->orWhere('body', 'like', '%'.$search.'%')
+                         ->select('likes-dislikes as score')
+                         ->orderBy('score', 'desc');
         });
         
         $query->when($filters['user'] ?? false, function($query, $user)

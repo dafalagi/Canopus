@@ -16,18 +16,12 @@ class CommentController extends Controller
      */
     public function store(StoreCommentRequest $request)
     {
-        //Store comment
-    }
+        $validated = $request->validated();
+        $validated['user_id'] = auth()->user()->id;
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Comment  $comment
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Comment $comment)
-    {
-        //Show commented discusses
+        Comment::create($validated);
+
+        return redirect('/dashboard/comments')->with('success', 'Data Added Successfully!');
     }
 
     /**
@@ -50,6 +44,8 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
-        //Delete Comment
+        Comment::destroy($comment->id);
+
+        return back()->with('success', 'Komentar kamu berhasil dihapus!');
     }
 }
