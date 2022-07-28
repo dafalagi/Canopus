@@ -16,18 +16,12 @@ class CommentController extends Controller
      */
     public function store(StoreCommentRequest $request)
     {
-        //Store comment
-    }
+        $validated = $request->validated();
+        $validated['user_id'] = auth()->user()->id;
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Comment  $comment
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Comment $comment)
-    {
-        //Show commented discusses
+        Comment::create($validated);
+
+        return redirect('/dashboard/comments')->with('success', 'Komentar kamu berhasil diunggah!');
     }
 
     /**
@@ -39,7 +33,16 @@ class CommentController extends Controller
      */
     public function update(UpdateCommentRequest $request, Comment $comment)
     {
-        //Update Comment
+        $validated = $request->validated();
+        
+        if(auth()->user()->id != $comment->user_id)
+        {
+            $validated['user_id'] = auth()->user()->id;
+        }
+
+        Comment::where('id', $comment->id)->update($validated);
+
+        return back()->with('success', 'Komentar kamu berhasil diubah!');
     }
 
     /**
@@ -50,6 +53,8 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
-        //Delete Comment
+        Comment::destroy($comment->id);
+
+        return back()->with('success', 'Komentar kamu berhasil dihapus!');
     }
 }

@@ -4,8 +4,9 @@
   <body class="font-poppins">
     <div class="bg-mainclr">
     @include('.component.navbar')
-    @include('.component.AlertSuccess')
-    @include('.component.AlertFailed')
+    @if (session()->has('success'))
+      @include('.component.AlertSuccess')
+    @endif
       <h1 class="font-bold pb-3 text-center mt-7 mb-7 text-2xl text-white">Selamat datang di Forum Canopus, Astroners!</h1>
         <div class="flex flex-auto">
             <div class="lg:ml-7 basis-1/3 sidebar lg:left-0 p-3 overflow-y-auto">

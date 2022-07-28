@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateCommentRequest extends FormRequest
+class StoreLikeRequest extends FormRequest
 {
     /**
      * Indicates if the validator should stop on the first rule failure.
@@ -12,7 +12,7 @@ class UpdateCommentRequest extends FormRequest
      * @var bool
      */
     protected $stopOnFirstFailure = true;
-
+    
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -31,8 +31,8 @@ class UpdateCommentRequest extends FormRequest
     public function rules()
     {
         return [
-            'body' => 'required|string',
-            'discuss_id' => 'required|exists:discusses,id',
+            'user_id' => 'required|exists:users,id',
+            'discuss_id' => 'nullable|required_without_all:comment_id|exists:discusses,id',
             'comment_id' => 'nullable|exists:comments,id',
         ];
     }

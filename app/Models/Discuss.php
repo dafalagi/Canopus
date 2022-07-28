@@ -18,7 +18,8 @@ class Discuss extends Model
         $query->when($filters['search'] ?? false, function($query, $search)
         {
             return $query->where('title', 'like', '%'.$search.'%')
-                         ->orWhere('body', 'like', '%'.$search.'%');
+                         ->orWhere('body', 'like', '%'.$search.'%')
+                         ->orderBy('likes', 'desc');
         });
         
         $query->when($filters['user'] ?? false, function($query, $user)
@@ -50,6 +51,10 @@ class Discuss extends Model
     public function favorites()
     {
         return $this->hasMany(Favorites::class);
+    }
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
     }
 
     public function getRouteKeyName()

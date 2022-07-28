@@ -31,8 +31,8 @@ class StoreReportRequest extends FormRequest
     public function rules()
     {
         return [
-            'content_title' => 'nullable|required_without_all:discuss_title,comment_id|exists:contents,title',
-            'discuss_title' => 'nullable|exists:discusses,title',
+            'content_title' => 'nullable|required_without_all:discuss_id,comment_id|exists:contents,title',
+            'discuss_id' => 'nullable|exists:discusses,id',
             'comment_id' => 'nullable|exists:comments,id',
         ];
     }

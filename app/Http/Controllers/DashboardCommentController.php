@@ -42,10 +42,6 @@ class DashboardCommentController extends Controller
     public function store(StoreCommentRequest $request)
     {
         $validated = $request->validated();
-
-        $discuss = Discuss::where('title', $validated['discuss_title'])->first();
-
-        $validated['discuss_id'] = $discuss->id;
         $validated['user_id'] = auth()->user()->id;
 
         Comment::create($validated);
@@ -90,19 +86,11 @@ class DashboardCommentController extends Controller
     public function update(UpdateCommentRequest $request, Comment $comment)
     {
         $validated = $request->validated();
-
-        $discuss = Discuss::where('title', $validated['discuss_title'])->first();
-
-        if($discuss->id != $comment->discuss_id)
-        {
-            $validated['discuss_id'] = $discuss->id;
-        }
+        
         if(auth()->user()->id != $comment->user_id)
         {
             $validated['user_id'] = auth()->user()->id;
         }
-
-        unset($validated['discuss_title']);
 
         Comment::where('id', $comment->id)->update($validated);
 
