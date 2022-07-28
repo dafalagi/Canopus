@@ -37,7 +37,7 @@
         </div>
             <div class="flex items-center">
               <div class="basis-1/12 text-center mt-10 mr-2">
-                <form action="/discusses/likes/{{ $discuss->slug }}" method="POST">
+                <form action="/likes/discuss?discuss_id={{ $discuss->id }}" method="POST">
                   @csrf
                   <button>
                     <img 
@@ -47,7 +47,7 @@
                 </button>
                 </form>
                     <p class=" text-slate text-sm text-center text-opacity-50">{{ count($likes) }}</p>
-                <form action="/discusses/dislikes/{{ $discuss->slug }}" method="POST">
+                <form action="/likes/discuss/{{ $discuss->slug }}" method="POST">
                   @csrf
                   <button>
                     <img 

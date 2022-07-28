@@ -31,7 +31,6 @@ class StoreLikeRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => 'required|exists:users,id',
             'discuss_id' => 'nullable|required_without_all:comment_id|exists:discusses,id',
             'comment_id' => 'nullable|exists:comments,id',
         ];
