@@ -89,6 +89,8 @@
                         {
                           $favorite = $favorites->whereIn('discuss_id', $discuss->id);
                         }
+
+                        $likes = $discuss->likes->whereIn('discuss_id', $discuss->id);
                     @endphp
                     @include('component.bodyForum')
                   @endforeach

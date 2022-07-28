@@ -46,7 +46,7 @@
                         alt=""/>
                 </button>
                 </form>
-                    <p class=" text-slate text-sm text-center text-opacity-50">{{ $discuss->likes-$discuss->dislikes }}</p>
+                    <p class=" text-slate text-sm text-center text-opacity-50">{{ count($likes) }}</p>
                 <form action="/discusses/dislikes/{{ $discuss->slug }}" method="POST">
                   @csrf
                   <button>
