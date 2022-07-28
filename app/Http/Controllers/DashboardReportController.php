@@ -51,18 +51,13 @@ class DashboardReportController extends Controller
             $content = Content::where('title', $validated['content_title'])->first();
             $validated['content_id'] = $content->id;
         }
-        if($validated['discuss_title'] ?? false)
-        {
-            $discuss = Discuss::where('title', $validated['discuss_title'])->first();
-            $validated['discuss_id'] = $discuss->id;
-        }
         if($request->input('values'))
         {
             $validated['values'] = $request->input('values');
         }else
         {
             return back()->with([
-                'valuesError' => 'Values are empty!',
+                'error' => 'Values are empty!',
                 'oldData' => $validated
             ]);
         }
@@ -115,24 +110,13 @@ class DashboardReportController extends Controller
         if($validated['content_title'])
         {
             $content = Content::where('title', $validated['content_title'])->first();
+
             if($content->id != $report->content_id)
             {
                 $validated['content_id'] = $content->id;
             }
-        }else
-        {
-            $validated['content_id'] = null;
-        }
-        if($validated['discuss_title'])
-        {
-            $discuss = Discuss::where('title', $validated['discuss_title'])->first();
-            if($discuss->id != $report->discuss_id)
-            {
-                $validated['discuss_id'] = $discuss->id;
-            }
-        }else
-        {
-            $validated['discuss_id'] = null;
+
+            unset($validated['content_title']);
         }
         if($request->input('values'))
         {
@@ -140,7 +124,7 @@ class DashboardReportController extends Controller
         }else
         {
             return back()->with([
-                'valuesError' => 'Values are empty!',
+                'error' => 'Values are empty!',
                 'oldData' => $validated
             ]);
         }
@@ -148,9 +132,6 @@ class DashboardReportController extends Controller
         {
             $validated['user_id'] = auth()->user()->id;
         }
-
-        unset($validated['content_title']);
-        unset($validated['discuss_title']);
 
         Report::where('id', $report->id)->update($validated);
 

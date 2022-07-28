@@ -32,7 +32,8 @@ class StoreCommentRequest extends FormRequest
     {
         return [
             'body' => 'required|string',
-            'discuss_title' => 'required|exists:discusses,title',
+            'discuss_id' => 'required|exists:discusses,id',
+            'comment_id' => 'nullable|exists:comments,id',
         ];
     }
 }
