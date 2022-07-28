@@ -1023,13 +1023,33 @@ input:checked + .toggle-bg{
   margin-top: 4rem;
   margin-bottom: 4rem;
 }
-.-mx-2\.5{
-  margin-left: -0.625rem;
-  margin-right: -0.625rem;
+.-mx-5{
+  margin-left: -1.25rem;
+  margin-right: -1.25rem;
+}
+.-mx-11{
+  margin-left: -2.75rem;
+  margin-right: -2.75rem;
+}
+.-mx-12{
+  margin-left: -3rem;
+  margin-right: -3rem;
+}
+.-mx-14{
+  margin-left: -3.5rem;
+  margin-right: -3.5rem;
 }
 .-mx-2{
   margin-left: -0.5rem;
   margin-right: -0.5rem;
+}
+.-mx-6{
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+}
+.-mx-7{
+  margin-left: -1.75rem;
+  margin-right: -1.75rem;
 }
 .mb-4{
   margin-bottom: 1rem;
@@ -1052,8 +1072,8 @@ input:checked + .toggle-bg{
 .mb-5{
   margin-bottom: 1.25rem;
 }
-.ml-12{
-  margin-left: 3rem;
+.ml-9{
+  margin-left: 2.25rem;
 }
 .ml-1{
   margin-left: 0.25rem;
@@ -1136,6 +1156,9 @@ input:checked + .toggle-bg{
 .ml-20{
   margin-left: 5rem;
 }
+.ml-12{
+  margin-left: 3rem;
+}
 .ml-6{
   margin-left: 1.5rem;
 }
@@ -1177,6 +1200,9 @@ input:checked + .toggle-bg{
 }
 .-ml-px{
   margin-left: -1px;
+}
+.mr-3{
+  margin-right: 0.75rem;
 }
 .block{
   display: block;
@@ -1331,9 +1357,6 @@ input:checked + .toggle-bg{
 .w-64{
   width: 16rem;
 }
-.w-5\/6{
-  width: 83.333333%;
-}
 .w-4\/5{
   width: 80%;
 }
@@ -1451,12 +1474,6 @@ input:checked + .toggle-bg{
 .cursor-not-allowed{
   cursor: not-allowed;
 }
-.select-none{
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
 .resize-none{
   resize: none;
 }
@@ -1566,11 +1583,6 @@ input:checked + .toggle-bg{
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
-}
-.space-x-1 > :not([hidden]) ~ :not([hidden]){
-  --tw-space-x-reverse: 0;
-  margin-right: calc(0.25rem * var(--tw-space-x-reverse));
-  margin-left: calc(0.25rem * calc(1 - var(--tw-space-x-reverse)));
 }
 .divide-y > :not([hidden]) ~ :not([hidden]){
   --tw-divide-y-reverse: 0;
@@ -1773,13 +1785,13 @@ input:checked + .toggle-bg{
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
-.bg-gray-200{
-  --tw-bg-opacity: 1;
-  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
-}
 .bg-slate{
   --tw-bg-opacity: 1;
   background-color: rgb(234 234 234 / var(--tw-bg-opacity));
+}
+.bg-gray-200{
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 .bg-white\/50{
   background-color: rgb(255 255 255 / 0.5);
@@ -1787,6 +1799,10 @@ input:checked + .toggle-bg{
 .bg-gray-900{
   --tw-bg-opacity: 1;
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+}
+.bg-\[\#FF9636\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 150 54 / var(--tw-bg-opacity));
 }
 .bg-opacity-50{
   --tw-bg-opacity: 0.5;
@@ -1864,6 +1880,9 @@ input:checked + .toggle-bg{
 .p-5{
   padding: 1.25rem;
 }
+.p-3{
+  padding: 0.75rem;
+}
 .p-10{
   padding: 2.5rem;
 }
@@ -1872,9 +1891,6 @@ input:checked + .toggle-bg{
 }
 .p-2{
   padding: 0.5rem;
-}
-.p-3{
-  padding: 0.75rem;
 }
 .p-0\.5{
   padding: 0.125rem;
@@ -1984,17 +2000,14 @@ input:checked + .toggle-bg{
 .pl-2{
   padding-left: 0.5rem;
 }
-.pr-3{
-  padding-right: 0.75rem;
+.pr-5{
+  padding-right: 1.25rem;
 }
 .pr-2{
   padding-right: 0.5rem;
 }
 .pb-6{
   padding-bottom: 1.5rem;
-}
-.pl-5{
-  padding-left: 1.25rem;
 }
 .pt-4{
   padding-top: 1rem;
@@ -2083,17 +2096,20 @@ input:checked + .toggle-bg{
 .pb-8{
   padding-bottom: 2rem;
 }
-.pt-24{
-  padding-top: 6rem;
-}
-.pb-9{
-  padding-bottom: 2.25rem;
-}
 .pt-44{
   padding-top: 11rem;
 }
 .pb-72{
   padding-bottom: 18rem;
+}
+.pr-40{
+  padding-right: 10rem;
+}
+.pr-7{
+  padding-right: 1.75rem;
+}
+.pr-6{
+  padding-right: 1.5rem;
 }
 .text-left{
   text-align: left;
@@ -2262,10 +2278,6 @@ input:checked + .toggle-bg{
   --tw-text-opacity: 1;
   color: rgb(119 119 119 / var(--tw-text-opacity));
 }
-.text-black{
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
-}
 .text-blue-600{
   --tw-text-opacity: 1;
   color: rgb(28 100 242 / var(--tw-text-opacity));
@@ -2307,18 +2319,6 @@ input:checked + .toggle-bg{
 .placeholder-white::placeholder{
   --tw-placeholder-opacity: 1;
   color: rgb(255 255 255 / var(--tw-placeholder-opacity));
-}
-.placeholder-gray-50::-moz-placeholder{
-  --tw-placeholder-opacity: 1;
-  color: rgb(249 250 251 / var(--tw-placeholder-opacity));
-}
-.placeholder-gray-50:-ms-input-placeholder{
-  --tw-placeholder-opacity: 1;
-  color: rgb(249 250 251 / var(--tw-placeholder-opacity));
-}
-.placeholder-gray-50::placeholder{
-  --tw-placeholder-opacity: 1;
-  color: rgb(249 250 251 / var(--tw-placeholder-opacity));
 }
 .opacity-70{
   opacity: 0.7;
