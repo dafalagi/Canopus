@@ -18,16 +18,9 @@ class DiscussController extends Controller
      */
     public function index()
     {
-        if(request(['search']))
-        {
-            return view('pages.forum', [
-                'discusses' => Discuss::filter(request(['search']))->paginate(5)->withQueryString(),
-            ]);    
-        }
-
         return view('pages.forum', [
             'discusses' => Discuss::orderBy('discusses.created_at', 'desc')
-                           ->filter(request(['user', 'answer']))
+                           ->filter(request(['search', 'user', 'answer']))
                            ->paginate(5)->withQueryString(),
         ]);
     }
