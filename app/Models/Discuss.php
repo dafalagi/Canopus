@@ -11,7 +11,7 @@ class Discuss extends Model
     use HasFactory, Sluggable;
 
     protected $guarded = ['id'];
-    protected $with = ['user', 'comments'];
+    protected $with = ['user', 'comments', 'likes'];
 
     public function scopeFilter($query, array $filters)
     {
