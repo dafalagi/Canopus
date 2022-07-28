@@ -17,7 +17,12 @@ class LikeController extends Controller
      */
     public function discuss(StoreLikeRequest $request)
     {
-        //
+        $validated = $request->validated();
+        $validated['user_id'] = auth()->user()->id;
+
+        Like::create($validated);
+
+        return back();
     }
 
     /**
@@ -28,7 +33,12 @@ class LikeController extends Controller
      */
     public function comment(StoreLikeRequest $request)
     {
-        //
+        $validated = $request->validated();
+        $validated['user_id'] = auth()->user()->id;
+
+        Like::create($validated);
+
+        return back();
     }
 
     /**
