@@ -1,17 +1,24 @@
 <div class="relative aspect-video bg-white p-1 rounded-xl">
     <div class="hover:scale-110 transition duration-300 ease-in-out">
         <a href="/contents/details/{{ $content->slug }}">
-            @if ($content->mainpicture)
-                <img src="{{ asset('storage/'.$content->mainpicture) }}" alt="{{ $content->title }}" class="object-cover rounded-xl">
+            {{-- @if ($content->mainpicture)
+                <img src="{{ asset('storage/'.$content->mainpicture) }}" alt="{{ $content->title }}" class="object-cover aspect-video rounded-xl">
             @else
-                <img src="https://source.unsplash.com/640x480?space" alt="Default Image" class="object-cover rounded-xl">
-            @endif
-            <div class="absolute p-5 top-0 right-0 text-white opacity-70 text-sm">
-                <p>Jarak :</p>
-                <p>{{ $content->distance }}</p>
-            </div>
-            <div class="absolute p-5 bottom-3 left-3 text-lg">
-                <p class="text-white">{{ $content->title }}</p>
+                <img src="https://source.unsplash.com/640x480?space" alt="Default Image" class="object-cover aspect-video rounded-xl">
+            @endif --}}
+            <div class="bg-cover bg-center aspect-video rounded-xl"
+            @if($content->mainpicture)
+                style="background-image: url({{ asset('storage/'.$content->mainpicture) }})"
+            @else
+                style="background-image: url(https://source.unsplash.com/1920x1080?space)"
+            @endif>
+                <div class="absolute p-5 top-0 left-0 text-slate text-opacity-70 text-sm">
+                    <p>Jarak :</p>
+                    <p>{{ $content->distance }}</p>
+                </div>
+                <div class="absolute w-4/5 p-5 bottom-3 left-3 text-lg">
+                    <p class="text-white">{{ $content->title }}</p>
+                </div>
             </div>
         </a>
         @if (Request::is('favorites*'))

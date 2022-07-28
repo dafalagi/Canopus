@@ -62,9 +62,11 @@
                             class="w-full lg:w-8/12 mt-1 bg-transparent rounded-lg border border-slate focus:border-white focus:ring-2 focus:ring-white h-32 text-base outline-none py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
                         </div>
                         {{-- Btn submit --}}
-                        <button type="submit" class="text-white bg-orange2 hover:bg-opacity-80 focus:ring-4 focus:outline-none focus:ring-orange2 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                            Beritahu kami
-                        </button>
+                        <div class="bg-secondaryclr hover:bg-orange-500 rounded-lg w-fit">
+                            <button type="submit" class="font-medium text-sm px-5 py-2.5 text-center">
+                                Beritahu kami
+                            </button>
+                        </div>
                     </form>
               </div>
           </div>
