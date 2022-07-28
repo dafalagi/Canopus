@@ -12,7 +12,7 @@
             <div class="lg:ml-7 basis-1/3 sidebar lg:left-0 p-3 overflow-y-auto">
               <div class="text-gray-900 text-xl">
                 <h1 class="text-white text-lg pl-14 pb-6">Menu</h1>
-                <a href="" class="relative flex items-center">
+                <a href="/discusses" class="relative flex items-center">
                   <img 
                     class="w-6 absolute ml-4 pointer-events-none" 
                     src="/imgs/home.png" 
