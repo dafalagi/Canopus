@@ -19,8 +19,6 @@ class DiscussFactory extends Factory
             'body' => collect($this->faker->paragraphs(mt_rand(10, 20)))->map(fn ($p) => "<p>$p</p>")->implode(''),
             'excerpt' => $this->faker->paragraph(5, 10),
             'slug' => $this->faker->unique()->slug(),
-            'likes' => mt_rand(10, 100),
-            'dislikes' => mt_rand(10, 100),
         ];
     }
 }
