@@ -9,7 +9,7 @@
     @endif
       <h1 class="font-bold pb-3 text-center mt-7 mb-7 text-2xl text-white">Selamat datang di Forum Canopus, Astroners!</h1>
         <div class="flex flex-auto">
-            <div class="lg:ml-7 basis-1/3 sidebar lg:left-0 p-3 overflow-y-auto">
+            <div class="lg:ml-7 basis-1/3 sidebar lg:left-0 p-3 overflow-y-auto h-screen">
               <div class="text-gray-900 text-xl">
                 <h1 class="text-white text-lg pl-14 pb-6">Menu</h1>
                 <a href="/discusses" class="relative flex items-center">
@@ -22,7 +22,7 @@
                 @auth
                   <a href="/discusses?user={{ auth()->user()->username }}" class="relative flex items-center">
                     <img 
-                      class="w-6 absolute ml-4 pointer-events-none" 
+                      class="w-9 absolute ml-3 pointer-events-none" 
                       src="/imgs/myTopik.png" 
                       alt=""/>
                       <span class="p-1 text-lg text-white ml-11 hover:text-secondaryclr">Topik saya</span>
@@ -59,6 +59,7 @@
                     </div>
               </form>
               <div class="mx-auto">
+                <div class="h-max">
                 @php
                     if(auth()->user())
                     {
@@ -79,9 +80,12 @@
 
                         $likes = $discuss->likes->whereIn('discuss_id', $discuss->id);
                     @endphp
-                    @include('component.bodyForum')
+                    <div class="">
+                      @include('component.bodyForum')
+                    </div>
                   @endforeach
                 @endif
+                </div>
               </div>
             </div>
 
