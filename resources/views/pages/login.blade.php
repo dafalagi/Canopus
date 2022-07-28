@@ -3,7 +3,7 @@
   @include('component.head')
 
 <body class="font-poppins">
-  <div class="w-full md:h-full lg:h-screen bg-no-repeat bg-cover"
+  <div class="w-full h-full lg:h-screen bg-no-repeat bg-cover"
   style="background-image: url(/imgs/bg-login.png)"> 
     @include('component.navbar')
     {{-- Username atau Passwoord salah --}}
@@ -26,7 +26,7 @@
       @include('component.AlertSuccess')
     </div>
     @endif
-      <div class="p-5">
+      <div class="p-5 pb-10 mb-5">
         <div class="container">
           <div class="mx-auto max-w-lg bg-opacity-10 bg-slate rounded-xl shadow-md p-12" >
             <h1 class="font-bold text-3xl text-white">Masuk</h1>
@@ -40,14 +40,14 @@
                     type="email"
                     id="email"
                     placeholder="Masukkan E-mail"
-                    class="px-7 py-3 border shadow rounded-lg w-full block bg-transparent text-white border-grey focus:outline-none focus:ring-1 focus:ring-blue focus:border-blue 
-                    @error('email') invalid:focus:ring-red invalid:focus:border-red @enderror peer"
+                    class="px-7 py-3 border shadow rounded-lg w-full block bg-transparent text-white border-grey focus:outline-none focus:ring-0.5 
+                    @error('email') focus:ring-red-500 focus:border-red-600 @enderror "
                     autofocus
                     value="{{ old('email', session('email')) }}"
                   />
                   @error('email')
-                  <p class="text-sm mt-1 -mb-3 text-red">
-                    Email tidak valid
+                  <p class="text-sm mt-1 -mb-3 text-red-700">
+                    Penulisan E-mail tidak sesuai
                   </p>
                   @enderror
                 </label>

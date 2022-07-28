@@ -27,9 +27,7 @@
                         {{-- Field body diskusi --}}
                         <div class="pb-1">
                             <textarea id="bodyDiskusi" name="body" placeholder="Masukan topik diskusi disini"
-                            class="w-full lg:w-8/12 font-light text-sm bg-transparent rounded-lg placeholder-white border border-white h-44 outline-none py-3 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out">
-                            {{ old('body') }}
-                            </textarea>
+                            class="w-full lg:w-8/12 font-light text-sm bg-transparent rounded-lg placeholder-slate border border-white h-44 outline-none py-3 px-3 transition-colors duration-200 ease-in-out">{{ old('body') }}</textarea>
                         </div>
                         {{-- Input File img --}}   
                         <div class="pb-5">
