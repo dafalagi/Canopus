@@ -3,7 +3,7 @@
   @include('component.head')
 
 <body class="font-poppins">
-  <div class="w-full h-full lg:h-screen bg-no-repeat bg-cover"
+  <div class="w-full h-auto bg-no-repeat bg-cover"
   style="background-image: url(/imgs/bg-login.png)"> 
     @include('component.navbar')
     {{-- Username atau Passwoord salah --}}
@@ -15,9 +15,9 @@
     </div>
     @endif
     {{--  --}}
-    <div>
+    <div class="h-screen">
       <img 
-        class="mx-auto w-96 -mb-5" 
+        class="mx-auto w-96" 
         src="/imgs/logo2.png" 
         alt="Logo">
     {{-- alert jika berhasil register --}}
@@ -26,7 +26,7 @@
       @include('component.AlertSuccess')
     </div>
     @endif
-      <div class="p-5 pb-10 mb-5">
+      <div class="p-5 pb-10">
         <div class="container">
           <div class="mx-auto max-w-lg bg-opacity-10 bg-slate rounded-xl shadow-md p-12" >
             <h1 class="font-bold text-3xl text-white">Masuk</h1>
