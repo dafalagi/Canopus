@@ -1,4 +1,4 @@
-    <footer class="bg-mainclr text-white inset-x-0 bottom-0 text-lg p-5 border-t border-grey border-opacity-25">
+    <footer class="bg-[#212254] text-white inset-x-0 bottom-0 text-lg p-5 border-t border-grey border-opacity-25">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4 py-12">
                 {{-- Logo --}}
@@ -85,7 +85,7 @@
             {{-- Bawah --}}
             <div class="container flex flex-wrap flex-col sm:flex-row justify-center text-sm md:text-center lg:gap-10">
                 <div class="pb-2">
-                    <p>© 2022 Canopus Inc. All rights reserved.</p>
+                    <p class="text-slate text-opacity-80">© 2022 Canopus Inc. All rights reserved.</p>
                 </div>
                 <div class="pb-2">
                     <a href="" class="hover:text-secondaryclr">Persyaratan Layanan</a>

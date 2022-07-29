@@ -121,7 +121,7 @@
                     </div>
                     <div>
                         <a href="/contents/planet">
-                            <p class="text-white mx-auto opacity-80">
+                            <p class="text-white mx-auto opacity-50 hover:opacity-80">
                                 Lihat lainnya
                             </p>
                         </a>
@@ -152,7 +152,7 @@
                     </div>
                     <div>
                         <a href="/contents/bintang">
-                            <p class="text-white mx-auto opacity-80">
+                            <p class="text-white mx-auto opacity-50 hover:opacity-80">
                                 Lihat lainnya
                             </p>
                         </a>
@@ -183,7 +183,7 @@
                     </div>
                     <div>
                         <a href="/contents/rasi%20bintang">
-                            <p class="text-white mx-auto opacity-80">
+                            <p class="text-white mx-auto opacity-50 hover:opacity-80">
                                 Lihat lainnya
                             </p>
                         </a>
@@ -213,7 +213,7 @@
                     </div>
                     <div>
                         <a href="/contents/lainnya%20di%20angkasa">
-                            <p class="text-white mx-auto opacity-80">
+                            <p class="text-white mx-auto opacity-50 hover:opacity-80">
                                 Lihat lainnya
                             </p>
                         </a>
