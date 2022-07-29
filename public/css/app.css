@@ -1986,8 +1986,8 @@ input:checked + .toggle-bg{
 .pl-2{
   padding-left: 0.5rem;
 }
-.pr-32{
-  padding-right: 8rem;
+.pr-5{
+  padding-right: 1.25rem;
 }
 .pr-2{
   padding-right: 0.5rem;
@@ -2084,6 +2084,9 @@ input:checked + .toggle-bg{
 }
 .pb-72{
   padding-bottom: 18rem;
+}
+.pr-32{
+  padding-right: 8rem;
 }
 .text-left{
   text-align: left;
