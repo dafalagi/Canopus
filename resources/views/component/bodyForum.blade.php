@@ -46,7 +46,7 @@
           <div class="flex-auto pt-4">
               <img 
                   class="w-6 absolute rounded-full shadow-2xl aspect-square" 
-                  src="{{ $discuss->user->avatar ? asset('storage/'.$discuss->user->avatar) : '/imgs/default/avatar.png' }}" 
+                  src="{{ $discuss->user->avatar ? asset('uploads/'.$discuss->user->avatar) : '/imgs/default/avatar.png' }}" 
                   alt=""/>
               <span class="text-white text-base ml-9 pt-6">Diunggah oleh</span>
               <span class="relative items-center text-base ml-1 mr-1 text-secondaryclr">{{ $discuss->user->username }}</span>

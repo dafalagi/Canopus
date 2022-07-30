@@ -6,7 +6,7 @@
               <div class="hover:scale-110 transition duration-300 ease-in-out">
                 <a href="/contents/details/{{ $event->slug }}">
                   @if ($event->mainpicture)
-                    <img src="{{ asset('storage/'.$event->mainpicture) }}" alt="{{ $event->title }}" class="object-cover rounded-xl">
+                    <img src="{{ asset('uploads/'.$event->mainpicture) }}" alt="{{ $event->title }}" class="object-cover rounded-xl">
                   @else
                     <img src="https://source.unsplash.com/640x480?space" alt="Default Image" class="object-cover rounded-xl">
                   @endif

@@ -65,7 +65,7 @@
                     <div class="flex items-center">
                         {{-- yang ini jangan diapus dulu dap <img class="rounded-full shadow-2xl aspect-square" src="{{ $user->avatar ? asset('storage/'.$user->avatar) : '/imgs/default/avatar.png' }}" width="100" height="100" alt="Profil"> --}}
                         <div class="rounded-full w-28 h-28 bg-cover bg-center" 
-                            style="background-image: url({{ $user->avatar ? asset('storage/'.$user->avatar) : '/imgs/default/avatar.png' }})" width="100" height="100" alt="Profil">
+                            style="background-image: url({{ $user->avatar ? asset('uploads/'.$user->avatar) : '/imgs/default/avatar.png' }})" width="100" height="100" alt="Profil">
                         </div>
                     </div>
                     <div class="pl-4 my-12">
