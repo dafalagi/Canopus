@@ -81,4 +81,4 @@
     </div>
   </div>
 </div>
-@include('.modal.report')
+@include('modal.Report')

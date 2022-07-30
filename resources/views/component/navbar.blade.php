@@ -1,6 +1,6 @@
             <nav class="flex items-center bg-transparent py-5">
               <div class="flex items-center w-screen justify-start">
-                <a href="#"><img 
+                <a href="{{ Request::is('/') ? '#' : '/' }}"><img 
                   class="mx-auto pl-10 pt-1" 
                   src="/imgs/logo1.png" 
                   alt="" width="200"></a>
