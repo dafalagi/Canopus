@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  @include('component.head')
+  @include('.component.head')
   <body class="font-poppins">
     <div class="bg-mainclr">
     @include('.component.navbar')
@@ -27,7 +27,7 @@
                       alt=""/>
                       <span class="p-1 text-lg text-white ml-11 hover:text-secondaryclr">Topik saya</span>
                   </a>
-                  <a href="/discusses?answer={{ auth()->user()->username }}" class="relative flex items-center">
+                  <a href="/discusses/answer/{{ auth()->user()->username }}" class="relative flex items-center">
                     <img 
                       class="w-6 absolute ml-4 pointer-events-none" 
                       src="/imgs/myComment.png" 
@@ -66,13 +66,35 @@
                       $favorites = auth()->user()->favorites;
                     }
                 @endphp
-                @if (!$discusses->first())
-                  <div class="fill-white h-screen">
-                    @include('.component.AlertNotFound')
-                  </div>
-                @else
-                  @foreach ($discusses as $discuss)
+                @if (Request::is('discusses/answer*'))
+                  @foreach ($comments->unique('discuss_id') as $comment)
                     @php
+                      $discuss = $comment->discuss;
+
+                      if(isset($favorites))
+                      {
+                        $favorite = $favorites->whereIn('discuss_id', $discuss->id);
+                      }
+
+                      $likes = $discuss->likes->whereIn('discuss_id', $discuss->id);
+                      
+                      if(auth()->user())
+                      {
+                        $like = $likes->whereIn('user_id', auth()->user()->id)->first();
+                      }
+                    @endphp
+                    <div class="">
+                      @include('.component.bodyForum')
+                    </div>
+                  @endforeach
+                @else
+                  @if (!$discusses->first())
+                    <div class="fill-white h-screen">
+                      @include('.component.AlertNotFound')
+                    </div>
+                  @else
+                    @foreach ($discusses as $discuss)
+                      @php
                         if(isset($favorites))
                         {
                           $favorite = $favorites->whereIn('discuss_id', $discuss->id);
@@ -84,11 +106,12 @@
                         {
                           $like = $likes->whereIn('user_id', auth()->user()->id)->first();
                         }
-                    @endphp
-                    <div class="">
-                      @include('component.bodyForum')
-                    </div>
-                  @endforeach
+                      @endphp
+                      <div class="">
+                        @include('.component.bodyForum')
+                      </div>
+                    @endforeach
+                  @endif
                 @endif
                 </div>
               </div>
@@ -113,5 +136,5 @@
         </div>
     </div>
   </body>
-  @include('component.Footer')
+  @include('.component.Footer')
 </html>

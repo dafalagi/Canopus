@@ -77,7 +77,7 @@
             </div>
         </section>
         @elseif(!$contents->first())
-        <div class="my-5">
+        <div class="-mt-12 lg:-mt-24 h-96">
             @include('component.AlertNotFound')
         </div>
         @else

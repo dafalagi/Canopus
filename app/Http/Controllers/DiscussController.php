@@ -20,7 +20,7 @@ class DiscussController extends Controller
     {
         return view('pages.forum', [
             'discusses' => Discuss::orderBy('discusses.created_at', 'desc')
-                           ->filter(request(['search', 'user', 'answer']))
+                           ->filter(request(['search', 'user']))
                            ->paginate(5)->withQueryString(),
         ]);
     }
@@ -126,21 +126,15 @@ class DiscussController extends Controller
         return redirect('/forum');
     }
 
-    public function likes(Discuss $discuss)
+    // Show answered discusses
+    public function answer()
     {
-        $data['likes'] = $discuss->likes + 1;
-
-        Discuss::where('id', $discuss->id)->update($data);
-
-        return back();
-    }
-
-    public function dislikes(Discuss $discuss)
-    {
-        $data['dislikes'] = $discuss->dislikes + 1;
-
-        Discuss::where('id', $discuss->id)->update($data);
-
-        return back();
+        return view('pages.forum', [
+            'discusses' => Discuss::orderBy('comments.created_at', 'desc')
+                           ->join('comments', 'discusses.id', '=', 'comments.discuss_id')
+                           ->where('comments.user_id', auth()->user()->id)
+                           ->paginate(5)->withQueryString(),
+            'comments' => auth()->user()->comments
+        ]);
     }
 }
