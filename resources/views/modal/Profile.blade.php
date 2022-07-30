@@ -1,4 +1,4 @@
-@include('component.Head')
+@include('component.head')
 
 <button class="block" type="button" data-modal-toggle="defaultModal">
     <img 
