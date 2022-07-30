@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  @include('component.head')
+  @include('.component.head')
   <body class="font-poppins">
     <div class="bg-mainclr">
     @include('.component.navbar')
@@ -84,7 +84,7 @@
                       }
                     @endphp
                     <div class="">
-                      @include('component.bodyForum')
+                      @include('.component.bodyForum')
                     </div>
                   @endforeach
                 @else
@@ -108,7 +108,7 @@
                         }
                       @endphp
                       <div class="">
-                        @include('component.bodyForum')
+                        @include('.component.bodyForum')
                       </div>
                     @endforeach
                   @endif
@@ -136,5 +136,5 @@
         </div>
     </div>
   </body>
-  @include('component.Footer')
+  @include('.component.Footer')
 </html>
