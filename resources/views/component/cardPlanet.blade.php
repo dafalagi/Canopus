@@ -8,7 +8,7 @@
             @endif --}}
             <div class="bg-cover bg-center aspect-video rounded-xl"
             @if($content->mainpicture)
-                style="background-image: url({{ asset('storage/'.$content->mainpicture) }})"
+                style="background-image: url({{ asset('uploads/'.$content->mainpicture) }})"
             @else
                 style="background-image: url(https://source.unsplash.com/1920x1080?space)"
             @endif>
