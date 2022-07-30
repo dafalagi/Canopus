@@ -26,7 +26,7 @@
               <div class="flex items-center w-screen gap-x-2 justify-end mr-6">
                   @auth
                   <a href="#">
-                    @include('.modal.Profile')
+                    @include('modal.Profile')
                   </a>
                   @else
                     <a href="/login" class="text-white">Login</a>
