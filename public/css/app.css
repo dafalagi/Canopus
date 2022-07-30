@@ -883,14 +883,14 @@ input:checked + .toggle-bg{
 .right-0{
   right: 0px;
 }
+.left-0{
+  left: 0px;
+}
 .bottom-3{
   bottom: 0.75rem;
 }
 .left-3{
   left: 0.75rem;
-}
-.left-0{
-  left: 0px;
 }
 .right-3{
   right: 0.75rem;
@@ -1282,8 +1282,8 @@ input:checked + .toggle-bg{
 .w-6{
   width: 1.5rem;
 }
-.w-auto{
-  width: auto;
+.w-32{
+  width: 8rem;
 }
 .w-full{
   width: 100%;
@@ -1329,6 +1329,9 @@ input:checked + .toggle-bg{
 .w-2\/6{
   width: 33.333333%;
 }
+.w-auto{
+  width: auto;
+}
 .w-24{
   width: 6rem;
 }
@@ -1348,9 +1351,6 @@ input:checked + .toggle-bg{
 }
 .w-64{
   width: 16rem;
-}
-.w-32{
-  width: 8rem;
 }
 .w-80{
   width: 20rem;
@@ -1790,6 +1790,10 @@ input:checked + .toggle-bg{
   --tw-bg-opacity: 1;
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 }
+.bg-\[\#212254\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(33 34 84 / var(--tw-bg-opacity));
+}
 .bg-opacity-50{
   --tw-bg-opacity: 0.5;
 }
@@ -1915,14 +1919,6 @@ input:checked + .toggle-bg{
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
-.px-3{
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-.px-2{
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
 .px-10{
   padding-left: 2.5rem;
   padding-right: 2.5rem;
@@ -1939,6 +1935,10 @@ input:checked + .toggle-bg{
   padding-left: 1.25rem;
   padding-right: 1.25rem;
 }
+.px-2{
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
 .py-6{
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
@@ -1954,6 +1954,10 @@ input:checked + .toggle-bg{
 .py-3{
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
+}
+.px-3{
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }
 .px-12{
   padding-left: 3rem;
@@ -2491,6 +2495,11 @@ input:checked + .toggle-bg{
 .hover\:scale-110:hover{
   --tw-scale-x: 1.1;
   --tw-scale-y: 1.1;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.hover\:scale-105:hover{
+  --tw-scale-x: 1.05;
+  --tw-scale-y: 1.05;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .hover\:rounded-b-md:hover{

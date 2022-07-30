@@ -79,6 +79,11 @@
                         }
 
                         $likes = $discuss->likes->whereIn('discuss_id', $discuss->id);
+                        
+                        if(auth()->user())
+                        {
+                          $like = $likes->whereIn('user_id', auth()->user()->id)->first();
+                        }
                     @endphp
                     <div class="">
                       @include('component.bodyForum')
