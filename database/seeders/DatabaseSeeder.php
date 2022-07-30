@@ -22,7 +22,6 @@ class DatabaseSeeder extends Seeder
             CommentSeeder::class,
             ReportSeeder::class,
             FavoriteSeeder::class,
-            LikeSeeder::class,
         ]);
 
         User::create([

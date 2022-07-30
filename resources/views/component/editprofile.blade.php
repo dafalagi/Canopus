@@ -63,7 +63,10 @@
                 <div class="flex p-5 text-white">
                     {{-- avatar profil --}}
                     <div class="flex items-center">
-                        <img class="rounded-full shadow-2xl aspect-square" src="{{ $user->avatar ? asset('storage/'.$user->avatar) : '/imgs/default/avatar.png' }}" width="100" height="100" alt="Profil">
+                        {{-- yang ini jangan diapus dulu dap <img class="rounded-full shadow-2xl aspect-square" src="{{ $user->avatar ? asset('storage/'.$user->avatar) : '/imgs/default/avatar.png' }}" width="100" height="100" alt="Profil"> --}}
+                        <div class="rounded-full w-28 h-28 bg-cover bg-center" 
+                            style="background-image: url({{ $user->avatar ? asset('uploads/'.$user->avatar) : '/imgs/default/avatar.png' }})" width="100" height="100" alt="Profil">
+                        </div>
                     </div>
                     <div class="pl-4 my-12">
                         <h3 class="pl-2">Ganti Profil</h3>
@@ -97,19 +100,31 @@
             <div class="basis-1/2 mr-5">
                 <div class="mb-3">
                     <label for="username" class="block mb-2 text-base font-medium text-white">Username</label>
-                    <input type="text" id="username" placeholder="Example" class="bg-thirdclr border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    <input type="text" id="username" placeholder="Example" 
+                        class="block w-full p-2.5 shadow-lg text-sm rounded-lg @error('username') ring-red-600 border-red-500 border-2 @enderror"
                     value="{{ old('username', $user->username) }}" name="username">
+                    @error('username')
+                        <p class="text-sm mt-1 -mb-3 text-red-500">
+                            Username harus lebih dari 6 karakter
+                        </p>
+                    @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="e-mail" class="block mb-2 text-base font-medium text-white">E-mail</label>
-                    <input type="text" id="e-mail" placeholder="Example@email.com" class="bg-thirdclr border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    <label for="email" class="block mb-2 text-base font-medium text-white">E-mail</label>
+                    <input type="text" id="email" placeholder="Example@email.com" 
+                        class="block w-full p-2.5 shadow-lg text-sm rounded-lg @error('email') ring-red-600 border-red-500 border-2 @enderror"
                     value="{{ old('email', $user->email) }}" name="email">
+                    @error('email')
+                        <p class="text-sm mt-1 -mb-3 text-red-500">
+                            Penulisan E-mail tidak sesuai
+                        </p>
+                    @enderror
                 </div>
             </div>
             <div class="basis-1/2">
-                <div class="mb-3">
+                <div class="h-fit">
                     <label for="bio" class="block mb-3 text-sm font-medium text-white">Bio</label>
-                    <textarea id="bio" rows="5" placeholder="Isi bio mu disini" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    <textarea id="bio" rows="5" placeholder="Isi bio mu disini" class="block p-3 w-full h-full text-sm rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
                     name="bio">{{ old('bio', $user->bio) }}</textarea>
                 </div>
             </div>

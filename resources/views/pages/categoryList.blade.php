@@ -77,7 +77,7 @@
             </div>
         </section>
         @elseif(!$contents->first())
-        <div class="my-5">
+        <div class="-mt-12 lg:-mt-24 h-96">
             @include('component.AlertNotFound')
         </div>
         @else
@@ -121,7 +121,7 @@
                     </div>
                     <div>
                         <a href="/contents/planet">
-                            <p class="text-white mx-auto opacity-80">
+                            <p class="text-white mx-auto opacity-50 hover:opacity-80">
                                 Lihat lainnya
                             </p>
                         </a>
@@ -152,7 +152,7 @@
                     </div>
                     <div>
                         <a href="/contents/bintang">
-                            <p class="text-white mx-auto opacity-80">
+                            <p class="text-white mx-auto opacity-50 hover:opacity-80">
                                 Lihat lainnya
                             </p>
                         </a>
@@ -183,7 +183,7 @@
                     </div>
                     <div>
                         <a href="/contents/rasi%20bintang">
-                            <p class="text-white mx-auto opacity-80">
+                            <p class="text-white mx-auto opacity-50 hover:opacity-80">
                                 Lihat lainnya
                             </p>
                         </a>
@@ -213,7 +213,7 @@
                     </div>
                     <div>
                         <a href="/contents/lainnya%20di%20angkasa">
-                            <p class="text-white mx-auto opacity-80">
+                            <p class="text-white mx-auto opacity-50 hover:opacity-80">
                                 Lihat lainnya
                             </p>
                         </a>
@@ -273,10 +273,10 @@
                             <div class="container relative rounded-xl hover:scale-110 transition duration-300 ease-in-out">
                                 @if ($content2->mainpicture)
                                     <img src="{{ asset('storage/'.$content2->mainpicture) }}" 
-                                    alt="{{ $content2->title }}" class="object-none max-w-full mx-auto rounded-xl">
+                                    alt="{{ $content2->title }}" class="object-none max-w-full mx-auto rounded-xl" width="500" height="315">
                                 @else
-                                    <img src="https://source.unsplash.com/500x300?space" 
-                                    alt="Default Image" class="object-none max-w-full mx-auto rounded-xl" width="500" height="300">
+                                    <img src="https://source.unsplash.com/500x315?space" 
+                                    alt="Default Image" class="object-none max-w-full mx-auto rounded-xl" width="500" height="315">
                                 @endif
                                 <div class="absolute p-5 bottom-0 left-0">
                                     <p class="text-white text-lg">{{ $content2->title }}</p>
@@ -315,10 +315,10 @@
                             <div class="container relative rounded-xl hover:scale-110 transition duration-300 ease-in-out">
                                 @if ($content3->mainpicture)
                                     <img src="{{ asset('storage/'.$content3->mainpicture) }}" 
-                                    alt="{{ $content3->title }}" class="object-none max-w-full mx-auto rounded-xl">
+                                    alt="{{ $content3->title }}" class="object-none max-w-full mx-auto rounded-xl" width="500" height="315">
                                 @else
-                                    <img src="https://source.unsplash.com/500x300?space" 
-                                    alt="Default Image" class="object-none max-w-full mx-auto rounded-xl" width="500" height="300">
+                                    <img src="https://source.unsplash.com/500x315?space" 
+                                    alt="Default Image" class="object-none max-w-full mx-auto rounded-xl" width="500" height="315">
                                 @endif
                                 <div class="absolute p-5 bottom-0 left-0">
                                     <p class="text-white text-lg">{{ $content3->title }}</p>

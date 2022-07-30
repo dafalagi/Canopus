@@ -1,4 +1,4 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="public/imgs/logo2.png" width="500"></a></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="public/imgs/logo1.png" width="500"></a></p>
 
 ### <p align="center">Per Aspera Ad Astra</p>
 

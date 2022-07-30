@@ -3,7 +3,7 @@
   <div class="flex flex-wrap justify-center">
     <div class="w-6/12 sm:w-4/12 px-4 rounded-xl">
         <div class="hover:scale-110 transition duration-300 ease-in-out">
-          <img src="{{ asset('storage/'.$content->pictures[0]) }}" alt="Picture" class="shadow rounded-xl max-w-full h-auto align-middle border-none" />
+          <img src="{{ asset('uploads/'.$content->pictures[0]) }}" alt="Picture" class="shadow rounded-xl max-w-full h-auto align-middle border-none" />
         </div>
     </div>
   </div>
