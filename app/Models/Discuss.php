@@ -26,13 +26,6 @@ class Discuss extends Model
             return $query->join('users', 'user_id', '=', 'users.id')
                          ->where('username', 'like', $user);
         });
-
-        $query->when($filters['answer'] ?? false, function($query, $user)
-        {
-            return $query->join('users', 'user_id', '=', 'users.id')
-                         ->join('comments', 'discusses.id', '=', 'comments.discuss_id')
-                         ->where('username', 'like', $user);
-        });
     }
 
     public function user()

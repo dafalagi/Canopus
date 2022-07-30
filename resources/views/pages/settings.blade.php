@@ -38,10 +38,6 @@
                 {{-- Alert jika perbarui berhasil --}}
                 @include('component.AlertSuccess')
             @endif
-            @if (session()->has('error'))
-                {{-- Alert jika perbarui gagal --}}
-                @include('component.AlertFailed')
-            @endif
 
             @include('component.editprofile')
             @include('component.editpassword')

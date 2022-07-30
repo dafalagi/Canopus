@@ -21,7 +21,7 @@ class CommentController extends Controller
 
         Comment::create($validated);
 
-        return redirect('/dashboard/comments')->with('success', 'Komentar kamu berhasil diunggah!');
+        return back()->with('success', 'Komentar kamu berhasil diunggah!');
     }
 
     /**
