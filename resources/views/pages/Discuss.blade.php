@@ -37,21 +37,30 @@
     </div>        
 
     {{-- ini isian --}}
-    <h1 class="font-bold text-3xl text-white">Arip Makhluk Swag</h1>
+    <h1 class="font-bold text-3xl text-white">{{ $discuss->title }}</h1>
       <div class="border-b mt-2">
       <img                  
         class="w-6 rounded-full absolute" 
-        src="/imgs/profil2.png"/>
-      <p class="text-sm ml-10 pt-1 text-white mb-3">Di unggah oleh <span><span class="text-secondaryclr">Arip Paling Slebew</span></span> | <span>18 menit yang lalu</span></p>
+        src="{{ $discuss->user->avatar ? asset('storage/'.$discuss->user->avatar) : '/imgs/default/avatar.png' }}"/>
+      <p class="text-sm ml-10 pt-1 text-white mb-3">Di unggah oleh <span><span class="text-secondaryclr">{{ $discuss->user->username }}</span></span> | <span>{{ $discuss->created_at->diffForHumans() }}</span></p>
+    <h1 class="font-bold text-3xl text-white"></h1>
+      <div class="border-b mt-2">
+      <img 
+        class="w-6 absolute" 
+        src="" 
+        alt=""/>
+      <p class="text-sm ml-10 text-white mb-3">Di unggah oleh <span><span class="text-secondaryclr"></span></span> | <span></span></p>
       </div>
-      <article class="mt-3 text-sm text-white">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui placeat officia quo vel minus? Illo, odio debitis. Neque, eaque laborum eius esse, debitis repudiandae, architecto repellat sapiente iure facere voluptates vel dolor. Architecto voluptas, numquam incidunt dolorem, possimus, eos voluptates minima dolore maxime pariatur et corporis quaerat ad laudantium aperiam.</article>
+      <article class="mt-3 text-sm text-white">{!! $discuss->body !!}</article>
       
       {{-- ini gambar --}}
+      @if ($discuss->picture)
       <div class="grid grid-cols-2 max-w-2xl gap-2 ">
         <img
           width="300" class="mt-5 rounded-xl "
           src="/imgs/aripmanusiaswag.jfif">         
       </div>
+      @endif
         <p class="border-b mt-5"></p>
       <div class="flex justify-end">
       
@@ -61,12 +70,35 @@
         {{-- sesudah user menekan tombol lope --}}
         <svg class="w-6 mt-2 absolute fill-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z"/></svg>  
       </a>    
-        <span class="text-white ml-8 pr-3 py-2 text-md">69</span>
+        <span class="text-white ml-8 pr-3 py-2 text-md">{{ count($discuss->likes) }}</span>
       <img 
         class="w-6 h-9 pt-2 mx-1 pointer-events-none" 
-        src="/imgs/comment.png" 
+        src="{{ asset('storage/'.$discuss->picture) }}" 
         alt=""/>
-        <span class="pt-2 ml-1 text-white">69</span>
+        <span class="pt-2 ml-1 text-white">{{ count($discuss->comments) }}</span>
+      
+        <div class="grid grid-cols-2 max-w-2xl gap-2 ">
+          <img
+            width="300" class="mt-5 rounded-xl "
+            src="">
+        </div>
+      
+      <p class="border-b mt-5"></p>
+      <div class="flex justify-end">
+      {{-- sebelum user menekan tombol lope --}}
+      <svg class="w-6 mt-2 mr-32 absolute fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z"/></svg>
+      {{-- sesudah user menekan tombol lope --}}
+      <svg class="w-6 mt-2 mr-32 absolute fill-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z"/></svg>  
+      <button class="mr-1 mt-2 text-white hover:text-secondaryclr">
+        <span class="text-md">Like</span>
+      </button>
+        <span class="text-white mr-3 mt-2 text-md"></span>
+      <a href="">
+        <img 
+          class="w-6 pt-2 mx-1 pointer-events-none" 
+          src="/imgs/comment.png" 
+          alt=""/></a>
+          <span class="pt-2 ml-1 text-white"></span>
       </div>
         <p class="border-b mt-0.5"></p>    
 

@@ -298,11 +298,15 @@
             <h2 class="underline text-2xl text-white font-bold text-center pb-6">Resource</h2>
             <div class="flex w-full justify-center gap-5">
               <a href="https://www.wikipedia.org/">
-                <img src="/imgs/wiki.png" alt="">
+                <div class="hover:scale-105 duration-200 ease-in-out">
+                  <img src="/imgs/wiki.png" alt="Wiki logo">
+                </div>
                 <p class="text-center text-white">Wikipedia</p>
               </a>
               <a href="https://www.nasa.gov/">
-                <img src="/imgs/nasa.png" alt="">
+                <div class="hover:scale-105 duration-200 ease-in-out">
+                  <img src="/imgs/nasa.png" alt="Nasa logo">
+                </div>
                 <p class="text-center text-white">Nasa</p>
               </a>
             </div>

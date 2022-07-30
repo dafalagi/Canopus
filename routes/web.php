@@ -60,6 +60,7 @@ Route::middleware('auth')->group(function(){
     Route::post('/favorites/delete/{favorite}', [FavoriteController::class, 'destroy']);
     Route::post('/likes/discuss', [LikeController::class, 'discuss']);
     Route::post('/likes/comment', [LikeController::class, 'comment']);
+    Route::post('/likes/delete/{like}', [LikeController::class, 'destroy']);
     Route::post('/reports', [ReportController::class, 'store']);
 
     // RESOURCE
