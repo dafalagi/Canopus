@@ -1,9 +1,9 @@
-            <nav class="flex items-center bg-transparent">
-              <div class="flex items-center w-screen justify-start ">
+            <nav class="flex items-center bg-transparent py-5">
+              <div class="flex items-center w-screen justify-start">
                 <a href="#"><img 
-                  class="mx-auto w-60" 
-                  src="/imgs/logo2.png" 
-                  alt=""></a>
+                  class="mx-auto pl-10 pt-1" 
+                  src="/imgs/logo1.png" 
+                  alt="" width="200"></a>
               </div>
               <div class="flex items-center gap-1">
                 <a href="/" class="px-4 py-2 

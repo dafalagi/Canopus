@@ -47,7 +47,7 @@
                   />
                   @error('email')
                   <p class="text-sm mt-1 -mb-3 text-red-700">
-                    Penulisan E-mail tidak sesuai
+                    E-mail tidak sesuai
                   </p>
                   @enderror
                 </label>
