@@ -12,7 +12,7 @@
                                 alt=""/>
                         </button>
                     </form>
-                    <p class="pl-1 text-xs text-white text-opacity-25">{{ $discuss->likes - $discuss->dislikes }}</p>
+                    <p class="pl-1 text-xs text-white text-opacity-25">{{ count($discuss->likes) }}</p>
                     <form action="/discusses/dislikes/{{ $discuss->slug }}" method="post">
                         <button>
                             <img 

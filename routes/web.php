@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContentController;
@@ -52,6 +53,7 @@ Route::middleware('auth')->group(function(){
 
     // GET
     Route::get('/favorites/{user}', [FavoriteController::class, 'show']);
+    Route::get('/discusses/answer/{user}', [DiscussController::class, 'answer']);
 
     // POST
     Route::post('/logout', [UserController::class, 'logout']);
@@ -59,8 +61,10 @@ Route::middleware('auth')->group(function(){
     Route::post('/favorites/discuss/{discuss}', [FavoriteController::class, 'storeDiscuss']);
     Route::post('/favorites/delete/{favorite}', [FavoriteController::class, 'destroy']);
     Route::post('/likes/discuss', [LikeController::class, 'discuss']);
-    Route::post('/likes/comment/{comment}', [LikeController::class, 'comment']);
+    Route::post('/likes/comment', [LikeController::class, 'comment']);
+    Route::post('/likes/delete/{like}', [LikeController::class, 'destroy']);
     Route::post('/reports', [ReportController::class, 'store']);
+    Route::post('/comments/add', [CommentController::class, 'store']);
 
     // RESOURCE
     Route::resource('/discusses', DiscussController::class)->except('index', 'show');

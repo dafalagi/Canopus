@@ -18,20 +18,12 @@ class Discuss extends Model
         $query->when($filters['search'] ?? false, function($query, $search)
         {
             return $query->where('title', 'like', '%'.$search.'%')
-                         ->orWhere('body', 'like', '%'.$search.'%')
-                         ->orderBy('likes', 'desc');
+                         ->orWhere('body', 'like', '%'.$search.'%');
         });
         
         $query->when($filters['user'] ?? false, function($query, $user)
         {
             return $query->join('users', 'user_id', '=', 'users.id')
-                         ->where('username', 'like', $user);
-        });
-
-        $query->when($filters['answer'] ?? false, function($query, $user)
-        {
-            return $query->join('users', 'user_id', '=', 'users.id')
-                         ->join('comments', 'discusses.id', '=', 'comments.discuss_id')
                          ->where('username', 'like', $user);
         });
     }

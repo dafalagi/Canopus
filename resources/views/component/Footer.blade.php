@@ -1,9 +1,11 @@
-    <footer class="bg-mainclr text-white inset-x-0 bottom-0 text-lg p-5 border-t border-grey border-opacity-25">
+    <footer class="bg-[#212254] text-white inset-x-0 bottom-0 text-lg p-5 border-t border-grey border-opacity-25">
         <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 py-12">
                 {{-- Logo --}}
-                <div class="mb-5 mt-5">
-                    <img class="mx-auto md:-ml-12 md:mt-4" src="/imgs/logo3.png" alt="">
+                <div class="my-auto ml-5">
+                    <img class="h-fit w-fit" src="/imgs/logo1.png" alt="Logo1">
+                    <div>
+                    </div>
                 </div>
                 {{-- Dalam Canopus --}}
                 <div class="md:ml-10">
@@ -13,7 +15,7 @@
                             <a href="" class="hover:text-secondaryclr">Hubungi kami</a>
                         </li>
                         <li class="pb-2">
-                            <a href="" class="hover:text-secondaryclr">Tentang canopus</a>
+                            <a href="/about" class="hover:text-secondaryclr">Tentang canopus</a>
                         </li>
                         <li class="pb-2">
                             <a href="" class="hover:text-secondaryclr">Berita</a>
@@ -85,7 +87,7 @@
             {{-- Bawah --}}
             <div class="container flex flex-wrap flex-col sm:flex-row justify-center text-sm md:text-center lg:gap-10">
                 <div class="pb-2">
-                    <p>© 2022 Canopus Inc. All rights reserved.</p>
+                    <p class="text-slate text-opacity-80">© 2022 Canopus Inc. All rights reserved.</p>
                 </div>
                 <div class="pb-2">
                     <a href="" class="hover:text-secondaryclr">Persyaratan Layanan</a>
