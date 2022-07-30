@@ -11,9 +11,11 @@
     >
     
     @include('component.navbar')
-    <!-- <div class="mt-24">
-      @include('component.AlertSuccess')
-    </div> -->
+    @if (session()->has('success'))
+      <div class="mt-24">
+        @include('component.AlertSuccess')
+      </div>
+    @endif
       <div class="flex-col text-left my-80 ml-10">
       <div class ="justify-center
       
@@ -71,7 +73,7 @@
           <div class="mt-3" name="desc">{!! $content->intro !!}
           </div>
             <div class="text-2xl font-bold pt-5">Sejarah {{ $content->title }}</div>
-              <div class="mt-3" name="desc">{!! $content->history !!}  
+              <div class="mt-3" name="desc">{!! $content->history !!}
               </div>
         </div>
         </div>
