@@ -87,11 +87,21 @@ class UserController extends Controller
                 $validated = $request->safe()->merge($add)->toArray();
             }else
             {
-                $validated = $request->validated();
+                $add = $request->validate([
+                    'username' => 'required|string|min:6|max:30',
+                    'email' => 'required|email:dns',
+                ]);
+                $validated = $request->safe()->merge($add)->toArray();
+                $username = $validated['username'];
             }
         }else
         {
-            $validated = $request->validated();
+            $add = $request->validate([
+                'username' => 'required|string|min:6|max:30',
+                'email' => 'required|email:dns',
+            ]);
+            $validated = $request->safe()->merge($add)->toArray();
+            $username = $validated['username'];
         }
         if(isset($validated['password']))
         {
