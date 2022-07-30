@@ -17,9 +17,10 @@
     {{--  --}}
     <div class="h-screen">
       <img 
-        class="mx-auto w-96" 
-        src="/imgs/logo2.png" 
-        alt="Logo">
+        class="mx-auto py-8" 
+        src="/imgs/logo1.png" 
+        alt="Logo"
+        width="300">
     {{-- alert jika berhasil register --}}
     @if (session()->has('success'))
     <div class="">
