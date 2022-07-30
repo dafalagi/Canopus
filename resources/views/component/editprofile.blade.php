@@ -100,9 +100,9 @@
             <div class="basis-1/2 mr-5">
                 <div class="mb-3">
                     <label for="username" class="block mb-2 text-base font-medium text-white">Username</label>
-                    <input type="text" id="username" placeholder="Example" 
+                    <input type="text" id="username" placeholder="Example" name="username" @error('username') required autofocus @enderror 
                         class="block w-full p-2.5 shadow-lg text-sm rounded-lg @error('username') ring-red-600 border-red-500 border-2 @enderror"
-                    value="{{ old('username', $user->username) }}" name="username">
+                    value="{{ old('username', $user->username) }}">
                     @error('username')
                         <p class="text-sm mt-1 -mb-3 text-red-500">
                             Username harus lebih dari 6 karakter
@@ -111,7 +111,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="email" class="block mb-2 text-base font-medium text-white">E-mail</label>
-                    <input type="text" id="email" placeholder="Example@email.com" 
+                    <input type="text" id="email" placeholder="Example@email.com" @error('email') required autofocus @enderror
                         class="block w-full p-2.5 shadow-lg text-sm rounded-lg @error('email') ring-red-600 border-red-500 border-2 @enderror"
                     value="{{ old('email', $user->email) }}" name="email">
                     @error('email')

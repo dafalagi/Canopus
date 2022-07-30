@@ -19,7 +19,7 @@
                 <img src="/imgs/astro1.png" alt="astro1">
             </div>
             <div class="basis-full text-center">
-                <h1 class="underline text-2xl font-bold text-white p-10">Tujan Canopus dibuat</h1>
+                <h1 class="underline text-2xl font-bold text-white p-10">Tujuan Canopus dibuat</h1>
                 <p class="text-sm text-white font-light text-opacity-70 px-10 pb-10"> 
                   Tujuan dibangunnya proyek ini adalah agar masyarakat Indonesia dari semua kalangan dapat mengenal, tertarik, dan menyenangi ilmu astronomi.
                 </p>
