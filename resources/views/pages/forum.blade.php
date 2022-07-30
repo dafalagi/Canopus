@@ -3,9 +3,9 @@
   @include('component.head')
   <body class="font-poppins">
     <div class="bg-mainclr">
-    @include('.component.navbar')
+    @include('component.navbar')
     @if (session()->has('success'))
-      @include('.component.AlertSuccess')
+      @include('component.AlertSuccess')
     @endif
       <h1 class="font-bold pb-3 text-center mt-7 mb-7 text-2xl text-white">Selamat datang di Forum Canopus, Astroners!</h1>
         <div class="flex flex-auto">
@@ -90,7 +90,7 @@
                 @else
                   @if (!$discusses->first())
                     <div class="fill-white h-screen">
-                      @include('.component.AlertNotFound')
+                      @include('component.AlertNotFound')
                     </div>
                   @else
                     @foreach ($discusses as $discuss)
@@ -121,7 +121,7 @@
               <button class="px-6 py-5 rounded-lg text-white bg-[#FF9119] hover:bg-opacity-80 shadow-lg" type="button" data-modal-toggle="Adddiscussion-modal">
                 + Mulai dengan topik baru
               </button>
-              @include('.modal.AddDiscussion')
+              @include('modal.AddDiscussion')
               <div class="absolute">
                 <img 
                     class="w-64 mx-7 my-16" 
