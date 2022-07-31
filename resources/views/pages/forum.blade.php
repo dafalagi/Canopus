@@ -67,9 +67,9 @@
                     }
                 @endphp
                 @if (Request::is('discusses/answer*'))
-                  @foreach ($comments as $comment)
+                  @foreach ($discusses as $discuss)
                     @php
-                      $discuss = $comment->discuss;
+                      // $discuss = $comment->discuss;
 
                       if(isset($favorites))
                       {
@@ -156,7 +156,7 @@
             </div>
           </div>
         <div class="flex justify-center mx-auto pb-8">
-          {{ Request::is('discusses/answer*') ? $comments->links() : $discusses->links() }}
+          {{ $discusses->links() }}
         </div>
         </div>
     </div>

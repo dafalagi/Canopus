@@ -22,6 +22,7 @@ class DiscussController extends Controller
         return view('pages.forum', [
             'discusses' => Discuss::orderBy('discusses.created_at', 'desc')
                            ->filter(request('search'))
+                           ->with('user', 'comments', 'likes')
                            ->paginate(5)->withQueryString(),
         ]);
     }
@@ -59,7 +60,7 @@ class DiscussController extends Controller
     {
         return view('pages.discuss', [
             'discuss' => $discuss,
-            'comments' => $discuss->comments->sortByDesc('likes'),
+            'comments' => $discuss->comments->sortDesc(),
         ]);
     }
 
@@ -131,9 +132,11 @@ class DiscussController extends Controller
     public function answer()
     {
         return view('pages.forum', [
-            'comments' => Comment::orderBy('comments.created_at', 'desc')
-                            ->join('users', 'user_id', '=', 'users.id')
+            'discusses' => Discuss::orderBy('comments.created_at', 'desc')
+                            ->join('comments', 'discusses.id', '=', 'comments.discuss_id')
                             ->where('comments.user_id', auth()->user()->id)
+                            ->groupBy('discuss_id')
+                            ->with('user', 'comments', 'likes')
                             ->paginate(5)->withQueryString(),
         ]);
     }
@@ -144,6 +147,7 @@ class DiscussController extends Controller
         return view('pages.forum', [
             'discusses' => Discuss::orderBy('created_at', 'desc')
                            ->where('user_id', auth()->user()->id)
+                           ->with('user', 'comments', 'likes')
                            ->paginate(5)->withQueryString(),
         ]);
     }
