@@ -7,7 +7,7 @@
     @include('component.navbar')
     <div class="p-10">
         {{-- Section Welcome --}}
-    <section id="Welcome" class="mb-12">
+    <section id="Welcome" class="">
         <div class="container w-full mx-auto">
             <div class="flex flex-row p-8">
                 <div class="basis-1/3">
@@ -50,7 +50,7 @@
     </section>
 
     {{-- Section Diskusi--}}
-    <section id="Planet" class="pb-12">
+    <section id="Discuss" class="pb-12">
         <div class="container w-full mx-auto">
             {{-- subheader --}}
             <div class="">
@@ -60,12 +60,13 @@
                 {{-- card --}}
                 <div class="">
                     <div class=" justify-center">
+                        {{-- @include('component.carddiscuss') --}}
                         @foreach ($favorites as $favorite)
                             @if ($favorite->discuss)
                                 @php    
                                     $discuss = $discusses->whereIn('id', $favorite->discuss_id)->first();
                                 @endphp
-                                @include('component.carddiscuss')
+                                @include('component.bodyForum')
                             @endif
                         @endforeach
                     </div>
