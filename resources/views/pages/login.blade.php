@@ -31,7 +31,7 @@
         <div class="container">
           <div class="mx-auto max-w-lg bg-opacity-10 bg-slate rounded-xl shadow-md p-12" >
             <h1 class="font-bold text-3xl text-white">Masuk</h1>
-            <p class="text-white">Masuk untuk mengelola akun anda</p>
+            <p class="text-white">Masuk untuk menjelajahi samudra angkasa!</p>
             <form action="/login" method="POST" class="mt-6">
               @csrf
               <div class="pb-4">
