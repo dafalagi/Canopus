@@ -1,4 +1,4 @@
-<div class="grid grid-cols-1 p-5 hover:scale-110 transition duration-300 ease-in-out">
+<div class="grid grid-cols-1 p-5 {{ Request::is('favorites*') ? 'hover:scale-110 transition duration-300 ease-in-out' : '' }}">
   <div class="container">
     <div class="relative mx-auto max-w-4xl rounded-xl shadow-md p-3 bg-thirdclr">
       <button id="dropdownForum" data-dropdown-toggle="dropdownfrm" class="absolute text-white top-0 right-0 hover:bg-mainclr rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center" type="button">
@@ -8,7 +8,10 @@
         <div id="dropdownfrm" class="z-10 hidden w-32 divide-y bg-mainclr divide-gray-100 rounded-lg shadow dark:bg-gray-700">
             <ul class="text-sm text-gray-700" aria-labelledby="dropdownForum">
               <li>
-                @if (isset($favorite) && $favorite->isNotEmpty() && $favorite->first()->discuss_id == $discuss->id)
+                @if (
+                  Request::is('favorites*') ? 'isset($favorite) && $favorite->first()->discuss_id == $discuss->id' :
+                  'isset($favorite) && $favorite->isNotEmpty() && $favorite->first()->discuss_id == $discuss->id'
+                  )
                   <!-- Setelah tersimpan -->
                   <form action="/favorites/delete/{{ $favorite->first()->id }}" method="POST">
                     @csrf
