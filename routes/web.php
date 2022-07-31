@@ -54,6 +54,7 @@ Route::middleware('auth')->group(function(){
     // GET
     Route::get('/favorites/{user}', [FavoriteController::class, 'show']);
     Route::get('/discusses/answer/{user}', [DiscussController::class, 'answer']);
+    Route::get('/discusses/my/{user}', [DiscussController::class, 'myDiscusses']);
 
     // POST
     Route::post('/logout', [UserController::class, 'logout']);

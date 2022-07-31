@@ -14,7 +14,7 @@
               <div class="p-10">
                 <div class="container">
                       <h1 class="font-bold text-3xl text-white">Buat Akun Kamu</h1>
-                      <p class="text-white">Daftarkan diri kamu dan mulai menjelajahi alam semesta</p>
+                      <p class="text-white">Daftarkan diri kamu dan mulai menjelajahi samudra angkasa!</p>
                       <form action="/register" method="POST" class="mt-6">
                         @csrf
                         <div class="mt-4 pb-4">
