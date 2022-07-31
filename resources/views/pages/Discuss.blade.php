@@ -104,32 +104,39 @@
 
     
     </div>
-      @foreach ($comments as $comment)
-        @php
-          $replies = $comments->whereIn('comment_id', $comment->id);
-        @endphp
-          @if ($replies->first())
-            @include('component.cardcomment')
-            @foreach ($replies as $reply)
+    @php
+      $replyList = [];
+    @endphp
+    @foreach ($comments as $comment)
+      @php
+        $replies = $comments->whereIn('comment_id', $comment->id);
+      @endphp
+      @if ($replies->first())
+        @include('component.cardcomment')
+        @foreach ($replies as $reply)
+          @php
+            $replyList[] = $reply->id;
+            $replies2 = $discuss->comments->whereIn('comment_id', $reply->id);
+          @endphp
+          @if ($replies2->first())
+            @include('component.cardcommentlv2')                
+            @foreach ($replies2 as $reply2)
               @php
-                $replies2 = $discuss->comments->whereIn('comment_id', $reply->id);
+                  $replyList[] = $reply2->id;
               @endphp
-              @if ($replies2->first())
-                @include('component.carcommentlv2')                
-                @foreach ($replies2 as $reply2)
-                  {{-- lv 2 --}}
-                  @include('component.cardcommentlv3')
-                @endforeach
-              @else
-                {{-- lv 3 --}}                
-                @include('component.cardcommentlv2')
-              @endif
+              {{-- lv 2 --}}
+              @include('component.cardcommentlv3')
             @endforeach
           @else
-            {{-- lv 1 --}}
-            @include('component.cardcomment')
-          @endif        
+            {{-- lv 3 --}}                
+            @include('component.cardcommentlv2')
+          @endif
         @endforeach
+      @elseif(collect($replyList)->doesntContain($comment->id))
+        {{-- lv 1 --}}
+        @include('component.cardcomment')
+      @endif        
+    @endforeach
     </div>
     {{-- bentrok --}}
   </div>     
