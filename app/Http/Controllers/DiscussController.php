@@ -134,7 +134,6 @@ class DiscussController extends Controller
             'comments' => Comment::orderBy('comments.created_at', 'desc')
                             ->join('users', 'user_id', '=', 'users.id')
                             ->where('comments.user_id', auth()->user()->id)
-                            ->groupBy('discuss_id')
                             ->paginate(5)->withQueryString(),
         ]);
     }
