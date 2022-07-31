@@ -29,7 +29,7 @@ class FavoriteController extends Controller
     {
         $data['discuss_id'] = $discuss->id;
         $data['user_id'] = auth()->user()->id;
-
+        
         Favorite::create($data);
 
         return back()->with('success', 'Berhasil ditambahkan ke favorit!');
@@ -44,7 +44,8 @@ class FavoriteController extends Controller
     public function show(User $user)
     {
         return view('pages.favorites', [
-            'favorites' => $user->favorites
+            'favorites' => $user->favorites->load('content', 'discuss'),
+            'discusses' => Discuss::with('user', 'comments', 'likes')->get()
         ]);
     }
 

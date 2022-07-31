@@ -61,9 +61,9 @@
                 <div class="">
                     <div class=" justify-center">
                         @foreach ($favorites as $favorite)
-                            @if ($favorite->discuss)    
-                                @php
-                                    $discuss = $favorite->discuss;
+                            @if ($favorite->discuss)
+                                @php    
+                                    $discuss = $discusses->whereIn('id', $favorite->discuss_id)->first();
                                 @endphp
                                 @include('component.carddiscuss')
                             @endif

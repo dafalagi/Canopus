@@ -69,23 +69,26 @@
                 @if (Request::is('discusses/answer*'))
                   @foreach ($discusses as $discuss)
                     @php
-                      // $discuss = $comment->discuss;
-
-                      if(isset($favorites))
-                      {
-                        $favorite = $favorites->whereIn('discuss_id', $discuss->id);
-                      }
-
-                      $likes = $discuss->likes->whereIn('discuss_id', $discuss->id);
-                      
-                      if(auth()->user())
-                      {
-                        $like = $likes->whereIn('user_id', auth()->user()->id)->first();
-                      }
+                      $discuss = $all->whereIn('id', $discuss->discuss_id)->first();
                     @endphp
-                    <div class="">
-                      @include('component.bodyForum')
-                    </div>
+                    @if($discuss)
+                      @php
+                        if(isset($favorites))
+                        {
+                          $favorite = $favorites->whereIn('discuss_id', $discuss->id);
+                        }
+
+                        $likes = $discuss->likes->whereIn('discuss_id', $discuss->id);
+
+                        if(auth()->user())
+                        {
+                          $like = $likes->whereIn('user_id', auth()->user()->id)->first();
+                        }
+                      @endphp
+                      <div class="">
+                        @include('component.bodyForum')
+                      </div>
+                    @endif
                   @endforeach
                 @elseif(Request::is('discusses/my*'))
                   @if (!$discusses->first())
@@ -124,7 +127,7 @@
                         {
                           $favorite = $favorites->whereIn('discuss_id', $discuss->id);
                         }
-
+                        
                         $likes = $discuss->likes->whereIn('discuss_id', $discuss->id);
                         
                         if(auth()->user())

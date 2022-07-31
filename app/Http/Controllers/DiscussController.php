@@ -20,7 +20,7 @@ class DiscussController extends Controller
     public function index()
     {
         return view('pages.forum', [
-            'discusses' => Discuss::orderBy('discusses.created_at', 'desc')
+            'discusses' => Discuss::orderBy('created_at', 'desc')
                            ->filter(request('search'))
                            ->with('user', 'comments', 'likes')
                            ->paginate(5)->withQueryString(),
@@ -138,6 +138,7 @@ class DiscussController extends Controller
                             ->groupBy('discuss_id')
                             ->with('user', 'comments', 'likes')
                             ->paginate(5)->withQueryString(),
+            'all' => Discuss::with('user', 'comments', 'likes')->get()
         ]);
     }
 
