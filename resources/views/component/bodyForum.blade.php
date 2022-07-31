@@ -1,4 +1,4 @@
-<div class="grid grid-cols-1 p-5 ">
+<div class="grid grid-cols-1 p-5 hover:scale-110 transition duration-300 ease-in-out">
   <div class="container">
     <div class="relative mx-auto max-w-4xl rounded-xl shadow-md p-3 bg-thirdclr">
       <button id="dropdownForum" data-dropdown-toggle="dropdownfrm" class="absolute text-white top-0 right-0 hover:bg-mainclr rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center" type="button">
