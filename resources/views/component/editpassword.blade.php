@@ -9,7 +9,7 @@
         <div class="md:mt-5 lg:mt-10 mr-5">
             <div class="mb-3">
                 <label for="currentPassword" class="block mb-2 text-base font-medium text-white">Password sebelumnya</label>
-                <input type="password" id="currentPassword" name="currentPassword" @error('currentPassword') required autofocus @enderror
+                <input type="password" id="currentPassword" name="currentPassword" @error('currentPassword') autofocus @enderror
                     class="block w-full p-2.5 shadow-lg text-sm rounded-lg @error('currentPassword') ring-red-600 border-red-500 border-2 @enderror">
                 @if(session()->has('error') || $errors->has('currentPassword'))
                     @if (session('error'))
@@ -27,7 +27,7 @@
             </div>
             <div class="mb-3">
                 <label for="password" class="block mb-2 text-base font-medium text-white">Password baru</label>
-                <input type="password" id="password" name="password" @error('password') required autofocus @enderror
+                <input type="password" id="password" name="password" @error('password') autofocus @enderror
                     class="block w-full p-2.5 shadow-lg text-sm rounded-lg @error('password') ring-red-600 border-red-500 border-2 @enderror">
                 @error('password')
                     {{-- password error, jika password yang baru tidak lebih dari 8 karakter --}}
@@ -38,7 +38,7 @@
             </div>
             <div class="mb-3">
                 <label for="confirmPassword" class="block mb-2 text-base font-medium text-white">Konfirmasi Password</label>
-                <input type="password" id="confirmPassword" name="confirm_password" @error('confirmPassword') required autofocus @enderror
+                <input type="password" id="confirmPassword" name="confirm_password" @error('confirm_password') autofocus @enderror
                     class="block w-full p-2.5 shadow-lg text-sm rounded-lg @error('confirmPassword') ring-red-600 border-red-500 border-2 @enderror">
                 @error('confirm_password')
                     {{-- password error, jika password yang baru tidak lebih dari 8 karakter --}}
