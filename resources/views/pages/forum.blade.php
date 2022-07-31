@@ -20,7 +20,7 @@
                     <span class="p-1 text-lg text-white ml-11 hover:text-secondaryclr">Beranda</span>
                 </a>
                 @auth
-                  <a href="/discusses?user={{ auth()->user()->username }}" class="relative flex items-center">
+                  <a href="/discusses/my/{{ auth()->user()->username }}" class="relative flex items-center">
                     <img 
                       class="w-9 absolute ml-3 pointer-events-none" 
                       src="/imgs/myTopik.png" 
@@ -67,7 +67,7 @@
                     }
                 @endphp
                 @if (Request::is('discusses/answer*'))
-                  @foreach ($comments->unique('discuss_id') as $comment)
+                  @foreach ($comments as $comment)
                     @php
                       $discuss = $comment->discuss;
 
@@ -87,6 +87,31 @@
                       @include('component.bodyForum')
                     </div>
                   @endforeach
+                @elseif(Request::is('discusses/my*'))
+                  @if (!$discusses->first())
+                    <div class="fill-white h-screen">
+                      @include('component.AlertNotFound')
+                    </div>
+                  @else
+                    @foreach ($discusses as $discuss)
+                      @php
+                        if(isset($favorites))
+                        {
+                          $favorite = $favorites->whereIn('discuss_id', $discuss->id);
+                        }
+
+                        $likes = $discuss->likes->whereIn('discuss_id', $discuss->id);
+                        
+                        if(auth()->user())
+                        {
+                          $like = $likes->whereIn('user_id', auth()->user()->id)->first();
+                        }
+                      @endphp
+                      <div class="">
+                        @include('component.bodyForum')
+                      </div>
+                    @endforeach
+                  @endif
                 @else
                   @if (!$discusses->first())
                     <div class="fill-white h-screen">
@@ -131,7 +156,7 @@
             </div>
           </div>
         <div class="flex justify-center mx-auto pb-8">
-          {{ $discusses->links() }}
+          {{ Request::is('discusses/answer*') ? $comments->links() : $discusses->links() }}
         </div>
         </div>
     </div>

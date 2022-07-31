@@ -10,7 +10,7 @@ class Comment extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
-    protected $with = ['user', 'likes'];
+    protected $with = ['user', 'discuss', 'likes'];
 
     public function scopeFilter($query, $filters)
     {
