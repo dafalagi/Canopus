@@ -2,7 +2,7 @@
 <div class="flex">   
 <img
 class="w-8 mt-4  absolute rounded-full"
-src="{{ $reply->user->avatar ? asset('uploads/'.$reply->user->avatar) : '/imgs/default/avatar.png' }}">      
+src="{{ $comment->user->avatar ? asset('uploads/'.$comment->user->avatar) : '/imgs/default/avatar.png' }}">      
 {{-- card komen --}}
 <div class="w-fit">
     <div class="relative bg-mainclr ml-10 mt-4 grid grid-cols-1 rounded-md py-2 px-4">
