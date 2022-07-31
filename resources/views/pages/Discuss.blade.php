@@ -101,27 +101,27 @@
     </div>
 
       @foreach ($discuss->comments->sortDesc() as $comment)
-      @php
+        @php
           $replies = $discuss->comments->whereIn('comment_id', $comment->id);
-      @endphp
+        @endphp
           @if ($replies->first())
-          @foreach ($replies as $reply)
-          @php
-              $replies2 = $discuss->comments->whereIn('comment_id', $reply->id);
-          @endphp
-          @if ($replies2->first())
-              @foreach ($replies2 as $reply2)
-          {{-- lv 2 --}}
-          @include('component.cardcommentlv2')
-              @endforeach
+            @foreach ($replies as $reply)
+              @php
+                  $replies2 = $discuss->comments->whereIn('comment_id', $reply->id);
+              @endphp
+              @if ($replies2->first())
+                @foreach ($replies2 as $reply2)
+                  {{-- lv 2 --}}
+                  @include('component.cardcommentlv3')
+                @endforeach
+              @else
+                {{-- lv 3 --}}
+                @include('component.cardcommentlv2')
+              @endif
+            @endforeach
           @else
-          {{-- lv 3 --}}
-          @include('component.cardcommentlv3')
-          @endif
-          @endforeach
-          @else
-                {{-- lv 1 --}}
-                @include('component.cardcomment')
+            {{-- lv 1 --}}
+            @include('component.cardcomment')
           @endif
       @endforeach
     </div>
