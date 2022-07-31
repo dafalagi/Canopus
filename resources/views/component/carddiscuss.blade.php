@@ -1,53 +1,161 @@
-<div class="hover:scale-110 transition duration-300 ease-in-out">
-    <a href="">    
-        <div class="container bg-thirdclr mx-auto p-5 rounded-lg max-w-2xl">  
-            {{-- pivot --}}
-            <div class="flex absolute py-44">
-                <div class="flex-auto">
-                    <form action="/discusses/likes/{{ $discuss->slug }}" method="post">
-                        <button>
-                            <img 
-                                class="w-5" 
-                                src="/imgs/UpArrow.png" 
-                                alt=""/>
-                        </button>
-                    </form>
-                    <p class="pl-1 text-xs text-white text-opacity-25">{{ count($discuss->likes) }}</p>
-                    <form action="/discusses/dislikes/{{ $discuss->slug }}" method="post">
-                        <button>
-                            <img 
-                                class="w-5" 
-                                src="/imgs/DownArrow.png" 
-                                alt=""/>
-                        </button>
-                    </form>
-                </div>
-            </div>
-            {{-- akhir pivot --}}      
-            <div class="pl-10">
-            <h1 class="font-bold text-xl text-white">{{ $discuss->title }}</h1>
-            <p class=" text-white text-xs tracking-wide border-b border-white border-opacity-25 pt-2 pb-4 mb-2">
-                {{ $discuss->excerpt }}
-                <img class="mt-2 shadow-md rounded-lg bg-secondaryclr" src="imgs/aripmanusiaswag.jfif" width="300" >
-                </p>
-                <div class="flex">                                
-                    <img 
-                    class="w-4 absolute" 
-                    src="/imgs/profil.png" 
-                    alt=""/>
-                    <span class="text-white text-xs ml-10">Diunggah oleh</span>                       
-                    <span class="text-xs ml-1 text-secondaryclr">{{ $discuss->user->username }}</span>
-                    <span class="text-xs text-white text-opacity-25 ml-2">{{ $discuss->created_at->diffForHumans() }}</span>
-                    <div class="flex">                
-                    <a href="" class="pl-64 ml-5">
-                        <img 
-                        class="w-4 pointer-events-none" 
-                        src="/imgs/comment.png" 
-                        alt=""/></a>
-                        <span class="text-xs pl-1 text-white text-opacity-30">{{ count($discuss->comments) }}</span>                  
-                    </div>
-                </div> 
-            </div> 
+<div class="grid grid-cols-1 p-5 hover:scale-110 transition duration-300 ease-in-out">
+  <div class="container">
+    <div class="relative mx-auto max-w-4xl rounded-xl shadow-md p-3 bg-thirdclr">
+      <button id="dropdownForum" data-dropdown-toggle="dropdownfrm" class="absolute text-white top-0 right-0 hover:bg-mainclr rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center" type="button">
+        <svg class="w-6 h-6" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="5" d="M19 9l-7 7-7-7"></path></svg>
+      </button>
+        <!-- Dropdown menu -->
+        <div id="dropdownfrm" class="z-10 hidden w-32 divide-y bg-mainclr divide-gray-100 rounded-lg shadow dark:bg-gray-700">
+            <ul class="text-sm text-gray-700" aria-labelledby="dropdownForum">
+              <li>
+                  <!-- Setelah tersimpan -->
+                  <form action="/favorites/delete/" method="POST">                   
+                    <button class="border-b flex px-l py-2 left-0 rounded-t-lg w-full text-white hover:bg-thirdclr dark:hover:bg-gray-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-5 fill-white" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM371.8 211.8C382.7 200.9 382.7 183.1 371.8 172.2C360.9 161.3 343.1 161.3 332.2 172.2L224 280.4L179.8 236.2C168.9 225.3 151.1 225.3 140.2 236.2C129.3 247.1 129.3 264.9 140.2 275.8L204.2 339.8C215.1 350.7 232.9 350.7 243.8 339.8L371.8 211.8z"/></svg>
+                        Tersimpan   
+                    </button>
+                  </form>
+                
+                  <form action="/favorites/discuss/" method="POST">                   
+                    <button class="border-b flex pl-3 py-2 left-0 rounded-t-lg w-full text-white hover:bg-thirdclr dark:hover:bg-gray-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2 fill-white" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M384 48V512l-192-112L0 512V48C0 21.5 21.5 0 48 0h288C362.5 0 384 21.5 384 48z"/></svg>
+                        Simpan    
+                    </button>
+                  </form>
+            
+              </li>
+              <li>
+                <button class="flex pl-3 py-2 rounded-b-lg left-0 w-full show-modal text-white hover:bg-thirdclr dark:hover:bg-gray-600" type="button" data-modal-toggle="authentication-modal">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2 fill-white" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM232 152C232 138.8 242.8 128 256 128s24 10.75 24 24v128c0 13.25-10.75 24-24 24S232 293.3 232 280V152zM256 400c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 385.9 273.4 400 256 400z"/></svg>
+                    Laporkan
+                </button>
+              </li>
+            </ul>
         </div>
-    </a>
+                    {{-- <p class=" text-slate text-sm text-center text-opacity-50">{{ $discuss->likes-$discuss->dislikes }}</p> --}}
+        <a href="/discusses/">
+          <div class="pl-2">
+                <h1 class="mb-5 font-bold text-xl pr-32 text-white">Ini judul</h1>
+                <p class="text-white text-sm tracking-wide border-b border-white border-opacity-25 pr-2 pb-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est dolore voluptatem officiis fugiat molestiae veniam atque architecto, quod dicta. Accusantium iste in vero exercitationem eos, hic iure deserunt ad est impedit! Voluptas nobis, aspernatur dignissimos beatae, quis amet sapiente ea, quibusdam quas corrupti expedita molestias et rerum! Quibusdam, blanditiis corrupti repellat debitis labore veniam, iure exercitationem iste nulla nobis cumque fuga. Quasi itaque maiores facere aut voluptatum veniam dicta minus cumque veritatis excepturi earum numquam deleniti velit eveniet esse in facilis nesciunt, harum, maxime aspernatur quia voluptates magnam? Sint repellat accusamus error eaque. Accusantium cumque delectus odit quasi iure odio!</p>
+          </div>
+        </a>
+        <div class="flex pl-2">
+          <div class="flex-auto pt-4">
+              <img 
+                  class="w-6 absolute rounded-full shadow-2xl aspect-square" 
+                  src="/imgs/default/avatar.png" 
+                  alt=""/>
+              <span class="text-white text-base ml-9 pt-6">Diunggah oleh</span>
+              <span class="relative items-center text-base ml-1 mr-1 text-secondaryclr">Arip Wibu</span>
+              <span class="text-base text-slate text-opacity-50">18 menit yg lalu</span>
+          </div>
+          
+              <form action="/likes/delete/" method="POST">
+            
+                <button class="w-5 pt-5 -mx-6 absolute fill-red-600">
+                  {{-- sesudah user menekan tombol lope --}}
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z"/></svg>
+                </button>
+              </form>
+       
+              <form action="/likes/" method="POST">
+             
+                <button class="w-5 pt-5 -mx-6 absolute fill-white">
+                  {{-- sebelum user menekan tombol lope --}}
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z"/></svg>
+                </button>
+              </form>
+         
+            <span class="p-1 text-lg pt-4 mr-2 text-white">1</span>
+            <a href="">
+              <img 
+                class="w-6 pt-5 mx-1 pointer-events-none" 
+                src="/imgs/comment.png" 
+                alt=""/>
+            </a>
+              <span class="p-1 text-lg pt-4 text-white">1</span>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="grid grid-cols-1 p-5 hover:scale-110 transition duration-300 ease-in-out">
+  <div class="container">
+    <div class="relative mx-auto max-w-4xl rounded-xl shadow-md p-3 bg-thirdclr">
+      <button id="dropdownForum" data-dropdown-toggle="dropdownfrm" class="absolute text-white top-0 right-0 hover:bg-mainclr rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center" type="button">
+        <svg class="w-6 h-6" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="5" d="M19 9l-7 7-7-7"></path></svg>
+      </button>
+        <!-- Dropdown menu -->
+        <div id="dropdownfrm" class="z-10 hidden w-32 divide-y bg-mainclr divide-gray-100 rounded-lg shadow dark:bg-gray-700">
+            <ul class="text-sm text-gray-700" aria-labelledby="dropdownForum">
+              <li>
+                  <!-- Setelah tersimpan -->
+                  <form action="/favorites/delete/" method="POST">                   
+                    <button class="border-b flex px-l py-2 left-0 rounded-t-lg w-full text-white hover:bg-thirdclr dark:hover:bg-gray-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-5 fill-white" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM371.8 211.8C382.7 200.9 382.7 183.1 371.8 172.2C360.9 161.3 343.1 161.3 332.2 172.2L224 280.4L179.8 236.2C168.9 225.3 151.1 225.3 140.2 236.2C129.3 247.1 129.3 264.9 140.2 275.8L204.2 339.8C215.1 350.7 232.9 350.7 243.8 339.8L371.8 211.8z"/></svg>
+                        Tersimpan   
+                    </button>
+                  </form>
+                
+                  <form action="/favorites/discuss/" method="POST">                   
+                    <button class="border-b flex pl-3 py-2 left-0 rounded-t-lg w-full text-white hover:bg-thirdclr dark:hover:bg-gray-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2 fill-white" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M384 48V512l-192-112L0 512V48C0 21.5 21.5 0 48 0h288C362.5 0 384 21.5 384 48z"/></svg>
+                        Simpan    
+                    </button>
+                  </form>
+            
+              </li>
+              <li>
+                <button class="flex pl-3 py-2 rounded-b-lg left-0 w-full show-modal text-white hover:bg-thirdclr dark:hover:bg-gray-600" type="button" data-modal-toggle="authentication-modal">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2 fill-white" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM232 152C232 138.8 242.8 128 256 128s24 10.75 24 24v128c0 13.25-10.75 24-24 24S232 293.3 232 280V152zM256 400c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 385.9 273.4 400 256 400z"/></svg>
+                    Laporkan
+                </button>
+              </li>
+            </ul>
+        </div>
+                    {{-- <p class=" text-slate text-sm text-center text-opacity-50">{{ $discuss->likes-$discuss->dislikes }}</p> --}}
+        <a href="/discusses/">
+          <div class="pl-2">
+                <h1 class="mb-5 font-bold text-xl pr-32 text-white">Ini judul</h1>
+                <p class="text-white text-sm tracking-wide border-b border-white border-opacity-25 pr-2 pb-6">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et dignissimos quaerat expedita ipsum, culpa rerum aliquid quam soluta nulla laborum.</p>
+          </div>
+        </a>
+        <div class="flex pl-2">
+          <div class="flex-auto pt-4">
+              <img 
+                  class="w-6 absolute rounded-full shadow-2xl aspect-square" 
+                  src="/imgs/default/avatar.png" 
+                  alt=""/>
+              <span class="text-white text-base ml-9 pt-6">Diunggah oleh</span>
+              <span class="relative items-center text-base ml-1 mr-1 text-secondaryclr">Arip Wibu</span>
+              <span class="text-base text-slate text-opacity-50">18 menit yg lalu</span>
+          </div>
+          
+              <form action="/likes/delete/" method="POST">
+            
+                <button class="w-5 pt-5 -mx-6 absolute fill-red-600">
+                  {{-- sesudah user menekan tombol lope --}}
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z"/></svg>
+                </button>
+              </form>
+       
+              <form action="/likes/" method="POST">
+             
+                <button class="w-5 pt-5 -mx-6 absolute fill-white">
+                  {{-- sebelum user menekan tombol lope --}}
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z"/></svg>
+                </button>
+              </form>
+         
+            <span class="p-1 text-lg pt-4 mr-2 text-white">1</span>
+            <a href="">
+              <img 
+                class="w-6 pt-5 mx-1 pointer-events-none" 
+                src="/imgs/comment.png" 
+                alt=""/>
+            </a>
+              <span class="p-1 text-lg pt-4 text-white">1</span>
+        </div>
+    </div>
+  </div>
 </div>
