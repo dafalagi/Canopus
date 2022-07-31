@@ -17,12 +17,10 @@
       </div>
     @endif
       <div class="flex-col text-left my-80 ml-10">
-      <div class ="justify-center
-      
-      ">
+      <div class ="justify-center">
       
       </div>
-        <div class="text-2xl font-bold text-white" name="nama_planet">{{ $content->title }}</div>
+        <div class="text-4xl font-bold text-white" name="nama_planet">{{ $content->title }}</div>
         @php
             if(auth()->user())
             {
@@ -69,11 +67,11 @@
       <div class="flex text-white mt-10 ml-12">
         <div class="basis-full">
         <div class="flex-col text-justify">
-          <div class="text-2xl font-bold">Apa itu {{ $content->title }}?</div>
-          <div class="mt-3" name="desc">{!! $content->intro !!}
+          <div class="text-2xl font-bold">Apa itu {{ $content->title }} ?</div>
+          <div class="mt-3 text-md" name="desc">{!! $content->intro !!}
           </div>
             <div class="text-2xl font-bold pt-5">Sejarah {{ $content->title }}</div>
-              <div class="mt-3" name="desc">{!! $content->history !!}
+              <div class="mt-3 text-md" name="desc">{!! $content->history !!}
               </div>
         </div>
         </div>
