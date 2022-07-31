@@ -11,20 +11,14 @@ class Discuss extends Model
     use HasFactory, Sluggable;
 
     protected $guarded = ['id'];
-    protected $with = ['user', 'comments', 'likes'];
+    protected $with = [];
 
-    public function scopeFilter($query, array $filters)
+    public function scopeFilter($query, $filters)
     {
-        $query->when($filters['search'] ?? false, function($query, $search)
+        $query->when($filters ?? false, function($query, $search)
         {
             return $query->where('title', 'like', '%'.$search.'%')
                          ->orWhere('body', 'like', '%'.$search.'%');
-        });
-        
-        $query->when($filters['user'] ?? false, function($query, $user)
-        {
-            return $query->join('users', 'user_id', '=', 'users.id')
-                         ->where('username', 'like', $user);
         });
     }
 

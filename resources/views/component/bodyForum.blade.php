@@ -76,7 +76,7 @@
                 src="/imgs/comment.png" 
                 alt=""/>
             </a>
-              <span class="p-1 text-lg pt-4 text-white">{{ $discuss->comments->count() }}</span>
+              <span class="p-1 text-lg pt-4 text-white">{{ count($discuss->comments) }}</span>
         </div>
     </div>
   </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Discuss;
 use App\Http\Requests\StoreDiscussRequest;
 use App\Http\Requests\UpdateDiscussRequest;
+use App\Models\Comment;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -20,7 +21,8 @@ class DiscussController extends Controller
     {
         return view('pages.forum', [
             'discusses' => Discuss::orderBy('discusses.created_at', 'desc')
-                           ->filter(request(['search', 'user']))
+                           ->filter(request('search'))
+                           ->with('user', 'comments', 'likes')
                            ->paginate(5)->withQueryString(),
         ]);
     }
@@ -58,7 +60,7 @@ class DiscussController extends Controller
     {
         return view('pages.discuss', [
             'discuss' => $discuss,
-            'comments' => $discuss->comments->sortByDesc('likes'),
+            'comments' => $discuss->comments->sortDesc(),
         ]);
     }
 
@@ -131,10 +133,22 @@ class DiscussController extends Controller
     {
         return view('pages.forum', [
             'discusses' => Discuss::orderBy('comments.created_at', 'desc')
-                           ->join('comments', 'discusses.id', '=', 'comments.discuss_id')
-                           ->where('comments.user_id', auth()->user()->id)
+                            ->join('comments', 'discusses.id', '=', 'comments.discuss_id')
+                            ->where('comments.user_id', auth()->user()->id)
+                            ->groupBy('discuss_id')
+                            ->with('user', 'comments', 'likes')
+                            ->paginate(5)->withQueryString(),
+        ]);
+    }
+
+    // Show my discusses
+    public function myDiscusses()
+    {
+        return view('pages.forum', [
+            'discusses' => Discuss::orderBy('created_at', 'desc')
+                           ->where('user_id', auth()->user()->id)
+                           ->with('user', 'comments', 'likes')
                            ->paginate(5)->withQueryString(),
-            'comments' => auth()->user()->comments
         ]);
     }
 }

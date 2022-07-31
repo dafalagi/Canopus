@@ -10,7 +10,7 @@ class Favorite extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
-    protected $with = ['user', 'content', 'discuss'];
+    protected $with = [];
 
     public function scopeFilter($query, $filters)
     {
