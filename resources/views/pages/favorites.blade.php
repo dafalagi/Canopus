@@ -58,7 +58,7 @@
                     <h1 class="text-center text-2xl font-bold underline text-white pb-6">Diskusi Favoritmu</h1>
                 </div> 
                 {{-- card --}}
-                <div class="">
+                <div class="hover:scale-110 transition duration-300 ease-in-out">
                     <div class=" justify-center">
                         {{-- @include('component.carddiscuss') --}}
                         @foreach ($favorites as $favorite)
