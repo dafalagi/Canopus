@@ -2,24 +2,20 @@
 <html lang="en">
   @include('component.head')
   <body class="font-poppins">
-  <div class="h-screen w-full pt-1 bg-no-repeat bg-left-top"
+  <div class="h-screen relative w-full pt-1 bg-no-repeat bg-left-top"
     @if($content->mainpicture)
       style="background-image: url({{ asset('uploads/'.$content->mainpicture) }})"
     @else
       style="background-image: url(https://source.unsplash.com/1920x1080?space)"
     @endif
     >
-    
     @include('component.navbar')
     @if (session()->has('success'))
-      <div class="mt-24">
+      <div class="absolute w-full mt-24">
         @include('component.AlertSuccess')
       </div>
     @endif
-      <div class="flex-col text-left my-80 ml-10">
-      <div class ="justify-center">
-      
-      </div>
+      <div class="flex items-center text-left my-80 ml-10">
         <div class="text-4xl font-bold text-white" name="nama_planet">{{ $content->title }}</div>
         @php
             if(auth()->user())
