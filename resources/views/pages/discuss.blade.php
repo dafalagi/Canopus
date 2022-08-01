@@ -154,5 +154,5 @@
   </div>
 </body>
 @include('component.Footer')
-@include('component.Script')
+@include('component.script')
 </html>
