@@ -32,7 +32,7 @@ class StoreDiscussRequest extends FormRequest
     {
         return [
             'title' => 'required|string|min:5',
-            'body' => 'required|string|min:20',
+            'body' => 'required|string|min:10',
             'picture' => 'nullable|image|file|max:2048'
         ];
     }
