@@ -90,14 +90,33 @@
           @endif
             <p class="border-b mt-5"></p>
 
-          <div class="flex justify-end">      
-            <a href="#">
-              {{-- sebelum user menekan tombol lope --}}
-              <svg class="w-6 mt-2 absolute fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z"/></svg>
-              {{-- sesudah user menekan tombol lope --}}
-              <svg class="w-6 mt-2 absolute fill-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z"/></svg>  
-            </a>    
-            <span class="text-white ml-8 pr-3 py-2 text-md">{{ count($discuss->likes) }}</span>
+          <div class="flex justify-end">
+            @php
+              $likes = $discuss->likes;
+
+              if(auth()->user())
+              {
+                $like = $likes->whereIn('user_id', auth()->user()->id)->first();
+              }
+            @endphp
+            @if (auth()->user() && $like)
+              <form action="/likes/delete/{{ $like->id }}" method="post">
+                @csrf
+                <button>
+                  {{-- sesudah user menekan tombol lope --}}
+                  <svg class="w-6 mt-2 absolute fill-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z"/></svg>                    
+                </button>
+              </form>
+            @else
+              <form action="/likes/discuss?discuss_id={{ $discuss->id }}" method="post">
+                @csrf
+                <button>
+                  {{-- sebelum user menekan tombol lope --}}
+                  <svg class="w-6 mt-2 absolute fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z"/></svg>    
+                </button>
+              </form>
+            @endif
+            <span class="text-white ml-8 pr-3 py-2 text-md">{{ count($likes) }}</span>
             <img 
               class="w-6 h-9 pt-2 mx-1 pointer-events-none" 
               src="/imgs/comment.png" 
