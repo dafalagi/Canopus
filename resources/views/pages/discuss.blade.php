@@ -6,6 +6,13 @@
   @include('.component.navbar')
     <div class="flex relative py-12 px-24 bg-thirdclr">    
     <div>
+    @php
+        if(auth()->user())
+        {
+          $favorites = auth()->user()->favorites;
+          $favorite = $favorites->whereIn('discuss_id', $discuss->id)->first();
+        }
+    @endphp
     {{-- ini dropdown bawah balasan --}}  
     <button id="menu-btn1" data-dropdown-toggle="dropdown1" class="absolute right-24 top-12 text-white hover:bg-mainclr font-medium rounded-lg text-sm px-2.5 py-2.5 text-center inline-flex items-center" type="button">
         <svg class="w-5" fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -13,23 +20,28 @@
     <!-- Dropdown menu bawah balasan -->
     <div id="dropdown1" class=" hidden z-10 rounded divide-y shadow" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(246.667px, 70px, 0px);">
         <ul class="text-sm text-white bg-mainclr rounded-md" aria-labelledby="dropdownDefault">
-          <li>
-            <form action="/discuss/favorites" method="POST" class="block py-2 px-4 hover:bg-thirdclr hover:rounded-t-md hover:text-secondaryclr">
-              <button>
-                <svg class="w-4 absolute fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M48 0H336C362.5 0 384 21.49 384 48V487.7C384 501.1 373.1 512 359.7 512C354.7 512 349.8 510.5 345.7 507.6L192 400L38.28 507.6C34.19 510.5 29.32 512 24.33 512C10.89 512 0 501.1 0 487.7V48C0 21.49 21.49 0 48 0z"/></svg>
-                <span class="ml-6">Simpan Diskusi</span>                
-              </button>               
-            </form>        
-          </li>
-          {{-- user sudah menekan simpan diskusi --}}
-          <li>
-            <form action="/discuss/delete" method="POST" class="block py-2 px-4 hover:bg-thirdclr hover:rounded-t-md hover:text-secondaryclr">
-              <button>  
-                <svg class="w-4 absolute fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M48 0H336C362.5 0 384 21.49 384 48V487.7C384 501.1 373.1 512 359.7 512C354.7 512 349.8 510.5 345.7 507.6L192 400L38.28 507.6C34.19 510.5 29.32 512 24.33 512C10.89 512 0 501.1 0 487.7V48C0 21.49 21.49 0 48 0z"/></svg>
-                <span class="ml-6">Tersimpan</span>                
-              </button>
-            </form>        
-          </li>
+          @if (isset($favorite) && $favorite->discuss_id)
+            {{-- user sudah menekan simpan diskusi --}}
+            <li>
+              <form action="/favorites/delete/{{ $favorite->id }}" method="POST" class="block py-2 px-4 hover:bg-thirdclr hover:rounded-t-md hover:text-secondaryclr">
+                @csrf
+                <button>  
+                  <svg class="w-4 absolute fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M48 0H336C362.5 0 384 21.49 384 48V487.7C384 501.1 373.1 512 359.7 512C354.7 512 349.8 510.5 345.7 507.6L192 400L38.28 507.6C34.19 510.5 29.32 512 24.33 512C10.89 512 0 501.1 0 487.7V48C0 21.49 21.49 0 48 0z"/></svg>
+                  <span class="ml-6">Tersimpan</span>                
+                </button>
+              </form>        
+            </li>
+          @else
+            <li>
+              <form action="/favorites/discuss/{{ $discuss->slug }}" method="POST" class="block py-2 px-4 hover:bg-thirdclr hover:rounded-t-md hover:text-secondaryclr">
+                @csrf
+                <button>
+                  <svg class="w-4 absolute fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M48 0H336C362.5 0 384 21.49 384 48V487.7C384 501.1 373.1 512 359.7 512C354.7 512 349.8 510.5 345.7 507.6L192 400L38.28 507.6C34.19 510.5 29.32 512 24.33 512C10.89 512 0 501.1 0 487.7V48C0 21.49 21.49 0 48 0z"/></svg>
+                  <span class="ml-6">Simpan Diskusi</span>                
+                </button>               
+              </form>        
+            </li>
+          @endif
           <li>
             <form action="/discuss/editdiscuss/" method="POST" class="block py-2 px-4 hover:bg-thirdclr hover:text-secondaryclr">
               <button>

@@ -60,7 +60,7 @@ class DiscussController extends Controller
     {
         return view('pages.discuss', [
             'discuss' => $discuss,
-            'comments' => $discuss->comments->sortDesc(),
+            'comments' => $discuss->comments->sortDesc()->load('user'),
         ]);
     }
 
