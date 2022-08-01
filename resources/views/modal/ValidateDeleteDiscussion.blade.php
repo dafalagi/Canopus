@@ -62,7 +62,9 @@
                 <p class="text-sm mb-8 font-light text-gray-200">Apakah kamu yakin ingin menghapus diskusi kamu?? Ketika kamu menghapus diskusimu, kamu tidak akan memiliki akses kembali ke diskusi Canopus kamu loh.</p>
                 <div class="mx-auto">
                     {{-- form button --}}
-                    <form action="" method="POST">                        
+                    <form action="/discusses/{{ $discuss->slug }}" method="POST">                        
+                        @method('delete')
+                        @csrf
                         <button type="submit" class="bg-white hover:bg-secondaryclr mr-7 px-7 py-2 ring-2 ring-secondaryclr hover:ring-white rounded-md text-secondaryclr hover:text-white text-center">
                           Hapus
                         </button>

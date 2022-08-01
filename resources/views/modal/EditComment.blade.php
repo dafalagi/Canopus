@@ -14,12 +14,28 @@
                     Edit Komentar 
                 </h3>
                 {{-- Form --}}
-                <form class="space-y-6 font-light" action="#">
+                @php
+                    if(isset($reply))
+                    {
+                        $comment = $reply;
+                    }elseif(isset($reply2))
+                    {
+                        $comment = $reply2;
+                    }
+                @endphp
+                <form class="space-y-6 font-light" action="/comments/{{ $comment->id }}" method="POST">
+                    @method('put')
+                    @csrf
                     <div class="relative">
                         {{-- Field buat komentar --}}
+                        @if (isset($reply) || isset($reply2))
+                            <input type="hidden" name="comment_id" value="{{ $comment->comment_id }}">
+                        @endif
+                        <input type="hidden" name="discuss_id" value="{{ $comment->discuss_id }}">
                         <div class="pb-1">
-                            <textarea id="IsiKomentar" name="IsiKomentar" placeholder="Lorem ipsum"
-                            class="w-full lg:w-8/12 bg-transparent rounded-lg placeholder-white border border-white focus:border-white focus:ring-2 focus:ring-white h-36 text-base outline-none py-3 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+                            <textarea id="IsiKomentar" name="body" placeholder="Masukkan Komentarmu!"
+                            class="w-full lg:w-8/12 bg-transparent rounded-lg placeholder-white border border-white focus:border-white focus:ring-2 focus:ring-white h-36 text-base outline-none py-3 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out">
+                            {{ old('body', $comment->body) }}</textarea>
                         </div>                                                  
                         {{-- Btn submit --}}
                         <div class="absolute pt-3 right-0">

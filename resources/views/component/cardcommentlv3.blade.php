@@ -3,7 +3,7 @@
   <div class="flex">   
     <img
     class="w-8 mt-4  absolute rounded-full"
-    src="{{ $comment->user->avatar ? asset('uploads/'.$comment->user->avatar) : '/imgs/default/avatar.png' }}">      
+    src="{{ $reply2->user->avatar ? asset('uploads/'.$reply2->user->avatar) : '/imgs/default/avatar.png' }}">      
     {{-- card komen 1 --}}
       <div class="w-fit">
         <div class="relative bg-mainclr ml-10 mt-4 grid grid-cols-1 rounded-md py-2 px-4">
@@ -40,8 +40,8 @@
               </li>
             </ul>
           </div> 
-          <h1 class="font-bold text-sm text-white">{{ $comment->user->username }}</h1>
-          <article class="text-white text-xs pt-1">{!! $comment->body !!}</article>
+          <h1 class="font-bold text-sm text-white">{{ $reply2->user->username }}</h1>
+          <article class="text-white text-xs pt-1">{!! $reply2->body !!}</article>
         </div>
         <div class="ml-10 flex">
         <a href="#">
@@ -54,13 +54,9 @@
           <button class="ml-6 text-white hover:text-secondaryclr">
             <span class="text-xs ">Like</span>
           </button>
-          <span class="text-white mt-1.5 text-xs">{{ count($comment->likes) }}</span>
-          <button>
-            <span class="text-xs pl-2 text-white hover:text-secondaryclr">Balasan</span>
-          </button>
-            <span class="text-white mt-1.5 pr-1 text-xs">{{ count($replies) }}</span>
+          <span class="text-white mt-1.5 text-xs">{{ count($reply2->likes) }}</span>
             <span class="text-white mx-2">|</span>
-            <span class="text-white mt-1.5 pl-1 text-xs">{{ $comment->created_at->diffForHumans() }}</span>
+            <span class="text-white mt-1.5 pl-1 text-xs">{{ $reply2->created_at->diffForHumans() }}</span>
           </div>           
         </div>
       </div>

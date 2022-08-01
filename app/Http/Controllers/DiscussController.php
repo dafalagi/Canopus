@@ -6,6 +6,8 @@ use App\Models\Discuss;
 use App\Http\Requests\StoreDiscussRequest;
 use App\Http\Requests\UpdateDiscussRequest;
 use App\Models\Comment;
+use App\Models\Favorite;
+use App\Models\Report;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -123,9 +125,17 @@ class DiscussController extends Controller
      */
     public function destroy(Discuss $discuss)
     {
-        Discuss::destroy($discuss->id);
+        if($discuss->picture)
+        {
+            Storage::delete($discuss->picture);
+        }
 
-        return redirect('/forum');
+        Discuss::destroy($discuss->id);
+        Favorite::where('discuss_id', $discuss->id)->delete();
+        Report::where('discuss_id', $discuss->id)->delete();
+        Comment::where('discuss_id', $discuss->id)->delete();
+
+        return redirect('/discusses')->with('success', 'Diskusi kamu berhasil dihapus!');
     }
 
     // Show answered discusses
