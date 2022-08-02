@@ -13,17 +13,20 @@
                     Edit diskusi
                 </h3>
                 {{-- Form --}}
-                <form class="space-y-6 font-light" action="#">
+                <form class="space-y-6 font-light" action="/discusses/{{ $discuss->slug }}" method="POST" enctype="multipart/form-data">
+                    @method('put')
+                    @csrf
                     <div class="relative">
                         {{-- Field buat diskusi --}}
                         <div class="pb-1">
-                            <textarea id="IsiDiskusi" name="IsiDiskusi" placeholder="Lorem ipsum"
-                            class="w-full lg:w-8/12 bg-transparent rounded-lg placeholder-white border border-white focus:border-white focus:ring-2 focus:ring-white h-44 text-base outline-none py-3 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+                            <textarea id="IsiDiskusi" name="body" placeholder="Lorem ipsum"
+                            class="w-full lg:w-8/12 bg-transparent rounded-lg placeholder-white border border-white focus:border-white focus:ring-2 focus:ring-white h-44 text-base outline-none py-3 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out">{{ old('body', $discuss->body) }}</textarea>
                         </div>
                         {{-- Input File img --}}   
                         <div class="pb-5">
                             <label class="block mb-1 text-sm font-medium text-white" for="file_input">Masukan foto jika diinginkan:</label>
-                            <input class="block w-full text-sm text-gray-900 bg-gray-50 rounded-full cursor-pointer dark:text-gray-400 focus:outline-none" id="file_input" type="file">
+                            <input class="block w-full text-sm text-gray-900 bg-gray-50 rounded-full cursor-pointer dark:text-gray-400 focus:outline-none" id="file_input" type="file"
+                            name="picture">
                         </div>                            
                         {{-- Btn submit --}}
                         <div class="absolute pt-3 right-0">

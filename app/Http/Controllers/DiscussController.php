@@ -67,19 +67,6 @@ class DiscussController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Discuss  $discuss
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Discuss $discuss)
-    {
-        return view('pages.editdiscuss', [
-            'discuss' => $discuss
-        ]);
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdateDiscussRequest  $request

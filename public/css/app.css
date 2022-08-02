@@ -1312,16 +1312,11 @@ input:checked + .toggle-bg{
 .w-4{
   width: 1rem;
 }
-.w-max{
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
+.w-96{
+  width: 24rem;
 }
 .w-4\/5{
   width: 80%;
-}
-.w-96{
-  width: 24rem;
 }
 .w-44{
   width: 11rem;
@@ -1331,6 +1326,11 @@ input:checked + .toggle-bg{
 }
 .w-screen{
   width: 100vw;
+}
+.w-max{
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
 .w-36{
   width: 9rem;
@@ -1359,18 +1359,6 @@ input:checked + .toggle-bg{
 .w-80{
   width: 20rem;
 }
-.w-11\/12{
-  width: 91.666667%;
-}
-.w-10\/12{
-  width: 83.333333%;
-}
-.w-1\/12{
-  width: 8.333333%;
-}
-.w-9\/12{
-  width: 75%;
-}
 .max-w-4xl{
   max-width: 56rem;
 }
@@ -1388,20 +1376,6 @@ input:checked + .toggle-bg{
 }
 .max-w-lg{
   max-width: 32rem;
-}
-.max-w-3xl{
-  max-width: 48rem;
-}
-.max-w-xl{
-  max-width: 36rem;
-}
-.max-w-fit{
-  max-width: -webkit-fit-content;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
-}
-.max-w-screen-2xl{
-  max-width: 1536px;
 }
 .flex-auto{
   flex: 1 1 auto;

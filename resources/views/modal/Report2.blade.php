@@ -18,7 +18,7 @@
                     <form class="space-y-6 font-light" action="/reports" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="pl-8 pt-1">
-                            <input type="hidden" value="{{ $discuss->id }}" name="discuss_id">
+                            <input type="hidden" value="{{ $comment->id }}" name="discuss_id">
                             {{-- checkbox Ujaran kebencian --}}
                             <div class="form-check">
                                 <input class="rounded-full" type="checkbox" value="Ujaran kebencian" id="report1" name="values[]">

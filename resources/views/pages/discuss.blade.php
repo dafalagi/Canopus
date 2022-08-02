@@ -3,11 +3,13 @@
   @include('component.head')
 <body class="font-poppins">
 <div class="bg-mainclr">
-  @include('.component.navbar')   
+  @include('component.navbar')   
 
-    <div class="relative py-12 px-24 bg-thirdclr">    
-      @include('component.AlertSuccess')
-    <div>
+  <div class="relative py-12 px-24 bg-thirdclr">    
+      @if (session()->has('success'))
+        @include('component.AlertSuccess')
+      @endif
+      <div>
     @php
         if(auth()->user())
         {
