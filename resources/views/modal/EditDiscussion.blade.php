@@ -17,6 +17,13 @@
                     @method('put')
                     @csrf
                     <div class="relative">
+                        {{-- Field judul diskusi --}}
+                        <div class="relative pb-1">
+                            <input type="text" id="headerDiskusi" name="title" class="block px-2.5 pb-2.5 pt-4 w-full text-base text-white bg-transparent rounded-lg border-1 border-gray-300 appearance-none peer" placeholder=" " 
+                            value=""/>
+                            <label for="headerDiskusi" class="absolute text-white text-base font-normal duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-thirdclr px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">
+                                Masukkan judul disini
+                        </div>
                         {{-- Field buat diskusi --}}
                         <div class="pb-1">
                             <textarea id="IsiDiskusi" name="body" placeholder="Lorem ipsum"

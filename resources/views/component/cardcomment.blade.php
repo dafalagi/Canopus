@@ -33,7 +33,7 @@ src="{{ $comment->user->avatar ? asset('uploads/'.$comment->user->avatar) : '/im
           @endif
           <li>
             <form action="" method="POST" class="block py-2 px-4 hover:bg-thirdclr hover:rounded-b-md hover:text-secondaryclr">
-              <button type="button" data-modal-toggle="authentication-modal">  
+              <button type="button" data-modal-toggle="authentication2-modal">  
                 <svg class="w-4 absolute fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM232 152C232 138.8 242.8 128 256 128s24 10.75 24 24v128c0 13.25-10.75 24-24 24S232 293.3 232 280V152zM256 400c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 385.9 273.4 400 256 400z"/></svg>
                 <span class="ml-6"> Laporkan</span>
               </button> 
@@ -58,30 +58,16 @@ src="{{ $comment->user->avatar ? asset('uploads/'.$comment->user->avatar) : '/im
         </button>
           <span class="text-white mt-1.5 text-xs">{{ count($comment->likes) }}</span>
         {{-- balasan --}}        
-        <button type="submit">
+        <button type="button" data-modal-toggle="ReplyComment-modal">
           <span class="text-xs pl-2 text-white hover:text-secondaryclr">Balasan</span>
         </button>  
           <span class="text-white mt-1.5 pr-1 text-xs">{{ count($replies) }}</span>
           <span class="text-white mx-2">|</span>
-          <span class="text-white mt-1.5 pl-1 text-xs">{{ $comment->created_at->diffForHumans() }}</span>  
-        {{-- ketika user menekan button balasan maka muncul textfield --}}
-        <div class="pt-2 flex">  
-        {{-- avatar balas komen --}}          
-          <img
-          class="w-8 mb-4 mr-2 rounded-full"
-          src="/imgs/default/avatar.png"> 
-            <input 
-              name="body"
-              type="text"
-              id="balaskomentar"
-              placeholder="Balas Komentar..."
-              data-popper-placement="bottom"
-              class="w-96 bg-transparent rounded-lg text-white placeholder-white border border-white focus:border-white focus:ring-2 focus:ring-white text-base outline-none py-3 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out">
-        </div>
+          <span class="text-white mt-1.5 pl-1 text-xs">{{ $comment->created_at->diffForHumans() }}</span>         
       </div>                 
     </div>
   </div>
 </div>
 @include('modal.EditComment')
 @include('modal.ValidateDeleteComment')
-@include('modal.Report')
+@include('modal.Report2')
