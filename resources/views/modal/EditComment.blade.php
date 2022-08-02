@@ -11,7 +11,7 @@
             </button>
             <div class="py-6 px-6 lg:px-8">
                 <h3 class="mb-4 text-xl font-bold text-center">
-                    Edit Komentar 
+                    Edit Komentar
                 </h3>
                 {{-- Form --}}
                 @php
@@ -33,9 +33,8 @@
                         @endif
                         <input type="hidden" name="discuss_id" value="{{ $comment->discuss_id }}">
                         <div class="pb-1">
-                            <textarea id="IsiKomentar" name="body" placeholder="Masukkan Komentarmu!"
-                            class="w-full lg:w-8/12 bg-transparent rounded-lg placeholder-white border border-white focus:border-white focus:ring-2 focus:ring-white h-36 text-base outline-none py-3 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out">
-                            {{ old('body', $comment->body) }}</textarea>
+                            <textarea id="IsiKomentar" name="body" placeholder="Tulis disini..."
+                            class="w-full lg:w-8/12 bg-transparent rounded-lg placeholder-white border border-white focus:border-white focus:ring-2 focus:ring-white h-28 text-base outline-none py-3 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out">{{ old('body', $comment->body) }}</textarea>
                         </div>                                                  
                         {{-- Btn submit --}}
                         <div class="absolute pt-3 right-0">
