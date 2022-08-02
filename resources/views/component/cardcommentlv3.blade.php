@@ -8,11 +8,11 @@
       <div class="w-fit">
         <div class="relative bg-mainclr ml-10 mt-4 grid grid-cols-1 rounded-md py-2 px-4">
         {{-- ini dropdown abawah --}}  
-        <button id="menu-btn4" data-dropdown-toggle="dropdown4" class="absolute right-0 top-0 text-white hover:bg-thirdclr font-medium rounded-md text-sm px-2.5 py-2.5 text-center inline-flex items-center " type="button">
+        <button id="menu-btn4" data-dropdown-toggle="dropdown4-{{ $comment->id }}" class="absolute right-0 top-0 text-white hover:bg-thirdclr font-medium rounded-md text-sm px-2.5 py-2.5 text-center inline-flex items-center " type="button">
           <svg class="w-5" fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
         <!-- Dropdown menu bawah -->
-          <div id="dropdown4" class=" hidden z-10 rounded divide-y shadow" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(246.667px, 70px, 0px);">
+          <div id="dropdown4-{{ $comment->id }}" class=" hidden z-10 rounded divide-y shadow" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(246.667px, 70px, 0px);">
             <ul class="text-sm text-white bg-mainclr rounded-md" aria-labelledby="dropdownDefault">
               @if (auth()->user() && $reply2->user_id == auth()->user()->id)
                 <li>

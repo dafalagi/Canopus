@@ -8,18 +8,18 @@
     <div class="w-fit">
       <div class="relative bg-mainclr ml-10 mt-4 grid grid-cols-1 rounded-md py-2 px-4">
       {{-- ini dropdown abawah --}}  
-      <button id="menu-btn3" data-dropdown-toggle="dropdown3" class="absolute right-0 top-0 text-white hover:bg-thirdclr font-medium rounded-md text-sm px-2.5 py-2.5 text-center inline-flex items-center " type="button">
+      <button id="menu-btn3" data-dropdown-toggle="dropdown3-{{ $comment->id }}" class="absolute right-0 top-0 text-white hover:bg-thirdclr font-medium rounded-md text-sm px-2.5 py-2.5 text-center inline-flex items-center " type="button">
         <svg class="w-5" fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
       <!-- Dropdown menu bawah -->
-        <div id="dropdown3" class=" hidden z-10 rounded divide-y shadow" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(246.667px, 70px, 0px);">
+        <div id="dropdown3-{{ $comment->id }}" class=" hidden z-10 rounded divide-y shadow" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(246.667px, 70px, 0px);">
           <ul class="text-sm text-white bg-mainclr rounded-md" aria-labelledby="dropdownDefault">
             @if (auth()->user() && $reply->user_id == auth()->user()->id)
               <li>
                 <form action="" method="POST" class="block py-2 px-4 hover:bg-thirdclr hover:rounded-t-md hover:text-secondaryclr">
                   <button type="button" data-modal-toggle="EditComment-modal">
                     <svg class="w-4 absolute fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M490.3 40.4C512.2 62.27 512.2 97.73 490.3 119.6L460.3 149.7L362.3 51.72L392.4 21.66C414.3-.2135 449.7-.2135 471.6 21.66L490.3 40.4zM172.4 241.7L339.7 74.34L437.7 172.3L270.3 339.6C264.2 345.8 256.7 350.4 248.4 353.2L159.6 382.8C150.1 385.6 141.5 383.4 135 376.1C128.6 370.5 126.4 361 129.2 352.4L158.8 263.6C161.6 255.3 166.2 247.8 172.4 241.7V241.7zM192 63.1C209.7 63.1 224 78.33 224 95.1C224 113.7 209.7 127.1 192 127.1H96C78.33 127.1 64 142.3 64 159.1V416C64 433.7 78.33 448 96 448H352C369.7 448 384 433.7 384 416V319.1C384 302.3 398.3 287.1 416 287.1C433.7 287.1 448 302.3 448 319.1V416C448 469 405 512 352 512H96C42.98 512 0 469 0 416V159.1C0 106.1 42.98 63.1 96 63.1H192z"/></svg>
-                    <span class="ml-6">Edit Komentar</span>
+                    <span class="ml-6">  Edit Komentar</span>
                   </button>   
                 </form>            
               </li>
@@ -57,12 +57,25 @@
           <span class="text-xs ">Like</span>
         </button>
         <span class="text-white mt-1.5 text-xs">{{ count($reply->likes) }}</span>
-        <button>
+        <button type="submit">
           <span class="text-xs pl-2 text-white hover:text-secondaryclr">Balasan</span>
         </button>
           <span class="text-white mt-1.5 pr-1 text-xs">{{ count($replies2) }}</span>
           <span class="text-white mx-2">|</span>
           <span class="text-white mt-1.5 pl-1 text-xs">{{ $reply->created_at->diffForHumans() }}</span>
+        {{-- ketika user menekan button balasan maka muncul textfield --}}
+        <div class="pt-2 flex">  
+          {{-- avatar balas komen --}}          
+            <img
+            class="w-8 mb-4 mr-2 rounded-full"
+            src="/imgs/default/avatar.png"> 
+              <input 
+                name="body"
+                type="text"
+                id="komentar"
+                placeholder="Balas Komentar..."
+                class="w-96 bg-transparent rounded-lg text-white placeholder-white border border-white focus:border-white focus:ring-2 focus:ring-white text-base outline-none py-3 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out">
+          </div>
         </div>           
       </div>
     </div>
