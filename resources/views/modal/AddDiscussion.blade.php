@@ -26,7 +26,7 @@
                         </div>
                         {{-- Field body diskusi --}}
                         <div class="pb-1">
-                            <textarea id="bodyDiskusi" name="body" placeholder="Apa yang ingin kamu diskusikan?"
+                            <textarea id="bodyDiskusi" name="body" placeholder="Apa yang ingin kamu diskusikan? (Masukkan minimal 10 kata)"
                             class="w-full lg:w-8/12 font-light text-sm bg-transparent rounded-lg placeholder-slate border border-white h-44 outline-none py-3 px-3 transition-colors duration-200 ease-in-out">{{ old('body') }}</textarea>
                         </div>
                         {{-- Input File img --}}   
