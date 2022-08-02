@@ -18,7 +18,7 @@ class CommentController extends Controller
     {
         $validated = $request->validated();
         $validated['user_id'] = auth()->user()->id;
-
+        
         Comment::create($validated);
 
         return back()->with('success', 'Komentar kamu berhasil diunggah!');

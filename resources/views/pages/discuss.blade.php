@@ -156,7 +156,10 @@
         @php
           $replies = $comments->whereIn('comment_id', $comment->id);
         @endphp
-        @if ($replies->first())
+        @if ($replies->first() || $comment->comment_id != null)
+          @if (!$replies->first())
+            @continue
+          @endif
           @include('component.cardcomment')
           @foreach ($replies as $reply)
             @php

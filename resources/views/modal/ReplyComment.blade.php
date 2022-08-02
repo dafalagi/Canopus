@@ -14,8 +14,15 @@
                     Balas Komentar
                 </h3>
                 {{-- Form --}}                
-                <form class="space-y-6 font-light" action="/replycomments/" method="POST">                   
+                <form class="space-y-6 font-light" action="/comments" method="POST">
+                    @csrf                   
                     <div class="relative">
+                        <input type="hidden" name="discuss_id" value="{{ $discuss->id }}">
+                        @if (isset($reply))
+                            <input type="hidden" name="comment_id" value="{{ $reply->id }}">
+                        @else
+                            <input type="hidden" name="comment_id" value="{{ $comment->id }}">
+                        @endif
                         {{-- Field buat komentar --}}              
                         <div class="pb-1">
                             <textarea id="BalasKomentar" name="body" placeholder="Tulis disini..."
