@@ -20,7 +20,7 @@
                         <input type="hidden" name="discuss_id" value="{{ $discuss->id }}">
                         @if (isset($reply))
                             <input type="hidden" name="comment_id" value="{{ $reply->id }}">
-                        @else
+                        @elseif(isset($comment))
                             <input type="hidden" name="comment_id" value="{{ $comment->id }}">
                         @endif
                         {{-- Field buat komentar --}}              
