@@ -4,7 +4,9 @@
 <body class="font-poppins">
 <div class="bg-mainclr">
   @include('component.navbar')   
-
+  @include('modal.EditDiscussion')
+  @include('modal.ValidateDeleteDiscussion')
+  @include('modal.Report')
   <div class="relative py-12 px-24 bg-thirdclr">    
       @if (session()->has('success'))
         @include('component.AlertSuccess')
@@ -164,7 +166,7 @@
               $replies2 = $discuss->comments->whereIn('comment_id', $reply->id);
             @endphp
             @if ($replies2->first())
-              @include('component.cardcommentlv2')                
+              @include('component.cardcommentlv2')           
               @foreach ($replies2 as $reply2)
                 @php
                     $replyList[] = $reply2->id;
@@ -186,13 +188,8 @@
         @endif        
       @endforeach
       </div>
-    {{-- bentrok --}}
-    </div>     
+    </div> 
 </div>
-@include('modal.EditDiscussion')
-@include('modal.ValidateDeleteDiscussion')
-@include('modal.Report')
-
 </body>
 @include('component.Footer')
 @include('component.script')

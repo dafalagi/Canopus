@@ -20,7 +20,7 @@
             <div class="p-6 text-center">
               <img class="w-36 mx-auto" src="/imgs/hapusKomentar.png" alt="hapusKomentar"/>
                 <h3 class="mb-1 text-lg font-bold text-white mt-4">Hapus Komentar</h3>
-                <p class="text-sm mb-8 font-light text-gray-200">Apakah kamu yakin ingin menghapus komentar kamu?? Ketika kamu menghapus komentarmo, kamu tidak akan memiliki akses kembali ke komentar Diskusi kamu loh.</p>
+                <p class="text-sm mb-8 font-light text-gray-200">Apakah kamu yakin ingin menghapus komentar kamu?? Ketika kamu menghapus komentarmu, kamu tidak akan memiliki akses kembali ke komentar Diskusi kamu loh.</p>
                 <div class="mx-auto">
                     {{-- form button --}}
                     <form action="/comments/{{ $comment->id }}" method="POST">
