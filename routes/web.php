@@ -65,11 +65,11 @@ Route::middleware('auth')->group(function(){
     Route::post('/likes/comment', [LikeController::class, 'comment']);
     Route::post('/likes/delete/{like}', [LikeController::class, 'destroy']);
     Route::post('/reports', [ReportController::class, 'store']);
-    Route::post('/comments/add', [CommentController::class, 'store']);
 
     // RESOURCE
     Route::resource('/discusses', DiscussController::class)->except('index', 'show');
     Route::resource('/users', UserController::class);
+    Route::resource('/comments', CommentController::class);
 });
 
 // Admin Only
