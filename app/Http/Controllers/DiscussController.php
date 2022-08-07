@@ -101,7 +101,7 @@ class DiscussController extends Controller
 
         Discuss::where('id', $discuss->id)->update($validated);
 
-        return back()->with('success', 'Diskusi kamu berhasil diubah!');
+        return redirect('/discusses/'.$validated['slug'])->with('success', 'Diskusi kamu berhasil diubah!');
     }
 
     /**

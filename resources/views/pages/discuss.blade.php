@@ -171,11 +171,9 @@
                 @php
                     $replyList[] = $reply2->id;
                 @endphp
-                {{-- lv 2 --}}
                 @include('component.cardcommentlv3')
               @endforeach
             @else
-              {{-- lv 3 --}}                
               @include('component.cardcommentlv2')
             @endif
           @endforeach
@@ -183,14 +181,12 @@
           @if ($comments->contains('id', $comment->comment_id))
             @continue
           @endif
-          {{-- lv 1 --}}
           @include('component.cardcomment')
-        @endif        
+        @endif
       @endforeach
       </div>
     </div> 
 </div>
 </body>
 @include('component.Footer')
-@include('component.script')
 </html>

@@ -74,6 +74,5 @@
             <img src="/imgs/astro3.png" width="250" alt="Astro">
         </div>
         </div>
-    </div> 
-    @include('component.script')
+    </div>
 {{--  --}}
