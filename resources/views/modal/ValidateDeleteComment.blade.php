@@ -1,3 +1,15 @@
+@php
+    if(isset($reply2) && $reply2->id)
+    {
+        $comment = $reply2;
+    }elseif(isset($reply) && $reply->id)
+    {
+        $comment = $reply;
+    }else
+    {
+        $comment = $comment;
+    }
+@endphp
 <div id="deleteComment-modal-{{ $comment->id }}" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 md:inset-0 h-modal md:h-full justify-center items-center" aria-modal="true" role="dialog">
     <div class="relative p-8 w-full max-w-md h-full md:h-auto">
         <div class="relative bg-mainclr rounded-xl shadow">
@@ -11,7 +23,7 @@
                 <p class="text-sm mb-8 font-light text-gray-200">Apakah kamu yakin ingin menghapus komentar kamu?? Ketika kamu menghapus komentarmo, kamu tidak akan memiliki akses kembali ke komentar Diskusi kamu loh.</p>
                 <div class="mx-auto">
                     {{-- form button --}}
-                    <form action="/comments/{{ $comment->id ?? false }}" method="POST">                        
+                    <form action="/comments/{{ $comment->id }}" method="POST">
                         @method('delete')
                         @csrf
                         <button type="submit" class="bg-white hover:bg-secondaryclr mr-7 px-7 py-2 ring-2 ring-secondaryclr hover:ring-white rounded-md text-secondaryclr hover:text-white text-center">

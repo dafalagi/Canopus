@@ -46,16 +46,33 @@
           <article class="text-white text-xs pt-1">{!! $reply2->body !!}</article>
         </div>
         <div class="ml-10 flex">
-        <a href="#">
-          {{-- sebelum user menekan tombol lope --}}
-            <svg class="w-4 mt-1.5 absolute fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z"/></svg>
-          {{-- sesudah user menekan tombol lope --}}
+          @php
+          $likes = $reply2->likes;
+
+          if(auth()->user())
+          {
+            $like = $likes->whereIn('user_id', auth()->user()->id)->first();
+          }
+      @endphp
+      @if (auth()->user() && $like)
+        <form action="/likes/delete/{{ $like->id }}" method="post">
+          @csrf
+          <button type="submit">
+            {{-- sesudah user menekan tombol lope --}}
             <svg class="w-4 mt-1.5 absolute fill-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z"/></svg>  
-        </a>
-          <div class="mt-0.5">
-          <button class="ml-6 text-white hover:text-secondaryclr">
-            <span class="text-xs ">Like</span>
           </button>
+        </form>
+      @else
+        <form action="/likes/comment?comment_id={{ $reply2->id }}" method="post">
+          @csrf
+          <button type="submit">
+            {{-- sebelum user menekan tombol lope --}}
+            <svg class="w-4 mt-1.5 absolute fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z"/></svg>
+          </button>
+        </form>
+      @endif
+          <div class="mt-0.5">
+            <span class="text-xs ">Like</span>
           <span class="text-white mt-1.5 text-xs">{{ count($reply2->likes) }}</span>
             <span class="text-white mx-2">|</span>
             <span class="text-white mt-1.5 pl-1 text-xs">{{ $reply2->created_at->diffForHumans() }}</span>
