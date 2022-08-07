@@ -43,7 +43,6 @@ src="{{ $comment->user->avatar ? asset('uploads/'.$comment->user->avatar) : '/im
         </ul>
       </div> 
       <h1 class="font-bold text-sm text-white">{{ $comment->user->username }}</h1>
-      {{ $comment->id }}
       <article class="text-white text-xs pt-1">{!! $comment->body !!}</article>
     </div>
     <div class="ml-10 flex">
