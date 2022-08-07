@@ -25,7 +25,7 @@
               </li>
               <li>
                 <form action="" method="POST" class="block py-2 px-4 hover:bg-thirdclr hover:text-secondaryclr">
-                  <button type="button" data-modal-toggle="deleteComment-modal">  
+                  <button type="button" data-modal-toggle="deleteComment-modal-{{ $comment->id }}">  
                     <svg class="w-4 absolute fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M135.2 17.69C140.6 6.848 151.7 0 163.8 0H284.2C296.3 0 307.4 6.848 312.8 17.69L320 32H416C433.7 32 448 46.33 448 64C448 81.67 433.7 96 416 96H32C14.33 96 0 81.67 0 64C0 46.33 14.33 32 32 32H128L135.2 17.69zM394.8 466.1C393.2 492.3 372.3 512 346.9 512H101.1C75.75 512 54.77 492.3 53.19 466.1L31.1 128H416L394.8 466.1z"/></svg>  
                     <span class="ml-6">Hapus Komentar</span>
                   </button>   
@@ -63,24 +63,12 @@
           <span class="text-white mt-1.5 pr-1 text-xs">{{ count($replies2) }}</span>
           <span class="text-white mx-2">|</span>
           <span class="text-white mt-1.5 pl-1 text-xs">{{ $reply->created_at->diffForHumans() }}</span>
-        {{-- ketika user menekan button balasan maka muncul textfield --}}
-        <div class="pt-2 flex">  
-          {{-- avatar balas komen --}}          
-            <img
-            class="w-8 mb-4 mr-2 rounded-full"
-            src="/imgs/default/avatar.png"> 
-              <input 
-                name="body"
-                type="text"
-                id="komentar"
-                placeholder="Balas Komentar..."
-                class="w-96 bg-transparent rounded-lg text-white placeholder-white border border-white focus:border-white focus:ring-2 focus:ring-white text-base outline-none py-3 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out">
-          </div>
         </div>           
       </div>
     </div>
   </div>
 </div>
 @include('modal.EditComment')
+@include('modal.ReplyComment')
 @include('modal.ValidateDeleteComment')
 @include('modal.Report2')

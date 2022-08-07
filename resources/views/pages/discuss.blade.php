@@ -189,7 +189,6 @@
     {{-- bentrok --}}
     </div>     
 </div>
-@include('modal.ReplyComment')
 @include('modal.EditDiscussion')
 @include('modal.ValidateDeleteDiscussion')
 @include('modal.Report')
