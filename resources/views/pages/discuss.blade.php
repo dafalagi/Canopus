@@ -180,8 +180,8 @@
         @elseif(collect($replyList)->doesntContain($comment->id))
           @if ($comments->contains('id', $comment->comment_id))
             @continue
-          @endif
-          @include('component.cardcomment')
+            @endif
+            @include('component.cardcomment')
         @endif
       @endforeach
       </div>
