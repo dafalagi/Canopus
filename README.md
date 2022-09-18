@@ -57,12 +57,16 @@ Berikut adalah kontributor - kontributor utama yang membantu pengembangan perang
     ```sh
     git clone https://github.com/dafalagi/Canopus.git
     ```
-2. Install Laravel
+2. Masuk ke direktori Canopus
+    ```sh
+    cd Canopus
+    ``` 
+3. Install Laravel
     ```sh
     composer install
     ```
-3. Buat database dengan nama "canopus" pada server MySQL lokal anda.
-4. Copy-paste file `.env.example` lalu ubah menjadi `.env` dan sesuaikan baris berikut :
+4. Buat database dengan nama "canopus" pada server MySQL lokal anda.
+5. Copy-paste file `.env.example` lalu ubah menjadi `.env` dan sesuaikan baris berikut :
     ```sh
        DB_CONNECTION=mysql
        DB_HOST=127.0.0.1
@@ -71,15 +75,15 @@ Berikut adalah kontributor - kontributor utama yang membantu pengembangan perang
        DB_USERNAME=root
        DB_PASSWORD=
     ```
-5. Buka terminal lalu jalankan perintah berikut untuk melakukan key generate
+6. Buka terminal lalu jalankan perintah berikut untuk melakukan key generate
     ```sh
     php artisan key:generate
     ```
-6. Import database
+7. Import database
     ```sh
     php artisan migrate:fresh --seed
     ```
-7. Jalankan server
+8. Jalankan server
     ```sh
     php artisan serve
     ```
