@@ -1,4 +1,6 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="public/imgs/logo1.png" width="500"></a></p>
+<br>
+
+<p align="center"><a href="http://canopus-edu.herokuapp.com/" target="_blank"><img src="public/imgs/logo1.png" width="500"></a></p>
 
 ### <p align="center">Per Aspera Ad Astra</p>
 
@@ -21,9 +23,8 @@ Canopus adalah perangkat lunak edukasi ilmu astronomi berbasis website yang ring
 
 Dalam pengembangannya, Canopus menggunakan bahasa, perangkat lunak bantuan, serta framework berikut :
 
-#### Bahasa, Framework, Library
+#### Framework/Library
 
--   **[PHP](https://php.net/)**
 -   **[Laravel](https://laravel.com/)**
 -   **[TailwindCSS](https://tailwindcss.com/)**
 
@@ -35,7 +36,6 @@ Dalam pengembangannya, Canopus menggunakan bahasa, perangkat lunak bantuan, sert
 -   **[Laragon](https://laragon.org/)**
     <br>
     <br>
-    <a href="https://php.net"><img src="https://cdn.cdnlogo.com/logos/p/71/php.svg" width="80" height="80"></a>
     <a href="https://laravel.com"><img src="https://cdn.cdnlogo.com/logos/l/23/laravel.svg" width="80" height="80"></a>
     <a href="https://tailwindcss.com/"><img src="https://cdn.cdnlogo.com/logos/t/58/tailwind-css.svg" width="80" height="80"></a>
     <a href="https://figma.com/"><img src="https://cdn.cdnlogo.com/logos/f/43/figma.svg" width="80" height="80"></a>
