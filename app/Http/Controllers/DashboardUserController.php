@@ -12,6 +12,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Storage;
+use PDO;
 
 class DashboardUserController extends Controller
 {
@@ -95,52 +96,9 @@ class DashboardUserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user)
     {
-        if($request->username != $user->username && $request->email != $user->email)
-        {
-            $add = $request->validate([
-                'username' => 'required|unique:users|string|min:6|max:30',
-                'email' => 'required|unique:users|email:dns',
-            ]);
-            $validated = $request->safe()->merge($add)->toArray();
-        }else if($request->username != $user->username)
-        {
-            $add = $request->validate([
-                'username' => 'required|unique:users|string|min:6|max:30',
-            ]);
-            $validated = $request->safe()->merge($add)->toArray();
-        }else if($request->email != $user->email)
-        {
-            $add = $request->validate([
-                'email' => 'required|unique:users|email:dns',
-            ]);
-            $validated = $request->safe()->merge($add)->toArray();
-        }else
-        {
-            $validated = $request->validated();
-        }
-        if(isset($validated['password']))
-        {
-            if(!Hash::check($validated['currentPassword'], $user->password))
-            {
-                return back()->with('error', 'Current password is incorrect!');
-            }
-
-            $validated['password'] = Hash::make($validated['password']);
-            unset($validated['currentPassword']);
-            unset($validated['confirm_password']);
-        }else
-        {
-            unset($validated['password']);
-        }
-        if($request->file('avatar'))
-        {
-            if($user->avatar)
-            {
-                Storage::delete($user->avatar);
-            }
-
-            $validated['avatar'] = $request->file('avatar')->store('user-avatars');
-        }
+        $validated = $this->validateUpdateUsernameOrEmail($request, $user);
+        $validated = $this->validateUpdatePassword($user, $validated);
+        $validated = $this->validateUpdateAvatar($request, $user, $validated);
 
         User::where('id', $user->id)->update($validated);
 
@@ -167,5 +125,87 @@ class DashboardUserController extends Controller
         Report::where('user_id', $user->id)->delete();
         
         return redirect('/dashboard/users')->with('success', 'Data Deleted Successfully!');
+    }
+
+    public function validateUpdateUsernameOrEmail(UpdateUserRequest $request, User $user){
+        if($request->username != $user->username && $request->email != $user->email)
+        {
+            $validated = $this->validateUpdateUsernameAndEmail($request);
+        }else if($request->username != $user->username)
+        {
+            $validated = $this->validateUpdateUsername($request);
+        }else if($request->email != $user->email)
+        {
+            $validated = $this->validateUpdateEmail($request);
+        }else
+        {
+            $validated = $request->validated();
+        }
+
+        return $validated;
+    }
+
+    public function validateUpdateUsernameAndEmail(UpdateUserRequest $request){
+        $validated = $request->validate([
+            'username' => 'required|unique:users|string|min:6|max:30',
+            'email' => 'required|unique:users|email:dns',
+        ]);
+
+        $validated = $request->safe()->merge($validated)->toArray();
+
+        return $validated;
+    }
+
+    public function validateUpdateUsername(UpdateUserRequest $request){
+        $validated = $request->validate([
+            'username' => 'required|unique:users|string|min:6|max:30',
+        ]);
+
+        $validated = $request->safe()->merge($validated)->toArray();
+
+        return $validated;
+    }
+
+    public function validateUpdateEmail(UpdateUserRequest $request){
+        $validated = $request->validate([
+            'email' => 'required|unique:users|email:dns',
+        ]);
+
+        $validated = $request->safe()->merge($validated)->toArray();
+
+        return $validated;
+    }
+
+    public function validateUpdatePassword(User $user, array $validated){
+        if(isset($validated['password']))
+        {
+            if(!Hash::check($validated['currentPassword'], $user->password))
+            {
+                return back()->with('error', 'Current password is incorrect!');
+            }
+
+            $validated['password'] = Hash::make($validated['password']);
+            unset($validated['currentPassword']);
+            unset($validated['confirm_password']);
+        }else
+        {
+            unset($validated['password']);
+        }
+
+        return $validated;
+    }
+
+    public function validateUpdateAvatar(UpdateUserRequest $request, User $user, array $validated){
+        if($request->file('avatar'))
+        {
+            if($user->avatar)
+            {
+                Storage::delete($user->avatar);
+            }
+
+            $validated['avatar'] = $request->file('avatar')->store('user-avatars');
+        }
+
+        return $validated;
     }
 }
